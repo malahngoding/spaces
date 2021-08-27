@@ -1,0 +1,18 @@
+{
+  "name": "@malahngoding/spaces",
+  "version": "0.0.1",
+  "description": "Malah Ngoding Spaces",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/malahngoding/spaces.git"
+  },
+  "author": "Malah Ngoding Bot",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/malahngoding/spaces/issues"
+  },
+  "homepage": "https://github.com/malahngoding/spaces#readme"
+}
