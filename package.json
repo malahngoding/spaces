@@ -2,8 +2,57 @@
   "name": "@malahngoding/spaces",
   "version": "0.0.1",
   "description": "Malah Ngoding Spaces",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "type-check": "tsc",
+    "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
+    "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
+    "postinstall": "husky install",
+    "commit": "cz"
+  },
+  "lint-staged": {
+    "./src/**/*.{ts,js,jsx,tsx}": [
+      "yarn lint --fix",
+      "yarn format"
+    ]
+  },
+  "dependencies": {
+    "next": "11.1.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "13.1.0",
+    "@commitlint/config-conventional": "13.1.0",
+    "@types/node": "14.17.12",
+    "@types/react": "17.0.19",
+    "@types/react-dom": "17.0.9",
+    "@typescript-eslint/eslint-plugin": "4.29.3",
+    "@typescript-eslint/parser": "4.29.3",
+    "commitizen": "4.2.4",
+    "cz-conventional-changelog": "3.3.0",
+    "eslint": "7.32.0",
+    "eslint-config-airbnb": "18.2.1",
+    "eslint-config-next": "11.1.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-import-resolver-typescript": "2.4.0",
+    "eslint-plugin-import": "2.23.4",
+    "eslint-plugin-jsx-a11y": "6.4.1",
+    "eslint-plugin-prettier": "3.4.1",
+    "eslint-plugin-react": "7.24.0",
+    "eslint-plugin-react-hooks": "4.2.0",
+    "husky": "7.0.1",
+    "lint-staged": "11.1.2",
+    "prettier": "2.3.2",
+    "typescript": "4.4.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   },
   "repository": {
     "type": "git",
@@ -14,5 +63,9 @@
   "bugs": {
     "url": "https://github.com/malahngoding/spaces/issues"
   },
-  "homepage": "https://github.com/malahngoding/spaces#readme"
+  "homepage": "https://github.com/malahngoding/spaces#readme",
+  "keywords": [
+    "nextjs",
+    "typescript"
+  ]
 }
