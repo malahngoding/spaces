@@ -1,36 +1,31 @@
-import Head from 'next/head';
-import Image from 'next/image';
+import { BaseLayout } from '@layouts/base';
 
 export default function Home() {
   return (
-    <div>
-      <Head>
-        <title>TypeScript starter for Next.js</title>
-        <meta
-          name="description"
-          content="TypeScript starter for Next.js that includes all you need to build amazing apps"
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main>
-        <h1 data-testid="welcome-text">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-      </main>
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=typescript-nextjs-starter"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{` `}
-          <span>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
-    </div>
+    <BaseLayout title="Hello World!">
+      <h1 data-testid="welcome-text">Welcome to Next.js!</h1>
+      <section>
+        <h1>Typography</h1>
+        <p>Stuff</p>
+        <h1 className="black">The quick brown fox jump over the lazy dog</h1>
+        <h2 className="bold">The quick brown fox jump over the lazy dog</h2>
+        <h3 className="medium">The quick brown fox jump over the lazy dog</h3>
+        <h4 className="light">The quick brown fox jump over the lazy dog</h4>
+      </section>
+      <style jsx>{`
+        .black {
+          font-weight: 900;
+        }
+        .bold {
+          font-weight: 700;
+        }
+        .medium {
+          font-weight: 400;
+        }
+        .light {
+          font-weight: 300;
+        }
+      `}</style>
+    </BaseLayout>
   );
 }
