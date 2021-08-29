@@ -16,10 +16,29 @@
   },
   "lint-staged": {
     "./src/**/*.{ts,js,jsx,tsx}": [
-      "yarn lint --fix",
-      "yarn format"
+      "npm run lint --fix",
+      "npm run format"
     ]
   },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/malahngoding/spaces.git"
+  },
+  "author": "Malah Ngoding Bot",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/malahngoding/spaces/issues"
+  },
+  "homepage": "https://github.com/malahngoding/spaces#readme",
+  "keywords": [
+    "nextjs",
+    "typescript"
+  ],
   "dependencies": {
     "@fontsource/montserrat": "4.5.1",
     "next": "11.1.0",
@@ -63,24 +82,5 @@
     "prettier": "2.3.2",
     "react-test-renderer": "^17.0.2",
     "typescript": "4.4.2"
-  },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/malahngoding/spaces.git"
-  },
-  "author": "Malah Ngoding Bot",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/malahngoding/spaces/issues"
-  },
-  "homepage": "https://github.com/malahngoding/spaces#readme",
-  "keywords": [
-    "nextjs",
-    "typescript"
-  ]
+  }
 }

@@ -3,7 +3,7 @@ import { ApplicationName } from '@config/application';
 
 interface BaseLayoutProps {
   title: string;
-  children: any;
+  children: JSX.Element;
 }
 
 export const BaseLayout = (props: BaseLayoutProps): JSX.Element => {
