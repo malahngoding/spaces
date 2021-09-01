@@ -1,5 +1,9 @@
 import Head from 'next/head';
 import { ApplicationName } from '@config/application';
+import { SideNavigation } from '@components/side-navigation';
+import { NavigationBar } from '@components/navigation-bar';
+import { FooterNavigation } from '@components/footer-navigation';
+import { Main } from '@components/design/main';
 
 interface BaseLayoutProps {
   title: string;
@@ -15,12 +19,12 @@ export const BaseLayout = (props: BaseLayoutProps): JSX.Element => {
           {title} - {ApplicationName}
         </title>
       </Head>
-      <main>{children}</main>
-      <style jsx global>{`
-        * {
-          font-family: 'Montserrat';
-        }
-      `}</style>
+      <SideNavigation />
+      <Main>
+        <NavigationBar />
+        <div className="wrapper">{children}</div>
+        <FooterNavigation />
+      </Main>
     </>
   );
 };

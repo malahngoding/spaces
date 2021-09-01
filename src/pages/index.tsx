@@ -1,31 +1,62 @@
+import { Box } from '@components/design/box';
+import { Section } from '@components/design/section';
+import {
+  Heading,
+  SubHeading,
+  Title,
+  SubTitle,
+  Caption,
+  Paragraph,
+} from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
+import { GetStaticProps } from 'next';
 
-export default function Home() {
+interface HomeProps {
+  applicationName: string;
+  repeater: number[];
+}
+
+export default function Home(props: HomeProps) {
+  const { applicationName, repeater } = props;
   return (
     <BaseLayout title="Hello World!">
-      <h1 data-testid="welcome-text">Welcome to Next.js!</h1>
-      <section>
-        <h1>Typography</h1>
-        <p>Stuff</p>
-        <h1 className="black">The quick brown fox jump over the lazy dog</h1>
-        <h2 className="bold">The quick brown fox jump over the lazy dog</h2>
-        <h3 className="medium">The quick brown fox jump over the lazy dog</h3>
-        <h4 className="light">The quick brown fox jump over the lazy dog</h4>
-      </section>
-      <style jsx>{`
-        .black {
-          font-weight: 900;
-        }
-        .bold {
-          font-weight: 700;
-        }
-        .medium {
-          font-weight: 400;
-        }
-        .light {
-          font-weight: 300;
-        }
-      `}</style>
+      <Box>
+        <Section>
+          <h1 data-testid="welcome-text">Welcome to {applicationName}</h1>
+        </Section>
+        {repeater.map((item: number) => (
+          <Section key={item}>
+            <Heading>
+              The wizard quickly jinxed the gnomes before they vaporized.
+            </Heading>
+            <SubHeading>
+              The wizard quickly jinxed the gnomes before they vaporized.
+            </SubHeading>
+            <Title>
+              The wizard quickly jinxed the gnomes before they vaporized.
+            </Title>
+            <SubTitle>
+              The wizard quickly jinxed the gnomes before they vaporized.
+            </SubTitle>
+            <Caption>
+              The wizard quickly jinxed the gnomes before they vaporized.
+            </Caption>
+            <Paragraph>
+              The wizard quickly jinxed the gnomes before they vaporized.
+            </Paragraph>
+          </Section>
+        ))}
+      </Box>
     </BaseLayout>
   );
 }
+
+export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+  const applicationName = `Malah Ngoding`;
+  return {
+    props: {
+      applicationName,
+      repeater: [1],
+    },
+  };
+};
