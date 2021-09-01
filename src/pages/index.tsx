@@ -22,7 +22,9 @@ export default function Home(props: HomeProps) {
     <BaseLayout title="Hello World!">
       <Box>
         <Section>
-          <h1 data-testid="welcome-text">Welcome to {applicationName}</h1>
+          <SubTitle data-testid="welcome-text">
+            Welcome to {applicationName}
+          </SubTitle>
         </Section>
         {repeater.map((item: number) => (
           <Section key={item}>

@@ -7,4 +7,6 @@ export const Nav = styled(`nav`, {
   alignItems: `center`,
   height: `$xl`,
   margin: `$lg`,
+  backgroundColor: `$mauve1`,
+  color: `$mauve12`,
 });

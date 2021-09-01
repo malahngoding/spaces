@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { Nav } from './design/nav';
+import { Button } from '@components/design/button';
+import { Nav } from '@components/design/nav';
 
 export const NavigationBar = () => {
   const NavItems = [
@@ -12,20 +13,10 @@ export const NavigationBar = () => {
       <Nav>
         {NavItems.map((item) => (
           <Link href={item.url} passHref key={item.url}>
-            <p className="nav-button">{item.title}</p>
+            <Button alternative="ghost">{item.title}</Button>
           </Link>
         ))}
       </Nav>
-      <style jsx>{`
-        .nav-button {
-          margin-right: 2em;
-          font-weight: 700;
-        }
-        .nav-button:hover {
-          cursor: pointer;
-          text-decoration: underline;
-        }
-      `}</style>
     </>
   );
 };

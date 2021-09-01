@@ -4,6 +4,7 @@ import { SideNavigation } from '@components/side-navigation';
 import { NavigationBar } from '@components/navigation-bar';
 import { FooterNavigation } from '@components/footer-navigation';
 import { Main } from '@components/design/main';
+import { Box } from '@components/design/box';
 
 interface BaseLayoutProps {
   title: string;
@@ -22,7 +23,7 @@ export const BaseLayout = (props: BaseLayoutProps): JSX.Element => {
       <SideNavigation />
       <Main>
         <NavigationBar />
-        <div className="wrapper">{children}</div>
+        <Box className="wrapper">{children}</Box>
         <FooterNavigation />
       </Main>
     </>

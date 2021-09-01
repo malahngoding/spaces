@@ -13,9 +13,16 @@ export const { styled, css, globalCss, keyframes, getCssText, theme } =
         ...yellow,
         ...crimson,
       },
+      fontWeights: {
+        light: `300`,
+        normal: `400`,
+        bold: `700`,
+        black: `900`,
+      },
       fontSizes: {
         xs: `12px`,
         sm: `14px`,
+        display: `16px`,
         md: `24px`,
         lg: `32px`,
         xl: `64px`,
@@ -43,6 +50,14 @@ export const { styled, css, globalCss, keyframes, getCssText, theme } =
       marginY: (value: string) => ({
         marginTop: value,
         marginBottom: value,
+      }),
+      paddingX: (value: string) => ({
+        paddingLeft: value,
+        paddingRight: value,
+      }),
+      paddingY: (value: string) => ({
+        paddingTop: value,
+        paddingBottom: value,
       }),
     },
   });
