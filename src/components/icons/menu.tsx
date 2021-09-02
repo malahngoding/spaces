@@ -9,7 +9,7 @@ export const IconMenu = (props: IconProps) => {
   const { width, fill } = props;
   return (
     <>
-      <Box css={{ width: width || `24px` }}>
+      <Box css={{ width: width || `24px`, backgroundColor: `inherit` }}>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path
             fill={fill || `$mauve12`}

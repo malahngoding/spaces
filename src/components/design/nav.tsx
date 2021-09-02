@@ -6,7 +6,7 @@ export const Nav = styled(`nav`, {
   justifyContent: `flex-end`,
   alignItems: `center`,
   height: `$xl`,
-  margin: `$lg`,
+  padding: `$lg`,
   backgroundColor: `$mauve1`,
   color: `$mauve12`,
 });

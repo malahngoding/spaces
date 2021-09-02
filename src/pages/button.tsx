@@ -37,7 +37,7 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   return {
     props: {
       applicationName,
-      repeater: [1],
+      repeater: [1, 2, 3, 4, 11, 12, 13, 14],
     },
   };
 };

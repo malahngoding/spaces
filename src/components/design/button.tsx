@@ -29,12 +29,8 @@ export const Button = styled(`button`, {
         },
       },
       ghost: {
-        color: `$mauve12`,
-        backgroundColor: `rgba(255,255,255,100)`,
-        border: `1px solid rgba(255,255,255,100)`,
-        '&:hover': {
-          border: `1px solid $mauve1`,
-        },
+        color: `inherit`,
+        backgroundColor: `inherit`,
       },
     },
   },
