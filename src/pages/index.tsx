@@ -18,6 +18,9 @@ interface HomeProps {
 
 export default function Home(props: HomeProps) {
   const { applicationName, repeater } = props;
+
+  const allphabetString = `The wizard quickly jinxed the gnomes before they vaporized.`;
+
   return (
     <BaseLayout title="Hello World!">
       <Box>
@@ -28,24 +31,12 @@ export default function Home(props: HomeProps) {
         </Section>
         {repeater.map((item: number) => (
           <Section key={item}>
-            <Heading>
-              The wizard quickly jinxed the gnomes before they vaporized.
-            </Heading>
-            <SubHeading>
-              The wizard quickly jinxed the gnomes before they vaporized.
-            </SubHeading>
-            <Title>
-              The wizard quickly jinxed the gnomes before they vaporized.
-            </Title>
-            <SubTitle>
-              The wizard quickly jinxed the gnomes before they vaporized.
-            </SubTitle>
-            <Caption>
-              The wizard quickly jinxed the gnomes before they vaporized.
-            </Caption>
-            <Paragraph>
-              The wizard quickly jinxed the gnomes before they vaporized.
-            </Paragraph>
+            <Heading>{allphabetString}</Heading>
+            <SubHeading>{allphabetString}</SubHeading>
+            <Title>{allphabetString}</Title>
+            <SubTitle>{allphabetString}</SubTitle>
+            <Caption>{allphabetString}</Caption>
+            <Paragraph>{allphabetString}</Paragraph>
           </Section>
         ))}
       </Box>

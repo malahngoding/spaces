@@ -8,7 +8,7 @@ export const NavigationBar = () => {
     { title: `Guide`, url: `/study/guide` },
     { title: `Snippets`, url: `/study/snippets` },
     { title: `Camps`, url: `/camps` },
-    { title: `About Us`, url: `/about-us` },
+    { title: `Labs`, url: `/camps/labs` },
     { title: `Register`, url: `/register` },
   ];
   return (

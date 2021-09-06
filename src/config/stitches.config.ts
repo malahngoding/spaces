@@ -20,12 +20,12 @@ export const { styled, css, globalCss, keyframes, getCssText, theme } =
         black: `900`,
       },
       fontSizes: {
-        xs: `12px`,
-        sm: `14px`,
+        xs: `14px`,
+        sm: `15px`,
         display: `16px`,
-        md: `24px`,
-        lg: `32px`,
-        xl: `64px`,
+        md: `23px`,
+        lg: `31px`,
+        xl: `47px`,
       },
       space: {
         xs: `0.8rem`,
