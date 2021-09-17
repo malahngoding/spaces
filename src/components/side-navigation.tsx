@@ -8,6 +8,7 @@ import { Button } from '@components/design/button';
 import { useDashNav } from '@store/navigation-store';
 import { SubTitle } from '@components/design/typography';
 import { Box } from '@components/design/box';
+import { useAppStore } from '@store/app-store';
 
 const SideNav = styled(`div`, {
   borderRight: `0`,
@@ -172,13 +173,14 @@ const NavigationSheets = () => {
 
 export const SideNavigation = () => {
   const shown = useDashNav((state) => state.shown);
+  const spacesVersion = useAppStore((state) => state.spacesVersion);
   const toggleNav = useDashNav((state) => state.toggleNav);
 
   const handleNavigation = (): void => {
     toggleNav();
   };
 
-  const status = `Malah Ngoding Spaces v.0.0.1`;
+  const status = `Malah Ngoding Spaces v.${spacesVersion}`;
   return (
     <>
       <SideNav>

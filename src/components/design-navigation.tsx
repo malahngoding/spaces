@@ -8,6 +8,7 @@ import { Button } from '@components/design/button';
 import { useDashNav } from '@store/navigation-store';
 import { SubTitle } from '@components/design/typography';
 import { Box } from '@components/design/box';
+import { useAppStore } from '@store/app-store';
 
 const SideNav = styled(`div`, {
   borderRight: `0`,
@@ -73,6 +74,10 @@ const VersionTag = styled(`div`, {
   bottom: `$xs`,
   zIndex: `100000`,
   backgroundColor: `$mauve1`,
+  display: `none`,
+  '@lg': {
+    display: `block`,
+  },
 });
 
 const NavigationCard = styled(`div`, {
@@ -162,13 +167,15 @@ const allDesignPages = [
 
 export const DesignNavigation = () => {
   const shown = useDashNav((state) => state.shown);
+  const insteadVersion = useAppStore((state) => state.insteadVersion);
+
   const toggleNav = useDashNav((state) => state.toggleNav);
 
   const handleNavigation = (): void => {
     toggleNav();
   };
 
-  const status = `Malah Ngoding Instead v.0.0.1`;
+  const status = `Malah Ngoding Instead v.${insteadVersion}`;
 
   return (
     <>

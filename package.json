@@ -4,9 +4,10 @@
   "description": "Malah Ngoding Spaces",
   "private": true,
   "scripts": {
-    "dev": "next",
+    "dev": "next -p 3500",
     "build": "next build",
-    "start": "next start",
+    "export": "next build && next export",
+    "start": "next build && next start -p 3500",
     "test": "jest",
     "type-check": "tsc",
     "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",

@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import { ApplicationName } from '@config/application';
-import { NavigationBar } from '@components/navigation-bar';
 import { FooterNavigation } from '@components/footer-navigation';
 import { MainDesign } from '@components/design/main';
 import { Box } from '@components/design/box';
