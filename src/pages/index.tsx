@@ -1,13 +1,6 @@
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
-import {
-  Heading,
-  SubHeading,
-  Title,
-  SubTitle,
-  Caption,
-  Paragraph,
-} from '@components/design/typography';
+import { Heading, SubTitle } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
 import { GetStaticProps } from 'next';
 
@@ -17,9 +10,7 @@ interface HomeProps {
 }
 
 export default function Home(props: HomeProps) {
-  const { applicationName, repeater } = props;
-
-  const allphabetString = `The wizard quickly jinxed the gnomes before they vaporized.`;
+  const { applicationName } = props;
 
   return (
     <BaseLayout title="Hello World!">
@@ -29,27 +20,8 @@ export default function Home(props: HomeProps) {
             Welcome to {applicationName}
           </SubTitle>
         </Section>
-        {repeater.map((item: number) => (
-          <Section key={item}>
-            <Heading>{allphabetString}</Heading>
-            <SubHeading>{allphabetString}</SubHeading>
-            <Title>{allphabetString}</Title>
-            <SubTitle>{allphabetString}</SubTitle>
-            <Caption>{allphabetString}</Caption>
-            <Paragraph>{allphabetString}</Paragraph>
-          </Section>
-        ))}
+        <Heading>Hello</Heading>
       </Box>
     </BaseLayout>
   );
 }
-
-export const getStaticProps: GetStaticProps<HomeProps> = async () => {
-  const applicationName = `Malah Ngoding`;
-  return {
-    props: {
-      applicationName,
-      repeater: [1],
-    },
-  };
-};

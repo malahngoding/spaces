@@ -1,7 +1,7 @@
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
 import { Button } from '@components/design/button';
-import { BaseLayout } from '@layouts/base';
+import { DesignLayout } from '@layouts/design-layout';
 import { Grid } from '@components/design/grid';
 import { GetStaticProps } from 'next';
 
@@ -13,7 +13,7 @@ interface HomeProps {
 export default function DesignButton(props: HomeProps) {
   const { applicationName, repeater } = props;
   return (
-    <BaseLayout title="Hello World!">
+    <DesignLayout title="Hello World!">
       <Box>
         <Section>
           <h1 data-testid="welcome-text">Welcome to {applicationName}</h1>
@@ -28,7 +28,7 @@ export default function DesignButton(props: HomeProps) {
           </Section>
         ))}
       </Box>
-    </BaseLayout>
+    </DesignLayout>
   );
 }
 

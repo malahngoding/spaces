@@ -16,3 +16,20 @@ export const Main = styled(`main`, {
     width: `calc(100% - 140px)`,
   },
 });
+
+export const MainDesign = styled(`main`, {
+  marginTop: `98px`,
+  marginLeft: `0px`,
+  width: `calc(100% - 0px)`,
+  backgroundColor: `$mauve1`,
+  color: `$mauve12`,
+  '@sm': {
+    marginTop: `0`,
+    marginLeft: `80px`,
+    width: `calc(100% - 80px)`,
+  },
+  '@lg': {
+    marginLeft: `20vw`,
+    width: `calc(100% - 20vw)`,
+  },
+});

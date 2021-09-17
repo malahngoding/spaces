@@ -13,19 +13,25 @@ export const Button = styled(`button`, {
   variants: {
     alternative: {
       primary: {
-        border: `1px solid $cyan7`,
-        backgroundColor: `$cyan9`,
+        border: `2px solid $mauve12`,
+        backgroundColor: `$blue3`,
+        borderRadius: `$sm`,
+        boxShadow: `0px 5px 0px #18191F`,
+        boxSizing: `border-box`,
         '&:hover': {
-          backgroundColor: `$cyan10`,
-          border: `1px solid $cyan8`,
+          boxShadow: `0px 3px 0px #18191F`,
+          backgroundColor: `$blue3`,
         },
       },
       secondary: {
-        border: `1px solid $crimson7`,
-        backgroundColor: `$crimson9`,
+        border: `2px solid $mauve12`,
+        backgroundColor: `$green3`,
+        borderRadius: `$sm`,
+        boxShadow: `0px 5px 0px #18191F`,
+        boxSizing: `border-box`,
         '&:hover': {
-          backgroundColor: `$crimson10`,
-          border: `1px solid $crimson8`,
+          boxShadow: `0px 3px 0px #18191F`,
+          backgroundColor: `$green3`,
         },
       },
       ghost: {
