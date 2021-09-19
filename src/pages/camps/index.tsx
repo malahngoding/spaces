@@ -3,12 +3,12 @@ import { Section } from '@components/design/section';
 import { Heading, SubTitle } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
 
-interface HomeProps {
+interface CampsProps {
   applicationName: string;
   repeater: number[];
 }
 
-export default function Home(props: HomeProps) {
+export default function Camps(props: CampsProps) {
   const { applicationName } = props;
 
   return (
@@ -18,7 +18,7 @@ export default function Home(props: HomeProps) {
           <SubTitle data-testid="welcome-text">
             Welcome to {applicationName}
           </SubTitle>
-          <Heading>World of Malah Ngoding</Heading>
+          <Heading>Camps of Malah Ngoding</Heading>
         </Section>
       </Box>
     </BaseLayout>

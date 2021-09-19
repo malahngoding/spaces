@@ -9,6 +9,7 @@ import { useDashNav } from '@store/navigation-store';
 import { SubTitle } from '@components/design/typography';
 import { Box } from '@components/design/box';
 import { useAppStore } from '@store/app-store';
+import { useRouter } from 'next/router';
 
 const SideNav = styled(`div`, {
   borderRight: `0`,
@@ -115,13 +116,20 @@ const NavigationCard = styled(`div`, {
 
 const NavigationSheets = () => {
   const toggleNav = useDashNav((state) => state.toggleNav);
+  const router = useRouter();
 
   const navigationList = [
-    { title: `Study`, url: `/study` },
+    { title: `Learn`, url: `/learn` },
     { title: `Camps`, url: `/camps` },
     { title: `Labs`, url: `/labs` },
-    { title: `About`, url: `/about` },
+    { title: `About`, url: `/about-us` },
+    { title: `Design`, url: `/design` },
   ];
+
+  const routerPush = async (url: string) => {
+    await router.push(url);
+    toggleNav();
+  };
 
   return (
     <>
@@ -144,11 +152,13 @@ const NavigationSheets = () => {
           }}
         >
           {navigationList.map((item) => (
-            <Link href={item.url} key={item.url} passHref>
-              <a>
-                <SubTitle>{item.title}</SubTitle>
-              </a>
-            </Link>
+            <Button
+              key={item.url}
+              onClick={() => routerPush(item.url)}
+              alternative="ghost"
+            >
+              <SubTitle>{item.title}</SubTitle>
+            </Button>
           ))}
         </Box>
         <Box

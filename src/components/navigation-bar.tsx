@@ -4,11 +4,10 @@ import { Nav } from '@components/design/nav';
 
 export const NavigationBar = () => {
   const NavItems = [
-    { title: `Study`, url: `/study` },
-    { title: `Guide`, url: `/study/guide` },
-    { title: `Snippets`, url: `/study/snippets` },
+    { title: `Learn`, url: `/learn` },
     { title: `Camps`, url: `/camps` },
-    { title: `Labs`, url: `/camps/labs` },
+    { title: `Labs`, url: `/labs` },
+    { title: `About Us`, url: `/about-us` },
     { title: `Register`, url: `/register` },
   ];
   return (

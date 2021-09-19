@@ -3,12 +3,12 @@ import { Section } from '@components/design/section';
 import { Heading, SubTitle } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
 
-interface HomeProps {
+interface AboutUsProps {
   applicationName: string;
   repeater: number[];
 }
 
-export default function Home(props: HomeProps) {
+export default function AboutUs(props: AboutUsProps) {
   const { applicationName } = props;
 
   return (
