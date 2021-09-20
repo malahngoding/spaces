@@ -123,7 +123,7 @@ const NavigationSheets = () => {
     { title: `Camps`, url: `/camps` },
     { title: `Labs`, url: `/labs` },
     { title: `About`, url: `/about-us` },
-    { title: `Design`, url: `/design` },
+    { title: `.design`, url: `/design` },
   ];
 
   const routerPush = async (url: string) => {

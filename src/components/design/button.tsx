@@ -44,3 +44,10 @@ export const Button = styled(`button`, {
     alternative: `primary`,
   },
 });
+
+export const SmallButton = styled(Button, {
+  paddingY: `8px`,
+  paddingX: `16px`,
+  fontSize: `$xs`,
+  fontWeight: `$bold`,
+});
