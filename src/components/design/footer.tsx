@@ -1,10 +1,10 @@
 import { styled } from '@config/stitches.config';
 
 export const Footer = styled(`footer`, {
-  backgroundColor: `$mauve1`,
-  color: `$mauve12`,
+  backgroundColor: `$slate1`,
+  color: `$slate12`,
   padding: `$md`,
   display: `flex`,
   flexDirection: `row`,
-  borderTop: `1px solid $mauve6`,
+  borderTop: `1px solid $slate6`,
 });

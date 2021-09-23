@@ -1,4 +1,10 @@
-import { styled } from '@config/stitches.config';
+import { styled, keyframes } from '@config/stitches.config';
+
+const bouncePrimary = keyframes({
+  '0%': { boxShadow: `0px 0px 0px #18191F` },
+  '50%': { boxShadow: `0px 2px 0px #18191F` },
+  '100%': { boxShadow: `0px 4px 0px #18191F` },
+});
 
 export const Button = styled(`button`, {
   border: `none`,
@@ -6,33 +12,38 @@ export const Button = styled(`button`, {
   paddingX: `$sm`,
   fontSize: `$display`,
   fontWeight: `$bold`,
-  color: `$mauve1`,
+  color: `$slate12`,
   '&:hover': {
     cursor: `pointer`,
   },
   variants: {
     alternative: {
       primary: {
-        border: `2px solid $mauve12`,
-        backgroundColor: `$blue3`,
-        borderRadius: `$sm`,
-        boxShadow: `0px 5px 0px #18191F`,
+        border: `2px solid $slate12`,
+        backgroundColor: `$cyan8`,
         boxSizing: `border-box`,
+        borderRadius: `$sm`,
         '&:hover': {
-          boxShadow: `0px 3px 0px #18191F`,
-          backgroundColor: `$blue3`,
+          boxShadow: `0px 4px 0px #18191F`,
+          animation: `${bouncePrimary} 200ms`,
         },
       },
       secondary: {
-        border: `2px solid $mauve12`,
-        backgroundColor: `$green3`,
-        borderRadius: `$sm`,
-        boxShadow: `0px 5px 0px #18191F`,
+        border: `2px solid $slate12`,
+        color: `$slate12`,
+        backgroundColor: `$slate1`,
         boxSizing: `border-box`,
+        borderRadius: `$sm`,
         '&:hover': {
-          boxShadow: `0px 3px 0px #18191F`,
-          backgroundColor: `$green3`,
+          backgroundColor: `$slate1`,
         },
+      },
+      tertiary: {
+        backgroundColor: `$slate12`,
+        border: `2px solid $slate12`,
+        color: `$slate1`,
+        boxSizing: `border-box`,
+        borderRadius: `$sm`,
       },
       ghost: {
         color: `inherit`,
@@ -46,8 +57,8 @@ export const Button = styled(`button`, {
 });
 
 export const SmallButton = styled(Button, {
-  paddingY: `8px`,
-  paddingX: `16px`,
+  paddingY: `4px`,
+  paddingX: `12px`,
   fontSize: `$xs`,
   fontWeight: `$bold`,
 });

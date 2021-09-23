@@ -1,14 +1,16 @@
 import { AppProps } from 'next/app';
+import { ThemeProvider } from 'next-themes';
 
 import '@styles/reset.css';
 import '@fontsource/montserrat/900.css';
 import '@fontsource/montserrat/700.css';
 import '@fontsource/montserrat/400.css';
 import '@fontsource/montserrat/300.css';
-import { globalCss } from '@config/stitches.config';
+import { darkTheme, globalCss } from '@config/stitches.config';
 
 const globalStyles = globalCss({
   body: {
+    backgroundColor: `$slate1`,
     fontFamily: `"Montserrat", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif`,
   },
 });
@@ -17,7 +19,14 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   globalStyles();
   return (
     <>
-      <Component {...pageProps} />
+      <ThemeProvider
+        enableSystem={false}
+        defaultTheme="light"
+        attribute="class"
+        value={{ light: `light-theme`, dark: darkTheme.className }}
+      >
+        <Component {...pageProps} />
+      </ThemeProvider>
     </>
   );
 }

@@ -1,3 +1,3 @@
-export const MESSAGES = {
+export const MESslateS = {
   test: `p`,
 };

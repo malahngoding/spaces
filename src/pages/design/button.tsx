@@ -24,11 +24,11 @@ export default function DesignButton(props: HomeProps) {
             <Grid>
               <Button>Button</Button>
               <Button alternative="secondary">Button</Button>
+              <Button alternative="tertiary">Button</Button>
               <Button alternative="ghost">Button</Button>
-            </Grid>
-            <Grid>
               <SmallButton>SmallButton</SmallButton>
               <SmallButton alternative="secondary">SmallButton</SmallButton>
+              <SmallButton alternative="tertiary">SmallButton</SmallButton>
               <SmallButton alternative="ghost">SmallButton</SmallButton>
             </Grid>
           </Section>
@@ -43,7 +43,7 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   return {
     props: {
       applicationName,
-      repeater: [1, 2],
+      repeater: [1],
     },
   };
 };

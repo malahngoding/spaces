@@ -1,8 +1,12 @@
 import Link from 'next/link';
-import { Button } from '@components/design/button';
+import { Button, SmallButton } from '@components/design/button';
 import { Nav } from '@components/design/nav';
+import { useTheme } from 'next-themes';
+import { Sun, Moon } from 'tabler-icons-react';
 
 export const NavigationBar = () => {
+  const { theme, setTheme } = useTheme();
+
   const NavItems = [
     { title: `Learn`, url: `/learn` },
     { title: `Camps`, url: `/camps` },
@@ -23,6 +27,14 @@ export const NavigationBar = () => {
             </Button>
           </Link>
         ))}
+        <SmallButton
+          onClick={() => {
+            setTheme(theme === `dark` ? `light` : `dark`);
+          }}
+          alternative="ghost"
+        >
+          {theme === `dark` ? <Moon /> : <Sun />}
+        </SmallButton>
       </Nav>
     </>
   );

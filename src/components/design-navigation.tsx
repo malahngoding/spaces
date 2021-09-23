@@ -1,8 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { X as IconClose, Menu2 as IconMenu } from 'tabler-icons-react';
 
-import { IconMenu } from '@components/icons/menu';
-import { IconClose } from '@components/icons/close';
 import { styled } from '@config/stitches.config';
 import { Button } from '@components/design/button';
 import { useDashNav } from '@store/navigation-store';
@@ -10,10 +9,11 @@ import { SubTitle } from '@components/design/typography';
 import { Box } from '@components/design/box';
 import { useAppStore } from '@store/app-store';
 import { useRouter } from 'next/router';
+import { useTheme } from 'next-themes';
 
 const SideNav = styled(`div`, {
   borderRight: `0`,
-  borderBottom: `1px solid $mauve6`,
+  borderBottom: `1px solid $slate6`,
   height: `83px`,
   left: `0`,
   position: `fixed`,
@@ -21,10 +21,10 @@ const SideNav = styled(`div`, {
   transition: `transform 0.1s`,
   width: `100vh`,
   zIndex: `100001`,
-  backgroundColor: `$mauve1`,
+  backgroundColor: `$slate1`,
   '@sm': {
     zIndex: `99999`,
-    borderRight: `1px solid $mauve6`,
+    borderRight: `1px solid $slate6`,
     borderBottom: `0`,
     width: `80px`,
     height: `100vh`,
@@ -57,7 +57,7 @@ const Menu = styled(`div`, {
   flexDirection: `column`,
   justifyContent: `center`,
   alignItems: `center`,
-  backgroundColor: `$mauve1`,
+  backgroundColor: `$slate1`,
   '@sm': {
     width: `64px`,
     height: `64px`,
@@ -74,7 +74,7 @@ const VersionTag = styled(`div`, {
   right: `$xs`,
   bottom: `$xs`,
   zIndex: `100000`,
-  backgroundColor: `$mauve1`,
+  backgroundColor: `$slate1`,
   display: `none`,
   '@lg': {
     display: `block`,
@@ -103,6 +103,7 @@ const NavigationCard = styled(`div`, {
 
 const NavigationSheets = () => {
   const toggleNav = useDashNav((state) => state.toggleNav);
+  const { theme } = useTheme();
   const router = useRouter();
 
   const navigationList = [
@@ -119,13 +120,20 @@ const NavigationSheets = () => {
 
   return (
     <>
-      <NavigationCard>
+      <NavigationCard
+        css={{
+          background:
+            theme === `dark`
+              ? `rgba(0, 0, 0, 0.48)`
+              : `rgba(253, 252, 253, 0.48)`,
+        }}
+      >
         <Box
           css={{
-            backgroundColor: `$mauve1`,
+            backgroundColor: `$slate1`,
             minHeight: `100vh`,
             minWidth: `100vw`,
-            borderRight: `1px solid $mauve6`,
+            borderRight: `1px solid $slate6`,
             display: `flex`,
             flexDirection: `column`,
             justifyContent: `center`,
@@ -153,7 +161,7 @@ const NavigationSheets = () => {
             backgroundColor: `none`,
             minHeight: `100vh`,
             minWidth: `50vw`,
-            borderRight: `1px solid $mauve6`,
+            borderRight: `1px solid $slate6`,
             '@lg': {
               display: `block`,
             },

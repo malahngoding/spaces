@@ -7,8 +7,8 @@ export const Nav = styled(`nav`, {
   alignItems: `center`,
   height: `$sm`,
   padding: `$md`,
-  backgroundColor: `$mauve1`,
-  color: `$mauve12`,
+  backgroundColor: `$slate1`,
+  color: `$slate12`,
   '@md': {
     height: `$md`,
     display: `flex`,

@@ -1,5 +1,4 @@
 import { Box } from '@components/design/box';
-import { Grid } from '@components/design/grid';
 import { Section } from '@components/design/section';
 import { DesignLayout } from '@layouts/design-layout';
 import { GetStaticProps } from 'next';
@@ -17,45 +16,31 @@ export default function DesignButton(props: HomeProps) {
         <Section>
           <h1 data-testid="welcome-text">Welcome to {applicationName}</h1>
         </Section>
-        {repeater.map((item: number) => (
-          <Grid key={item}>
+        <Box css={{ display: `flex`, flexDirection: `row`, flexWrap: `wrap` }}>
+          {repeater.map((item: number) => (
             <Box
+              key={item}
               css={{
                 height: `72px`,
                 width: `72px`,
-                backgroundColor: `$red${item.toString()}`,
+                backgroundColor: `$slate${item.toString()}`,
               }}
             />
-            <Box
-              css={{
-                height: `72px`,
-                width: `72px`,
-                backgroundColor: `$green${item.toString()}`,
-              }}
-            />
-            <Box
-              css={{
-                height: `72px`,
-                width: `72px`,
-                backgroundColor: `$yellow${item.toString()}`,
-              }}
-            />
-            <Box
-              css={{
-                height: `72px`,
-                width: `72px`,
-                backgroundColor: `$pink${item.toString()}`,
-              }}
-            />
-            <Box
-              css={{
-                height: `72px`,
-                width: `72px`,
-                backgroundColor: `$blue${item.toString()}`,
-              }}
-            />
-          </Grid>
-        ))}
+          ))}
+        </Box>
+        <Box css={{ display: `flex`, flexDirection: `row`, flexWrap: `wrap` }}>
+          {repeater.map((item: number) => (
+            <Box key={item}>
+              <Box
+                css={{
+                  height: `72px`,
+                  width: `72px`,
+                  backgroundColor: `$cyan${item.toString()}`,
+                }}
+              />
+            </Box>
+          ))}
+        </Box>
       </Box>
     </DesignLayout>
   );
@@ -66,7 +51,7 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   return {
     props: {
       applicationName,
-      repeater: [1, 2, 3],
+      repeater: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     },
   };
 };
