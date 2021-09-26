@@ -6,6 +6,8 @@ import '@fontsource/montserrat/900.css';
 import '@fontsource/montserrat/700.css';
 import '@fontsource/montserrat/400.css';
 import '@fontsource/montserrat/300.css';
+import '@fontsource/mononoki/400.css';
+
 import { darkTheme, globalCss } from '@config/stitches.config';
 
 const globalStyles = globalCss({

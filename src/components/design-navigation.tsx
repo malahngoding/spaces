@@ -69,13 +69,17 @@ const Menu = styled(`div`, {
 });
 
 const VersionTag = styled(`div`, {
-  fontFamily: `monospace`,
+  padding: `0.5rem`,
+  fontFamily: `$mono`,
+  fontSize: `$xxs`,
   position: `fixed`,
   right: `$xs`,
   bottom: `$xs`,
   zIndex: `100000`,
   backgroundColor: `$slate1`,
   display: `none`,
+  backdropFilter: `blur(9px)`,
+  webkitBackdropFilter: `blur(9px)`,
   '@lg': {
     display: `block`,
   },

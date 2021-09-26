@@ -75,18 +75,19 @@ const Menu = styled(`div`, {
 
 const VersionTag = styled(`div`, {
   display: `none`,
-  fontFamily: `monospace`,
+  fontFamily: `$mono`,
   position: `fixed`,
   left: `0`,
   bottom: `0`,
   zIndex: `100000`,
-  transform: `rotate(90deg) translateX(-120px) translateY(58px)`,
+  fontSize: `$xxs`,
+  transform: `rotate(90deg) translateX(-120px) translateY(49px)`,
   backgroundColor: `$slate1`,
   '@sm': {
     display: `block`,
   },
   '@lg': {
-    transform: `rotate(90deg) translateX(-120px) translateY(36px)`,
+    transform: `rotate(90deg) translateX(-120px) translateY(29px)`,
   },
 });
 

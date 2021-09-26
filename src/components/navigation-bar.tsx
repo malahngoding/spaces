@@ -6,7 +6,7 @@ export const NavigationBar = () => {
   const NavItems = [
     { title: `Learn`, url: `/learn` },
     { title: `Camps`, url: `/camps` },
-    { title: `Labs`, url: `/labs` },
+    { title: `Services`, url: `/services` },
     { title: `About Us`, url: `/about-us` },
     { title: `Register`, url: `/register` },
   ];

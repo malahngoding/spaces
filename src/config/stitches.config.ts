@@ -17,6 +17,10 @@ export const { styled, css, globalCss, keyframes, getCssText, theme } =
         ...cyan,
         ...crimson,
       },
+      fonts: {
+        sans: `Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif`,
+        mono: `Mononoki, monospace`,
+      },
       fontWeights: {
         light: `300`,
         normal: `400`,
