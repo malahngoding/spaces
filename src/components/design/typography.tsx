@@ -21,7 +21,9 @@ export const SubTitle = styled(`h4`, {
   color: `$slate12`,
 });
 export const Caption = styled(`h6`, {
-  fontSize: `$xs`,
+  margin: 0,
+  padding: 0,
+  fontSize: `$xxs`,
   fontWeight: 300,
   color: `$slate12`,
 });

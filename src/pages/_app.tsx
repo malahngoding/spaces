@@ -1,7 +1,7 @@
 import { AppProps } from 'next/app';
 import { ThemeProvider } from 'next-themes';
 
-import '@styles/reset.css';
+import '@styles/minireset.min.css';
 import '@fontsource/montserrat/900.css';
 import '@fontsource/montserrat/700.css';
 import '@fontsource/montserrat/400.css';
@@ -11,7 +11,7 @@ import { darkTheme, globalCss } from '@config/stitches.config';
 const globalStyles = globalCss({
   body: {
     backgroundColor: `$slate1`,
-    fontFamily: `"Montserrat", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif`,
+    fontFamily: `Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif`,
   },
 });
 

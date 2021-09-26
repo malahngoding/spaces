@@ -1,6 +1,13 @@
 // stitches.config.ts
 import { createStitches, createTheme } from '@stitches/react';
-import { slate, cyan, slateDark, cyanDark } from '@radix-ui/colors';
+import {
+  slate,
+  cyan,
+  crimson,
+  slateDark,
+  cyanDark,
+  crimsonDark,
+} from '@radix-ui/colors';
 
 export const { styled, css, globalCss, keyframes, getCssText, theme } =
   createStitches({
@@ -8,6 +15,7 @@ export const { styled, css, globalCss, keyframes, getCssText, theme } =
       colors: {
         ...slate,
         ...cyan,
+        ...crimson,
       },
       fontWeights: {
         light: `300`,
@@ -16,6 +24,7 @@ export const { styled, css, globalCss, keyframes, getCssText, theme } =
         black: `900`,
       },
       fontSizes: {
+        xxs: `0.8rem`,
         xs: `14px`,
         sm: `15px`,
         display: `16px`,
@@ -67,5 +76,6 @@ export const darkTheme = createTheme(`dark-theme`, {
   colors: {
     ...slateDark,
     ...cyanDark,
+    ...crimsonDark,
   },
 });

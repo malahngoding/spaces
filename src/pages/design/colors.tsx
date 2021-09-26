@@ -41,6 +41,19 @@ export default function DesignButton(props: HomeProps) {
             </Box>
           ))}
         </Box>
+        <Box css={{ display: `flex`, flexDirection: `row`, flexWrap: `wrap` }}>
+          {repeater.map((item: number) => (
+            <Box key={item}>
+              <Box
+                css={{
+                  height: `72px`,
+                  width: `72px`,
+                  backgroundColor: `$crimson${item.toString()}`,
+                }}
+              />
+            </Box>
+          ))}
+        </Box>
       </Box>
     </DesignLayout>
   );

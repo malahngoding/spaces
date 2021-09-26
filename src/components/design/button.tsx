@@ -2,11 +2,30 @@ import { styled, keyframes } from '@config/stitches.config';
 
 const bouncePrimary = keyframes({
   '0%': { boxShadow: `0px 0px 0px #18191F` },
-  '50%': { boxShadow: `0px 2px 0px #18191F` },
   '100%': { boxShadow: `0px 4px 0px #18191F` },
 });
 
+const bounceGhostAlternative = keyframes({
+  '0%': {
+    borderTop: `2px solid $slate1`,
+    borderBottom: `2px solid $cyan8`,
+  },
+  '25%': {
+    borderTop: `4px solid $slate1`,
+    borderBottom: `4px solid $slate12`,
+  },
+  '50%': {
+    borderTop: `2px solid $slate1`,
+    borderBottom: `2px solid $cyan8`,
+  },
+  '100%': {
+    borderTop: `4px solid $slate1`,
+    borderBottom: `4px solid $cyan8`,
+  },
+});
+
 export const Button = styled(`button`, {
+  fontFamily: `Montserrat`,
   border: `none`,
   paddingY: `$xs`,
   paddingX: `$sm`,
@@ -17,12 +36,17 @@ export const Button = styled(`button`, {
     cursor: `pointer`,
   },
   variants: {
+    active: {
+      true: {
+        borderTop: `4px solid $slate1`,
+        borderBottom: `4px solid $cyan8`,
+      },
+    },
     alternative: {
       primary: {
         border: `2px solid $slate12`,
         backgroundColor: `$cyan8`,
         boxSizing: `border-box`,
-        borderRadius: `$sm`,
         '&:hover': {
           boxShadow: `0px 4px 0px #18191F`,
           animation: `${bouncePrimary} 200ms`,
@@ -33,7 +57,6 @@ export const Button = styled(`button`, {
         color: `$slate12`,
         backgroundColor: `$slate1`,
         boxSizing: `border-box`,
-        borderRadius: `$sm`,
         '&:hover': {
           backgroundColor: `$slate1`,
         },
@@ -43,11 +66,30 @@ export const Button = styled(`button`, {
         border: `2px solid $slate12`,
         color: `$slate1`,
         boxSizing: `border-box`,
-        borderRadius: `$sm`,
+      },
+      invert: {
+        border: `2px solid $slate12`,
+        backgroundColor: `$crimson8`,
+        boxSizing: `border-box`,
+        '&:hover': {
+          boxShadow: `0px 4px 0px #18191F`,
+          animation: `${bouncePrimary} 200ms`,
+        },
       },
       ghost: {
         color: `inherit`,
         backgroundColor: `inherit`,
+      },
+      ghostAlternative: {
+        color: `inherit`,
+        backgroundColor: `inherit`,
+        borderBottom: `4px solid $slate1`,
+        borderTop: `4px solid $slate1`,
+        '&:hover': {
+          borderTop: `4px solid $slate1`,
+          borderBottom: `4px solid $cyan8`,
+          animation: `${bounceGhostAlternative} 200ms`,
+        },
       },
     },
   },

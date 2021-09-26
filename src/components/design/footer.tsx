@@ -5,6 +5,8 @@ export const Footer = styled(`footer`, {
   color: `$slate12`,
   padding: `$md`,
   display: `flex`,
-  flexDirection: `row`,
+  flexDirection: `column`,
+  justifyContent: `center`,
+  alignItems: `center`,
   borderTop: `1px solid $slate6`,
 });

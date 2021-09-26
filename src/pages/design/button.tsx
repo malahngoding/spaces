@@ -7,35 +7,6 @@ import { GetStaticProps } from 'next';
 
 interface HomeProps {
   applicationName: string;
-  repeater: number[];
-}
-
-export default function DesignButton(props: HomeProps) {
-  const { applicationName, repeater } = props;
-  return (
-    <DesignLayout title="Hello World!">
-      <Box>
-        <Section>
-          <h1 data-testid="welcome-text">Welcome to {applicationName}</h1>
-        </Section>
-
-        {repeater.map((item: number) => (
-          <Section key={item}>
-            <Grid>
-              <Button>Button</Button>
-              <Button alternative="secondary">Button</Button>
-              <Button alternative="tertiary">Button</Button>
-              <Button alternative="ghost">Button</Button>
-              <SmallButton>SmallButton</SmallButton>
-              <SmallButton alternative="secondary">SmallButton</SmallButton>
-              <SmallButton alternative="tertiary">SmallButton</SmallButton>
-              <SmallButton alternative="ghost">SmallButton</SmallButton>
-            </Grid>
-          </Section>
-        ))}
-      </Box>
-    </DesignLayout>
-  );
 }
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
@@ -43,7 +14,38 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   return {
     props: {
       applicationName,
-      repeater: [1],
     },
   };
 };
+
+export default function DesignButton(props: HomeProps) {
+  const { applicationName } = props;
+  return (
+    <DesignLayout title="Hello World!">
+      <Box>
+        <Section>
+          <h1 data-testid="welcome-text">Welcome to {applicationName}</h1>
+        </Section>
+
+        <Section>
+          <Grid>
+            <Button>Button</Button>
+            <Button alternative="secondary">Button</Button>
+            <Button alternative="tertiary">Button</Button>
+            <Button alternative="invert">Button</Button>
+            <Button alternative="ghost">Button</Button>
+          </Grid>
+        </Section>
+        <Section>
+          <Grid>
+            <SmallButton>SmallButton</SmallButton>
+            <SmallButton alternative="secondary">SmallButton</SmallButton>
+            <SmallButton alternative="tertiary">SmallButton</SmallButton>
+            <SmallButton alternative="invert">SmallButton</SmallButton>
+            <SmallButton alternative="ghost">SmallButton</SmallButton>
+          </Grid>
+        </Section>
+      </Box>
+    </DesignLayout>
+  );
+}

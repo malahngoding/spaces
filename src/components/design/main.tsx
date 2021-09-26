@@ -1,7 +1,7 @@
 import { styled } from '@config/stitches.config';
 
 export const Main = styled(`main`, {
-  marginTop: `98px`,
+  marginTop: `84px`,
   marginLeft: `0px`,
   width: `calc(100% - 0px)`,
   backgroundColor: `$slate1`,
