@@ -21,6 +21,7 @@ export const StyledLink = styled(`a`, {
   textDecoration: `none`,
   color: `$slate10`,
   borderBottom: `2px solid $slate4`,
+  fontSize: `$sm`,
   '&:hover': {
     color: `$cyan8`,
     borderBottom: `2px solid $cyan8`,

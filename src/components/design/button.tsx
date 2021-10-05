@@ -32,6 +32,9 @@ export const Button = styled(`button`, {
   fontSize: `$display`,
   fontWeight: `$bold`,
   color: `$slate12`,
+  display: `flex`,
+  justifyContent: `center`,
+  alignItems: `center`,
   '&:hover': {
     cursor: `pointer`,
   },

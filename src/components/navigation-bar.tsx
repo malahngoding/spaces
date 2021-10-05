@@ -8,7 +8,7 @@ export const NavigationBar = () => {
     { title: `Camps`, url: `/camps` },
     { title: `Services`, url: `/services` },
     { title: `About Us`, url: `/about-us` },
-    { title: `Register`, url: `/register` },
+    { title: `Register`, url: `/auth/register` },
   ];
 
   return (
@@ -18,7 +18,7 @@ export const NavigationBar = () => {
           <Link href={item.url} passHref key={item.url}>
             <Button
               alternative={
-                item.url === `/register` ? `primary` : `ghostAlternative`
+                item.url === `/auth/register` ? `primary` : `ghostAlternative`
               }
               css={{ marginRight: `$xs` }}
             >

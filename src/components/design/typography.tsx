@@ -31,4 +31,5 @@ export const Paragraph = styled(`p`, {
   fontSize: `$sm`,
   fontWeight: 400,
   color: `$slate12`,
+  lineHeight: `1.5rem`,
 });
