@@ -1,4 +1,4 @@
-import { credentials } from 'grpc';
+import { credentials } from '@grpc/grpc-js';
 import { GreeterClient } from '../../proto/procedure_grpc_pb';
 
 const port = 9000;

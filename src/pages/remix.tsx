@@ -1,26 +1,27 @@
 import { Box } from '@components/design/box';
 import { BlankLayout } from '@layouts/blank';
-import { clientGRPC } from '@utils/proto_procedure';
-import { HelloRequest, HelloReply } from '../../proto/procedure_pb';
+// import { clientGRPC } from '@utils/proto_procedure';
+// import { HelloRequest, HelloReply } from '../../proto/procedure_pb';
 
-function sayHelloAgain(name: string) {
-  return new Promise<HelloReply>((resolve, reject) => {
-    const request = new HelloRequest();
-    request.setName(name);
+// function sayHelloAgain(name: string) {
+//   return new Promise<HelloReply>((resolve, reject) => {
+//     const request = new HelloRequest();
+//     request.setName(name);
 
-    clientGRPC.sayHelloAgain(request, (err, response) => {
-      if (err) reject(err);
-      else resolve(response);
-    });
-  });
-}
+//     clientGRPC.sayHelloAgain(request, (err, response) => {
+//       if (err) reject(err);
+//       else resolve(response);
+//     });
+//   });
+// }
 
 export async function getServerSideProps() {
-  const response = await sayHelloAgain(`Radical`);
+  // const response = await sayHelloAgain(`Radical`);
 
   return {
     props: {
-      message: response.getMessage(),
+      // message: response.getMessage(),
+      message: `Hello world!`,
     },
   };
 }
