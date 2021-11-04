@@ -15,6 +15,7 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
+      "@proto/*": ["./proto/*"],
       "@components/*": ["./src/components/*"],
       "@config/*": ["./src/config/*"],
       "@layouts/*": ["./src/layouts/*"],
