@@ -1,6 +1,9 @@
-/* eslint-disable @next/next/no-img-element */
 import Image from 'next/image';
 import { getCsrfToken, getProviders, signIn } from 'next-auth/react';
+import { NextPageContext } from 'next';
+import Link from 'next/link';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { UiGithub, UiGoogle } from '@iconscout/react-unicons';
 
 import { Button } from '@components/design/button';
 import { Form } from '@components/design/form';
@@ -12,12 +15,8 @@ import {
 } from '@components/design/input';
 import { Paragraph, Title } from '@components/design/typography';
 import { AuthLayout } from '@layouts/auth';
-import { useForm, SubmitHandler } from 'react-hook-form';
-import Link from 'next/link';
 import { Span } from '@components/design/span';
 import { styled } from '@config/stitches.config';
-import { BrandGithub, BrandGoogle } from 'tabler-icons-react';
-import { NextPageContext } from 'next';
 import { StyledLink } from '@components/design/link';
 import { Grid } from '@components/design/grid';
 
@@ -136,14 +135,14 @@ export default function Register(props: RegisterProps) {
               onClick={() => signIn(providers.github.id)}
               className="my-2 sm:m-2 flex flex-row justify-center items-center hover:bg-black-100"
             >
-              <BrandGithub className="ml-4" />
+              <UiGithub />
             </Button>
             <Button
               alternative="secondary"
               onClick={() => signIn(providers.google.id)}
               className="my-2 sm:m-2 flex flex-row justify-center items-center hover:bg-black-100"
             >
-              <BrandGoogle className="ml-4" />
+              <UiGoogle />
             </Button>
           </Grid>
           <Paragraph css={{ marginY: `$md` }}>or using email</Paragraph>

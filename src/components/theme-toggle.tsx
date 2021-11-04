@@ -1,4 +1,4 @@
-import { Sun, Moon } from 'tabler-icons-react';
+import { UilSun, UilMoon } from '@iconscout/react-unicons';
 import { SmallButton } from '@components/design/button';
 import { useTheme } from 'next-themes';
 
@@ -18,7 +18,7 @@ export const ThemeToggle = () => {
         alignItems: `center`,
       }}
     >
-      {theme !== `light` ? <Moon /> : <Sun />}
+      {theme !== `light` ? <UilSun /> : <UilMoon />}
     </SmallButton>
   );
 };

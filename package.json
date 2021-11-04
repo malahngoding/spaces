@@ -45,6 +45,7 @@
     "@fontsource/montserrat": "4.5.1",
     "@grpc/grpc-js": "1.4.2",
     "@grpc/proto-loader": "0.6.6",
+    "@iconscout/react-unicons": "1.1.6",
     "@radix-ui/colors": "0.1.7",
     "@stitches/react": "1.2.5",
     "next": "12.0.2",
@@ -55,7 +56,6 @@
     "react-hook-form": "7.18.1",
     "sharp": "0.29.2",
     "swr": "1.0.1",
-    "tabler-icons-react": "1.35.0",
     "zustand": "3.6.3"
   },
   "devDependencies": {

@@ -7,6 +7,7 @@ specifiers:
   '@fontsource/montserrat': 4.5.1
   '@grpc/grpc-js': 1.4.2
   '@grpc/proto-loader': 0.6.6
+  '@iconscout/react-unicons': 1.1.6
   '@radix-ui/colors': 0.1.7
   '@stitches/react': 1.2.5
   '@types/google-protobuf': 3.15.5
@@ -41,7 +42,6 @@ specifiers:
   react-hook-form: 7.18.1
   sharp: 0.29.2
   swr: 1.0.1
-  tabler-icons-react: 1.35.0
   typescript: 4.3.5
   zustand: 3.6.3
 
@@ -50,6 +50,7 @@ dependencies:
   '@fontsource/montserrat': 4.5.1
   '@grpc/grpc-js': 1.4.2
   '@grpc/proto-loader': 0.6.6
+  '@iconscout/react-unicons': 1.1.6
   '@radix-ui/colors': 0.1.7
   '@stitches/react': 1.2.5_react@17.0.2
   next: 12.0.2_react-dom@17.0.2+react@17.0.2
@@ -60,7 +61,6 @@ dependencies:
   react-hook-form: 7.18.1_react@17.0.2
   sharp: 0.29.2
   swr: 1.0.1_react@17.0.2
-  tabler-icons-react: 1.35.0_react@17.0.2
   zustand: 3.6.3_react@17.0.2
 
 devDependencies:
@@ -392,6 +392,12 @@ packages:
   /@humanwhocodes/object-schema/1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
+
+  /@iconscout/react-unicons/1.1.6:
+    resolution: {integrity: sha512-BnyVvBew7Vm1lvL8+qyqjchUbkVHlDyNAlN+r5b+0P0KrkQ66BHPBuJEJ2faT89L8qRu+TohE7dHMV+bndje3Q==}
+    dependencies:
+      react: 16.14.0
+    dev: false
 
   /@mapbox/node-pre-gyp/1.0.6:
     resolution: {integrity: sha512-qK1ECws8UxuPqOA8F5LFD90vyVU33W7N3hGfgsOVfrJaRVc8McC3JClTDHpeSbL9CBrOHly/4GsNPAvIgNZE+g==}
@@ -4257,7 +4263,6 @@ packages:
       loose-envify: 1.4.0
       object-assign: 4.1.1
       react-is: 16.13.1
-    dev: true
 
   /protobufjs/6.11.2:
     resolution: {integrity: sha512-4BQJoPooKJl2G9j3XftkIXjoC9C0Av2NOrWmbLWT1vH32GcSUHjM0Arra6UfTsVyfMAuFzaLucXn1sadxJydAw==}
@@ -4385,7 +4390,6 @@ packages:
 
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
-    dev: true
 
   /react-is/17.0.2:
     resolution: {integrity: sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==}
@@ -4394,6 +4398,15 @@ packages:
   /react-refresh/0.8.3:
     resolution: {integrity: sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg==}
     engines: {node: '>=0.10.0'}
+    dev: false
+
+  /react/16.14.0:
+    resolution: {integrity: sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g==}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      loose-envify: 1.4.0
+      object-assign: 4.1.1
+      prop-types: 15.7.2
     dev: false
 
   /react/17.0.2:
@@ -5029,14 +5042,6 @@ packages:
       string-width: 4.2.3
       strip-ansi: 6.0.1
     dev: true
-
-  /tabler-icons-react/1.35.0_react@17.0.2:
-    resolution: {integrity: sha512-WiJ+dYQ71HCsxKAQpCfPrFVwSfqE6CByYFjq9Gzikmp2RijJBsNpj0sE/T5G0H+nERS9odjAWJoSryvr4FymFg==}
-    peerDependencies:
-      react: '>= 16.8.0'
-    dependencies:
-      react: 17.0.2
-    dev: false
 
   /tar-fs/2.1.1:
     resolution: {integrity: sha512-V0r2Y9scmbDRLCNex/+hYzvp/zyYjvFbHPNgVTKfQvVrb6guiE/fxP+XblDNR011utopbkex2nM4dHNV6GDsng==}

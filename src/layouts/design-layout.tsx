@@ -1,9 +1,9 @@
 import Head from 'next/head';
 import { ApplicationName } from '@config/application';
-import { FooterNavigation } from '@components/footer-navigation';
+import { FooterNavigation } from '@components/navigations/footer';
 import { MainDesign } from '@components/design/main';
 import { Box } from '@components/design/box';
-import dynamic from 'next/dynamic';
+import { DesignNavigation } from '@components/navigations/alt';
 
 interface BaseLayoutProps {
   title: string;
@@ -11,9 +11,6 @@ interface BaseLayoutProps {
 }
 
 export const DesignLayout = (props: BaseLayoutProps): JSX.Element => {
-  const DesignNavigation = dynamic((): any =>
-    import(`@components/design-navigation`).then((mod) => mod.DesignNavigation),
-  );
   const { title, children } = props;
   return (
     <>
