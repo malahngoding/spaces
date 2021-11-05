@@ -1,5 +1,10 @@
 import Image from 'next/image';
-import { getCsrfToken, getProviders, signIn } from 'next-auth/react';
+import {
+  getCsrfToken,
+  getProviders,
+  getSession,
+  signIn,
+} from 'next-auth/react';
 import { NextPageContext } from 'next';
 import Link from 'next/link';
 import { useForm, SubmitHandler } from 'react-hook-form';
@@ -69,9 +74,28 @@ const Right = styled(`div`, {
   },
 });
 
+function checkExpiry(current: string | undefined): boolean {
+  if (current) {
+    return true;
+  }
+  return false;
+}
+
 export async function getServerSideProps(context: NextPageContext) {
+  const session = await getSession(context);
+
   const providers = await getProviders();
   const csrfToken = await getCsrfToken(context);
+
+  checkExpiry(session?.expires);
+
+  if (session?.expires) {
+    return {
+      redirect: {
+        destination: `/`,
+      },
+    };
+  }
 
   return {
     props: { providers, csrfToken },
@@ -120,7 +144,7 @@ export default function Register(props: RegisterProps) {
               />
             </a>
           </Link>
-          <Title>Create an account</Title>
+          <Title>Connect your account</Title>
           <Paragraph css={{ marginY: `$md`, maxWidth: `315px` }}>
             Gain access to exciting features and learning community. Grow
             together as a platform.

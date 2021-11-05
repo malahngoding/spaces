@@ -24,6 +24,11 @@ const bounceGhostAlternative = keyframes({
   },
 });
 
+export const PlainButton = styled(`button`, {
+  border: `none`,
+  background: `none`,
+});
+
 export const Button = styled(`button`, {
   fontFamily: `Montserrat`,
   border: `none`,

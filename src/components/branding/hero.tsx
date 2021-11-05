@@ -2,7 +2,7 @@ import { Heading, SubTitle } from '@components/design/typography';
 import { Box } from '@components/design/box';
 
 export const Hero = (): JSX.Element => {
-  const altImage = `/static/gifs/kusama.gif`;
+  const altImage = `/static/gifs/giphy.gif`;
   return (
     <Box
       css={{
@@ -11,7 +11,7 @@ export const Hero = (): JSX.Element => {
         backgroundRepeat: `no-repeat`,
         backgroundSize: `cover`,
         position: `relative`,
-        filter: `hue-rotate(215deg)`,
+        filter: `hue-rotate(5deg)`,
         transform: `rotate(180deg)`,
       }}
     >

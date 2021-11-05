@@ -1,5 +1,6 @@
 import { AppProps } from 'next/app';
 import { ThemeProvider } from 'next-themes';
+import { SessionProvider } from 'next-auth/react';
 
 import '@styles/minireset.min.css';
 import '@fontsource/montserrat/900.css';
@@ -17,7 +18,10 @@ const globalStyles = globalCss({
   },
 });
 
-export default function MyApp({ Component, pageProps }: AppProps) {
+export default function MyApp({
+  Component,
+  pageProps: { session, ...pageProps },
+}: AppProps) {
   globalStyles();
   return (
     <>
@@ -27,7 +31,9 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         attribute="class"
         value={{ light: `light-theme`, dark: darkTheme.className }}
       >
-        <Component {...pageProps} />
+        <SessionProvider session={session} refetchInterval={5 * 60}>
+          <Component {...pageProps} />
+        </SessionProvider>
       </ThemeProvider>
     </>
   );
