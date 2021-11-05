@@ -119,9 +119,11 @@ export const SideNavigation = () => {
               alternative="ghost"
               type="button"
               onClick={handleNavigation}
-              style={{
-                width: `100%`,
-                height: `100%`,
+              css={{
+                '@sm': {
+                  width: `100%`,
+                  height: `100%`,
+                },
               }}
             >
               {shown ? <UilMultiply /> : <UilBars />}

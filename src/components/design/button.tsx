@@ -27,6 +27,9 @@ const bounceGhostAlternative = keyframes({
 export const PlainButton = styled(`button`, {
   border: `none`,
   background: `none`,
+  '&:hover': {
+    cursor: `pointer`,
+  },
 });
 
 export const Button = styled(`button`, {
