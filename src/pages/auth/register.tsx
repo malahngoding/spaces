@@ -3,7 +3,7 @@ import { getCsrfToken, getProviders, signIn } from 'next-auth/react';
 import { NextPageContext } from 'next';
 import Link from 'next/link';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { UiGithub, UiGoogle } from '@iconscout/react-unicons';
+import { UilGithub, UilGoogle } from '@iconscout/react-unicons';
 
 import { Button } from '@components/design/button';
 import { Form } from '@components/design/form';
@@ -135,18 +135,20 @@ export default function Register(props: RegisterProps) {
               onClick={() => signIn(providers.github.id)}
               className="my-2 sm:m-2 flex flex-row justify-center items-center hover:bg-black-100"
             >
-              <UiGithub />
+              <UilGithub />
             </Button>
             <Button
               alternative="secondary"
               onClick={() => signIn(providers.google.id)}
               className="my-2 sm:m-2 flex flex-row justify-center items-center hover:bg-black-100"
             >
-              <UiGoogle />
+              <UilGoogle />
             </Button>
           </Grid>
-          <Paragraph css={{ marginY: `$md` }}>or using email</Paragraph>
-          <Form onSubmit={handleSubmit(onSubmit)}>
+          <Paragraph css={{ marginY: `$md`, display: `none` }}>
+            or using email
+          </Paragraph>
+          <Form onSubmit={handleSubmit(onSubmit)} css={{ display: `none` }}>
             <InputGroup>
               <InputLabel>E-mail</InputLabel>
               <InputText {...register(`email`, { required: true })} />
