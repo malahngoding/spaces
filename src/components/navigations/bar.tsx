@@ -8,7 +8,7 @@ export const NavigationBar = () => {
     { title: `Camps`, url: `/camps` },
     { title: `Services`, url: `/services` },
     { title: `About Us`, url: `/about-us` },
-    { title: `Register`, url: `/auth/register` },
+    { title: `Connect`, url: `/auth/register` },
   ];
 
   return (
