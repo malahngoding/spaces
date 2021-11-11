@@ -77,18 +77,19 @@ export const NavigationSheets = () => {
           }}
         >
           {navigationList.map((item) => (
-            <Button
-              key={item.url}
-              onClick={() => routerPush(item.url)}
-              alternative="ghost"
-              css={{
-                '&:hover': {
-                  backgroundColor: `$cyan6`,
-                },
-              }}
-            >
-              <SubTitle>{item.title}</SubTitle>
-            </Button>
+            <a key={item.url}>
+              <Button
+                onClick={() => routerPush(item.url)}
+                alternative="ghost"
+                css={{
+                  '&:hover': {
+                    backgroundColor: `$cyan6`,
+                  },
+                }}
+              >
+                <SubTitle>{item.title}</SubTitle>
+              </Button>
+            </a>
           ))}
         </Box>
         <Box

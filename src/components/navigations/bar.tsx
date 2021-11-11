@@ -27,14 +27,16 @@ export const NavigationBar = () => {
       <Nav>
         {NavItems.map((item) => (
           <Link href={item.url} passHref key={item.url}>
-            <Button
-              alternative={
-                item.url === `/auth/register` ? `primary` : `ghostAlternative`
-              }
-              css={{ marginRight: `$xs` }}
-            >
-              {item.title}
-            </Button>
+            <a>
+              <Button
+                alternative={
+                  item.url === `/auth/register` ? `primary` : `ghostAlternative`
+                }
+                css={{ marginRight: `$xs` }}
+              >
+                {item.title}
+              </Button>
+            </a>
           </Link>
         ))}
         {status === `loading` ? (
