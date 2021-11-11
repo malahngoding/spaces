@@ -1,7 +1,10 @@
 import { Heading, SubTitle } from '@components/design/typography';
 import { Box } from '@components/design/box';
 
+import { useTranslations } from 'next-intl';
+
 export const Hero = (): JSX.Element => {
+  const t = useTranslations(`Home`);
   const altImage = `/static/gifs/giphy.gif`;
   return (
     <Box
@@ -30,9 +33,9 @@ export const Hero = (): JSX.Element => {
           data-testid="welcome-text"
           css={{ color: `#ffffff`, marginTop: `$md` }}
         >
-          Welcome to
+          {t(`welcome`, { username: `Untung So` })}
         </SubTitle>
-        <Heading css={{ color: `#ffffff` }}>World of Malah Ngoding</Heading>
+        <Heading css={{ color: `#ffffff` }}>{t(`title`)}</Heading>
       </Box>
     </Box>
   );

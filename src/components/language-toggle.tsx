@@ -1,0 +1,51 @@
+import { useRouter } from 'next/router';
+
+import { SmallButton } from '@components/design/button';
+import { Box } from '@components/design/box';
+
+export const LanguageToggle = () => {
+  const router = useRouter();
+  const { pathname, asPath, query, locale } = router;
+
+  const handleLanguageToggle = (_locale: string): void => {
+    router.push({ pathname, query }, asPath, { locale: _locale });
+  };
+
+  return (
+    <Box
+      css={{
+        display: `flex`,
+        flexDirection: `row`,
+        paddingY: `$xs`,
+        marginY: `$xs`,
+      }}
+    >
+      <SmallButton
+        alternative={locale === `en` ? `secondary` : `ghost`}
+        css={{
+          display: `flex`,
+          flexDirection: `row`,
+          justifyContent: `center`,
+          alignItems: `center`,
+          marginRight: `$xs`,
+        }}
+        onClick={() => handleLanguageToggle(`en`)}
+      >
+        EN
+      </SmallButton>
+      <SmallButton
+        alternative={locale === `id` ? `secondary` : `ghost`}
+        css={{
+          display: `flex`,
+          flexDirection: `row`,
+          justifyContent: `center`,
+          alignItems: `center`,
+          marginLeft: `$xs`,
+        }}
+        onClick={() => handleLanguageToggle(`id`)}
+      >
+        ID
+      </SmallButton>
+    </Box>
+  );
+};

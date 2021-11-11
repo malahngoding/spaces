@@ -188,8 +188,11 @@ const Linkage = () => {
 };
 
 export const FooterNavigation = () => {
-  const ToggleComponent = dynamic((): any =>
+  const ThemeToggleComponent = dynamic((): any =>
     import(`@components/theme-toggle`).then((mod) => mod.ThemeToggle),
+  );
+  const LanguageToggleComponent = dynamic((): any =>
+    import(`@components/language-toggle`).then((mod) => mod.LanguageToggle),
   );
 
   return (
@@ -198,7 +201,8 @@ export const FooterNavigation = () => {
         <Linkage />
         <Caption>© 2021 Instead Malah Ngoding. All rights reserved.</Caption>
         <BottomLinkBox />
-        <ToggleComponent />
+        <LanguageToggleComponent />
+        <ThemeToggleComponent />
       </Footer>
     </>
   );

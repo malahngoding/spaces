@@ -1,6 +1,7 @@
 import { AppProps } from 'next/app';
 import { ThemeProvider } from 'next-themes';
 import { SessionProvider } from 'next-auth/react';
+import { NextIntlProvider, IntlMessages } from 'next-intl';
 
 import '@styles/minireset.min.css';
 import '@styles/rush.min.css';
@@ -21,21 +22,23 @@ const globalStyles = globalCss({
 
 export default function MyApp({
   Component,
-  pageProps: { session, ...pageProps },
+  pageProps: { session, messages, ...pageProps },
 }: AppProps) {
   globalStyles();
   return (
     <>
-      <ThemeProvider
-        enableSystem={false}
-        defaultTheme="light"
-        attribute="class"
-        value={{ light: `light-theme`, dark: darkTheme.className }}
-      >
-        <SessionProvider session={session} refetchInterval={5 * 60}>
-          <Component {...pageProps} />
-        </SessionProvider>
-      </ThemeProvider>
+      <NextIntlProvider messages={messages as IntlMessages}>
+        <ThemeProvider
+          enableSystem={false}
+          defaultTheme="light"
+          attribute="class"
+          value={{ light: `light-theme`, dark: darkTheme.className }}
+        >
+          <SessionProvider session={session} refetchInterval={5 * 60}>
+            <Component {...pageProps} />
+          </SessionProvider>
+        </ThemeProvider>
+      </NextIntlProvider>
     </>
   );
 }

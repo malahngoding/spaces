@@ -4,7 +4,7 @@ import { getCssText } from '@config/stitches.config';
 class MyDocument extends Document {
   render() {
     return (
-      <Html lang="en">
+      <Html lang="id">
         <Head>
           <link
             rel="apple-touch-icon"
