@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useSession, signOut } from 'next-auth/react';
 import { UilUser, UilSetting, UilSignout } from '@iconscout/react-unicons';
+import { useTranslations } from 'next-intl';
 
 import { Button, PlainButton } from '@components/design/button';
 import { Nav } from '@components/design/nav';
@@ -15,11 +16,13 @@ import {
 
 export const NavigationBar = () => {
   const { data: session, status } = useSession();
+  const t = useTranslations(`Menu`);
+
   const NavItems = [
-    { title: `Learn`, url: `/learn` },
-    { title: `Camps`, url: `/camps` },
-    { title: `Services`, url: `/services` },
-    { title: `About Us`, url: `/about-us` },
+    { title: t(`learn`), url: `/learn` },
+    { title: t(`camps`), url: `/camps` },
+    { title: t(`services`), url: `/services` },
+    { title: t(`aboutUs`), url: `/about-us` },
   ];
 
   return (
@@ -62,7 +65,7 @@ export const NavigationBar = () => {
                       <Paragraph
                         css={{ marginLeft: `$sm`, fontWeight: `bold` }}
                       >
-                        Profile
+                        {t(`profile`)}
                       </Paragraph>
                     </Button>
                   </Link>
@@ -72,7 +75,7 @@ export const NavigationBar = () => {
                       <Paragraph
                         css={{ marginLeft: `$sm`, fontWeight: `bold` }}
                       >
-                        Settings
+                        {t(`settings`)}
                       </Paragraph>
                     </Button>
                   </Link>
@@ -84,7 +87,7 @@ export const NavigationBar = () => {
                         fontWeight: `bold`,
                       }}
                     >
-                      Disconnect
+                      {t(`disconnect`)}
                     </Paragraph>
                   </Button>
                 </PopoverContent>
@@ -92,7 +95,7 @@ export const NavigationBar = () => {
             ) : (
               <Link href="/auth/register" passHref key="/auth/register">
                 <Button alternative="primary" css={{ marginRight: `$xs` }}>
-                  Connect
+                  {t(`connect`)}
                 </Button>
               </Link>
             )}

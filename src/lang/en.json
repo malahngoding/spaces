@@ -1,6 +1,31 @@
 {
+  "Menu": {
+    "learn": "Learn",
+    "articles": "Articles",
+    "snippets": "Snippets",
+    "flashCard": "Flash Card",
+    "camps": "Camps",
+    "awesomeNoob": "Awesome Noob",
+    "code": "Code",
+    "labs": "Labo",
+    "services": "Services",
+    "mentor": "Mentor",
+    "development": "Software Consulting",
+    "ours": "Ours",
+    "openSource": "Open Source",
+    "aboutUs": "About Us",
+    "helpAndFaqs": "Help & FAQs",
+    "privacyPolicy": "Privacy Policy",
+    "termsAndCondition": "Termns and Condition",
+    "cookieSettings": "Cookie Settings",
+    "allRights": " All rights reserved.",
+    "profile": "Profile",
+    "settings": "Settings",
+    "connect": "Connect",
+    "disconnect": "Disconnect"
+  },
   "Home": {
-    "welcome": "Hello {username}, Welcome to",
+    "welcome": "Hello World, welcome to",
     "title": "The World of Coding Instead"
   }
 }

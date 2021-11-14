@@ -1,6 +1,31 @@
 {
+  "Menu": {
+    "learn": "Belajar",
+    "articles": "Artikel",
+    "snippets": "Potongan",
+    "flashCard": "Flash Card",
+    "camps": "Berkemah",
+    "awesomeNoob": "Awesome Noob",
+    "code": "Koding",
+    "labs": "Laboratorium",
+    "services": "Layanan",
+    "mentor": "Tutor",
+    "development": "Konsultasi",
+    "ours": "Kami",
+    "openSource": "Open Source",
+    "aboutUs": "Tentang Kami",
+    "helpAndFaqs": "Bantuan & Pertanyaan",
+    "privacyPolicy": "Aturan Privasi",
+    "termsAndCondition": "Syarat dan Ketentuan",
+    "cookieSettings": "Pengaturan Cookie",
+    "allRights": " Semua hak dilindungi undang-undang.",
+    "profile": "Profil",
+    "settings": "Pengaturan",
+    "connect": "Masuk",
+    "disconnect": "Keluar"
+  },
   "Home": {
-    "welcome": "Halo {username}, Selamat Datang di",
+    "welcome": "Halo semua, selamat datang di",
     "title": "Dunia Malah Ngoding"
   }
 }

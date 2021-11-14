@@ -1,11 +1,15 @@
+import { useSession } from 'next-auth/react';
+import { useTranslations } from 'next-intl';
+
 import { Heading, SubTitle } from '@components/design/typography';
 import { Box } from '@components/design/box';
 
-import { useTranslations } from 'next-intl';
-
 export const Hero = (): JSX.Element => {
+  const { data: session, status } = useSession();
   const t = useTranslations(`Home`);
+
   const altImage = `/static/gifs/giphy.gif`;
+
   return (
     <Box
       css={{
@@ -33,7 +37,7 @@ export const Hero = (): JSX.Element => {
           data-testid="welcome-text"
           css={{ color: `#ffffff`, marginTop: `$md` }}
         >
-          {t(`welcome`, { username: `Untung So` })}
+          {t(`welcome`)}
         </SubTitle>
         <Heading css={{ color: `#ffffff` }}>{t(`title`)}</Heading>
       </Box>

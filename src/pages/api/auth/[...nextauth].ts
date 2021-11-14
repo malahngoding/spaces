@@ -3,6 +3,12 @@ import GithubProvider from 'next-auth/providers/github';
 import GoogleProvider from 'next-auth/providers/google';
 
 export default NextAuth({
+  jwt: {
+    secret: process.env.JWT_SECRET,
+    encryption: true,
+    signingKey: process.env.JWT_SIGNING_KEY,
+    encryptionKey: process.env.JWT_ENCRYPTION_KEY,
+  },
   pages: {
     signIn: `/auth/signin`,
     newUser: `/auth/register`,

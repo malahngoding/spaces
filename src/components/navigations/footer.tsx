@@ -1,108 +1,115 @@
-import { Footer } from '@components/design/footer';
-import { Box } from '@components/design/box';
-import { Caption, Heading, SubTitle } from '@components/design/typography';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
+
+import { Footer } from '@components/design/footer';
+import { Box } from '@components/design/box';
+import { Caption, Heading, SubTitle } from '@components/design/typography';
 import { StyledLink } from '@components/design/link';
 
-const BottomLinkBox = () => (
-  <Box
-    css={{
-      display: `flex`,
-      flexDirection: `row`,
-      justifyContent: `center`,
-      alignItems: `center`,
-      height: `auto`,
-      marginTop: `$sm`,
-      marginBottom: `$md`,
-    }}
-  >
-    <Link href="/privacy-policy" passHref>
-      <StyledLink>
-        <Caption>Privacy Policy</Caption>
-      </StyledLink>
-    </Link>
-    <Caption css={{ marginX: `$xs`, fontWeight: `$bold` }}>·</Caption>
-    <Link href="/terms-and-condition" passHref>
-      <StyledLink>
-        <Caption>Terms and Conditions</Caption>
-      </StyledLink>
-    </Link>
-    <Caption css={{ marginX: `$xs`, fontWeight: `$bold` }}>·</Caption>
-    <Link href="/cookie-settings" passHref>
-      <StyledLink>
-        <Caption>Cookie Settings</Caption>
-      </StyledLink>
-    </Link>
-  </Box>
-);
+const BottomLinkBox = () => {
+  const t = useTranslations(`Menu`);
+
+  return (
+    <Box
+      css={{
+        display: `flex`,
+        flexDirection: `row`,
+        justifyContent: `center`,
+        alignItems: `center`,
+        height: `auto`,
+        marginTop: `$sm`,
+        marginBottom: `$md`,
+      }}
+    >
+      <Link href="/privacy-policy" passHref>
+        <StyledLink>
+          <Caption>{t(`privacyPolicy`)}</Caption>
+        </StyledLink>
+      </Link>
+      <Caption css={{ marginX: `$xs`, fontWeight: `$bold` }}>·</Caption>
+      <Link href="/terms-and-condition" passHref>
+        <StyledLink>
+          <Caption>{t(`termsAndCondition`)}</Caption>
+        </StyledLink>
+      </Link>
+      <Caption css={{ marginX: `$xs`, fontWeight: `$bold` }}>·</Caption>
+      <Link href="/cookie-settings" passHref>
+        <StyledLink>
+          <Caption>{t(`cookieSettings`)}</Caption>
+        </StyledLink>
+      </Link>
+    </Box>
+  );
+};
 
 const Linkage = () => {
   const logo = `Malah Ngoding Logo`;
+  const t = useTranslations(`Menu`);
 
   const linkageObject = {
     main: [
       {
-        title: `Learn`,
+        title: t(`learn`),
         insider: [
           {
-            title: `Articles`,
+            title: t(`articles`),
             url: `/articles`,
           },
           {
-            title: `Snippets`,
+            title: t(`snippets`),
             url: `/snippets`,
           },
           {
-            title: `Flash Card`,
+            title: t(`flashCard`),
             url: `/flash-card`,
           },
         ],
       },
       {
-        title: `Camps`,
+        title: t(`camps`),
         insider: [
           {
-            title: `Awesome Noob`,
+            title: t(`awesomeNoob`),
             url: `/awesome-noob`,
           },
           {
-            title: `Code`,
+            title: t(`code`),
             url: `/code`,
           },
           {
-            title: `Labo`,
+            title: t(`labs`),
             url: `/labo`,
           },
         ],
       },
       {
-        title: `Services`,
+        title: t(`services`),
         insider: [
           {
-            title: `Mentor`,
+            title: t(`mentor`),
             url: `/mentor`,
           },
           {
-            title: `Web Development`,
-            url: `/web-development`,
+            title: t(`development`),
+            url: `/software-consulting`,
           },
         ],
       },
       {
-        title: `Ours`,
+        title: t(`ours`),
         insider: [
           {
-            title: `Open Source`,
+            title: t(`openSource`),
             url: `/open-source`,
           },
           {
-            title: `About Us`,
+            title: t(`aboutUs`),
             url: `/about-us`,
           },
           {
-            title: `Help & Faqs`,
+            title: t(`helpAndFaqs`),
             url: `/help-and-faqs`,
           },
         ],
@@ -188,6 +195,8 @@ const Linkage = () => {
 };
 
 export const FooterNavigation = () => {
+  const t = useTranslations(`Menu`);
+
   const ThemeToggleComponent = dynamic((): any =>
     import(`@components/theme-toggle`).then((mod) => mod.ThemeToggle),
   );
@@ -199,7 +208,7 @@ export const FooterNavigation = () => {
     <>
       <Footer>
         <Linkage />
-        <Caption>© 2021 Instead Malah Ngoding. All rights reserved.</Caption>
+        <Caption>© 2021 Instead Malah Ngoding. {t(`allRights`)}</Caption>
         <BottomLinkBox />
         <LanguageToggleComponent />
         <ThemeToggleComponent />
