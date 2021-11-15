@@ -2,6 +2,7 @@ import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
 import { Heading, SubTitle } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
+import { GetStaticPropsContext } from 'next';
 
 interface LearnProps {
   applicationName: string;
@@ -23,4 +24,15 @@ export default function Camps(props: LearnProps) {
       </Box>
     </BaseLayout>
   );
+}
+
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
+  const messages = await import(`../../lang/${locale}.json`).then(
+    (module) => module.default,
+  );
+  return {
+    props: {
+      messages,
+    },
+  };
 }

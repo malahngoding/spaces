@@ -1,7 +1,8 @@
+import { GetStaticPropsContext } from 'next';
+
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
 import { DesignLayout } from '@layouts/design-layout';
-import { GetStaticProps } from 'next';
 
 interface HomeProps {
   applicationName: string;
@@ -59,12 +60,17 @@ export default function DesignButton(props: HomeProps) {
   );
 }
 
-export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
+  const messages = await import(`../../lang/${locale}.json`).then(
+    (module) => module.default,
+  );
   const applicationName = `Malah Ngoding`;
+
   return {
     props: {
+      messages,
       applicationName,
       repeater: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     },
   };
-};
+}

@@ -3,20 +3,11 @@ import { Section } from '@components/design/section';
 import { Button, SmallButton } from '@components/design/button';
 import { DesignLayout } from '@layouts/design-layout';
 import { Grid } from '@components/design/grid';
-import { GetStaticProps } from 'next';
+import { GetStaticPropsContext } from 'next';
 
 interface HomeProps {
   applicationName: string;
 }
-
-export const getStaticProps: GetStaticProps<HomeProps> = async () => {
-  const applicationName = `Malah Ngoding`;
-  return {
-    props: {
-      applicationName,
-    },
-  };
-};
 
 export default function DesignButton(props: HomeProps) {
   const { applicationName } = props;
@@ -48,4 +39,18 @@ export default function DesignButton(props: HomeProps) {
       </Box>
     </DesignLayout>
   );
+}
+
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
+  const messages = await import(`../../lang/${locale}.json`).then(
+    (module) => module.default,
+  );
+  const applicationName = `Malah Ngoding`;
+
+  return {
+    props: {
+      messages,
+      applicationName,
+    },
+  };
 }

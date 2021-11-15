@@ -1,3 +1,5 @@
+import { GetStaticPropsContext } from 'next';
+
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
 import { Heading, SubTitle } from '@components/design/typography';
@@ -23,4 +25,15 @@ export default function AboutUs(props: AboutUsProps) {
       </Box>
     </BaseLayout>
   );
+}
+
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
+  const messages = await import(`../lang/${locale}.json`).then(
+    (module) => module.default,
+  );
+  return {
+    props: {
+      messages,
+    },
+  };
 }

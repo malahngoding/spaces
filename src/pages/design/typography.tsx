@@ -1,3 +1,5 @@
+import { GetStaticPropsContext } from 'next';
+
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
 import {
@@ -9,7 +11,6 @@ import {
   Paragraph,
 } from '@components/design/typography';
 import { DesignLayout } from '@layouts/design-layout';
-import { GetStaticProps } from 'next';
 
 interface HomeProps {
   applicationName: string;
@@ -42,12 +43,17 @@ export default function DesignTypography(props: HomeProps) {
   );
 }
 
-export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
+  const messages = await import(`../../lang/${locale}.json`).then(
+    (module) => module.default,
+  );
   const applicationName = `Malah Ngoding`;
+
   return {
     props: {
+      messages,
       applicationName,
       repeater: [1],
     },
   };
-};
+}
