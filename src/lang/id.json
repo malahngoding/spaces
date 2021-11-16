@@ -27,5 +27,9 @@
   "Home": {
     "welcome": "Halo semua, selamat datang di",
     "title": "Dunia Malah Ngoding"
+  },
+  "Register": {
+    "connect": "Hubungkan account kamu",
+    "message": "Dapatkan akses ke fitur yang menarik dan bergabung bersama komunitas. Belajar bersama, tumbuh sebagai sebuah platform."
   }
 }

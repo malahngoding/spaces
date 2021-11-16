@@ -9,6 +9,7 @@ import { NextPageContext } from 'next';
 import Link from 'next/link';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { UilGithub, UilGoogle } from '@iconscout/react-unicons';
+import { useTranslations } from 'next-intl';
 
 import { Button } from '@components/design/button';
 import { Form } from '@components/design/form';
@@ -81,27 +82,6 @@ function checkExpiry(current: string | undefined): boolean {
   return false;
 }
 
-export async function getServerSideProps(context: NextPageContext) {
-  const session = await getSession(context);
-
-  const providers = await getProviders();
-  const csrfToken = await getCsrfToken(context);
-
-  checkExpiry(session?.expires);
-
-  if (session?.expires) {
-    return {
-      redirect: {
-        destination: `/`,
-      },
-    };
-  }
-
-  return {
-    props: { providers, csrfToken },
-  };
-}
-
 interface RegisterProps {
   providers: any;
   csrfToken: string;
@@ -114,6 +94,7 @@ export default function Register(props: RegisterProps) {
     formState: { errors },
   } = useForm<RegisterForm>();
 
+  const t = useTranslations(`Register`);
   const { providers, csrfToken } = props;
 
   const onSubmit: SubmitHandler<RegisterForm> = (data) =>
@@ -144,10 +125,9 @@ export default function Register(props: RegisterProps) {
               />
             </a>
           </Link>
-          <Title>Connect your account</Title>
+          <Title>{t(`connect`)}</Title>
           <Paragraph css={{ marginY: `$md`, maxWidth: `315px` }}>
-            Gain access to exciting features and learning community. Grow
-            together as a platform.
+            {t(`message`)}
           </Paragraph>
           <Grid
             css={{
@@ -214,4 +194,29 @@ export default function Register(props: RegisterProps) {
       </Right>
     </AuthLayout>
   );
+}
+
+export async function getServerSideProps(context: NextPageContext) {
+  const messages = await import(`../../lang/${context.locale}.json`).then(
+    (module) => module.default,
+  );
+
+  const session = await getSession(context);
+
+  const providers = await getProviders();
+  const csrfToken = await getCsrfToken(context);
+
+  checkExpiry(session?.expires);
+
+  if (session?.expires) {
+    return {
+      redirect: {
+        destination: `/`,
+      },
+    };
+  }
+
+  return {
+    props: { providers, csrfToken, messages },
+  };
 }

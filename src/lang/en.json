@@ -27,5 +27,9 @@
   "Home": {
     "welcome": "Hello World, welcome to",
     "title": "The World of Coding Instead"
+  },
+  "Register": {
+    "connect": "Connect your account",
+    "message": "Gain access to exciting features and learning community. Grow together as a platform."
   }
 }
