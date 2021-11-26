@@ -9,6 +9,7 @@
     "build": "export NODE_OPTIONS=--openssl-legacy-provider && next build",
     "export": "export NODE_OPTIONS=--openssl-legacy-provider && next build && next export",
     "start": "export NODE_OPTIONS=--openssl-legacy-provider && next build && next start -p 3500",
+    "serve": "export NODE_OPTIONS=--openssl-legacy-provider && next start -p 3500",
     "type-check": "tsc",
     "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
     "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
