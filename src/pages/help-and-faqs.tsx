@@ -17,8 +17,10 @@ export default function AboutUs(props: AboutUsProps) {
     <BaseLayout title="Hello World!">
       <Box>
         <Section>
-          <SubTitle data-testid="welcome-text">Introducing</SubTitle>
-          <Heading>Malah Ngoding</Heading>
+          <SubTitle data-testid="welcome-text">
+            Where you can be helped
+          </SubTitle>
+          <Heading>Help & Faqs</Heading>
         </Section>
       </Box>
     </BaseLayout>

@@ -195,6 +195,9 @@ const Linkage = () => {
 };
 
 export const FooterNavigation = () => {
+  const date = new Date();
+  const year = date.getFullYear();
+
   const t = useTranslations(`Menu`);
 
   const ThemeToggleComponent = dynamic((): any =>
@@ -208,7 +211,9 @@ export const FooterNavigation = () => {
     <>
       <Footer>
         <Linkage />
-        <Caption>© 2021 Instead Malah Ngoding. {t(`allRights`)}</Caption>
+        <Caption>
+          © {year} Malah Ngoding. {t(`allRights`)}
+        </Caption>
         <BottomLinkBox />
         <LanguageToggleComponent />
         <ThemeToggleComponent />

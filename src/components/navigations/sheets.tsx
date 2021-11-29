@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
+import { useTranslations } from 'next-intl';
 
 import { Button } from '@components/design/button';
 import { SubTitle } from '@components/design/typography';
@@ -35,13 +36,14 @@ export const NavigationSheets = () => {
   const toggleNav = useDashNav((state) => state.toggleNav);
   const { theme } = useTheme();
   const router = useRouter();
+  const t = useTranslations(`Menu`);
 
   const navigationList = [
-    { title: `Learn`, url: `/learn` },
-    { title: `Camps`, url: `/camps` },
-    { title: `Labs`, url: `/labs` },
-    { title: `About`, url: `/about-us` },
-    { title: `.design`, url: `/design` },
+    { title: t(`learn`), url: `/learn` },
+    { title: t(`camps`), url: `/camps` },
+    { title: t(`labs`), url: `/labs` },
+    { title: t(`aboutUs`), url: `/about-us` },
+    { title: t(`design`), url: `/design` },
   ];
 
   const routerPush = async (url: string) => {
