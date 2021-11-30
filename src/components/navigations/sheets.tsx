@@ -41,7 +41,7 @@ export const NavigationSheets = () => {
   const navigationList = [
     { title: t(`learn`), url: `/learn` },
     { title: t(`camps`), url: `/camps` },
-    { title: t(`labs`), url: `/labs` },
+    { title: t(`labs`), url: `/camps/labs` },
     { title: t(`aboutUs`), url: `/about-us` },
     { title: t(`design`), url: `/design` },
   ];

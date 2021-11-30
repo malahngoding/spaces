@@ -55,15 +55,15 @@ const Linkage = () => {
         insider: [
           {
             title: t(`articles`),
-            url: `/articles`,
+            url: `/learn/articles`,
           },
           {
             title: t(`snippets`),
-            url: `/snippets`,
+            url: `/learn/snippets`,
           },
           {
             title: t(`flashCard`),
-            url: `/flash-card`,
+            url: `/learn/flash-card`,
           },
         ],
       },
@@ -72,15 +72,15 @@ const Linkage = () => {
         insider: [
           {
             title: t(`awesomeNoob`),
-            url: `/awesome-noob`,
+            url: `/camps/awesome-noob`,
           },
           {
             title: t(`code`),
-            url: `/code`,
+            url: `/camps/code`,
           },
           {
             title: t(`labs`),
-            url: `/labo`,
+            url: `/camps/labs`,
           },
         ],
       },

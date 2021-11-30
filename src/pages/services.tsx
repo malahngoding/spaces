@@ -16,12 +16,12 @@ export default function AboutUs(props: AboutUsProps) {
   return (
     <BaseLayout title="Hello World!">
       <Box>
-        <br />
         <Section>
+          <br />
           <SubTitle data-testid="welcome-text">
-            Where you can be helped
+            High Precision, Prime Quality
           </SubTitle>
-          <Heading>Help & Faqs</Heading>
+          <Heading>Solution as a services</Heading>
         </Section>
       </Box>
     </BaseLayout>
