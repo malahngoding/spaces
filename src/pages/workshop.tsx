@@ -10,7 +10,7 @@ import { Caption, Heading, SubTitle } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
 import { Markdown, MarkdownWrapper } from '@components/markdown';
 
-interface OpenSourceProps {
+interface WorkshopProps {
   source: any;
   frontMatter: {
     title: string;
@@ -20,7 +20,7 @@ interface OpenSourceProps {
   };
 }
 
-export default function OpenSource(props: OpenSourceProps) {
+export default function Workshop(props: WorkshopProps) {
   const t = useTranslations(`Articles`);
 
   return (
@@ -50,7 +50,7 @@ export default function OpenSource(props: OpenSourceProps) {
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   const response = await fetch(
-    `${process.env.MICROS_URL}/public/static/${locale}/open-source.md`,
+    `${process.env.MICROS_URL}/public/static/${locale}/workshop.md`,
   );
 
   const source = await response.text();

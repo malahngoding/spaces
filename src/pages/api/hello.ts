@@ -24,9 +24,6 @@ export default async function handler(
   res: NextApiResponse<Data>,
 ) {
   // const response = await sayHelloAgain(`Radical`);
-  res
-    .status(200)
-    .json({ name: `Alberto` });
-    // .json({ name: `${response.getMessage()}John Doe ${req.query.id}` });
-
+  res.status(200).json({ name: `Alberto` });
+  // .json({ name: `${response.getMessage()}John Doe ${req.query.id}` });
 }

@@ -95,6 +95,10 @@ const Linkage = () => {
             title: t(`development`),
             url: `/software-consulting`,
           },
+          {
+            title: t(`workshop`),
+            url: `/workshop`,
+          },
         ],
       },
       {

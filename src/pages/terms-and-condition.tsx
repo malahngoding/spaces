@@ -10,7 +10,7 @@ import { Caption, Heading, SubTitle } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
 import { Markdown, MarkdownWrapper } from '@components/markdown';
 
-interface OpenSourceProps {
+interface TermsAndConditionProps {
   source: any;
   frontMatter: {
     title: string;
@@ -20,7 +20,7 @@ interface OpenSourceProps {
   };
 }
 
-export default function OpenSource(props: OpenSourceProps) {
+export default function TermsAndCondition(props: TermsAndConditionProps) {
   const t = useTranslations(`Articles`);
 
   return (
@@ -28,7 +28,7 @@ export default function OpenSource(props: OpenSourceProps) {
       <Box>
         <br />
         <Section>
-          <SubTitle data-testid="about-us-text">
+          <SubTitle data-testid="help-and-faqs-text">
             {props.frontMatter.subTitle}
           </SubTitle>
           <Heading>{props.frontMatter.title}</Heading>
@@ -50,7 +50,7 @@ export default function OpenSource(props: OpenSourceProps) {
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   const response = await fetch(
-    `${process.env.MICROS_URL}/public/static/${locale}/open-source.md`,
+    `${process.env.MICROS_URL}/public/static/${locale}/terms-and-condition.md`,
   );
 
   const source = await response.text();

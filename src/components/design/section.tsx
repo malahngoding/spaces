@@ -9,8 +9,13 @@ export const Section = styled(`section`, {
         marginY: `$md`,
       },
       common: {
-        marginX: `$md`,
         marginY: `$md`,
+        '@xs': {
+          marginX: `$md`,
+        },
+        '@lg': {
+          marginX: `$xl`,
+        },
       },
     },
   },

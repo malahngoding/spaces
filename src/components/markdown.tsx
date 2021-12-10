@@ -1,57 +1,79 @@
 import Image from 'next/image';
+import { Box } from '@components/design/box';
+import {
+  Heading,
+  SubHeading,
+  Title,
+  SubTitle,
+  CaptionTitle,
+  Caption,
+  Paragraph,
+} from '@components/design/typography';
 
-const Title = (props: any) => {
+const MdxHeading = (props: any) => {
   return (
     <>
-      <h1 style={{ fontSize: 80 }} {...props} />
+      <Heading
+        {...props}
+        id={props.children.replace(/\s+/g, '-').toLowerCase()}
+      />
     </>
   );
 };
 
-const SubTitle = (props: any) => {
+const MdxSubHeading = (props: any) => {
   return (
     <>
-      <h2 style={{ fontSize: 60 }} {...props} />
+      <SubHeading
+        {...props}
+        id={props.children.replace(/\s+/g, '-').toLowerCase()}
+      />
     </>
   );
 };
 
-const ParagraphTitle = (props: any) => {
+const MdxTitle = (props: any) => {
   return (
     <>
-      <h3 style={{ fontSize: 40 }} {...props} />
+      <Title
+        {...props}
+        id={props.children.replace(/\s+/g, '-').toLowerCase()}
+      />
     </>
   );
 };
 
-const ParagraphSubTitle = (props: any) => {
+const MdxSubTitle = (props: any) => {
   return (
     <>
-      <h4 style={{ fontSize: 30 }} {...props} />
+      <SubTitle
+        {...props}
+        id={props.children.replace(/\s+/g, '-').toLowerCase()}
+      />
     </>
   );
 };
 
-const BlockTitle = (props: any) => {
+const MdxCaptionTitle = (props: any) => {
   return (
     <>
-      <h5 style={{ fontSize: 20 }} {...props} />
+      <CaptionTitle {...props} />
     </>
   );
 };
 
-const BlockSubTitle = (props: any) => {
+const MdxCaption = (props: any) => {
   return (
     <>
-      <h6 style={{ fontSize: 20 }} {...props} />
+      <Caption {...props} />
     </>
   );
 };
 
-const Paragraph = (props: any) => {
+const MdxParagraph = (props: any) => {
   return (
     <>
-      <p style={{ fontSize: `1em` }} {...props} />
+      <Paragraph {...props} />
     </>
   );
 };
@@ -59,7 +81,7 @@ const Paragraph = (props: any) => {
 const CustomLink = (props: any) => {
   return (
     <>
-      <a {...props} />
+      <Box as="a" css={{ textDecoration: `underline` }} {...props} />
     </>
   );
 };
@@ -67,7 +89,15 @@ const CustomLink = (props: any) => {
 const BlockQuote = (props: any) => {
   return (
     <>
-      <blockquote {...props} />
+      <Box
+        as="blockquote"
+        css={{
+          backgroundColor: `$crimson4`,
+          padding: `$sm`,
+          borderLeft: `4px solid $crimson6`,
+        }}
+        {...props}
+      />
     </>
   );
 };
@@ -83,10 +113,7 @@ const LineBreak = (props: any) => {
 const CodeBlock = (props: any) => {
   return (
     <>
-      <code
-        style={{ backgroundColor: `lightsalmon`, fontFamily: `monospace` }}
-        {...props}
-      />
+      <code style={{ fontFamily: `monospace` }} {...props} />
     </>
   );
 };
@@ -110,7 +137,7 @@ const HairLine = (props: any) => {
 const ImageCustom = (props: any) => {
   return (
     <>
-      <Image {...props} alt={props.alt} />
+      <Image layout="fill" alt={props.alt} {...props} />
     </>
   );
 };
@@ -126,7 +153,7 @@ const Pre = (props: any) => {
 const OrderedList = (props: any) => {
   return (
     <>
-      <ol style={{ marginLeft: `1.5em` }} {...props} />
+      <Box as="ol" css={{ marginLeft: `$sm` }} {...props} />
     </>
   );
 };
@@ -134,7 +161,11 @@ const OrderedList = (props: any) => {
 const UnorderedList = (props: any) => {
   return (
     <>
-      <ul style={{ marginLeft: `1.5em` }} {...props} />
+      <Box
+        as="ul"
+        css={{ listStyleType: `square `, marginLeft: `$sm` }}
+        {...props}
+      />
     </>
   );
 };
@@ -142,19 +173,27 @@ const UnorderedList = (props: any) => {
 const TheList = (props: any) => {
   return (
     <>
-      <li {...props} />
+      <Box
+        as="li"
+        css={{ lineHeight: `1.8em`, marginBottom: `$sm` }}
+        {...props}
+      />
     </>
   );
 };
 
+export const MarkdownWrapper = (props: any) => {
+  return <Box css={{ maxWidth: `640px` }}>{props.children}</Box>;
+};
+
 export const Markdown = {
-  h1: Title,
-  h2: SubTitle,
-  h3: ParagraphTitle,
-  h4: ParagraphSubTitle,
-  h5: BlockTitle,
-  h6: BlockSubTitle,
-  p: Paragraph,
+  h1: MdxHeading,
+  h2: MdxSubHeading,
+  h3: MdxTitle,
+  h4: MdxSubTitle,
+  h5: MdxCaptionTitle,
+  h6: MdxCaption,
+  p: MdxParagraph,
   a: CustomLink,
   blockquote: BlockQuote,
   br: LineBreak,
