@@ -50,7 +50,7 @@ export default function Workshop(props: WorkshopProps) {
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   const response = await fetch(
-    `${process.env.MICROS_URL}/public/static/${locale}/workshop.md`,
+    `${process.env.NEXT_PUBLIC_MICROS_URL}/public/static/${locale}/workshop.md`,
   );
 
   const source = await response.text();

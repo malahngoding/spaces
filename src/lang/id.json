@@ -36,5 +36,10 @@
   },
   "Articles": {
     "updated": "Diperbaharui pada"
+  },
+  "Profile": {
+    "profile": "Profil Kamu",
+    "badge": "Lencana",
+    "settings": "Pengaturan"
   }
 }

@@ -50,7 +50,7 @@ export default function PrivacyPolicy(props: PrivacyPolicyProps) {
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   const response = await fetch(
-    `${process.env.MICROS_URL}/public/static/${locale}/privacy-policy.md`,
+    `${process.env.NEXT_PUBLIC_MICROS_URL}/public/static/${locale}/privacy-policy.md`,
   );
 
   const source = await response.text();

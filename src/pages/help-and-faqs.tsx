@@ -50,7 +50,7 @@ export default function HelpAndFaqs(props: HelpAndFaqsProps) {
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   const response = await fetch(
-    `${process.env.MICROS_URL}/public/static/${locale}/help-and-faqs.md`,
+    `${process.env.NEXT_PUBLIC_MICROS_URL}/public/static/${locale}/help-and-faqs.md`,
   );
 
   const source = await response.text();

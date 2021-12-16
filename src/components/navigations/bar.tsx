@@ -52,7 +52,10 @@ export const NavigationBar = () => {
                   <PlainButton>
                     <Avatar>
                       <AvatarImage
-                        src={session?.user?.image || ``}
+                        src={
+                          session?.currentUser?.avatar ||
+                          `https://avatars.dicebear.com/api/open-peeps/user.svg`
+                        }
                         role="button"
                       />
                     </Avatar>

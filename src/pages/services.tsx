@@ -50,7 +50,7 @@ export default function Service(props: ServiceProps) {
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   const response = await fetch(
-    `${process.env.MICROS_URL}/public/static/${locale}/services.md`,
+    `${process.env.NEXT_PUBLIC_MICROS_URL}/public/static/${locale}/services.md`,
   );
 
   const source = await response.text();

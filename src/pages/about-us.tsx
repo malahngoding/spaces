@@ -50,7 +50,7 @@ export default function AboutUs(props: AboutUsProps) {
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   const response = await fetch(
-    `${process.env.MICROS_URL}/public/static/${locale}/about-us.md`,
+    `${process.env.NEXT_PUBLIC_MICROS_URL}/public/static/${locale}/about-us.md`,
   );
 
   const source = await response.text();

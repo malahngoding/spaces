@@ -36,5 +36,10 @@
   },
   "Articles": {
     "updated": "Updated on"
+  },
+  "Profile": {
+    "profile": "Your Profile",
+    "badge": "Badge",
+    "settings": "Settings"
   }
 }

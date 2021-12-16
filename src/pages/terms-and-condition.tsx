@@ -50,7 +50,7 @@ export default function TermsAndCondition(props: TermsAndConditionProps) {
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   const response = await fetch(
-    `${process.env.MICROS_URL}/public/static/${locale}/terms-and-condition.md`,
+    `${process.env.NEXT_PUBLIC_MICROS_URL}/public/static/${locale}/terms-and-condition.md`,
   );
 
   const source = await response.text();
