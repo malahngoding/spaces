@@ -69,7 +69,7 @@ export const NavigationSheets = () => {
             borderRight: `1px solid $slate6`,
             display: `flex`,
             flexDirection: `column`,
-            justifyContent: `center`,
+            justifyContent: `flex-end`,
             alignItems: `flex-start`,
             padding: `$md`,
             '@lg': {
@@ -93,6 +93,26 @@ export const NavigationSheets = () => {
               </Button>
             </a>
           ))}
+          <Box
+            as="a"
+            css={{
+              '@md': {
+                display: `none`,
+              },
+            }}
+          >
+            <Button
+              onClick={() => routerPush(`/auth/register`)}
+              alternative="ghost"
+              css={{
+                '&:hover': {
+                  backgroundColor: `$cyan6`,
+                },
+              }}
+            >
+              <SubTitle>{t(`connect`)}</SubTitle>
+            </Button>
+          </Box>
         </Box>
         <Box
           css={{
