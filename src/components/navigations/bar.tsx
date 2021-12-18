@@ -66,17 +66,25 @@ export const NavigationBar = () => {
                     <Button alternative="ghost">
                       <UilUser />
                       <Paragraph
-                        css={{ marginLeft: `$sm`, fontWeight: `bold` }}
+                        css={{
+                          marginLeft: `$sm`,
+                          fontWeight: `bold`,
+                          marginBottom: 0,
+                        }}
                       >
                         {t(`profile`)}
                       </Paragraph>
                     </Button>
                   </Link>
-                  <Link href="/settings" passHref>
+                  <Link href="/profile/settings" passHref>
                     <Button alternative="ghost">
                       <UilSetting />
                       <Paragraph
-                        css={{ marginLeft: `$sm`, fontWeight: `bold` }}
+                        css={{
+                          marginLeft: `$sm`,
+                          fontWeight: `bold`,
+                          marginBottom: 0,
+                        }}
                       >
                         {t(`settings`)}
                       </Paragraph>
@@ -88,6 +96,7 @@ export const NavigationBar = () => {
                       css={{
                         marginLeft: `$sm`,
                         fontWeight: `bold`,
+                        marginBottom: 0,
                       }}
                     >
                       {t(`disconnect`)}

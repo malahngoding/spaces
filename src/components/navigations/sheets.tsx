@@ -7,6 +7,7 @@ import { SubTitle } from '@components/design/typography';
 import { Box } from '@components/design/box';
 import { styled } from '@config/stitches.config';
 import { useDashNav } from '@store/navigation-store';
+import { useSession } from 'next-auth/react';
 
 const NavigationCard = styled(`div`, {
   position: `fixed`,
@@ -33,6 +34,8 @@ const NavigationCard = styled(`div`, {
 });
 
 export const NavigationSheets = () => {
+  const { data: session, status } = useSession();
+
   const toggleNav = useDashNav((state) => state.toggleNav);
   const { theme } = useTheme();
   const router = useRouter();
@@ -89,30 +92,60 @@ export const NavigationSheets = () => {
                   },
                 }}
               >
-                <SubTitle>{item.title}</SubTitle>
+                <SubTitle css={{ marginBottom: 0 }}>{item.title}</SubTitle>
               </Button>
             </a>
           ))}
-          <Box
-            as="a"
-            css={{
-              '@md': {
-                display: `none`,
-              },
-            }}
-          >
-            <Button
-              onClick={() => routerPush(`/auth/register`)}
-              alternative="ghost"
-              css={{
-                '&:hover': {
-                  backgroundColor: `$cyan6`,
-                },
-              }}
-            >
-              <SubTitle>{t(`connect`)}</SubTitle>
-            </Button>
-          </Box>
+          {status === `loading` ? (
+            <p>Loading...</p>
+          ) : (
+            <>
+              <Box
+                as="a"
+                css={{
+                  '@md': {
+                    display: `none`,
+                  },
+                }}
+              >
+                {status === `unauthenticated` ? (
+                  <Button
+                    onClick={() => routerPush(`/auth/register`)}
+                    alternative="ghost"
+                    css={{
+                      '&:hover': {
+                        backgroundColor: `$cyan6`,
+                      },
+                    }}
+                  >
+                    <SubTitle css={{ marginBottom: 0, color: `$cyan10` }}>
+                      {t(`connect`)}
+                    </SubTitle>
+                  </Button>
+                ) : (
+                  <Button
+                    onClick={() => routerPush(`/profile`)}
+                    alternative="ghost"
+                    css={{
+                      '&:hover': {
+                        backgroundColor: `$cyan6`,
+                      },
+                    }}
+                  >
+                    <SubTitle
+                      css={{
+                        marginBottom: 0,
+                        color: `$cyan10`,
+                        textAlign: `left`,
+                      }}
+                    >
+                      {session?.currentUser.name}
+                    </SubTitle>
+                  </Button>
+                )}
+              </Box>
+            </>
+          )}
         </Box>
         <Box
           css={{

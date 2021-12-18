@@ -49,8 +49,12 @@ export const ProfileLayout = (props: ProfileLayoutProps) => {
           <Section
             css={{
               display: `flex`,
-              flexDirection: `row`,
+              flexDirection: `column`,
+              alignItems: `center`,
               justifyContent: `space-between`,
+              '@sm': {
+                flexDirection: `row`,
+              },
             }}
           >
             <Box>
@@ -81,8 +85,9 @@ export const ProfileLayout = (props: ProfileLayoutProps) => {
               css={{
                 display: `flex`,
                 flexDirection: `row`,
+                overflowX: `scroll`,
                 '@xs': {
-                  marginX: `$md`,
+                  marginX: `0`,
                 },
                 '@lg': {
                   marginX: `$xl`,
