@@ -24,10 +24,10 @@ export const Hero = (): JSX.Element => {
     >
       <Box
         css={{
-          height: `320px`,
+          height: `380px`,
           display: `flex`,
           flexDirection: `column`,
-          justifyContent: `center`,
+          justifyContent: `flex-end`,
           alignItems: `flex-start`,
           padding: `$md`,
           transform: `rotate(180deg)`,

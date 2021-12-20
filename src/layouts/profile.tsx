@@ -77,7 +77,6 @@ export const ProfileLayout = (props: ProfileLayoutProps) => {
           </Section>
           <Box
             css={{
-              borderTop: `1px solid $slate6`,
               borderBottom: `1px solid $slate6`,
             }}
           >

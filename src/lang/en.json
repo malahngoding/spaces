@@ -23,6 +23,7 @@
     "allRights": " All rights reserved.",
     "profile": "Profile",
     "settings": "Settings",
+    "wallet": "Wallet",
     "connect": "Connect",
     "disconnect": "Disconnect"
   },
@@ -41,5 +42,9 @@
     "profile": "Your Profile",
     "badge": "Badge",
     "settings": "Settings"
+  },
+  "Wallets": {
+    "welcome": "My Wallet",
+    "title": "Malah Ngoding Wallet"
   }
 }

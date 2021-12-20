@@ -23,6 +23,7 @@
     "allRights": " Semua hak dilindungi undang-undang.",
     "profile": "Profil",
     "settings": "Pengaturan",
+    "wallet": "Dompet",
     "connect": "Masuk",
     "disconnect": "Keluar"
   },
@@ -41,5 +42,9 @@
     "profile": "Profil Kamu",
     "badge": "Lencana",
     "settings": "Pengaturan"
+  },
+  "Wallets": {
+    "welcome": "Dompet Kamu",
+    "title": "Dompet Malah Ngoding"
   }
 }
