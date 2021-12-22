@@ -38,6 +38,11 @@
   "Articles": {
     "updated": "Updated on"
   },
+  "Service": {
+    "mentor": "Coding with tutor",
+    "development": "We help you build your next project",
+    "workshop": "Workshop by us, for everyone"
+  },
   "Profile": {
     "profile": "Your Profile",
     "details": "Details",

@@ -38,6 +38,11 @@
   "Articles": {
     "updated": "Diperbaharui pada"
   },
+  "Service": {
+    "mentor": "Malah ngoding ditemani mentor",
+    "development": "Konsultasi untuk membangun solusi dengan kami",
+    "workshop": "Workshop yang dilakukan oleh kami"
+  },
   "Profile": {
     "profile": "Profil Kamu",
     "details": "Detil",

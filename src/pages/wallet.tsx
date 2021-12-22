@@ -5,7 +5,7 @@ import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
 import { Heading, SubTitle, Title } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
-import { BadgeCard } from '@components/badge-card';
+import { CryptoCard } from '@components/crypto-card';
 
 export default function Wallet() {
   const t = useTranslations(`Wallets`);
@@ -20,7 +20,7 @@ export default function Wallet() {
         </Section>
 
         <Section>
-          <BadgeCard
+          <CryptoCard
             title="100 $MNT"
             description="Malah Ngoding Token"
             image="https://storage.opensea.io/files/70db9e857f52b78b7a9f6d93020e50d8.mp4#t=0.001"
