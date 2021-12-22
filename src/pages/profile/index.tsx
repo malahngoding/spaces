@@ -1,8 +1,10 @@
 import { GetServerSidePropsContext } from 'next';
 import { getSession } from 'next-auth/react';
+import { useTranslations } from 'next-intl';
 
 import { ProfileLayout } from '@layouts/profile';
 import { Section } from '@components/design/section';
+import { SubTitle } from '@components/design/typography';
 
 interface ProfileProps {
   currentUser: {
@@ -14,9 +16,14 @@ interface ProfileProps {
   };
 }
 export default function Profile(props: ProfileProps) {
+  const t = useTranslations(`Profile`);
+
   return (
     <ProfileLayout layout={{ tab: 0 }} currentUser={props.currentUser}>
-      <Section>Profile</Section>
+      <Section>
+        <SubTitle>{t(`details`)}</SubTitle>
+        <SubTitle>{t(`misc`)}</SubTitle>
+      </Section>
     </ProfileLayout>
   );
 }

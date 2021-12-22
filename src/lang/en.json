@@ -40,8 +40,12 @@
   },
   "Profile": {
     "profile": "Your Profile",
+    "details": "Details",
+    "misc": "Miscellaneous",
     "badge": "Badge",
-    "settings": "Settings"
+    "settings": "Settings",
+    "theme": "Themes",
+    "themeMessage": "Toggle your color theme"
   },
   "Wallets": {
     "welcome": "My Wallet",

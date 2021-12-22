@@ -3,6 +3,10 @@ import { getSession } from 'next-auth/react';
 
 import { ProfileLayout } from '@layouts/profile';
 import { Section } from '@components/design/section';
+import dynamic from 'next/dynamic';
+import { Box } from '@components/design/box';
+import { Caption, Paragraph, SubTitle } from '@components/design/typography';
+import { useTranslations } from 'next-intl';
 
 interface ProfileProps {
   currentUser: {
@@ -14,9 +18,29 @@ interface ProfileProps {
   };
 }
 export default function Settings(props: ProfileProps) {
+  const t = useTranslations(`Profile`);
+
+  const ThemeToggleComponent = dynamic((): any =>
+    import(`@components/theme-toggle`).then((mod) => mod.ThemeToggle),
+  );
+
   return (
     <ProfileLayout layout={{ tab: 2 }} currentUser={props.currentUser}>
-      <Section>Settings</Section>
+      <Section>
+        <SubTitle>{t(`theme`)}</SubTitle>
+        <Box
+          css={{
+            display: `flex`,
+            flexDirection: `row`,
+            alignItems: `center`,
+          }}
+        >
+          <ThemeToggleComponent />
+          <Paragraph css={{ marginBottom: 0, marginLeft: `$sm` }}>
+            {t(`themeMessage`)}
+          </Paragraph>
+        </Box>
+      </Section>
     </ProfileLayout>
   );
 }

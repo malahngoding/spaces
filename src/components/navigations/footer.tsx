@@ -204,9 +204,6 @@ export const FooterNavigation = () => {
 
   const t = useTranslations(`Menu`);
 
-  const ThemeToggleComponent = dynamic((): any =>
-    import(`@components/theme-toggle`).then((mod) => mod.ThemeToggle),
-  );
   const LanguageToggleComponent = dynamic((): any =>
     import(`@components/language-toggle`).then((mod) => mod.LanguageToggle),
   );
@@ -220,7 +217,6 @@ export const FooterNavigation = () => {
         </Caption>
         <BottomLinkBox />
         <LanguageToggleComponent />
-        <ThemeToggleComponent />
       </Footer>
     </>
   );

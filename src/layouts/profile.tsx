@@ -88,6 +88,9 @@ export const ProfileLayout = (props: ProfileLayoutProps) => {
                 '@xs': {
                   marginX: `0`,
                 },
+                '@md': {
+                  overflowX: `hidden`,
+                },
                 '@lg': {
                   marginX: `$xl`,
                 },

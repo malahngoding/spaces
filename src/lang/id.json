@@ -40,8 +40,12 @@
   },
   "Profile": {
     "profile": "Profil Kamu",
+    "details": "Detil",
+    "misc": "Lainnya",
     "badge": "Lencana",
-    "settings": "Pengaturan"
+    "settings": "Pengaturan",
+    "theme": "Tema",
+    "themeMessage": "Ganti tema warna kamu"
   },
   "Wallets": {
     "welcome": "Dompet Kamu",
