@@ -5,6 +5,8 @@ import { useTranslations } from 'next-intl';
 import { ProfileLayout } from '@layouts/profile';
 import { Section } from '@components/design/section';
 import { SubTitle } from '@components/design/typography';
+import { DetailsForm } from '@components/profile/details-form';
+import { MiscForm } from '@components/profile/misc.form';
 
 interface ProfileProps {
   currentUser: {
@@ -15,6 +17,7 @@ interface ProfileProps {
     joinedSince: string;
   };
 }
+
 export default function Profile(props: ProfileProps) {
   const t = useTranslations(`Profile`);
 
@@ -22,7 +25,9 @@ export default function Profile(props: ProfileProps) {
     <ProfileLayout layout={{ tab: 0 }} currentUser={props.currentUser}>
       <Section>
         <SubTitle>{t(`details`)}</SubTitle>
+        <DetailsForm />
         <SubTitle>{t(`misc`)}</SubTitle>
+        <MiscForm />
       </Section>
     </ProfileLayout>
   );
