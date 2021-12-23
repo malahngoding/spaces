@@ -6,7 +6,7 @@ import { ProfileLayout } from '@layouts/profile';
 import { Section } from '@components/design/section';
 import { SubTitle } from '@components/design/typography';
 import { DetailsForm } from '@components/profile/details-form';
-import { MiscForm } from '@components/profile/misc.form';
+import { MiscForm } from '@components/profile/misc-form';
 
 interface ProfileProps {
   currentUser: {
