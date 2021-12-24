@@ -208,6 +208,10 @@ export const FooterNavigation = () => {
     import(`@components/language-toggle`).then((mod) => mod.LanguageToggle),
   );
 
+  const ThemeToggleComponent = dynamic((): any =>
+    import(`@components/theme-toggle`).then((mod) => mod.ThemeToggle),
+  );
+
   return (
     <>
       <Footer>
@@ -217,6 +221,7 @@ export const FooterNavigation = () => {
         </Caption>
         <BottomLinkBox />
         <LanguageToggleComponent />
+        <ThemeToggleComponent />
       </Footer>
     </>
   );

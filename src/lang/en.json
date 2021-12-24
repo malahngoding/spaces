@@ -55,5 +55,9 @@
   "Wallets": {
     "welcome": "My Wallet",
     "title": "Malah Ngoding Wallet"
+  },
+  "Error": {
+    "404Title": "Page Not Found",
+    "404SubTitle": "404 Error"
   }
 }

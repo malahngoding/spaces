@@ -55,5 +55,9 @@
   "Wallets": {
     "welcome": "Dompet Kamu",
     "title": "Dompet Malah Ngoding"
+  },
+  "Error": {
+    "404Title": "Laman tak dapat ditemukan",
+    "404SubTitle": "Kesalahan 404"
   }
 }

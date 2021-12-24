@@ -1,12 +1,6 @@
-import Axios from 'axios';
 import CryptoJs from 'crypto-js';
 
-const service = Axios.create({
-  baseURL: process.env.NEXT_PUBLIC_MICROS_URL,
-  headers: {
-    'X-Requested-With': 'XMLHttpRequest',
-  },
-});
+import { service } from '@utils/service';
 
 export const issueToken = async (
   identification: string,
