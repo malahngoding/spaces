@@ -53,8 +53,8 @@ export const NavigationBar = () => {
                     <Avatar>
                       <AvatarImage
                         src={
-                          session?.currentUser?.avatar ||
-                          `https://avatars.dicebear.com/api/open-peeps/user.svg`
+                          `https://avatars.dicebear.com/api/micah/${session?.currentUser?.avatar}.svg` ||
+                          `https://avatars.dicebear.com/api/micah/${new Date()}.svg`
                         }
                         role="button"
                       />

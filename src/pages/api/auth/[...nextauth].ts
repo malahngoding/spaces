@@ -4,6 +4,7 @@ import GoogleProvider from 'next-auth/providers/google';
 import CryptoJS from 'crypto-js';
 
 import { issueToken } from '@services/auth-service';
+import { getProfileDetails } from '@services/profile-service';
 
 export default NextAuth({
   secret: process.env.JWT_SECRET,
@@ -40,21 +41,11 @@ export default NextAuth({
       return baseUrl;
     },
     async session({ session, user, token }) {
-      session.insteadToken = token.insteadToken;
-      const theToken = session.insteadToken as string;
-      const bytes = CryptoJS.AES.decrypt(
-        theToken.replace('instead_', ''),
-        process.env.INSTEAD_TOKEN as string,
-      );
-      const decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
-      session.currentUser = {
-        avatar: decryptedData.avatar,
-        bio: decryptedData.bio,
-        name: decryptedData.name,
-        email: decryptedData.email,
-        joinedSince: decryptedData.joinedSince,
-      };
+      session.insteadToken = token.insteadToken as string;
       session.user = undefined;
+      const currentUser = await getProfileDetails(session?.insteadToken || ``);
+      session.currentUser = currentUser.data.payload;
+
       return session;
     },
     async jwt({ token, user, account, profile, isNewUser }) {

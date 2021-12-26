@@ -1,4 +1,5 @@
 import { GetStaticPropsContext } from 'next';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote } from 'next-mdx-remote';
@@ -33,7 +34,14 @@ export default function AboutUs(props: AboutUsProps) {
           </SubTitle>
           <Heading>{props.frontMatter.title}</Heading>
         </Section>
+
         <Section>
+          <Image
+            height={120}
+            width={120}
+            src="https://siasky.net/DABrDsPvVk6NTkkgU4Fz3IvMLfjn9oSXC8UqaKZwQi0HZQ"
+            alt="Hecterbonha"
+          />
           <MarkdownWrapper>
             <MDXRemote {...props.source} components={Markdown} />
           </MarkdownWrapper>

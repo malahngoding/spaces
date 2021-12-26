@@ -1,21 +1,20 @@
 import { service } from '@utils/service';
 import { getSession } from 'next-auth/react';
 
-export const getProfileDetails = async (): Promise<{
+export const getProfileDetails = async (
+  insteadToken: string,
+): Promise<{
   data: {
     messages: string;
     status: string;
-    payload: {
-      token: string;
-    };
+    payload: any;
   };
 }> => {
-  const session = await getSession();
   return await service.post(
-    `updateProfileDetails`,
+    `getProfileDetails`,
     {},
     {
-      headers: { Authorization: `Bearer ${session?.insteadToken}` },
+      headers: { Authorization: `Bearer ${insteadToken}` },
     },
   );
 };
@@ -24,12 +23,16 @@ export const updateProfileDetails = async (objkt: {
   name: string;
   avatar: string;
   bio: string;
+  email: string;
 }): Promise<{
   data: {
     messages: string;
     status: string;
     payload: {
-      token: string;
+      name: string;
+      avatar: string;
+      bio: string;
+      email: string;
     };
   };
 }> => {
@@ -38,6 +41,7 @@ export const updateProfileDetails = async (objkt: {
     `updateProfileDetails`,
     {
       name: objkt.name,
+      email: objkt.email,
       avatar: objkt.avatar,
       bio: objkt.bio,
     },

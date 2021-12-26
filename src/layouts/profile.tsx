@@ -7,6 +7,7 @@ import { Section } from '@components/design/section';
 import { Heading, Caption } from '@components/design/typography';
 import { Avatar, AvatarImage } from '@components/navigations/avatar';
 import { BaseLayout } from './base';
+import { useEffect } from 'react';
 
 interface ProfileLayoutProps {
   layout: {
@@ -24,7 +25,6 @@ interface ProfileLayoutProps {
 
 export const ProfileLayout = (props: ProfileLayoutProps) => {
   const router = useRouter();
-
   const t = useTranslations(`Profile`);
 
   const titleBuilder = (item: number): string => {
@@ -67,8 +67,8 @@ export const ProfileLayout = (props: ProfileLayoutProps) => {
               <Avatar css={{ width: 92, height: 92 }}>
                 <AvatarImage
                   src={
-                    props.currentUser.avatar ||
-                    `https://avatars.dicebear.com/api/open-peeps/someone.svg`
+                    `https://avatars.dicebear.com/api/micah/${props?.currentUser?.avatar}.svg` ||
+                    `https://avatars.dicebear.com/api/micah/${new Date()}.svg`
                   }
                   role="button"
                 />

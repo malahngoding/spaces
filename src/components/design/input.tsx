@@ -53,12 +53,19 @@ export const InputText = styled(`input`, {
 });
 
 export const InputTextArea = styled(`textarea`, {
-  border: `2px solid $cyan9`,
-  borderRadius: 8,
+  width: `100%`,
   fontFamily: `$sans`,
-  autoComplete: `off`,
+  border: `2px solid $cyan9`,
+  display: `inline-flex`,
+  alignItems: `center`,
+  justifyContent: `center`,
+  borderRadius: 8,
   padding: `5px 10px`,
   fontSize: 16,
+  lineHeight: 1,
+  outlineOffset: 8,
+  margin: `12px 0 8px 0`,
+  autoComplete: `off`,
 });
 
 export const InputSelect = styled(`select`, {

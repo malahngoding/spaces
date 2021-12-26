@@ -1,4 +1,5 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { useSession } from 'next-auth/react';
 
 import {
   InputGroup,
@@ -10,27 +11,50 @@ import {
 import { Button } from '@components/design/button';
 import { Box } from '@components/design/box';
 import { updateProfileDetails } from '@services/profile-service';
+import { useEffect } from 'react';
 
 interface DetailFormData {
   name: string;
   avatar: string;
   bio: string;
+  email: string;
 }
 
 export const DetailsForm = (): JSX.Element => {
+  const { data: session } = useSession();
   const {
     register,
     handleSubmit,
+    reset,
     watch,
-    formState: { errors },
-  } = useForm<DetailFormData>();
+    formState: { errors, isSubmitting },
+  } = useForm<DetailFormData>({
+    defaultValues: {
+      name: session?.currentUser.name,
+      email: session?.currentUser.email,
+      avatar: session?.currentUser.avatar,
+      bio: session?.currentUser.bio,
+    },
+  });
+
+  useEffect(() => {
+    let defaults = {
+      name: session?.currentUser.name,
+      email: session?.currentUser.email,
+      avatar: session?.currentUser.avatar,
+      bio: session?.currentUser.bio,
+    };
+    reset(defaults);
+  }, [reset, session]);
+
   const onSubmit: SubmitHandler<DetailFormData> = async (data) => {
-    const stuff = await updateProfileDetails({
+    const response = await updateProfileDetails({
       name: data.name,
       avatar: data.avatar,
       bio: data.bio,
+      email: data.email,
     });
-    console.log(stuff.data);
+    reset(response.data.payload);
   };
 
   return (
@@ -43,29 +67,39 @@ export const DetailsForm = (): JSX.Element => {
       >
         <InputGroup>
           <InputLabel>Name</InputLabel>
-          <InputText {...register(`name`, { required: true })} />
+          <InputText {...register(`name`)} />
           {errors.name && <InputHelperText>Help</InputHelperText>}
         </InputGroup>
         <InputGroup>
+          <InputLabel>Email</InputLabel>
+          <InputText {...register(`email`)} />
+          {errors.email && <InputHelperText>Help</InputHelperText>}
+        </InputGroup>
+        <InputGroup>
           <InputLabel>Avatar</InputLabel>
-          <InputText {...register(`avatar`, { required: true })} />
+          <InputText {...register(`avatar`)} />
           {errors.avatar && <InputHelperText>Help</InputHelperText>}
         </InputGroup>
         <InputGroup>
           <InputLabel>Bio</InputLabel>
-          <InputTextArea {...register(`bio`, { required: true })} rows={4} />
+          <InputTextArea {...register(`bio`)} rows={4} />
           {errors.bio && <InputHelperText>Help</InputHelperText>}
         </InputGroup>
-        <Box css={{ display: `flex`, flexDirection: `row` }}>
-          <Button type="submit">Gas</Button>
-          <Button
-            type="submit"
-            alternative="secondary"
-            css={{ marginLeft: `$sm` }}
-          >
-            Reset
-          </Button>
-        </Box>
+        {isSubmitting ? (
+          <Box>Loading...</Box>
+        ) : (
+          <Box css={{ display: `flex`, flexDirection: `row` }}>
+            <Button type="submit">Submit</Button>
+            <Button
+              type="button"
+              alternative="secondary"
+              css={{ marginLeft: `$sm` }}
+              onClick={() => reset()}
+            >
+              Reset
+            </Button>
+          </Box>
+        )}
       </Box>
     </>
   );
