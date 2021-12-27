@@ -6,6 +6,7 @@ import { ProfileLayout } from '@layouts/profile';
 import { Section } from '@components/design/section';
 import { BadgeCard } from '@components/badge-card';
 import { getBadgeList } from '@services/badge-service';
+import { Paragraph } from '@components/design/typography';
 
 interface ProfileProps {
   currentUser: {
@@ -21,23 +22,37 @@ const fetcher = (url: string) => getBadgeList();
 
 export default function Badge(props: ProfileProps) {
   const { data, error } = useSWR('/api/user', fetcher);
-  console.log(data, error);
+
+  const badgeList = data?.data.payload.list;
 
   return (
     <ProfileLayout layout={{ tab: 1 }} currentUser={props.currentUser}>
       <Section
         css={{ display: `flex`, flexDirection: `row`, flexWrap: `wrap` }}
       >
-        {/* {props.badge.map((item, index) => {
-          return (
-            <BadgeCard
-              key={index}
-              title={item.title}
-              description={item.description}
-              image={item.image}
-            />
-          );
-        })} */}
+        {badgeList ? (
+          <>
+            {badgeList.map((item, index) => {
+              return (
+                <BadgeCard
+                  key={index}
+                  title={item.badge.title}
+                  description={item.badge.description}
+                  media={item.badge.media}
+                />
+              );
+            })}
+          </>
+        ) : (
+          <Paragraph>Loading...</Paragraph>
+        )}
+        {error ? (
+          <>
+            <Paragraph>Error getting badge</Paragraph>
+          </>
+        ) : (
+          <></>
+        )}
       </Section>
     </ProfileLayout>
   );

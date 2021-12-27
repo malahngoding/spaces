@@ -8,7 +8,7 @@ export const getBadgeList = async (): Promise<{
     messages: string;
     status: string;
     payload: {
-      token: string;
+      list: { badge: { title: string; description: string; media: string } }[];
     };
   };
 }> => {

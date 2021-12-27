@@ -55,6 +55,7 @@ export const DetailsForm = (): JSX.Element => {
       email: data.email,
     });
     reset(response.data.payload);
+    location.reload();
   };
 
   return (

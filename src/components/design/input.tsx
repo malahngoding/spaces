@@ -60,7 +60,7 @@ export const InputTextArea = styled(`textarea`, {
   alignItems: `center`,
   justifyContent: `center`,
   borderRadius: 8,
-  padding: `5px 10px`,
+  padding: `10px 15px`,
   fontSize: 16,
   lineHeight: 1,
   outlineOffset: 8,

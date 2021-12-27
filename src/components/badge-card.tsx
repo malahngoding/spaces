@@ -2,7 +2,7 @@ import { Box } from '@components/design/box';
 
 interface BadgeCardProps {
   title: string;
-  image: string;
+  media: string;
   description: string;
 }
 
@@ -38,7 +38,7 @@ export const BadgeCard = (props: BadgeCardProps) => {
             },
           }}
         >
-          <source src={props.image} />
+          <source src={props.media} />
         </Box>
         <Box
           css={{
