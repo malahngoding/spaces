@@ -1,9 +1,11 @@
 import { GetServerSidePropsContext } from 'next';
 import { getSession } from 'next-auth/react';
+import useSWR from 'swr';
 
 import { ProfileLayout } from '@layouts/profile';
 import { Section } from '@components/design/section';
 import { BadgeCard } from '@components/badge-card';
+import { getBadgeList } from '@services/badge-service';
 
 interface ProfileProps {
   currentUser: {
@@ -15,27 +17,27 @@ interface ProfileProps {
   };
 }
 
+const fetcher = (url: string) => getBadgeList();
+
 export default function Badge(props: ProfileProps) {
+  const { data, error } = useSWR('/api/user', fetcher);
+  console.log(data, error);
+
   return (
     <ProfileLayout layout={{ tab: 1 }} currentUser={props.currentUser}>
       <Section
         css={{ display: `flex`, flexDirection: `row`, flexWrap: `wrap` }}
       >
-        <BadgeCard
-          title="Solidity"
-          description="Get 1.00e46 / 10 Qt Coins per Second."
-          image="https://img.rarible.com/prod/video/upload/t_big/prod-itemAnimations/TEZOS-KT18pVpRXKPY2c4U2yFEGSH3ZnhB2kL8kwXS:7301/2f83f515"
-        />
-        <BadgeCard
-          title="On Going"
-          description="Play the game for 365 days."
-          image="https://img.rarible.com/prod/video/upload/t_big/prod-itemAnimations/TEZOS-KT18pVpRXKPY2c4U2yFEGSH3ZnhB2kL8kwXS:6060/6c5252e"
-        />
-        <BadgeCard
-          title="Develop Harder"
-          description="Level up your Shield up to level 250."
-          image="https://img.rarible.com/prod/video/upload/t_big/prod-itemAnimations/TEZOS-KT18pVpRXKPY2c4U2yFEGSH3ZnhB2kL8kwXS:6958/54fa2f59"
-        />
+        {/* {props.badge.map((item, index) => {
+          return (
+            <BadgeCard
+              key={index}
+              title={item.title}
+              description={item.description}
+              image={item.image}
+            />
+          );
+        })} */}
       </Section>
     </ProfileLayout>
   );
@@ -43,7 +45,6 @@ export default function Badge(props: ProfileProps) {
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await getSession(context);
-
   if (session === null) {
     return {
       redirect: {
