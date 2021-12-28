@@ -26,7 +26,7 @@ specifiers:
   gray-matter: 4.0.3
   grpc-tools: 1.11.2
   grpc_tools_node_protoc_ts: 5.3.2
-  hashconnect: 0.0.9
+  hashconnect: 0.0.11
   husky: 7.0.4
   lint-staged: 11.2.6
   next: 12.0.3
@@ -59,7 +59,7 @@ dependencies:
   axios: 0.24.0
   crypto-js: 4.1.1
   gray-matter: 4.0.3
-  hashconnect: 0.0.9
+  hashconnect: 0.0.11
   next: 12.0.3_757a802188413a36d4f24237d13b8e90
   next-auth: 4.0.5_757a802188413a36d4f24237d13b8e90
   next-intl: 2.3.0_next@12.0.3+react@18.0.0-rc.0
@@ -8652,8 +8652,8 @@ packages:
       minimalistic-assert: 1.0.1
     dev: false
 
-  /hashconnect/0.0.9:
-    resolution: {integrity: sha512-irxuEEVWeZI+YlpgyE+9lpx+tGEdVn23uEpfjuLk1GCZTHfgFhreM3c6NQ//vNt0GZyw4T/R23nn4NwYfSfQpw==}
+  /hashconnect/0.0.11:
+    resolution: {integrity: sha512-wyRwVt1LnVXLENzDIH0sYkNbSdFljCMEkpn/V0+bJbIKPQDDYUxyQtxTf5AfrYyJS7H3oOv4R8BS2AXoMirIuA==}
     dependencies:
       crypto-js: 4.1.1
       js-waku: 0.14.2
