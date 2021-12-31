@@ -23,7 +23,7 @@
     "allRights": " Semua hak dilindungi undang-undang.",
     "profile": "Profil",
     "settings": "Pengaturan",
-    "wallet": "Dompet",
+    "inventory": "Tas",
     "connect": "Masuk",
     "disconnect": "Keluar"
   },
@@ -52,9 +52,9 @@
     "theme": "Tema",
     "themeMessage": "Ganti tema warna kamu"
   },
-  "Wallets": {
-    "welcome": "Dompet Kamu",
-    "title": "Dompet Malah Ngoding"
+  "Inventory": {
+    "welcome": "Tas Kamu",
+    "title": "Barang-barang Malah Ngoding"
   },
   "Error": {
     "404Title": "Laman tak dapat ditemukan",

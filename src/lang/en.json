@@ -23,13 +23,13 @@
     "allRights": " All rights reserved.",
     "profile": "Profile",
     "settings": "Settings",
-    "wallet": "Wallet",
+    "inventory": "Inventory",
     "connect": "Connect",
     "disconnect": "Disconnect"
   },
   "Home": {
     "welcome": "Hello World, welcome to",
-    "title": "The World of Coding Instead"
+    "title": "The Internet of Malah Ngoding"
   },
   "Register": {
     "connect": "Connect your account",
@@ -52,9 +52,9 @@
     "theme": "Themes",
     "themeMessage": "Toggle your color theme"
   },
-  "Wallets": {
-    "welcome": "My Wallet",
-    "title": "Malah Ngoding Wallet"
+  "Inventory": {
+    "welcome": "Your Inventory",
+    "title": "Malah Ngoding Stuff"
   },
   "Error": {
     "404Title": "Page Not Found",

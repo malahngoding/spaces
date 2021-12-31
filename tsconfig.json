@@ -15,6 +15,7 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
+      "@artifacts/*": ["./artifacts/*"],
       "@proto/*": ["./proto/*"],
       "@components/*": ["./src/components/*"],
       "@config/*": ["./src/config/*"],

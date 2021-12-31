@@ -2,6 +2,7 @@ import { Box } from '@components/design/box';
 
 interface CryptoCardProps {
   title: string;
+  currentAddress: string;
   image: string;
   description: string;
 }
@@ -56,6 +57,11 @@ export const CryptoCard = (props: CryptoCardProps) => {
             as="h3"
           >
             {props.title}
+          </Box>
+          <Box as="p" css={{ wordWrap: `break-word`, padding: `$xs` }}>
+            {props.currentAddress.slice(0, 6)}
+            {`...`}
+            {props.currentAddress.substring(props.currentAddress.length - 6)}
           </Box>
           <Box as="p" css={{ wordWrap: `break-word`, padding: `$xs` }}>
             {props.description}

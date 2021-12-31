@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useSession, signOut } from 'next-auth/react';
-import { UilUser, UilWallet, UilSignout } from '@iconscout/react-unicons';
+import { UilUser, UilBackpack, UilSignout } from '@iconscout/react-unicons';
 import { useTranslations } from 'next-intl';
 
 import { Button, PlainButton } from '@components/design/button';
@@ -21,7 +21,6 @@ export const NavigationBar = () => {
   const NavItems = [
     { title: t(`learn`), url: `/learn` },
     { title: t(`camps`), url: `/camps` },
-    { title: t(`services`), url: `/services` },
     { title: t(`aboutUs`), url: `/about-us` },
   ];
 
@@ -76,9 +75,9 @@ export const NavigationBar = () => {
                       </Paragraph>
                     </Button>
                   </Link>
-                  <Link href="/wallet" passHref>
+                  <Link href="/inventory" passHref>
                     <Button alternative="ghost">
-                      <UilWallet />
+                      <UilBackpack />
                       <Paragraph
                         css={{
                           marginLeft: `$sm`,
@@ -86,7 +85,7 @@ export const NavigationBar = () => {
                           marginBottom: 0,
                         }}
                       >
-                        {t(`wallet`)}
+                        {t(`inventory`)}
                       </Paragraph>
                     </Button>
                   </Link>

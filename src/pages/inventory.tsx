@@ -1,14 +1,20 @@
 import { GetStaticPropsContext } from 'next';
 import { useTranslations } from 'next-intl';
+import dynamic from 'next/dynamic';
 
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
 import { Heading, SubTitle, Title } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
-import { CryptoCard } from '@components/crypto-card';
 
 export default function Wallet() {
-  const t = useTranslations(`Wallets`);
+  const WalletComponent = dynamic(
+    (): any =>
+      import(`@components/wallet-handler`).then((mod) => mod.WalletHandler),
+    { loading: () => <p>...</p> },
+  );
+
+  const t = useTranslations(`Inventory`);
 
   return (
     <BaseLayout title={t(`title`)}>
@@ -18,13 +24,8 @@ export default function Wallet() {
           <SubTitle data-testid="about-us-text">{t(`welcome`)}</SubTitle>
           <Heading>{t(`title`)}</Heading>
         </Section>
-
         <Section>
-          <CryptoCard
-            title="100 $MNT"
-            description="Malah Ngoding Token"
-            image="https://storage.opensea.io/files/70db9e857f52b78b7a9f6d93020e50d8.mp4#t=0.001"
-          />
+          <WalletComponent />
         </Section>
       </Box>
     </BaseLayout>
