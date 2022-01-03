@@ -10,32 +10,6 @@ interface CampsProps {
   repeater: number[];
 }
 
-const buff: {
-  id: number;
-  title: string;
-  description: string;
-  media: string;
-}[] = [
-  {
-    id: 1,
-    title: `Awesome Noob`,
-    description: `Menyelesaikan tantangan luar angkasa`,
-    media: `static/images/a1cc471e.png`,
-  },
-  {
-    id: 2,
-    title: `Code`,
-    description: `Langsung ngoding tanpa menginstall apapun`,
-    media: `static/images/a1cc471e.png`,
-  },
-  {
-    id: 3,
-    title: `Labs`,
-    description: `Eksperimental project untuk belajar dan eksplorasi`,
-    media: `static/images/a1cc471e.png`,
-  },
-];
-
 export default function Camps(props: CampsProps) {
   const { applicationName } = props;
 
@@ -47,20 +21,6 @@ export default function Camps(props: CampsProps) {
             Welcome to {applicationName}
           </SubTitle>
           <Heading>Camps of Malah Ngoding</Heading>
-        </Section>
-        <Section
-          css={{ display: `flex`, flexDirection: `row`, flexWrap: `wrap` }}
-        >
-          {buff.map((item) => {
-            return (
-              <BadgeCard
-                description={item.description}
-                media={item.media}
-                title={item.title}
-                key={item.id}
-              />
-            );
-          })}
         </Section>
       </Box>
     </BaseLayout>
