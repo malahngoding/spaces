@@ -35,14 +35,15 @@ export const PlainButton = styled(`button`, {
 export const Button = styled(`button`, {
   fontFamily: `Montserrat`,
   border: `none`,
-  paddingY: `$xs`,
-  paddingX: `$sm`,
+  paddingY: `$xxs`,
+  paddingX: `$md`,
   fontSize: `$display`,
   fontWeight: `$bold`,
   color: `$slate12`,
   display: `flex`,
   justifyContent: `center`,
   alignItems: `center`,
+  clipPath: `polygon(85% 0, 100% 15%, 100% 100%, 15% 100%, 0% 85%, 0 0)`,
   '&:hover': {
     cursor: `pointer`,
   },

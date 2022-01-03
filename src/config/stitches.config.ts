@@ -42,6 +42,7 @@ export const { styled, css, globalCss, keyframes, getCssText, theme } =
         lg: `21px`,
       },
       space: {
+        xxs: `0.6rem`,
         xs: `0.8rem`,
         sm: `1.2rem`,
         md: `1.8rem`,

@@ -12,7 +12,7 @@ const NFTMarketAddress = `0x67d6F27964a27d3a739A1C53EE02070F56F66180`;
 export const WalletHandler = () => {
   const [currentAccount, setCurrentAccount] = useState<string>('');
   const [currentBalance, setCurrentBalance] = useState<string>('');
-
+  console.log(window.ethereum);
   // Metamask
   async function requestAccount() {
     if (typeof window.ethereum !== undefined) {
