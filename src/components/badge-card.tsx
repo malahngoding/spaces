@@ -16,11 +16,10 @@ export const BadgeCard = (props: BadgeCardProps) => {
           flexDirection: `column`,
           justifyContent: `flex-start`,
           alignItems: `flex-start`,
-          marginRight: `$xs`,
-          marginTop: `$md`,
           border: `2px solid $slate6`,
           paddingBottom: `$xs`,
           width: `100%`,
+          height: `100%`,
           '@sm': {
             width: 280,
           },
@@ -43,8 +42,12 @@ export const BadgeCard = (props: BadgeCardProps) => {
             <source src={props.media} />
           </Box>
         ) : (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={props.media} alt={props.description} />
+          <Box
+            as="img"
+            src={props.media}
+            alt={props.description}
+            css={{ width: `100%` }}
+          />
         )}
         <Box
           css={{

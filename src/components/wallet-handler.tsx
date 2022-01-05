@@ -1,31 +1,46 @@
 import { useEffect, useState } from 'react';
 import { CryptoCard } from '@components/crypto-card';
-import { BigNumber, ethers, providers } from 'ethers';
+import { ethers } from 'ethers';
 
 import NFT from '@artifacts/contracts/NFT.sol/NFT.json';
 import NFTMarket from '@artifacts/contracts/NFTMarket.sol/NFTMarket.json';
-import { Box } from './design/box';
+import MalahNgodingToken from '@artifacts/contracts/MalahNgodingToken.sol/MalahNgodingToken.json';
+
+import { Box } from '@components/design/box';
+import { Button } from '@components/design/button';
 
 const NFTAddress = `0x8e8865F086917D0e380e053ceCc46Cb45B014ae0`;
 const NFTMarketAddress = `0x67d6F27964a27d3a739A1C53EE02070F56F66180`;
+const MalahNgodingTokenAddress = `0x8e8865F086917D0e380e053ceCc46Cb45B014ae0`;
 
 export const WalletHandler = () => {
   const [currentAccount, setCurrentAccount] = useState<string>('');
   const [currentBalance, setCurrentBalance] = useState<string>('');
-  console.log(window.ethereum);
-  // Metamask
+  const [currentGasBalance, setCurrentGasBalance] = useState<string>('');
+
   async function requestAccount() {
     if (typeof window.ethereum !== undefined) {
-      const account = await window.ethereum.request({
-        method: 'eth_requestAccounts',
-        params: [],
-      });
       const provider = new ethers.providers.Web3Provider(window.ethereum);
-      const balance = await provider.getBalance(account[0]);
-      setCurrentAccount(account[0]);
-      setCurrentBalance(ethers.utils.formatEther(balance));
+      const network = await provider.getNetwork();
+      if (network.chainId === 4002) {
+        const account = await window.ethereum.request({
+          method: 'eth_requestAccounts',
+          params: [],
+        });
+        const balance = await provider.getBalance(account[0]);
+        setCurrentAccount(account[0]);
+        setCurrentGasBalance(ethers.utils.formatEther(balance));
+      } else {
+        await window.ethereum.request({
+          method: 'wallet_switchEthereumChain',
+          params: [{ chainId: '0xFA2' }],
+        });
+        setCurrentAccount('...');
+        setCurrentGasBalance('...');
+      }
     }
   }
+
   // NFT
   async function createToken(url: string) {
     if (typeof window.ethereum !== undefined) {
@@ -123,18 +138,68 @@ export const WalletHandler = () => {
     }
   }
 
+  async function signMessage() {
+    if (typeof window.ethereum !== undefined) {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();
+      let mySignature = await signer.signMessage('Some custom message');
+      console.log(mySignature);
+    }
+  }
+
+  async function registerMalahNgodingToken() {
+    if (typeof window.ethereum !== undefined) {
+      const tokenAddress = '0x8e8865F086917D0e380e053ceCc46Cb45B014ae0';
+      const tokenSymbol = 'MNT';
+      const tokenDecimals = 18;
+      const tokenImage =
+        'https://malahngoding.com/static/favicons/apple-touch-icon.png';
+
+      try {
+        const wasAdded = await window.ethereum.request({
+          method: 'wallet_watchAsset',
+          params: {
+            type: 'ERC20',
+            options: {
+              address: tokenAddress,
+              symbol: tokenSymbol,
+              decimals: tokenDecimals,
+              image: tokenImage,
+            },
+          },
+        });
+
+        if (wasAdded) {
+          return true;
+        } else {
+          return false;
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
+
   useEffect(() => {
     requestAccount();
-  }, []);
+  }, [currentAccount, currentGasBalance]);
 
   return (
     <>
       <CryptoCard
-        title={`${currentBalance.slice(0, 6)} $MNT`}
+        mnt={`10000 $MNT`}
+        gas={`${currentGasBalance.slice(0, 6)} $tFTM`}
         currentAddress={currentAccount}
         description="Malah Ngoding Token"
         image="https://storage.opensea.io/files/70db9e857f52b78b7a9f6d93020e50d8.mp4#t=0.001"
       />
+      <Button
+        alternative="tertiary"
+        onClick={() => registerMalahNgodingToken()}
+      >
+        Register MNT
+      </Button>
+
       <Box css={{ display: `none` }}>
         <p>{currentAccount}</p>
         <button onClick={() => createToken('https://malahngoding.com')}>
@@ -152,6 +217,8 @@ export const WalletHandler = () => {
         <button onClick={() => fetchMyNFTs()}>fetchMyNFTs</button>
         <br />
         <button onClick={() => fetchItemsCreated()}>fetchItemsCreated</button>
+        <br />
+        <button onClick={() => signMessage()}>signMessage</button>
       </Box>
     </>
   );

@@ -4,21 +4,14 @@ import { Heading, SubTitle } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
 import { GetStaticPropsContext } from 'next';
 
-interface LabsProps {
-  applicationName: string;
-  repeater: number[];
-}
+interface LabsProps {}
 
-export default function Camps(props: LabsProps) {
-  const { applicationName } = props;
-
+export default function Labs(props: LabsProps) {
   return (
     <BaseLayout title="Hello World!">
       <Box>
         <Section>
-          <SubTitle data-testid="welcome-text">
-            Welcome to {applicationName}
-          </SubTitle>
+          <SubTitle data-testid="welcome-text">Welcome to</SubTitle>
           <Heading>Labs of Malah Ngoding</Heading>
         </Section>
       </Box>

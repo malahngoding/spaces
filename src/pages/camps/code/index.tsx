@@ -4,21 +4,14 @@ import { Heading, SubTitle } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
 import { GetStaticPropsContext } from 'next';
 
-interface CampsProps {
-  applicationName: string;
-  repeater: number[];
-}
+interface CodeProps {}
 
-export default function Camps(props: CampsProps) {
-  const { applicationName } = props;
-
+export default function Code(props: CodeProps) {
   return (
     <BaseLayout title="Hello World!">
       <Box>
         <Section>
-          <SubTitle data-testid="welcome-text">
-            Welcome to {applicationName}
-          </SubTitle>
+          <SubTitle data-testid="welcome-text">Welcome to</SubTitle>
           <Heading>Camps of Malah Ngoding</Heading>
         </Section>
       </Box>
@@ -27,7 +20,7 @@ export default function Camps(props: CampsProps) {
 }
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
-  const messages = await import(`../../lang/${locale}.json`).then(
+  const messages = await import(`../../../lang/${locale}.json`).then(
     (module) => module.default,
   );
   return {

@@ -59,5 +59,25 @@
   "Error": {
     "404Title": "Page Not Found",
     "404SubTitle": "404 Error"
+  },
+  "Camps": {
+    "campsTitle": "Join our Camps",
+    "campsSubTitle": "To the highest high, to the lowest low",
+    "awesomeTitle": "Awesome Noob",
+    "awesomeDescription": "Help Hashnaut solving intergalactic challange.",
+    "codeTitle": "Code",
+    "codeDescription": "Code editor in your browser",
+    "labsTitle": "Labs",
+    "labsDescription": "Our explorative project and showcase"
+  },
+  "Learn": {
+    "learnTitle": "Learn by yourself",
+    "learnSubTitle": "Study Instead",
+    "articlesTitle": "Articles",
+    "articlesDescription": "Our articles stash.",
+    "snippetsTitle": "Snippets",
+    "snippetsDescription": "Copy paste it when you need it where you at it.",
+    "flashCardTitle": "Flash Card",
+    "flashCardDescription": "Answer question. Be the top."
   }
 }

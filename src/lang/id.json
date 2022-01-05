@@ -59,5 +59,25 @@
   "Error": {
     "404Title": "Laman tak dapat ditemukan",
     "404SubTitle": "Kesalahan 404"
+  },
+  "Camps": {
+    "campsTitle": "Berkemah bersama kami",
+    "campsSubTitle": "Mendaik gunung, melewati lembah",
+    "awesomeTitle": "Awesome Noob",
+    "awesomeDescription": "Menyelesaikan tantangan luar angkasa",
+    "codeTitle": "Koding",
+    "codeDescription": "Langsung ngoding tanpa menginstall apapun",
+    "labsTitle": "Laboratorium",
+    "labsDescription": "Eksperimental project untuk belajar dan eksplorasi"
+  },
+  "Learn": {
+    "learnTitle": "Belajar Secara Mandiri",
+    "learnSubTitle": "Malah Belajar",
+    "articlesTitle": "Artikel",
+    "articlesDescription": "Artikel yang akan memandu mu melakukan berbagai macam hal tentang programming.",
+    "snippetsTitle": "Potongan Kode",
+    "snippetsDescription": "Potongan kode untuk melakukan suatu hal. Tinggal copy kemudian paste di bagian kamu membutuhkannya.",
+    "flashCardTitle": "Flash Card",
+    "flashCardDescription": "Pertajam analisa kamu dengan menjawab pertanyaan-pertanyaan seputar kode dan sekitarnya. Daftarkan dirimu untuk meraih posisi teratas."
   }
 }

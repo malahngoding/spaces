@@ -30,7 +30,7 @@ export const ServiceCard = (props: ServiceCardProps) => {
           },
           '&:hover': {
             cursor: `pointer`,
-            backgroundColor: '$crimson4',
+            backgroundColor: '$cyan4',
           },
         }}
       >

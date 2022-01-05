@@ -4,6 +4,7 @@ import useSWR from 'swr';
 
 import { ProfileLayout } from '@layouts/profile';
 import { Section } from '@components/design/section';
+import { Box } from '@components/design/box';
 import { BadgeCard } from '@components/badge-card';
 import { getBadgeList } from '@services/badge-service';
 import { Paragraph } from '@components/design/typography';
@@ -34,12 +35,20 @@ export default function Badge(props: ProfileProps) {
           <>
             {badgeList.map((item, index) => {
               return (
-                <BadgeCard
+                <Box
                   key={index}
-                  title={item.badge.title}
-                  description={item.badge.description}
-                  media={item.badge.media}
-                />
+                  css={{
+                    marginTop: `$md`,
+                    marginRight: `$md`,
+                  }}
+                >
+                  <BadgeCard
+                    title={item.badge.title}
+                    description={item.badge.description}
+                    media={item.badge.media}
+                    type="MOVING"
+                  />
+                </Box>
               );
             })}
           </>

@@ -1,7 +1,8 @@
 import { Box } from '@components/design/box';
 
 interface CryptoCardProps {
-  title: string;
+  mnt: string;
+  gas: string;
   currentAddress: string;
   image: string;
   description: string;
@@ -16,7 +17,6 @@ export const CryptoCard = (props: CryptoCardProps) => {
           flexDirection: `column`,
           justifyContent: `flex-start`,
           alignItems: `flex-start`,
-          marginX: `$xs`,
           marginY: `$md`,
           border: `2px solid $slate6`,
           paddingBottom: `$xs`,
@@ -56,7 +56,17 @@ export const CryptoCard = (props: CryptoCardProps) => {
             }}
             as="h3"
           >
-            {props.title}
+            {props.mnt}
+          </Box>
+          <Box
+            css={{
+              fontSize: `$sm`,
+              fontWeight: `bold`,
+              paddingX: `$xs`,
+            }}
+            as="h5"
+          >
+            {props.gas}
           </Box>
           <Box as="p" css={{ wordWrap: `break-word`, padding: `$xs` }}>
             {props.currentAddress.slice(0, 6)}
