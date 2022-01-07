@@ -11,7 +11,7 @@ import { Button } from '@components/design/button';
 
 const NFTAddress = `0x8e8865F086917D0e380e053ceCc46Cb45B014ae0`;
 const NFTMarketAddress = `0x67d6F27964a27d3a739A1C53EE02070F56F66180`;
-const MalahNgodingTokenAddress = `0x8e8865F086917D0e380e053ceCc46Cb45B014ae0`;
+const MalahNgodingTokenAddress = `0xA888133886ADE7df0E95f7cFdd74e35f79DC30CE`;
 
 export const WalletHandler = () => {
   const [currentAccount, setCurrentAccount] = useState<string>('');
@@ -22,18 +22,38 @@ export const WalletHandler = () => {
     if (typeof window.ethereum !== undefined) {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const network = await provider.getNetwork();
-      if (network.chainId === 4002) {
+      const signer = provider.getSigner();
+
+      if (network.chainId === 4) {
         const account = await window.ethereum.request({
           method: 'eth_requestAccounts',
           params: [],
         });
         const balance = await provider.getBalance(account[0]);
+        const contract = new ethers.Contract(
+          MalahNgodingTokenAddress,
+          MalahNgodingToken.abi,
+          signer,
+        );
+        const tx = await contract.balanceOf(account[0]);
+
+        setCurrentBalance(
+          `${ethers.utils.formatEther(tx).split('.')[0]}.${ethers.utils
+            .formatEther(tx)
+            .split('.')[1]
+            .substring(0, 4)}`,
+        );
         setCurrentAccount(account[0]);
-        setCurrentGasBalance(ethers.utils.formatEther(balance));
+        setCurrentGasBalance(
+          `${ethers.utils.formatEther(balance).split('.')[0]}.${ethers.utils
+            .formatEther(balance)
+            .split('.')[1]
+            .substring(0, 4)}`,
+        );
       } else {
         await window.ethereum.request({
           method: 'wallet_switchEthereumChain',
-          params: [{ chainId: '0xFA2' }],
+          params: [{ chainId: '0x4' }],
         });
         setCurrentAccount('...');
         setCurrentGasBalance('...');
@@ -149,7 +169,7 @@ export const WalletHandler = () => {
 
   async function registerMalahNgodingToken() {
     if (typeof window.ethereum !== undefined) {
-      const tokenAddress = '0x8e8865F086917D0e380e053ceCc46Cb45B014ae0';
+      const tokenAddress = '0xA888133886ADE7df0E95f7cFdd74e35f79DC30CE';
       const tokenSymbol = 'MNT';
       const tokenDecimals = 18;
       const tokenImage =
@@ -187,8 +207,8 @@ export const WalletHandler = () => {
   return (
     <>
       <CryptoCard
-        mnt={`10000 $MNT`}
-        gas={`${currentGasBalance.slice(0, 6)} $tFTM`}
+        mnt={`${currentBalance} $MNT`}
+        gas={`${currentGasBalance} $rinkebyETH`}
         currentAddress={currentAccount}
         description="Malah Ngoding Token"
         image="https://storage.opensea.io/files/70db9e857f52b78b7a9f6d93020e50d8.mp4#t=0.001"

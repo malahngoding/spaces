@@ -12,9 +12,10 @@ export const Nav = styled(`nav`, {
   '@md': {
     height: `$md`,
     display: `flex`,
+    padding: `27px`, // Quick Hacks
   },
   '@lg': {
     height: `$lg`,
-    padding: `$lg`,
+    padding: `46px`, // Quick Hacks
   },
 });
