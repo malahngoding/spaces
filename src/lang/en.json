@@ -79,5 +79,9 @@
     "snippetsDescription": "Copy paste it when you need it where you at it.",
     "flashCardTitle": "Flash Card",
     "flashCardDescription": "Answer question. Be the top."
+  },
+  "Snippets": {
+    "snippetsTitle": "Code Snippets",
+    "snippetsSubTitle": "Just copy and paste and you are good to go"
   }
 }

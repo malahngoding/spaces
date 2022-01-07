@@ -79,5 +79,9 @@
     "snippetsDescription": "Potongan kode untuk melakukan suatu hal. Tinggal copy kemudian paste di bagian kamu membutuhkannya.",
     "flashCardTitle": "Flash Card",
     "flashCardDescription": "Pertajam analisa kamu dengan menjawab pertanyaan-pertanyaan seputar kode dan sekitarnya. Daftarkan dirimu untuk meraih posisi teratas."
+  },
+  "Snippets": {
+    "snippetsTitle": "Potongan Kode",
+    "snippetsSubTitle": "Copy Paste Beres"
   }
 }
