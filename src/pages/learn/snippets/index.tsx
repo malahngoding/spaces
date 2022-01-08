@@ -4,14 +4,44 @@ import Image from 'next/image';
 
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
-import { Heading, SubTitle } from '@components/design/typography';
+import {
+  Caption,
+  Heading,
+  SubTitle,
+  Paragraph,
+} from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
 
 interface SnippetsProps {}
 
 export default function Snippets(props: SnippetsProps) {
   const t = useTranslations(`Snippets`);
-  const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const arr = [
+    {
+      id: 1,
+      tags: ['javascript', 'react'],
+      icon: 'javascript',
+      title: 'Testing JS',
+    },
+    {
+      id: 2,
+      tags: ['golang'],
+      icon: 'golang',
+      title: 'Testing Go',
+    },
+    {
+      id: 3,
+      tags: ['css', 'style'],
+      icon: 'css',
+      title: 'Testing CSS',
+    },
+    {
+      id: 4,
+      tags: ['solidity', 'smart contracts'],
+      icon: 'solidity',
+      title: 'Testing Solidity',
+    },
+  ];
   return (
     <BaseLayout title="Hello World!">
       <Box>
@@ -21,25 +51,56 @@ export default function Snippets(props: SnippetsProps) {
           </SubTitle>
           <Heading>{t(`snippetsTitle`)}</Heading>
         </Section>
-        <Section>
+        <Section
+          css={{ display: `flex`, flexDirection: `row`, flexWrap: `wrap` }}
+        >
           {arr.map((item) => {
             return (
               <Box
-                key={item}
+                key={item.id}
                 css={{
                   border: `2px solid $slate12`,
                   marginY: `$sm`,
                   padding: `$xs`,
                   display: `flex`,
+                  width: `calc(100%)`,
+                  '@lg': {
+                    margin: `$sm`,
+                    width: `calc(50% - 2.4rem)`,
+                  },
                 }}
               >
-                <Image
-                  src="/static/programming-icon/javascript.png"
-                  height={64}
-                  width={64}
-                  alt="item"
-                />
-                <p>{item}</p>
+                <Box>
+                  <Image
+                    src={`/static/programming-icon/${item.icon}.png`}
+                    height={64}
+                    width={64}
+                    alt="item"
+                  />
+                </Box>
+                <Box
+                  css={{
+                    marginLeft: `$xs`,
+                    display: `flex`,
+                    flexDirection: `column`,
+                  }}
+                >
+                  <Paragraph css={{ fontWeight: `bold` }}>
+                    {item.title}
+                  </Paragraph>
+                  <Box css={{ display: `flex`, flexDirection: `row` }}>
+                    {item.tags.map((item: string) => {
+                      return (
+                        <Caption
+                          css={{ margin: 0, marginRight: `$xs` }}
+                          key={item}
+                        >
+                          {`#${item}`}
+                        </Caption>
+                      );
+                    })}
+                  </Box>
+                </Box>
               </Box>
             );
           })}
