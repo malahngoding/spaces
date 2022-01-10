@@ -59,6 +59,7 @@ export default function Snippets(props: SnippetsProps) {
               <Box
                 key={item.id}
                 css={{
+                  backgroundColor: `$cyan4`,
                   border: `2px solid $slate12`,
                   marginY: `$sm`,
                   padding: `$xs`,
@@ -70,7 +71,14 @@ export default function Snippets(props: SnippetsProps) {
                   },
                 }}
               >
-                <Box>
+                <Box
+                  css={{
+                    display: `flex`,
+                    flexDirection: `column`,
+                    justifyContent: `center`,
+                    alignItems: `center`,
+                  }}
+                >
                   <Image
                     src={`/static/programming-icon/${item.icon}.png`}
                     height={64}
@@ -83,16 +91,29 @@ export default function Snippets(props: SnippetsProps) {
                     marginLeft: `$xs`,
                     display: `flex`,
                     flexDirection: `column`,
+                    justifyContent: `flex-start`,
+                    alignItems: `flex-start`,
                   }}
                 >
                   <Paragraph css={{ fontWeight: `bold` }}>
                     {item.title}
                   </Paragraph>
-                  <Box css={{ display: `flex`, flexDirection: `row` }}>
+                  <Box
+                    css={{
+                      display: `flex`,
+                      flexDirection: `row`,
+                      justifyContent: `flex-start`,
+                      alignItems: `center`,
+                    }}
+                  >
                     {item.tags.map((item: string) => {
                       return (
                         <Caption
-                          css={{ margin: 0, marginRight: `$xs` }}
+                          css={{
+                            margin: 0,
+                            marginRight: `$xs`,
+                            fontWeight: `bold`,
+                          }}
                           key={item}
                         >
                           {`#${item}`}
