@@ -1,6 +1,7 @@
-import { GetStaticPropsContext } from 'next';
+import { GetServerSidePropsContext } from 'next';
 import { useTranslations } from 'next-intl';
 import dynamic from 'next/dynamic';
+import { getSession } from 'next-auth/react';
 
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
@@ -32,13 +33,25 @@ export default function Wallet() {
   );
 }
 
-export async function getStaticProps({ locale }: GetStaticPropsContext) {
-  const messages = await import(`../lang/${locale}.json`).then(
-    (module) => module.default,
-  );
-  return {
-    props: {
-      messages,
-    },
-  };
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const session = await getSession(context);
+
+  if (session === null) {
+    return {
+      redirect: {
+        destination: '/',
+      },
+    };
+  } else {
+    const currentLocale = context.locale;
+    const messages = await import(`../lang/${currentLocale}.json`).then(
+      (module) => module.default,
+    );
+    return {
+      props: {
+        messages,
+        currentUser: session.currentUser,
+      },
+    };
+  }
 }

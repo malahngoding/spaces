@@ -85,5 +85,8 @@
   "Snippets": {
     "snippetsTitle": "Potongan Kode",
     "snippetsSubTitle": "Copy Paste Beres"
+  },
+  "FlashCard": {
+    "flashCardTitle": "Flash Card"
   }
 }

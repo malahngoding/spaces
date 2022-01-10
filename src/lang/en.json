@@ -85,5 +85,8 @@
   "Snippets": {
     "snippetsTitle": "Code Snippets",
     "snippetsSubTitle": "Just copy and paste and you are good to go"
+  },
+  "FlashCard": {
+    "flashCardTitle": "Flash Card"
   }
 }
