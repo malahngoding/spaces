@@ -1,18 +1,37 @@
-import { AdvancedChart } from 'react-tradingview-embed';
+import Script from 'next/script';
 
 import { Box } from '@components/design/box';
 
-const TradingView = () => {
+const TView = () => {
   return (
     <Box>
-      <AdvancedChart
-        widgetProps={{
-          theme: `dark`,
-          symbol: `BINANCE:HBARUSDT`,
+      <Script
+        src="https://s3.tradingview.com/tv.js"
+        onLoad={() => {
+          new window.TradingView.widget({
+            width: '100%',
+            height: 620,
+            symbol: 'BINANCE:HBARUSDT',
+            interval: 'D',
+            timezone: 'Asia/Jakarta',
+            theme: 'dark',
+            style: '1',
+            locale: 'en',
+            toolbar_bg: `$cyan`,
+            enable_publishing: false,
+            allow_symbol_change: true,
+            container_id: 'tradingview_hedera',
+          });
         }}
       />
+      <div className="tradingview-widget-container">
+        <Box css={{ margin: `$sm` }}>
+          <div id="tradingview_hedera"></div>
+        </Box>
+        <div className="tradingview-widget-copyright"></div>
+      </div>
     </Box>
   );
 };
 
-export default TradingView;
+export default TView;

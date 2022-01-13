@@ -8,8 +8,10 @@ const TradingView = dynamic(() => import('../components/trading-view'), {
 
 export default function Hedera() {
   return (
-    <BaseLayout title="Hello World!">
-      <TradingView />
+    <BaseLayout title="Hedera Hashgraph">
+      <>
+        <TradingView />
+      </>
     </BaseLayout>
   );
 }

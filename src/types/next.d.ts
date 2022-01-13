@@ -18,5 +18,6 @@ declare module 'next/app' {
 declare global {
   interface Window {
     ethereum: Ethereumish;
+    TradingView: any;
   }
 }
