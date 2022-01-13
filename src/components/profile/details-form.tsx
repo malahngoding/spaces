@@ -20,7 +20,8 @@ import {
   AlertDialogAction,
 } from '@components/design/alert';
 import { updateProfileDetails } from '@services/profile-service';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { Avatar, AvatarImage } from '@components/navigations/avatar';
 
 interface DetailFormData {
   name: string;
@@ -31,7 +32,22 @@ interface DetailFormData {
 
 export const DetailsForm = (): JSX.Element => {
   const { data: session } = useSession();
+
+  const [selectedAvatar, setSelectedAvatar] = useState<string>('');
+
+  const [avatars] = useState<string[]>([
+    session?.currentUser.avatar,
+    `Apple-${new Date()}`,
+    `Watermelon-${new Date()}`,
+    `Orange-${new Date()}`,
+    `Pear-${new Date()}`,
+    `Cherry-${new Date()}`,
+    `Strawberry-${new Date()}`,
+    `Nectarine-${new Date()}`,
+  ]);
+
   const {
+    setValue,
     register,
     handleSubmit,
     reset,
@@ -45,6 +61,11 @@ export const DetailsForm = (): JSX.Element => {
       bio: session?.currentUser.bio,
     },
   });
+
+  const handleChooseAvatar = (value: string): void => {
+    setValue('avatar', value);
+    setSelectedAvatar(value);
+  };
 
   useEffect(() => {
     let defaults = {
@@ -64,6 +85,7 @@ export const DetailsForm = (): JSX.Element => {
       email: data.email,
     });
     reset(response.data.payload);
+    window.location.reload();
   };
 
   return (
@@ -82,8 +104,39 @@ export const DetailsForm = (): JSX.Element => {
           </InputGroup>
           <InputGroup>
             <InputLabel>Avatar</InputLabel>
-            <InputText {...register(`avatar`)} />
+            <Box
+              css={{ display: `flex`, flexDirection: `row`, flexWrap: `wrap` }}
+            >
+              {avatars.map((item: string, index) => {
+                return (
+                  <Avatar
+                    key={index}
+                    css={{
+                      margin: `$xxs`,
+                      width: 64,
+                      height: 64,
+                      border:
+                        item === selectedAvatar
+                          ? `4px solid $crimson8`
+                          : `none`,
+                    }}
+                  >
+                    <AvatarImage
+                      src={
+                        `https://avatars.dicebear.com/api/micah/${item}.svg` ||
+                        `https://avatars.dicebear.com/api/micah/${new Date()}.svg`
+                      }
+                      role="button"
+                      onClick={() => handleChooseAvatar(item)}
+                    />
+                  </Avatar>
+                );
+              })}
+            </Box>
             {errors.avatar && <InputHelperText>Help</InputHelperText>}
+          </InputGroup>
+          <InputGroup css={{ display: `none` }}>
+            <InputText {...register(`avatar`)} />
           </InputGroup>
           <InputGroup>
             <InputLabel>Bio</InputLabel>
