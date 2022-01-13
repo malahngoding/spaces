@@ -1,4 +1,4 @@
-import { BadgeCard } from '@components/badge-card';
+import { BadgeCard } from '@components/cards/badge-card';
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
 import { Heading, SubTitle } from '@components/design/typography';

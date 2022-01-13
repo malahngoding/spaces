@@ -1,7 +1,7 @@
 import CryptoJs from 'crypto-js';
 import { getSession } from 'next-auth/react';
 
-import { service } from '@utils/service';
+import { microService } from '@utils/service';
 
 export const getBadgeList = async (): Promise<{
   data: {
@@ -13,7 +13,7 @@ export const getBadgeList = async (): Promise<{
   };
 }> => {
   const session = await getSession();
-  return await service.get(`getBadgeList`, {
+  return await microService.get(`getBadgeList`, {
     headers: { Authorization: `Bearer ${session?.insteadToken}` },
   });
 };

@@ -9,7 +9,7 @@ import { Section } from '@components/design/section';
 import { Caption, Heading, SubTitle } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
 import { Markdown, MarkdownWrapper } from '@components/markdown';
-import { ServiceCard } from '@components/service-card';
+import { ServiceCard } from '@components/cards/service-card';
 
 interface ServiceProps {
   source: any;

@@ -1,4 +1,4 @@
-import { service } from '@utils/service';
+import { microService } from '@utils/service';
 import { getSession } from 'next-auth/react';
 
 export const getProfileDetails = async (
@@ -10,7 +10,7 @@ export const getProfileDetails = async (
     payload: any;
   };
 }> => {
-  return await service.post(
+  return await microService.post(
     `getProfileDetails`,
     {},
     {
@@ -37,7 +37,7 @@ export const updateProfileDetails = async (objkt: {
   };
 }> => {
   const session = await getSession();
-  return await service.post(
+  return await microService.post(
     `updateProfileDetails`,
     {
       name: objkt.name,

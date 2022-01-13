@@ -1,6 +1,6 @@
 import CryptoJs from 'crypto-js';
 
-import { service } from '@utils/service';
+import { microService } from '@utils/service';
 
 export const issueToken = async (
   identification: string,
@@ -18,7 +18,7 @@ export const issueToken = async (
     identification,
     process.env.INSTEAD_TOKEN || ``,
   ).toString();
-  return await service.post(`issueToken`, {
+  return await microService.post(`issueToken`, {
     identification: ciphertext,
     provider: provider,
   });

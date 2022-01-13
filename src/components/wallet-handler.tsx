@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { CryptoCard } from '@components/crypto-card';
+import { CryptoCard } from '@components/cards/crypto-card';
 import { ethers } from 'ethers';
 
 import MalahNgodingToken from '@artifacts/contracts/MalahNgodingToken.sol/MalahNgodingToken.json';

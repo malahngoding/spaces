@@ -5,7 +5,7 @@ import useSWR from 'swr';
 import { ProfileLayout } from '@layouts/profile';
 import { Section } from '@components/design/section';
 import { Box } from '@components/design/box';
-import { BadgeCard } from '@components/badge-card';
+import { BadgeCard } from '@components/cards/badge-card';
 import { getBadgeList } from '@services/badge-service';
 import { Paragraph } from '@components/design/typography';
 
