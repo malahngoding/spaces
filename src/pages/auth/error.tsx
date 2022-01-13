@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
-import { Heading, SubTitle } from '@components/design/typography';
+import { Paragraph, SubTitle } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
 
 export default function AuthError() {
@@ -15,7 +15,9 @@ export default function AuthError() {
         <br />
         <Section>
           <SubTitle data-testid="about-us-text">Unexpected Error</SubTitle>
-          <Heading>{router.query.error}</Heading>
+          <Paragraph css={{ fontFamily: `$mono`, wordWrap: `break-word` }}>
+            {router.query.error}
+          </Paragraph>
         </Section>
       </Box>
     </BaseLayout>

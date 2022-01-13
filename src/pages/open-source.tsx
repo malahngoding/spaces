@@ -49,22 +49,30 @@ export default function OpenSource(props: OpenSourceProps) {
 }
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_MICROS_URL}/public/static/${locale}/open-source.md`,
-  );
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_MICROS_URL}/public/static/${locale}/open-source.md`,
+    );
 
-  const source = await response.text();
-  const { content, data } = matter(source);
-  const mdxSource = await serialize(content);
+    const source = await response.text();
+    const { content, data } = matter(source);
+    const mdxSource = await serialize(content);
 
-  const messages = await import(`../lang/${locale}.json`).then(
-    (module) => module.default,
-  );
-  return {
-    props: {
-      messages,
-      source: mdxSource,
-      frontMatter: data,
-    },
-  };
+    const messages = await import(`../lang/${locale}.json`).then(
+      (module) => module.default,
+    );
+    return {
+      props: {
+        messages,
+        source: mdxSource,
+        frontMatter: data,
+      },
+    };
+  } catch (error) {
+    return {
+      redirect: {
+        destination: `/auth/error?error=${error}`,
+      },
+    };
+  }
 }

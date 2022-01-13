@@ -60,7 +60,9 @@
   },
   "Error": {
     "404Title": "Laman tak dapat ditemukan",
-    "404SubTitle": "Kesalahan 404"
+    "404SubTitle": "Kesalahan 404",
+    "500Title": "Server Kami Bermasalah",
+    "500SubTitle": "Kesalahan 500"
   },
   "Camps": {
     "campsTitle": "Berkemah bersama kami",

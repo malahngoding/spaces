@@ -60,7 +60,9 @@
   },
   "Error": {
     "404Title": "Page Not Found",
-    "404SubTitle": "404 Error"
+    "404SubTitle": "404 Error",
+    "500Title": "Internal Server Error",
+    "500SubTitle": "Kesalahan 500"
   },
   "Camps": {
     "campsTitle": "Join our Camps",

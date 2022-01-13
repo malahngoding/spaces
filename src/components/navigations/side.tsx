@@ -7,6 +7,7 @@ import { Button } from '@components/design/button';
 import { useDashNav } from '@store/navigation-store';
 import { useAppStore } from '@store/app-store';
 import { NavigationSheets } from '@components/navigations/sheets';
+import { ServiceChecker } from '@components/service-checker';
 
 const SideNav = styled(`div`, {
   borderRight: `0`,
@@ -131,7 +132,10 @@ export const SideNavigation = () => {
           </Menu>
         </NavWrapper>
       </SideNav>
-      <VersionTag>{status}</VersionTag>
+      <VersionTag>
+        <ServiceChecker />
+        {status}
+      </VersionTag>
       {shown ? <NavigationSheets /> : <></>}
     </>
   );

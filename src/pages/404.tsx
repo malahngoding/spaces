@@ -1,14 +1,10 @@
 import { GetStaticPropsContext } from 'next';
 import { useTranslations } from 'next-intl';
-import { serialize } from 'next-mdx-remote/serialize';
-import { MDXRemote } from 'next-mdx-remote';
-import matter from 'gray-matter';
 
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
-import { Caption, Heading, SubTitle } from '@components/design/typography';
+import { Heading, SubTitle } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
-import { Markdown, MarkdownWrapper } from '@components/markdown';
 
 export default function Custom404() {
   const t = useTranslations(`Error`);
