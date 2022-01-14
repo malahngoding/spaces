@@ -16,6 +16,7 @@ const MdxHeading = (props: any) => {
       <Heading
         {...props}
         id={props.children.replace(/\s+/g, '-').toLowerCase()}
+        css={{ marginY: `$md` }}
       />
     </>
   );
@@ -27,6 +28,7 @@ const MdxSubHeading = (props: any) => {
       <SubHeading
         {...props}
         id={props.children.replace(/\s+/g, '-').toLowerCase()}
+        css={{ marginY: `$md` }}
       />
     </>
   );
@@ -39,6 +41,7 @@ const MdxTitle = (props: any) => {
         {...props}
         id={props.children.replace(/\s+/g, '-').toLowerCase()}
       />
+      css={{ marginY: `$md` }}
     </>
   );
 };
@@ -49,6 +52,7 @@ const MdxSubTitle = (props: any) => {
       <SubTitle
         {...props}
         id={props.children.replace(/\s+/g, '-').toLowerCase()}
+        css={{ marginY: `$md` }}
       />
     </>
   );
@@ -57,7 +61,7 @@ const MdxSubTitle = (props: any) => {
 const MdxCaptionTitle = (props: any) => {
   return (
     <>
-      <CaptionTitle {...props} />
+      <CaptionTitle {...props} css={{ marginY: `$md` }} />
     </>
   );
 };
@@ -73,7 +77,7 @@ const MdxCaption = (props: any) => {
 const MdxParagraph = (props: any) => {
   return (
     <>
-      <Paragraph {...props} />
+      <Paragraph {...props} css={{ marginY: `$md` }} />
     </>
   );
 };
