@@ -8,7 +8,7 @@ pre[class*='language-'] {
   color: #c3cee3;
   background: #263238;
   font-family: 'Mononoki', monospace;
-  font-size: 1em;
+  font-size: 1.1em;
   line-height: 1.5em;
 
   -moz-tab-size: 4;
@@ -207,4 +207,19 @@ pre[class*='language-'] {
 
 .token.variable {
   color: #f07178;
+}
+
+table,
+tr,
+td,
+th {
+  border: 1px solid #555;
+}
+
+th {
+  padding: 0.5em 0.75em;
+}
+
+td {
+  padding: 0.5em 0.75em;
 }

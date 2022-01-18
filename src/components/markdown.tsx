@@ -40,8 +40,8 @@ const MdxTitle = (props: any) => {
       <Title
         {...props}
         id={props.children.replace(/\s+/g, '-').toLowerCase()}
+        css={{ marginY: `$md` }}
       />
-      css={{ marginY: `$md` }}
     </>
   );
 };
