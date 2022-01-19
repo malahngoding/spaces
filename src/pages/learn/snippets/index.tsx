@@ -1,11 +1,15 @@
 import { GetStaticPropsContext } from 'next';
 import { useTranslations } from 'next-intl';
+import { UilAngleLeft } from '@iconscout/react-unicons';
+import Link from 'next/link';
 
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
 import { Heading, SubTitle } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
 import { SnippetCard, SnippetCardProps } from '@components/cards/snippet-card';
+import { getSnippets } from '@services/content-service';
+import { Button } from '@components/design/button';
 
 interface SnippetsProps {
   data: SnippetCardProps[];
@@ -13,6 +17,7 @@ interface SnippetsProps {
 
 export default function Snippets(props: SnippetsProps) {
   const t = useTranslations(`Snippets`);
+  const l = useTranslations(`Learn`);
 
   return (
     <BaseLayout title="Hello World!">
@@ -34,9 +39,27 @@ export default function Snippets(props: SnippetsProps) {
                 id={item.id}
                 icon={item.icon}
                 title={item.title}
+                slug={item.slug}
               />
             );
           })}
+        </Section>
+        <Section
+          css={{
+            display: `flex`,
+            flexDirection: `row`,
+            justifyContent: `space-between`,
+            alignItems: `center`,
+          }}
+        >
+          <Link href="/learn" passHref>
+            <Button alternative={'tertiary'}>
+              <UilAngleLeft size="32" />
+            </Button>
+          </Link>
+          <Link href="/learn/articles" passHref>
+            <Button alternative={'tertiary'}>{l(`articlesTitle`)}</Button>
+          </Link>
         </Section>
       </Box>
     </BaseLayout>
@@ -47,35 +70,12 @@ export async function getStaticProps({ locale }: GetStaticPropsContext) {
   const messages = await import(`../../../lang/${locale}.json`).then(
     (module) => module.default,
   );
+  const response = await getSnippets(10, 10, locale || 'id');
+
   return {
     props: {
       messages,
-      data: [
-        {
-          id: 1,
-          tags: ['javascript', 'react'],
-          icon: 'javascript',
-          title: 'Testing JS',
-        },
-        {
-          id: 2,
-          tags: ['golang'],
-          icon: 'golang',
-          title: 'Testing Go',
-        },
-        {
-          id: 3,
-          tags: ['css', 'style'],
-          icon: 'css',
-          title: 'Testing CSS',
-        },
-        {
-          id: 4,
-          tags: ['solidity', 'smart contracts'],
-          icon: 'solidity',
-          title: 'Testing Solidity',
-        },
-      ],
+      data: response.data.payload.snippets,
     },
   };
 }

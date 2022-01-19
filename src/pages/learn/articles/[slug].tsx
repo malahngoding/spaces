@@ -1,10 +1,12 @@
 import { GetStaticPropsContext, GetStaticPaths } from 'next';
+import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote } from 'next-mdx-remote';
 import matter, { test } from 'gray-matter';
 import remarkGfm from 'remark-gfm';
 import rehypePrism from 'rehype-prism-plus';
+import { UilAngleLeft } from '@iconscout/react-unicons';
 
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
@@ -12,7 +14,7 @@ import { Caption, Heading, SubTitle } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
 import { Markdown, MarkdownWrapper } from '@components/markdown';
 import { getArticlesPath } from '@services/content-service';
-import { useEffect } from 'react';
+import { Button } from '@components/design/button';
 
 interface ArticlesProps {
   source: any;
@@ -20,7 +22,8 @@ interface ArticlesProps {
     title: string;
     subTitle: string;
     description: string;
-    publishedAt: string;
+    published: string;
+    slug: string;
   };
 }
 
@@ -45,8 +48,16 @@ export default function Articles(props: ArticlesProps) {
         </Section>
         <Section>
           <Caption>
-            {t(`updated`)} {props.frontMatter.publishedAt}
+            {t(`updated`)} {props.frontMatter.published}
           </Caption>
+        </Section>
+        <Section>
+          <Link href="/learn/articles" passHref>
+            <Button alternative={'ghost'}>
+              <UilAngleLeft size="32" />
+              {t(`backTo`)}
+            </Button>
+          </Link>
         </Section>
       </Box>
     </BaseLayout>
@@ -54,11 +65,16 @@ export default function Articles(props: ArticlesProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
-  let paths: { params: { slug: string } }[] = [];
+  let paths: { params: { slug: string }; locale: string }[] = [];
 
   const response = await getArticlesPath(10, 10, 'id');
-  response.data.payload.articlesPath.map((item) => {
-    paths.push({ params: { slug: item } });
+  const response2 = await getArticlesPath(10, 10, 'en');
+
+  response.data.payload.path.map((item) => {
+    paths.push({ params: { slug: item }, locale: 'id' });
+  });
+  response2.data.payload.path.map((item) => {
+    paths.push({ params: { slug: item }, locale: 'en' });
   });
 
   return {
@@ -79,8 +95,11 @@ export async function getStaticProps({
     const source = await response.text();
     const { content, data } = matter(source);
     const mdxSource = await serialize(content, {
-      //@ts-ignore
-      mdxOptions: { remarkPlugins: [remarkGfm], rehypePlugins: [rehypePrism] },
+      mdxOptions: {
+        //@ts-ignore
+        remarkPlugins: [remarkGfm],
+        rehypePlugins: [rehypePrism],
+      },
     });
 
     const messages = await import(`../../../lang/${locale}.json`).then(

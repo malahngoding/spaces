@@ -1,49 +1,114 @@
-import { useRouter } from 'next/router';
-import { GetStaticPropsContext } from 'next';
+import { GetStaticPropsContext, GetStaticPaths } from 'next';
+import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+import { serialize } from 'next-mdx-remote/serialize';
+import { MDXRemote } from 'next-mdx-remote';
+import matter from 'gray-matter';
+import remarkGfm from 'remark-gfm';
+import rehypePrism from 'rehype-prism-plus';
+import { UilAngleLeft } from '@iconscout/react-unicons';
 
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
-import { Heading, SubTitle } from '@components/design/typography';
+import { SubTitle } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
+import { getSnippetsPath } from '@services/content-service';
+import { Markdown, MarkdownWrapper } from '@components/markdown';
+import { Button } from '@components/design/button';
 
-interface SnippetsPostProps {}
+interface SnippetsPostProps {
+  source: any;
+  frontMatter: {
+    title: string;
+    icon: string;
+    tags: string[];
+    slug: string;
+  };
+}
 
 export default function SnippetsPost(props: SnippetsPostProps) {
   const t = useTranslations(`Snippets`);
 
   return (
-    <BaseLayout title="Hello World!">
+    <BaseLayout title={props.frontMatter.title}>
       <Box>
+        <br />
         <Section>
-          <SubTitle data-testid="welcome-text">
-            {t(`snippetsSubTitle`)} POST
+          <SubTitle data-testid="about-us-text">
+            {props.frontMatter.title}
           </SubTitle>
-          <Heading>{t(`snippetsTitle`)}</Heading>
+        </Section>
+        <Section>
+          <MarkdownWrapper>
+            <MDXRemote {...props.source} components={Markdown} />
+          </MarkdownWrapper>
+        </Section>
+        <Section>
+          <Link href="/learn/snippets" passHref>
+            <Button alternative={'ghost'}>
+              <UilAngleLeft size="32" />
+              {t(`backTo`)}
+            </Button>
+          </Link>
         </Section>
       </Box>
     </BaseLayout>
   );
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
+  let paths: { params: { slug: string }; locale: string }[] = [];
+
+  const response = await getSnippetsPath(10, 10, 'id');
+  const response2 = await getSnippetsPath(10, 10, 'en');
+
+  response.data.payload.path.map((item) => {
+    paths.push({ params: { slug: item }, locale: 'id' });
+  });
+  response2.data.payload.path.map((item) => {
+    paths.push({ params: { slug: item }, locale: 'en' });
+  });
+
   return {
-    paths: [
-      { params: { slug: '1' } },
-      { params: { slug: '2' } },
-      { params: { slug: '3' } },
-    ],
+    paths,
     fallback: false,
   };
-}
+};
 
-export async function getStaticProps({ locale }: GetStaticPropsContext) {
-  const messages = await import(`../../../lang/${locale}.json`).then(
-    (module) => module.default,
-  );
-  return {
-    props: {
-      messages,
-    },
-  };
+export async function getStaticProps({
+  locale,
+  params,
+}: GetStaticPropsContext) {
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_MICROS_URL}/public/snippets/${locale}/${params?.slug}.mdx`,
+    );
+
+    const source = await response.text();
+    const { content, data } = matter(source);
+    const mdxSource = await serialize(content, {
+      mdxOptions: {
+        //@ts-ignore
+        remarkPlugins: [remarkGfm],
+        rehypePlugins: [rehypePrism],
+      },
+    });
+
+    const messages = await import(`../../../lang/${locale}.json`).then(
+      (module) => module.default,
+    );
+    return {
+      props: {
+        messages,
+        source: mdxSource,
+        frontMatter: data,
+      },
+    };
+  } catch (error) {
+    return {
+      redirect: {
+        destination: `/auth/error?error=${error}`,
+      },
+    };
+  }
 }

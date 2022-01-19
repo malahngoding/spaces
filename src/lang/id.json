@@ -38,7 +38,8 @@
   "Articles": {
     "articlesTitle": "Artikel dan diantaranya",
     "articlesSubTitle": "Pokoknya Blog lah",
-    "updated": "Diperbaharui pada"
+    "updated": "Diperbaharui pada",
+    "backTo": "Baca lainnya"
   },
   "Service": {
     "mentor": "Malah ngoding ditemani mentor",
@@ -86,7 +87,9 @@
   },
   "Snippets": {
     "snippetsTitle": "Potongan Kode",
-    "snippetsSubTitle": "Copy Paste Beres"
+    "snippetsSubTitle": "Copy Paste Beres",
+    "updated": "Diperbaharui pada",
+    "backTo": "Baca lainnya"
   },
   "FlashCard": {
     "flashCardTitle": "Flash Card"

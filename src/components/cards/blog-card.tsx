@@ -33,7 +33,7 @@ export const BlogCard = (props: BlogCardProps) => {
           },
           '&:hover': {
             cursor: `pointer`,
-            backgroundColor: `$slate6`,
+            backgroundColor: `$cyan4`,
           },
         }}
       >

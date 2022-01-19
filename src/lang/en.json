@@ -38,7 +38,8 @@
   "Articles": {
     "articlesTitle": "Articles and anything beyond",
     "articlesSubTitle": "Wall of text for those who enjoy it",
-    "updated": "Updated on"
+    "updated": "Updated on",
+    "backTo": "Read another"
   },
   "Service": {
     "mentor": "Coding with tutor",
@@ -86,7 +87,9 @@
   },
   "Snippets": {
     "snippetsTitle": "Code Snippets",
-    "snippetsSubTitle": "Just copy and paste and you are good to go"
+    "snippetsSubTitle": "Just copy and paste and you are good to go",
+    "updated": "Updated on",
+    "backTo": "Read another"
   },
   "FlashCard": {
     "flashCardTitle": "Flash Card"
