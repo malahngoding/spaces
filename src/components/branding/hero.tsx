@@ -4,17 +4,27 @@ import { useTranslations } from 'next-intl';
 import { Heading, SubTitle } from '@components/design/typography';
 import { Box } from '@components/design/box';
 
-export const Hero = (): JSX.Element => {
+interface HeroProps {
+  random: number;
+}
+
+export const Hero = (props: HeroProps): JSX.Element => {
   const { data: session, status } = useSession();
   const t = useTranslations(`Home`);
 
-  const altImage = `/static/gifs/giphy.gif`;
+  const altImage = [
+    `/static/gifs/giphy.gif`,
+    `/static/gifs/kusama.gif`,
+    `/static/gifs/spacecar.gif`,
+  ];
 
   return (
     <>
       <Box
         css={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("${altImage}")`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("${
+            altImage[props.random || 0]
+          }")`,
           backgroundPosition: `center`,
           backgroundRepeat: `no-repeat`,
           backgroundSize: `cover`,

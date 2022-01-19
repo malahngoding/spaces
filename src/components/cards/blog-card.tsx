@@ -37,7 +37,7 @@ export const BlogCard = (props: BlogCardProps) => {
           },
         }}
       >
-        <Box css={{ width: `320px` }}>
+        <Box css={{ width: `128px` }}>
           <Image
             src={`${image}&w=320&h=320&q=80`}
             alt={title}
@@ -60,7 +60,7 @@ export const BlogCard = (props: BlogCardProps) => {
           }}
         >
           <Title>{title}</Title>
-          <SubTitle css={{ fontWeight: `$normal` }}>{description}</SubTitle>
+          <Paragraph css={{ fontWeight: `$normal` }}>{description}</Paragraph>
           <Paragraph css={{ fontFamily: `$mono`, marginBottom: `0` }}>
             {published}
           </Paragraph>
