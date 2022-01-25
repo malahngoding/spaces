@@ -8,7 +8,7 @@ import {
 import { NextPageContext } from 'next';
 import Link from 'next/link';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { UilGithub, UilGoogle } from '@iconscout/react-unicons';
+import { UilGithub, UilGoogle, UilWallet } from '@iconscout/react-unicons';
 import { useTranslations } from 'next-intl';
 
 import { Button } from '@components/design/button';
@@ -131,7 +131,7 @@ export default function Register(props: RegisterProps) {
           </Paragraph>
           <Grid
             css={{
-              gridTemplateColumns: `1fr 1fr`,
+              gridTemplateColumns: `1fr 1fr 1fr`,
             }}
           >
             <Button
@@ -147,6 +147,13 @@ export default function Register(props: RegisterProps) {
               className="my-2 sm:m-2 flex flex-row justify-center items-center hover:bg-black-100"
             >
               <UilGoogle />
+            </Button>
+            <Button
+              alternative="secondary"
+              onClick={() => signIn(providers.google.id)}
+              className="my-2 sm:m-2 flex flex-row justify-center items-center hover:bg-black-100"
+            >
+              <UilWallet />
             </Button>
           </Grid>
           <Paragraph css={{ marginY: `$md`, display: `none` }}>
