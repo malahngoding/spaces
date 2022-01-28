@@ -103,6 +103,11 @@ export default function Register(props: RegisterProps) {
 
   const altImage = `/static/images/camps-instead.webp`;
 
+  const handleWallet = (): void => {
+    var data = { type: 'WALLET_CONNECT', text: 'Hello from the webpage!' };
+    window.postMessage(data, '*');
+  };
+
   return (
     <AuthLayout title="Register">
       <Left
@@ -150,7 +155,7 @@ export default function Register(props: RegisterProps) {
             </Button>
             <Button
               alternative="secondary"
-              onClick={() => signIn(providers.google.id)}
+              onClick={handleWallet}
               className="my-2 sm:m-2 flex flex-row justify-center items-center hover:bg-black-100"
             >
               <UilWallet />
