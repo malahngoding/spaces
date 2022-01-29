@@ -25,7 +25,7 @@ export const AuthenticationBlock = (props: AuthenticationBlockProps) => {
           css={{
             display: `flex`,
             flexDirection: `column`,
-            justifyContent: `flex-start`,
+            justifyContent: `center`,
             alignItems: `center`,
             '@md': {
               flexDirection: `row`,

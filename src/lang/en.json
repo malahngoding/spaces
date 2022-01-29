@@ -92,7 +92,8 @@
     "backTo": "Read another"
   },
   "FlashCard": {
-    "flashCardTitle": "Flash Card"
+    "flashCardTitle": "Flash Card",
+    "flashCardSubTitle": "Answer Quiz, Climb Up Ranks!"
   },
   "AuthBlock": {
     "message": "Please connect your account before continue, Thanks!"

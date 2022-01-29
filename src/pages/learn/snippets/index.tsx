@@ -33,7 +33,8 @@ export default function Snippets(props: SnippetsProps) {
           css={{
             display: `grid`,
             gridTemplateColumns: `1fr 1fr`,
-            '@md': { gridTemplateColumns: `1fr 1fr 1fr`, gap: `$xs` },
+            gap: `$xs`,
+            '@md': { gridTemplateColumns: `1fr 1fr 1fr` },
           }}
         >
           {props.data.map((item) => {

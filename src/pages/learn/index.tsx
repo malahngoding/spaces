@@ -66,7 +66,8 @@ export default function Learn(props: LearnProps) {
                   marginRight: `$md`,
                   '&:hover': {
                     cursor: `pointer`,
-                    backgroundColor: '$cyan4',
+                    transform: `translateY(-4px)`,
+                    boxShadow: `0px 8px 6px -8px hsl(198 6.6% 15.8%)`,
                   },
                 }}
                 onClick={() => router.push(item.url)}

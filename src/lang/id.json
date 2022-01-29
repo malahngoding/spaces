@@ -92,7 +92,8 @@
     "backTo": "Baca lainnya"
   },
   "FlashCard": {
-    "flashCardTitle": "Flash Card"
+    "flashCardTitle": "Flash Card",
+    "flashCardSubTitle": "Jawab Quiz, Naiki Peringkat"
   },
   "AuthBlock": {
     "message": "Silahkan masuk dahulu sebelum melanjutkan, terima kasih!"
