@@ -154,6 +154,7 @@ export default function Register(props: RegisterProps) {
               <UilGoogle />
             </Button>
             <Button
+              css={{ display: `none` }}
               alternative="secondary"
               onClick={handleWallet}
               className="my-2 sm:m-2 flex flex-row justify-center items-center hover:bg-black-100"

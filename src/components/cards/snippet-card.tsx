@@ -19,19 +19,17 @@ export const SnippetCard = (props: SnippetCardProps) => {
       <Box
         key={id}
         css={{
-          backgroundColor: `$slate4`,
+          backgroundColor: `$slate2`,
           border: `2px solid $slate12`,
-          marginY: `$sm`,
           padding: `$xs`,
           display: `flex`,
-          width: `calc(100%)`,
-          '@lg': {
-            margin: `$xs`,
-            width: `calc(50% - 2.4rem)`,
-          },
+          flexDirection: `row`,
+          justifyContent: `flex-start`,
+          alignItems: `center`,
+          height: `calc(120px)`,
           '&:hover': {
             cursor: `pointer`,
-            backgroundColor: `$cyan4`,
+            backgroundColor: `$cyan2`,
           },
         }}
       >

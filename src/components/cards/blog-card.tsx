@@ -26,8 +26,8 @@ export const BlogCard = (props: BlogCardProps) => {
           width: `100%`,
           display: `flex`,
           flexDirection: `column`,
-          alignItems: `flex-start`,
-          justifyContent: `flex-start`,
+          alignItems: `center`,
+          justifyContent: `center`,
           '@lg': {
             flexDirection: `row`,
           },
@@ -37,7 +37,7 @@ export const BlogCard = (props: BlogCardProps) => {
           },
         }}
       >
-        <Box css={{ width: `128px` }}>
+        <Box css={{ height: `100%` }}>
           <Image
             src={`${image}&w=320&h=320&q=80`}
             alt={title}
@@ -59,9 +59,9 @@ export const BlogCard = (props: BlogCardProps) => {
             },
           }}
         >
-          <Title>{title}</Title>
+          <Title css={{ margin: 0 }}>{title}</Title>
           <Paragraph css={{ fontWeight: `$normal` }}>{description}</Paragraph>
-          <Paragraph css={{ fontFamily: `$mono`, marginBottom: `0` }}>
+          <Paragraph css={{ fontFamily: `$mono`, margin: 0 }}>
             {published}
           </Paragraph>
         </Box>

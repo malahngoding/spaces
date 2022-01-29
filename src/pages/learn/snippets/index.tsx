@@ -29,7 +29,11 @@ export default function Snippets(props: SnippetsProps) {
           <Heading>{t(`snippetsTitle`)}</Heading>
         </Section>
         <Section
-          css={{ display: `flex`, flexDirection: `row`, flexWrap: `wrap` }}
+          css={{
+            display: `grid`,
+            gridTemplateColumns: `1fr 1fr`,
+            '@md': { gridTemplateColumns: `1fr 1fr 1fr`, gap: `$xs` },
+          }}
         >
           {props.data.map((item) => {
             return (

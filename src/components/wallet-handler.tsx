@@ -6,8 +6,12 @@ import MalahNgodingToken from '@artifacts/contracts/MalahNgodingToken.sol/MalahN
 
 import { Box } from '@components/design/box';
 import { Button } from '@components/design/button';
-
-const MalahNgodingTokenAddress = `0xA888133886ADE7df0E95f7cFdd74e35f79DC30CE`;
+import {
+  deployedChain,
+  MalahNgodingTokenAddress,
+  MalahNgodingTokenDecimals,
+  MalahNgodingTokenSymbol,
+} from '@config/contractAddress';
 
 export const WalletHandler = () => {
   const [currentAccount, setCurrentAccount] = useState<string>('');
@@ -20,7 +24,7 @@ export const WalletHandler = () => {
       const network = await provider.getNetwork();
       const signer = provider.getSigner();
 
-      if (network.chainId === 4) {
+      if (network.chainId === deployedChain) {
         const account = await window.ethereum.request({
           method: 'eth_requestAccounts',
           params: [],
@@ -49,7 +53,7 @@ export const WalletHandler = () => {
       } else {
         await window.ethereum.request({
           method: 'wallet_switchEthereumChain',
-          params: [{ chainId: '0x4' }],
+          params: [{ chainId: '0x13881' }],
         });
         setCurrentAccount('...');
         setCurrentGasBalance('...');
@@ -72,9 +76,9 @@ export const WalletHandler = () => {
 
   async function registerMalahNgodingToken() {
     if (typeof window.ethereum !== undefined) {
-      const tokenAddress = '0xA888133886ADE7df0E95f7cFdd74e35f79DC30CE';
-      const tokenSymbol = 'MNT';
-      const tokenDecimals = 18;
+      const tokenAddress = MalahNgodingTokenAddress;
+      const tokenSymbol = MalahNgodingTokenSymbol;
+      const tokenDecimals = MalahNgodingTokenDecimals;
       const tokenImage =
         'https://malahngoding.com/static/favicons/apple-touch-icon.png';
 
@@ -111,7 +115,7 @@ export const WalletHandler = () => {
     <>
       <CryptoCard
         mnt={`${currentBalance} $MNT`}
-        gas={`${currentGasBalance} $rinkebyETH`}
+        gas={`${currentGasBalance} $mumbaiMATIC`}
         currentAddress={currentAccount}
         description="Malah Ngoding Token"
         image="https://storage.opensea.io/files/70db9e857f52b78b7a9f6d93020e50d8.mp4#t=0.001"

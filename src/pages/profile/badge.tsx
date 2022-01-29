@@ -1,5 +1,8 @@
 import { GetServerSidePropsContext } from 'next';
 import { getSession } from 'next-auth/react';
+import { UilBackpack } from '@iconscout/react-unicons';
+import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 import useSWR from 'swr';
 
 import { ProfileLayout } from '@layouts/profile';
@@ -8,6 +11,7 @@ import { Box } from '@components/design/box';
 import { BadgeCard } from '@components/cards/badge-card';
 import { getBadgeList } from '@services/badge-service';
 import { Paragraph } from '@components/design/typography';
+import { Button } from '@components/design/button';
 
 interface ProfileProps {
   currentUser: {
@@ -22,47 +26,66 @@ interface ProfileProps {
 const fetcher = (url: string) => getBadgeList();
 
 export default function Badge(props: ProfileProps) {
+  const t = useTranslations(`Menu`);
   const { data, error } = useSWR('/api/user', fetcher);
 
   const badgeList = data?.data.payload.list;
 
   return (
     <ProfileLayout layout={{ tab: 1 }} currentUser={props.currentUser}>
-      <Section
-        css={{ display: `flex`, flexDirection: `row`, flexWrap: `wrap` }}
-      >
-        {badgeList ? (
-          <>
-            {badgeList.map((item, index) => {
-              return (
-                <Box
-                  key={index}
-                  css={{
-                    marginTop: `$md`,
-                    marginRight: `$md`,
-                  }}
-                >
-                  <BadgeCard
-                    title={item.badge.title}
-                    description={item.badge.description}
-                    media={item.badge.media}
-                    type="MOVING"
-                  />
-                </Box>
-              );
-            })}
-          </>
-        ) : (
-          <Paragraph>Loading...</Paragraph>
-        )}
-        {error ? (
-          <>
-            <Paragraph>Error getting badge</Paragraph>
-          </>
-        ) : (
-          <></>
-        )}
-      </Section>
+      <>
+        <Section>
+          <Link href="/inventory" passHref>
+            <Button>
+              <UilBackpack />
+              <Paragraph
+                css={{
+                  marginLeft: `$sm`,
+                  fontWeight: `bold`,
+                  marginBottom: 0,
+                }}
+              >
+                {t(`inventory`)}
+              </Paragraph>
+            </Button>
+          </Link>
+        </Section>
+        <Section
+          css={{ display: `flex`, flexDirection: `row`, flexWrap: `wrap` }}
+        >
+          {badgeList ? (
+            <>
+              {badgeList.map((item, index) => {
+                return (
+                  <Box
+                    key={index}
+                    css={{
+                      marginTop: `$md`,
+                      marginRight: `$md`,
+                    }}
+                  >
+                    <BadgeCard
+                      title={item.badge.title}
+                      description={item.badge.description}
+                      media={item.badge.media}
+                      type="MOVING"
+                    />
+                  </Box>
+                );
+              })}
+            </>
+          ) : (
+            <Paragraph>Loading...</Paragraph>
+          )}
+          {error ? (
+            <>
+              <Paragraph>Error getting badge</Paragraph>
+            </>
+          ) : (
+            <></>
+          )}
+        </Section>
+      </>
     </ProfileLayout>
   );
 }

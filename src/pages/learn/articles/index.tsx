@@ -29,7 +29,13 @@ export default function Articles(props: ArticlesProps) {
           <Heading>{t(`articlesTitle`)}</Heading>
         </Section>
         <Section
-          css={{ display: `flex`, flexDirection: `row`, flexWrap: `wrap` }}
+          css={{
+            display: `grid`,
+            gap: `$xs`,
+            '@md': {
+              gridTemplateColumns: `1fr 1fr`,
+            },
+          }}
         >
           {props.data.map((item) => {
             return (
