@@ -22,6 +22,7 @@ export default function Articles(props: ArticlesProps) {
   return (
     <BaseLayout title="Hello World!">
       <Box>
+        <br />
         <Section>
           <SubTitle data-testid="welcome-text">
             {t(`articlesSubTitle`)}

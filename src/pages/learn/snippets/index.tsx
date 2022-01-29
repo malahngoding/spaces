@@ -22,6 +22,7 @@ export default function Snippets(props: SnippetsProps) {
   return (
     <BaseLayout title="Hello World!">
       <Box>
+        <br />
         <Section>
           <SubTitle data-testid="welcome-text">
             {t(`snippetsSubTitle`)}

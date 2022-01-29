@@ -48,6 +48,7 @@ export default function Learn(props: LearnProps) {
   return (
     <BaseLayout title="Hello World!">
       <Box>
+        <br />
         <Section>
           <SubTitle data-testid="welcome-text">{t(`learnSubTitle`)}</SubTitle>
           <Heading>{t(`learnTitle`)}</Heading>

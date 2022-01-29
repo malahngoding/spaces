@@ -48,6 +48,7 @@ export default function Camps(props: CampsProps) {
   return (
     <BaseLayout title="Hello World!">
       <Box>
+        <br />
         <Section>
           <SubTitle data-testid="welcome-text">{t(`campsSubTitle`)}</SubTitle>
           <Heading>{t(`campsTitle`)}</Heading>

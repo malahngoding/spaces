@@ -10,6 +10,7 @@ export default function Labs(props: LabsProps) {
   return (
     <BaseLayout title="Hello World!">
       <Box>
+        <br />
         <Section>
           <SubTitle data-testid="welcome-text">Welcome to</SubTitle>
           <Heading>Labs of Malah Ngoding</Heading>

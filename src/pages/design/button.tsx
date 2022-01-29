@@ -14,10 +14,10 @@ export default function DesignButton(props: HomeProps) {
   return (
     <DesignLayout title="Hello World!">
       <Box>
+        <br />
         <Section>
           <h1 data-testid="welcome-text">Welcome to {applicationName}</h1>
         </Section>
-
         <Section>
           <Grid>
             <Button>Button</Button>

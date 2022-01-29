@@ -15,6 +15,7 @@ export default function FlashCardPost(props: FlashCardPostProps) {
   return (
     <BaseLayout title="Hello World!">
       <Box>
+        <br />
         <Section>
           <SubTitle data-testid="welcome-text">
             {t(`snippetsSubTitle`)} POST

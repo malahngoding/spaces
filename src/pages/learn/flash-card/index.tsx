@@ -1,17 +1,16 @@
-import { GetStaticPropsContext } from 'next';
+import { GetServerSidePropsContext } from 'next';
 import { useTranslations } from 'next-intl';
 
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
-import {
-  Caption,
-  Heading,
-  SubTitle,
-  Paragraph,
-} from '@components/design/typography';
+import { Heading } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
+import { getSession } from 'next-auth/react';
+import { AuthenticationBlock } from '@components/authentication-block';
 
-interface FlashCardProps {}
+interface FlashCardProps {
+  currentSession: any;
+}
 
 export default function FlashCard(props: FlashCardProps) {
   const t = useTranslations(`FlashCard`);
@@ -19,24 +18,31 @@ export default function FlashCard(props: FlashCardProps) {
   return (
     <BaseLayout title="Hello World!">
       <Box>
+        <br />
         <Section>
           <Heading>{t(`flashCardTitle`)}</Heading>
         </Section>
-        <Section
-          css={{ display: `flex`, flexDirection: `row`, flexWrap: `wrap` }}
-        ></Section>
+        <AuthenticationBlock currentSession={props.currentSession}>
+          <Section
+            css={{ display: `flex`, flexDirection: `row`, flexWrap: `wrap` }}
+          >
+            Hello
+          </Section>
+        </AuthenticationBlock>
       </Box>
     </BaseLayout>
   );
 }
 
-export async function getStaticProps({ locale }: GetStaticPropsContext) {
-  const messages = await import(`../../../lang/${locale}.json`).then(
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const session = await getSession(context);
+  const messages = await import(`../../../lang/${context.locale}.json`).then(
     (module) => module.default,
   );
   return {
     props: {
       messages,
+      currentSession: session,
     },
   };
 }

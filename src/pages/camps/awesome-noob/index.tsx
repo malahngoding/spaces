@@ -11,6 +11,7 @@ export default function AwesomeNoobs(props: AwesomeNoobsProps) {
   return (
     <BaseLayout title="Hello World!">
       <Box>
+        <br />
         <Section>
           <SubTitle data-testid="welcome-text">Instead Hashnaut</SubTitle>
           <Heading>Awesome Noobs</Heading>

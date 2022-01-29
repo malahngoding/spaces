@@ -93,5 +93,8 @@
   },
   "FlashCard": {
     "flashCardTitle": "Flash Card"
+  },
+  "AuthBlock": {
+    "message": "Please connect your account before continue, Thanks!"
   }
 }

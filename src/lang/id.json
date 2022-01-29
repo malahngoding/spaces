@@ -93,5 +93,8 @@
   },
   "FlashCard": {
     "flashCardTitle": "Flash Card"
+  },
+  "AuthBlock": {
+    "message": "Silahkan masuk dahulu sebelum melanjutkan, terima kasih!"
   }
 }

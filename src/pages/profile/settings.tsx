@@ -26,21 +26,24 @@ export default function Settings(props: ProfileProps) {
 
   return (
     <ProfileLayout layout={{ tab: 2 }} currentUser={props.currentUser}>
-      <Section>
-        <SubTitle>{t(`theme`)}</SubTitle>
-        <Box
-          css={{
-            display: `flex`,
-            flexDirection: `row`,
-            alignItems: `center`,
-          }}
-        >
-          <ThemeToggleComponent />
-          <Paragraph css={{ marginBottom: 0, marginLeft: `$sm` }}>
-            {t(`themeMessage`)}
-          </Paragraph>
-        </Box>
-      </Section>
+      <Box>
+        <br />
+        <Section>
+          <SubTitle>{t(`theme`)}</SubTitle>
+          <Box
+            css={{
+              display: `flex`,
+              flexDirection: `row`,
+              alignItems: `center`,
+            }}
+          >
+            <ThemeToggleComponent />
+            <Paragraph css={{ marginBottom: 0, marginLeft: `$sm` }}>
+              {t(`themeMessage`)}
+            </Paragraph>
+          </Box>
+        </Section>
+      </Box>
     </ProfileLayout>
   );
 }

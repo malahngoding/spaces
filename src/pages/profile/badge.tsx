@@ -33,7 +33,8 @@ export default function Badge(props: ProfileProps) {
 
   return (
     <ProfileLayout layout={{ tab: 1 }} currentUser={props.currentUser}>
-      <>
+      <Box>
+        <br />
         <Section>
           <Link href="/inventory" passHref>
             <Button>
@@ -85,7 +86,7 @@ export default function Badge(props: ProfileProps) {
             <></>
           )}
         </Section>
-      </>
+      </Box>
     </ProfileLayout>
   );
 }

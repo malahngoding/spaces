@@ -10,6 +10,7 @@ export default function Code(props: CodeProps) {
   return (
     <BaseLayout title="Hello World!">
       <Box>
+        <br />
         <Section>
           <SubTitle data-testid="welcome-text">Welcome to</SubTitle>
           <Heading>Camps of Malah Ngoding</Heading>

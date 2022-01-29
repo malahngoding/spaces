@@ -6,6 +6,7 @@ import dynamic from 'next/dynamic';
 import { ProfileLayout } from '@layouts/profile';
 import { Section } from '@components/design/section';
 import { SubTitle } from '@components/design/typography';
+import { Box } from '@components/design/box';
 
 interface ProfileProps {
   currentUser: {
@@ -26,10 +27,13 @@ export default function Profile(props: ProfileProps) {
 
   return (
     <ProfileLayout layout={{ tab: 0 }} currentUser={props.currentUser}>
-      <Section>
-        <SubTitle>{t(`details`)}</SubTitle>
-        <DetailsFormComponent />
-      </Section>
+      <Box>
+        <br />
+        <Section>
+          <SubTitle>{t(`details`)}</SubTitle>
+          <DetailsFormComponent />
+        </Section>
+      </Box>
     </ProfileLayout>
   );
 }
