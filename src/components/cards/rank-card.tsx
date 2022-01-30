@@ -4,7 +4,10 @@ import { Paragraph } from '@components/design/typography';
 import { Avatar, AvatarImage } from '@components/navigations/avatar';
 
 interface RankCardProps {
-  item: number;
+  rank: number;
+  userName: string;
+  avatar: string;
+  score: string;
 }
 
 export const RankCard = (props: RankCardProps) => {
@@ -22,18 +25,16 @@ export const RankCard = (props: RankCardProps) => {
       <PlainButton>
         <Avatar>
           <AvatarImage
-            src={`https://avatars.dicebear.com/api/micah/${new Date()}-${
-              props.item
-            }.svg?w=128`}
+            src={`https://avatars.dicebear.com/api/micah/${props.avatar}.svg?w=128`}
             role="button"
           />
         </Avatar>
       </PlainButton>
       <Box>
         <Paragraph css={{ margin: 0, fontWeight: `bolder` }}>
-          #{props.item}
+          #{props.rank} - {props.score}pts
         </Paragraph>
-        <Paragraph css={{ margin: 0 }}>#{props.item}</Paragraph>
+        <Paragraph css={{ margin: 0 }}>{props.userName}</Paragraph>
       </Box>
     </Box>
   );
