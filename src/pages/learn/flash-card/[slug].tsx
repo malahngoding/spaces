@@ -1,11 +1,11 @@
 import { useRouter } from 'next/router';
-import { GetStaticPropsContext } from 'next';
+import { GetServerSidePropsContext } from 'next';
 import { useTranslations } from 'next-intl';
 
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
 import { Heading, SubTitle } from '@components/design/typography';
-import { BaseLayout } from '@layouts/base';
+import { QuizLayout } from '@layouts/quiz';
 
 interface FlashCardPostProps {}
 
@@ -13,32 +13,23 @@ export default function FlashCardPost(props: FlashCardPostProps) {
   const t = useTranslations(`Snippets`);
 
   return (
-    <BaseLayout title="Hello World!">
+    <QuizLayout title="Hello World!">
       <Box>
         <br />
         <Section>
           <SubTitle data-testid="welcome-text">
-            {t(`snippetsSubTitle`)} POST
+            {t(`snippetsSubTitle`)}
           </SubTitle>
           <Heading>{t(`snippetsTitle`)}</Heading>
         </Section>
       </Box>
-    </BaseLayout>
+    </QuizLayout>
   );
 }
 
-export async function getStaticPaths() {
-  return {
-    paths: [
-      { params: { slug: '1' } },
-      { params: { slug: '2' } },
-      { params: { slug: '3' } },
-    ],
-    fallback: false,
-  };
-}
-
-export async function getStaticProps({ locale }: GetStaticPropsContext) {
+export async function getServerSideProps({
+  locale,
+}: GetServerSidePropsContext) {
   const messages = await import(`../../../lang/${locale}.json`).then(
     (module) => module.default,
   );
