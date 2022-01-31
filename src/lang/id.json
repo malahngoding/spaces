@@ -93,7 +93,17 @@
   },
   "FlashCard": {
     "flashCardTitle": "Flash Card",
-    "flashCardSubTitle": "Jawab Quiz, Naiki Peringkat"
+    "flashCardSubTitle": "Jawab Quiz, Naiki Peringkat",
+    "currentRanks": "Pemimpin Klasemen",
+    "yourStatistics": "Poinmu Sekarang {point}",
+    "nextRound": "Ronde Selanjutnya: {groupName}",
+    "quotes": "Menjawab pertanyaan dan bertarung dengan waktu, setiap pertanyaan harus dijawab dalam 6 detik. Bersiap saat memulai sesi, karena setiap sesi yang dimulai akan dihitung. Bersaing dengan yang lain untuk mendapatkan posisi puncak.",
+    "finishedGroupQuestion": "Quiz Group Terselesaikan",
+    "answeredQuestion": "Pertanyaan Terjawab",
+    "skippedQuestion": "Pertanyaan Dilewat",
+    "correctAnswer": "Jawaban Benar",
+    "wrongAnswer": "Jawaban Salah",
+    "accuracy": "Akurasi"
   },
   "AuthBlock": {
     "message": "Silahkan masuk dahulu sebelum melanjutkan, terima kasih!"

@@ -7,7 +7,6 @@ import { Section } from '@components/design/section';
 import { Heading, Caption } from '@components/design/typography';
 import { Avatar, AvatarImage } from '@components/navigations/avatar';
 import { BaseLayout } from './base';
-import { useEffect } from 'react';
 
 interface ProfileLayoutProps {
   layout: {
