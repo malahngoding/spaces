@@ -9,6 +9,25 @@ import {
   crimsonDark,
 } from '@radix-ui/colors';
 
+const sweetie16 = {
+  sweet1: '#1a1c2c',
+  sweet2: '#5d275d',
+  sweet3: '#b13e53',
+  sweet4: '#ef7d57',
+  sweet5: '#ffcd75',
+  sweet6: '#a7f070',
+  sweet7: '#38b764',
+  sweet8: '#257179',
+  sweet9: '#29366f',
+  sweet10: '#3b5dc9',
+  sweet11: '#41a6f6',
+  sweet12: '#73eff7',
+  sweet13: '#f4f4f4',
+  sweet14: '#94b0c2',
+  sweet15: '#566c86',
+  sweet16: '#333c57',
+};
+
 export const { styled, css, globalCss, keyframes, getCssText, theme } =
   createStitches({
     theme: {
@@ -16,6 +35,7 @@ export const { styled, css, globalCss, keyframes, getCssText, theme } =
         ...slate,
         ...cyan,
         ...crimson,
+        ...sweetie16,
       },
       fonts: {
         sans: `Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif`,
@@ -82,5 +102,6 @@ export const darkTheme = createTheme(`dark-theme`, {
     ...slateDark,
     ...cyanDark,
     ...crimsonDark,
+    ...sweetie16,
   },
 });

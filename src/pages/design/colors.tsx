@@ -3,6 +3,7 @@ import { GetStaticPropsContext } from 'next';
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
 import { DesignLayout } from '@layouts/design-layout';
+import { Heading, Title } from '@components/design/typography';
 
 interface HomeProps {
   applicationName: string;
@@ -10,52 +11,88 @@ interface HomeProps {
 }
 
 export default function DesignButton(props: HomeProps) {
+  const sizeBox = `96px`;
   const { applicationName, repeater } = props;
   return (
     <DesignLayout title="Hello World!">
       <Box>
         <br />
         <Section>
-          <h1 data-testid="welcome-text">Welcome to {applicationName}</h1>
+          <Heading data-testid="welcome-text">
+            The color of {applicationName}
+          </Heading>
         </Section>
-        <Box css={{ display: `flex`, flexDirection: `row`, flexWrap: `wrap` }}>
+        <Section>
+          <Title id="slate"># Slate</Title>
+        </Section>
+        <Section
+          css={{ display: `flex`, flexDirection: `row`, flexWrap: `wrap` }}
+        >
           {repeater.map((item: number) => (
             <Box
               key={item}
               css={{
-                height: `72px`,
-                width: `72px`,
+                height: `${sizeBox}`,
+                width: `${sizeBox}`,
                 backgroundColor: `$slate${item.toString()}`,
               }}
             />
           ))}
-        </Box>
-        <Box css={{ display: `flex`, flexDirection: `row`, flexWrap: `wrap` }}>
+        </Section>
+        <Section>
+          <Title id="slate"># Cyan</Title>
+        </Section>
+        <Section
+          css={{ display: `flex`, flexDirection: `row`, flexWrap: `wrap` }}
+        >
           {repeater.map((item: number) => (
             <Box key={item}>
               <Box
                 css={{
-                  height: `72px`,
-                  width: `72px`,
+                  height: `${sizeBox}`,
+                  width: `${sizeBox}`,
                   backgroundColor: `$cyan${item.toString()}`,
                 }}
               />
             </Box>
           ))}
-        </Box>
-        <Box css={{ display: `flex`, flexDirection: `row`, flexWrap: `wrap` }}>
+        </Section>
+        <Section>
+          <Title id="slate"># Crimson</Title>
+        </Section>
+        <Section
+          css={{ display: `flex`, flexDirection: `row`, flexWrap: `wrap` }}
+        >
           {repeater.map((item: number) => (
             <Box key={item}>
               <Box
                 css={{
-                  height: `72px`,
-                  width: `72px`,
+                  height: `${sizeBox}`,
+                  width: `${sizeBox}`,
                   backgroundColor: `$crimson${item.toString()}`,
                 }}
               />
             </Box>
           ))}
-        </Box>
+        </Section>
+        <Section>
+          <Title id="slate"># Slate</Title>
+        </Section>
+        <Section
+          css={{ display: `flex`, flexDirection: `row`, flexWrap: `wrap` }}
+        >
+          {[...repeater, 13, 14, 15, 16].map((item: number) => (
+            <Box key={item}>
+              <Box
+                css={{
+                  height: `${sizeBox}`,
+                  width: `${sizeBox}`,
+                  backgroundColor: `$sweet${item.toString()}`,
+                }}
+              />
+            </Box>
+          ))}
+        </Section>
       </Box>
     </DesignLayout>
   );
