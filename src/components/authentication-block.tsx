@@ -32,7 +32,13 @@ export const AuthenticationBlock = (props: AuthenticationBlockProps) => {
             },
           }}
         >
-          <Image src={image} alt="Log me in" height={320} width={320} />
+          <Image
+            src={image}
+            alt="Log me in"
+            height={320}
+            width={320}
+            priority
+          />
           <Box>
             <Paragraph>{t(`message`)}</Paragraph>
             <Link href={'/auth/register'} passHref>

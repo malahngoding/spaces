@@ -232,7 +232,14 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
         rankList: rankListResponse.data.payload.ranks,
         messages,
         currentSession: session,
-        stats: {},
+        stats: {
+          finishedGroupQuestion: 0,
+          answeredQuestion: 0,
+          skippedQuestion: 0,
+          correctAnswer: 0,
+          wrongAnswer: 0,
+          accuracy: 0,
+        },
       },
     };
   }
