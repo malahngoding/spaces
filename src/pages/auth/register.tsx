@@ -104,8 +104,7 @@ export default function Register(props: RegisterProps) {
   const altImage = `/static/images/camps-instead.webp`;
 
   const handleWallet = (): void => {
-    var data = { type: 'WALLET_CONNECT', text: 'Hello from the webpage!' };
-    window.postMessage(data, '*');
+    console.log('Test');
   };
 
   return (
@@ -154,7 +153,6 @@ export default function Register(props: RegisterProps) {
               <UilGoogle />
             </Button>
             <Button
-              css={{ display: `none` }}
               alternative="secondary"
               onClick={handleWallet}
               className="my-2 sm:m-2 flex flex-row justify-center items-center hover:bg-black-100"
