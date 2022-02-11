@@ -1,4 +1,3 @@
-import CryptoJs from 'crypto-js';
 import { getSession } from 'next-auth/react';
 
 import { microService } from '@utils/service';

@@ -15,7 +15,10 @@ import { BaseLayout } from '@layouts/base';
 import { getSession } from 'next-auth/react';
 import { AuthenticationBlock } from '@components/authentication-block';
 import { RankCard } from '@components/cards/rank-card';
-import { getFlashCardRanking } from '@services/flash-card-service';
+import {
+  getCurrentUserFlashCardStatus,
+  getFlashCardRanking,
+} from '@services/flash-card-service';
 import { Button } from '@components/design/button';
 import {
   AlertDialog,
@@ -27,16 +30,26 @@ import {
   AlertDialogAction,
 } from '@components/design/alert';
 
+type RankList = {
+  rank: number;
+  userName: string;
+  avatar: string;
+  score: string;
+};
 interface FlashCardProps {
+  rankList: RankList[];
   currentSession: any;
+  stats: {
+    finishedGroupQuestion: number;
+    answeredQuestion: number;
+    skippedQuestion: number;
+    correctAnswer: number;
+    wrongAnswer: number;
+    accuracy: number;
+  };
 }
 
-const fetcher = (url: string) => getFlashCardRanking();
-
 export default function FlashCard(props: FlashCardProps) {
-  const { data, error } = useSWR('/api/user', fetcher);
-  const rankList = data?.data.payload.ranks;
-
   const t = useTranslations(`FlashCard`);
   const cardImage = `/static/images/card.webp`;
 
@@ -70,7 +83,7 @@ export default function FlashCard(props: FlashCardProps) {
               '@lg': { gridTemplateColumns: `1fr 1fr 1fr` },
             }}
           >
-            {rankList?.map((item) => {
+            {props.rankList?.map((item: RankList) => {
               return (
                 <RankCard
                   key={item.rank}
@@ -119,12 +132,30 @@ export default function FlashCard(props: FlashCardProps) {
                     '@lg': { gridTemplateColumns: `1fr 1fr 1fr` },
                   }}
                 >
-                  <LocalBox value="1" point={t(`finishedGroupQuestion`)} />
-                  <LocalBox value="2" point={t(`answeredQuestion`)} />
-                  <LocalBox value="3" point={t(`skippedQuestion`)} />
-                  <LocalBox value="4" point={t(`correctAnswer`)} />
-                  <LocalBox value="5" point={t(`wrongAnswer`)} />
-                  <LocalBox value="6%" point={t(`accuracy`)} />
+                  <LocalBox
+                    value={props.stats.finishedGroupQuestion.toString()}
+                    point={t(`finishedGroupQuestion`)}
+                  />
+                  <LocalBox
+                    value={props.stats.answeredQuestion.toString()}
+                    point={t(`answeredQuestion`)}
+                  />
+                  <LocalBox
+                    value={props.stats.skippedQuestion.toString()}
+                    point={t(`skippedQuestion`)}
+                  />
+                  <LocalBox
+                    value={props.stats.correctAnswer.toString()}
+                    point={t(`correctAnswer`)}
+                  />
+                  <LocalBox
+                    value={props.stats.wrongAnswer.toString()}
+                    point={t(`wrongAnswer`)}
+                  />
+                  <LocalBox
+                    value={props.stats.accuracy.toString()}
+                    point={t(`accuracy`)}
+                  />
                 </Box>
               </Box>
               <Box
@@ -137,32 +168,14 @@ export default function FlashCard(props: FlashCardProps) {
                   padding: `$xxs`,
                 }}
               >
-                <Image width={320} height={320} src={cardImage} alt="Le card" />
-                <AlertDialog>
-                  <AlertDialogTrigger asChild>
-                    <Button>Mulai</Button>
-                  </AlertDialogTrigger>
-                  <AlertDialogContent>
-                    <AlertDialogTitle>Are you sure?</AlertDialogTitle>
-                    <AlertDialogDescription>
-                      This action cannot be undone. This will permanently delete
-                      your account and remove your data from our servers.
-                    </AlertDialogDescription>
-                    <Box css={{ display: 'flex', justifyContent: 'flex-end' }}>
-                      <AlertDialogCancel asChild>
-                        <Button
-                          alternative="secondary"
-                          css={{ marginRight: 25 }}
-                        >
-                          Reject
-                        </Button>
-                      </AlertDialogCancel>
-                      <AlertDialogAction asChild>
-                        <Button type="submit">Accept</Button>
-                      </AlertDialogAction>
-                    </Box>
-                  </AlertDialogContent>
-                </AlertDialog>
+                <Image
+                  width={320}
+                  height={320}
+                  src={cardImage}
+                  alt="Le card"
+                  priority
+                />
+                <Button>Mulai</Button>
               </Box>
             </Box>
           </AuthenticationBlock>
@@ -200,10 +213,27 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   const messages = await import(`../../../lang/${context.locale}.json`).then(
     (module) => module.default,
   );
-  return {
-    props: {
-      messages,
-      currentSession: session,
-    },
-  };
+  const rankListResponse = await getFlashCardRanking();
+  if (session) {
+    const flashCardStatsResponse = await getCurrentUserFlashCardStatus(
+      session.insteadToken,
+    );
+    return {
+      props: {
+        rankList: rankListResponse.data.payload.ranks,
+        messages,
+        currentSession: session,
+        stats: flashCardStatsResponse.data.payload.stats,
+      },
+    };
+  } else {
+    return {
+      props: {
+        rankList: rankListResponse.data.payload.ranks,
+        messages,
+        currentSession: session,
+        stats: {},
+      },
+    };
+  }
 }
