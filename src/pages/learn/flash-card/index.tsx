@@ -1,7 +1,6 @@
 import { GetServerSidePropsContext } from 'next';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import useSWR from 'swr';
 
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
@@ -20,15 +19,7 @@ import {
   getFlashCardRanking,
 } from '@services/flash-card-service';
 import { Button } from '@components/design/button';
-import {
-  AlertDialog,
-  AlertDialogTrigger,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogTitle,
-  AlertDialogAction,
-} from '@components/design/alert';
+import Link from 'next/link';
 
 type RankList = {
   rank: number;
@@ -46,6 +37,8 @@ interface FlashCardProps {
     correctAnswer: number;
     wrongAnswer: number;
     accuracy: number;
+    currentPoint: number;
+    currentHash: string;
   };
 }
 
@@ -116,7 +109,9 @@ export default function FlashCard(props: FlashCardProps) {
                   padding: `$md`,
                 }}
               >
-                <Title>{t(`yourStatistics`, { point: `125pts` })}</Title>
+                <Title>
+                  {t(`yourStatistics`, { point: props.stats.currentPoint })}
+                </Title>
                 <SubTitle>
                   {t(`nextRound`, { groupName: 'Next Round' })}
                 </SubTitle>
@@ -175,7 +170,12 @@ export default function FlashCard(props: FlashCardProps) {
                   alt="Le card"
                   priority
                 />
-                <Button>Mulai</Button>
+                <Link
+                  href={`/learn/flash-card/${props.stats.currentHash}`}
+                  passHref
+                >
+                  <Button>Mulai</Button>
+                </Link>
               </Box>
             </Box>
           </AuthenticationBlock>
@@ -239,6 +239,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
           correctAnswer: 0,
           wrongAnswer: 0,
           accuracy: 0,
+          currentPoint: 0,
         },
       },
     };

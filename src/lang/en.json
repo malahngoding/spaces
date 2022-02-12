@@ -95,7 +95,7 @@
     "flashCardTitle": "Flash Card",
     "flashCardSubTitle": "Answer Quiz, Climb Up Ranks!",
     "currentRanks": "Current Rank Leader",
-    "yourStatistics": "Your Point {point}",
+    "yourStatistics": "Your Point {point} pts",
     "nextRound": "Next Group Round: {groupName}",
     "quotes": "Time attack! You only got 6 seconds to answer each questions. Get ready for every session, every attempts counts. Rush everyone to the top, be the very best.",
     "finishedGroupQuestion": "Finished Question Group",

@@ -95,7 +95,7 @@
     "flashCardTitle": "Flash Card",
     "flashCardSubTitle": "Jawab Quiz, Naiki Peringkat",
     "currentRanks": "Pemimpin Klasemen",
-    "yourStatistics": "Poinmu Sekarang {point}",
+    "yourStatistics": "Poinmu Sekarang {point} pts",
     "nextRound": "Ronde Selanjutnya: {groupName}",
     "quotes": "Menjawab pertanyaan dan bertarung dengan waktu, setiap pertanyaan harus dijawab dalam 6 detik. Bersiap saat memulai sesi, karena setiap sesi yang dimulai akan dihitung. Bersaing dengan yang lain untuk mendapatkan posisi puncak.",
     "finishedGroupQuestion": "Quiz Group Terselesaikan",

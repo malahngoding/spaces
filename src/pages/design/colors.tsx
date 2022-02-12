@@ -76,7 +76,7 @@ export default function DesignButton(props: HomeProps) {
           ))}
         </Section>
         <Section>
-          <Title id="slate"># Slate</Title>
+          <Title id="slate"># Sweetie16</Title>
         </Section>
         <Section
           css={{ display: `flex`, flexDirection: `row`, flexWrap: `wrap` }}

@@ -1,5 +1,4 @@
 import { microService } from '@utils/service';
-import { getSession } from 'next-auth/react';
 
 export const getFlashCardRanking = async (): Promise<{
   data: {
@@ -32,6 +31,8 @@ export const getCurrentUserFlashCardStatus = async (
         correctAnswer: number;
         wrongAnswer: number;
         accuracy: number;
+        currentPoint: number;
+        currentHash: string;
       };
     };
   };
@@ -43,4 +44,22 @@ export const getCurrentUserFlashCardStatus = async (
       headers: { Authorization: `Bearer ${insteadToken}` },
     },
   );
+};
+
+export const getCurrentFlashCardBlock = async (
+  insteadToken: string,
+  hash: string,
+): Promise<{
+  data: {
+    messages: string;
+    status: string;
+    payload: {
+      groupName: string;
+      questions: any[];
+    };
+  };
+}> => {
+  return await microService.get(`getCurrentFlashCardBlock/${hash}`, {
+    headers: { Authorization: `Bearer ${insteadToken}` },
+  });
 };
