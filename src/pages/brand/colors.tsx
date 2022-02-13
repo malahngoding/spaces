@@ -3,7 +3,12 @@ import { GetStaticPropsContext } from 'next';
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
 import { DesignLayout } from '@layouts/design-layout';
-import { Heading, Title } from '@components/design/typography';
+import {
+  Heading,
+  Paragraph,
+  SubTitle,
+  Title,
+} from '@components/design/typography';
 
 interface HomeProps {
   applicationName: string;
@@ -18,9 +23,10 @@ export default function DesignButton(props: HomeProps) {
       <Box>
         <br />
         <Section>
-          <Heading data-testid="welcome-text">
-            The color of {applicationName}
-          </Heading>
+          <SubTitle data-testid="about-us-text">
+            The Color of Malah Ngoding
+          </SubTitle>
+          <Heading>The Pallete</Heading>
         </Section>
         <Section>
           <Title id="slate"># Slate</Title>
@@ -76,6 +82,9 @@ export default function DesignButton(props: HomeProps) {
           ))}
         </Section>
         <Section>
+          <Paragraph>*adopted from Radix Colors A project by Modulz.</Paragraph>
+        </Section>
+        <Section>
           <Title id="slate"># Sweetie16</Title>
         </Section>
         <Section
@@ -92,6 +101,11 @@ export default function DesignButton(props: HomeProps) {
               />
             </Box>
           ))}
+        </Section>
+        <Section>
+          <Paragraph>
+            *adopted from SWEETIE 16 PALETTE Palette created by GrafxKid.
+          </Paragraph>
         </Section>
       </Box>
     </DesignLayout>

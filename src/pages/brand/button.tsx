@@ -4,6 +4,7 @@ import { Button, SmallButton } from '@components/design/button';
 import { DesignLayout } from '@layouts/design-layout';
 import { Grid } from '@components/design/grid';
 import { GetStaticPropsContext } from 'next';
+import { Heading, SubTitle } from '@components/design/typography';
 
 interface HomeProps {
   applicationName: string;
@@ -16,7 +17,10 @@ export default function DesignButton(props: HomeProps) {
       <Box>
         <br />
         <Section>
-          <h1 data-testid="welcome-text">Welcome to {applicationName}</h1>
+          <SubTitle data-testid="about-us-text">
+            Our Clickity-Clackity Blocks
+          </SubTitle>
+          <Heading>Button</Heading>
         </Section>
         <Section>
           <Grid>

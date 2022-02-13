@@ -35,22 +35,6 @@ export default function Badge(props: ProfileProps) {
     <ProfileLayout layout={{ tab: 1 }} currentUser={props.currentUser}>
       <Box>
         <br />
-        <Section>
-          <Link href="/inventory" passHref>
-            <Button>
-              <UilBackpack />
-              <Paragraph
-                css={{
-                  marginLeft: `$sm`,
-                  fontWeight: `bold`,
-                  marginBottom: 0,
-                }}
-              >
-                {t(`inventory`)}
-              </Paragraph>
-            </Button>
-          </Link>
-        </Section>
         <Section
           css={{ display: `flex`, flexDirection: `row`, flexWrap: `wrap` }}
         >
@@ -85,6 +69,22 @@ export default function Badge(props: ProfileProps) {
           ) : (
             <></>
           )}
+        </Section>
+        <Section>
+          <Link href="/inventory" passHref>
+            <Button>
+              <UilBackpack />
+              <Paragraph
+                css={{
+                  marginLeft: `$sm`,
+                  fontWeight: `bold`,
+                  marginBottom: 0,
+                }}
+              >
+                {t(`inventory`)}
+              </Paragraph>
+            </Button>
+          </Link>
         </Section>
       </Box>
     </ProfileLayout>

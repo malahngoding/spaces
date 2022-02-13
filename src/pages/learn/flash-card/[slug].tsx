@@ -1,16 +1,19 @@
-import { GetServerSidePropsContext } from 'next';
 import { useTranslations } from 'next-intl';
 import { getSession } from 'next-auth/react';
 
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
-import { Heading, SubTitle } from '@components/design/typography';
+import { SubTitle } from '@components/design/typography';
 import { QuizLayout } from '@layouts/quiz';
 import { getCurrentFlashCardBlock } from '@services/flash-card-service';
+import { QuestionSection } from '@components/flash-card/question-section';
+
+import type { GetServerSidePropsContext } from 'next';
+import type { QuestionGroup } from '@components/flash-card/question-section';
 
 interface FlashCardPostProps {
   questionGroupName: string;
-  questions: any[];
+  questions: QuestionGroup;
 }
 
 export default function FlashCardPost(props: FlashCardPostProps) {
@@ -21,9 +24,12 @@ export default function FlashCardPost(props: FlashCardPostProps) {
       <Box>
         <br />
         <Section>
-          <SubTitle data-testid="welcome-text">
+          <SubTitle data-testid="welcome-text" css={{ wordWrap: `break-word` }}>
             {props.questionGroupName}
           </SubTitle>
+        </Section>
+        <Section>
+          <QuestionSection question={props.questions} />
         </Section>
       </Box>
     </QuizLayout>

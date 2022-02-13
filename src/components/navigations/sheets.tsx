@@ -47,7 +47,7 @@ export const NavigationSheets = () => {
     { title: t(`labs`), url: `/camps/labs` },
     { title: t(`aboutUs`), url: `/about-us` },
     { title: t(`services`), url: `/services` },
-    { title: t(`design`), url: `/design` },
+    { title: t(`design`), url: `/brand` },
   ];
 
   const routerPush = async (url: string) => {

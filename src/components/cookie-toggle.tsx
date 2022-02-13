@@ -1,8 +1,9 @@
-import { styled } from '@config/stitches.config';
 import * as SwitchPrimitive from '@radix-ui/react-switch';
 import { useState } from 'react';
-import { Box } from './design/box';
-import { Paragraph } from './design/typography';
+
+import { styled } from '@config/stitches.config';
+import { Box } from '@components/design/box';
+import { Paragraph } from '@components/design/typography';
 
 const StyledSwitch = styled(SwitchPrimitive.Root, {
   all: 'unset',

@@ -84,10 +84,11 @@ const VersionTag = styled(`div`, {
 });
 
 const allDesignPages = [
-  { url: `/design`, title: `.instead` },
-  { url: `/design/colors`, title: `Color` },
-  { url: `/design/button`, title: `Button` },
-  { url: `/design/typography`, title: `Typography` },
+  { url: `/brand`, title: `Instead` },
+  { url: `/brand/colors`, title: `Color` },
+  { url: `/brand/typography`, title: `Typography` },
+  { url: `/brand/button`, title: `Button` },
+  { url: `/brand/input`, title: `Input` },
 ];
 
 export const DesignNavigation = () => {

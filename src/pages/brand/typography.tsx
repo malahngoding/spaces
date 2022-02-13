@@ -26,16 +26,24 @@ export default function DesignTypography(props: HomeProps) {
       <Box>
         <br />
         <Section>
-          <h1 data-testid="welcome-text">.instead</h1>
-          <p>{applicationName} Design</p>
+          <SubTitle data-testid="about-us-text">
+            Our Styled Wall of Text
+          </SubTitle>
+          <Heading>Typography</Heading>
         </Section>
         {repeater.map((item: number) => (
           <Section key={item}>
+            <Caption>Heading</Caption>
             <Heading>{allphabetString}</Heading>
+            <Caption>SubHeading</Caption>
             <SubHeading>{allphabetString}</SubHeading>
+            <Caption>Title</Caption>
             <Title>{allphabetString}</Title>
+            <Caption>SubTitle</Caption>
             <SubTitle>{allphabetString}</SubTitle>
+            <Caption>Caption</Caption>
             <Caption>{allphabetString}</Caption>
+            <Caption>Paragraph</Caption>
             <Paragraph>{allphabetString}</Paragraph>
           </Section>
         ))}

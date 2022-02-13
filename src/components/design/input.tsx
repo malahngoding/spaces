@@ -71,17 +71,15 @@ export const InputTextArea = styled(`textarea`, {
 export const InputSelect = styled(`select`, {
   '-moz-appearance': `none` /* Firefox */,
   '-webkit-appearance': `none` /* Safari and Chrome */,
-  border: `2px solid $cyan9`,
-  padding: `$0`,
   borderRadius: 8,
-  backgroundColor: `transparent`,
+  border: `2px solid $cyan9`,
+  padding: `5px 10px`,
+  height: 48,
+  fontSize: 16,
+  lineHeight: 1,
+  outlineOffset: 8,
+  margin: `12px 0 8px 0`,
   width: `100%`,
-  '&.custom-select': {
-    'background-image': `linear-gradient(45deg, transparent 50%, black 50%), linear-gradient(135deg, black 50%, transparent 50%), linear-gradient(to right, transparent, transparent)`,
-    backgroundPosition: `calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), 100% 0`,
-    backgroundSize: `5px 5px, 5px 5px, 2.5em 2.5em`,
-    backgroundRepeat: `no-repeat`,
-  },
 });
 
 export const InputOption = styled(`option`, {});
