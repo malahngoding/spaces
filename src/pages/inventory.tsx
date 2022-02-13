@@ -1,6 +1,5 @@
 import { GetServerSidePropsContext } from 'next';
 import { useTranslations } from 'next-intl';
-import dynamic from 'next/dynamic';
 import { getSession } from 'next-auth/react';
 
 import { Box } from '@components/design/box';
@@ -9,12 +8,6 @@ import { Heading, SubTitle, Title } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
 
 export default function Wallet() {
-  const WalletComponent = dynamic(
-    (): any =>
-      import(`@components/wallet-handler`).then((mod) => mod.WalletHandler),
-    { loading: () => <p>...</p> },
-  );
-
   const t = useTranslations(`Inventory`);
 
   return (
@@ -25,9 +18,7 @@ export default function Wallet() {
           <SubTitle data-testid="about-us-text">{t(`welcome`)}</SubTitle>
           <Heading>{t(`title`)}</Heading>
         </Section>
-        <Section>
-          <WalletComponent />
-        </Section>
+        <Section>{/* <WalletComponent /> */}</Section>
       </Box>
     </BaseLayout>
   );

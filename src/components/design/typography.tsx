@@ -53,3 +53,9 @@ export const Paragraph = styled(`p`, {
   lineHeight: `1.8em`,
   marginBottom: `$sm`,
 });
+export const LinkText = styled(Paragraph, {
+  '&:hover': {
+    cursor: `pointer`,
+    textDecoration: `underline`,
+  },
+});

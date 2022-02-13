@@ -118,7 +118,7 @@ export const WalletHandler = () => {
         gas={`${currentGasBalance} $mumbaiMATIC`}
         currentAddress={currentAccount}
         description="Malah Ngoding Token"
-        image="https://storage.opensea.io/files/70db9e857f52b78b7a9f6d93020e50d8.mp4#t=0.001"
+        image="https://storage.opensea.io/files/70db9e857f52b78b7a9f6d93020e50d8.mp4"
       />
       <Box css={{ display: `flex`, flexDirection: `row` }}>
         <Button

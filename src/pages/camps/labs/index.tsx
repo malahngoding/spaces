@@ -1,8 +1,16 @@
+import Link from 'next/link';
+
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
-import { Heading, SubTitle } from '@components/design/typography';
+import {
+  Heading,
+  Paragraph,
+  SubTitle,
+  LinkText,
+} from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
-import { GetStaticPropsContext } from 'next';
+
+import type { GetStaticPropsContext } from 'next';
 
 interface LabsProps {}
 
@@ -12,8 +20,16 @@ export default function Labs(props: LabsProps) {
       <Box>
         <br />
         <Section>
-          <SubTitle data-testid="welcome-text">Welcome to</SubTitle>
+          <SubTitle>Welcome to</SubTitle>
           <Heading>Labs of Malah Ngoding</Heading>
+        </Section>
+        <Section>
+          <Link href="/camps/labs/hedera" passHref>
+            <LinkText>Tradingview - Hedera Chart</LinkText>
+          </Link>
+          <Link href="/camps/labs/web3" passHref>
+            <LinkText>Metamask Experiment</LinkText>
+          </Link>
         </Section>
       </Box>
     </BaseLayout>
