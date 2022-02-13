@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { UilBars, UilMultiply } from '@iconscout/react-unicons';
+import { useLockBodyScroll, useToggle } from 'react-use';
 
 import { styled } from '@config/stitches.config';
 import { Button } from '@components/design/button';
@@ -90,13 +91,18 @@ const VersionTag = styled(`div`, {
 });
 
 export const SideNavigation = () => {
+  const [locked, toggleLocked] = useToggle(false);
+
   const shown = useDashNav((state) => state.shown);
   const spacesVersion = useAppStore((state) => state.spacesVersion);
   const toggleNav = useDashNav((state) => state.toggleNav);
 
   const handleNavigation = (): void => {
+    toggleLocked();
     toggleNav();
   };
+
+  useLockBodyScroll(locked);
 
   const status = `Malah Ngoding Spaces v.${spacesVersion}`;
   return (
@@ -136,7 +142,7 @@ export const SideNavigation = () => {
         <ServiceChecker />
         {status}
       </VersionTag>
-      {shown ? <NavigationSheets /> : <></>}
+      {shown ? <NavigationSheets toggleLocked={toggleLocked} /> : <></>}
     </>
   );
 };

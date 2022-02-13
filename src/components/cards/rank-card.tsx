@@ -25,7 +25,7 @@ export const RankCard = (props: RankCardProps) => {
       <PlainButton>
         <Avatar>
           <AvatarImage
-            src={`https://avatars.dicebear.com/api/micah/${props.avatar}.svg?w=128`}
+            src={`https://avatars.dicebear.com/api/miniavs/${props.avatar}.svg?w=128`}
             role="button"
           />
         </Avatar>

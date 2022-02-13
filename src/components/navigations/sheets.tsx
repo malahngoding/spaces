@@ -33,7 +33,11 @@ const NavigationCard = styled(`div`, {
   },
 });
 
-export const NavigationSheets = () => {
+interface NavigationSheetsProps {
+  toggleLocked: () => void;
+}
+
+export const NavigationSheets = (props: NavigationSheetsProps) => {
   const { data: session, status } = useSession();
 
   const toggleNav = useDashNav((state) => state.toggleNav);
@@ -67,7 +71,10 @@ export const NavigationSheets = () => {
       >
         <Box
           css={{
-            backgroundColor: `$slate1`,
+            background:
+              theme === `dark`
+                ? `rgba(0, 0, 0, 0.48)`
+                : `rgba(253, 252, 253, 0.48)`,
             minHeight: `100vh`,
             minWidth: `100vw`,
             borderRight: `1px solid $slate6`,
@@ -75,8 +82,9 @@ export const NavigationSheets = () => {
             flexDirection: `column`,
             justifyContent: `flex-end`,
             alignItems: `flex-start`,
-            padding: `$md`,
+            padding: `$md $xxs`,
             '@lg': {
+              background: `$slate1`,
               padding: `$xl`,
               minWidth: `50vw`,
             },
@@ -159,7 +167,10 @@ export const NavigationSheets = () => {
               display: `block`,
             },
           }}
-          onClick={toggleNav}
+          onClick={() => {
+            toggleNav();
+            props.toggleLocked();
+          }}
         >
           {` `}
         </Box>

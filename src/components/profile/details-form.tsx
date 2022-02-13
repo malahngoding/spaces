@@ -123,8 +123,8 @@ export const DetailsForm = (): JSX.Element => {
                   >
                     <AvatarImage
                       src={
-                        `https://avatars.dicebear.com/api/micah/${item}.svg` ||
-                        `https://avatars.dicebear.com/api/micah/${new Date()}.svg`
+                        `https://avatars.dicebear.com/api/miniavs/${item}.svg` ||
+                        `https://avatars.dicebear.com/api/miniavs/${new Date()}.svg`
                       }
                       role="button"
                       onClick={() => handleChooseAvatar(item)}

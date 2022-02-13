@@ -52,8 +52,8 @@ export const NavigationBar = () => {
                     <Avatar>
                       <AvatarImage
                         src={
-                          `https://avatars.dicebear.com/api/micah/${session?.currentUser?.avatar}.svg` ||
-                          `https://avatars.dicebear.com/api/micah/${new Date()}.svg`
+                          `https://avatars.dicebear.com/api/miniavs/${session?.currentUser?.avatar}.svg` ||
+                          `https://avatars.dicebear.com/api/miniavs/${new Date()}.svg`
                         }
                         role="button"
                       />
