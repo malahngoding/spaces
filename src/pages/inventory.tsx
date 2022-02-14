@@ -11,17 +11,19 @@ import {
   Title,
 } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
+import { InventoryCard } from '@components/cards/inventory-card';
+import { CryptoCard } from '@components/cards/crypto-card';
 
 export default function Inventory() {
   const t = useTranslations(`Inventory`);
 
   const theInventoryGroup = [
-    { magicNumber: 100, magicItem: `Fuels`, colors: `$sweet3` },
-    { magicNumber: 50, magicItem: `Shards`, colors: `$sweet4` },
-    { magicNumber: 60, magicItem: `Armors`, colors: `$sweet8` },
-    { magicNumber: 60, magicItem: `Weapons`, colors: `$sweet11` },
-    { magicNumber: 90, magicItem: `Vehicles`, colors: `$sweet10` },
-    { magicNumber: 50, magicItem: `Powerups`, colors: `$sweet15` },
+    { magicItem: `Fuels`, colors: `$sweet2` },
+    { magicItem: `Shards`, colors: `$sweet4` },
+    { magicItem: `Armors`, colors: `$sweet8` },
+    { magicItem: `Weapons`, colors: `$sweet11` },
+    { magicItem: `Vehicles`, colors: `$sweet10` },
+    { magicItem: `Base`, colors: `$sweet15` },
   ];
 
   return (
@@ -34,29 +36,20 @@ export default function Inventory() {
         </Section>
         <Section
           css={{
-            display: `flex`,
-            flexDirection: `row`,
-            flexWrap: `wrap`,
+            display: `grid`,
+            gridTemplateColumns: `1fr 1fr 1fr 1fr`,
+            gap: `$xs`,
           }}
         >
-          {theInventoryGroup.map((item, index) => {
+          {theInventoryGroup.map((item) => {
             return (
-              <Box
-                key={item.magicNumber}
-                css={{
-                  height: `140px`,
-                  width: `${item.magicNumber * 5}px`,
-                  border: `4px solid $slate12`,
-                  margin: `0 $xs $xs 0`,
-                  padding: `$xs`,
-                  flexGrow: 1,
-                  backgroundColor: `${item.colors}`,
-                }}
-              >
-                <Paragraph css={{ fontWeight: `bolder`, color: `$slate12` }}>
-                  {item.magicItem}
-                </Paragraph>
-              </Box>
+              <InventoryCard
+                key={item.magicItem}
+                magicItem={item.magicItem}
+                colors={item.colors}
+                description={`WOK`}
+                image={`https://images.unsplash.com/photo-1576916385844-befd8945138c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=320`}
+              />
             );
           })}
         </Section>

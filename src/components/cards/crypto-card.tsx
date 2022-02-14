@@ -17,8 +17,7 @@ export const CryptoCard = (props: CryptoCardProps) => {
           flexDirection: `column`,
           justifyContent: `flex-start`,
           alignItems: `flex-start`,
-          marginY: `$md`,
-          border: `2px solid $slate6`,
+          border: `2px solid $slate12`,
           paddingBottom: `$xs`,
           width: `100%`,
           '@sm': {
