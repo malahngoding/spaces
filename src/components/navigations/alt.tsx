@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { UilBars, UilMultiply } from '@iconscout/react-unicons';
+import { useLockBodyScroll, useToggle } from 'react-use';
 
 import { styled } from '@config/stitches.config';
 import { Button } from '@components/design/button';
@@ -92,6 +93,8 @@ const allDesignPages = [
 ];
 
 export const DesignNavigation = () => {
+  const [locked, toggleLocked] = useToggle(false);
+
   const shown = useDashNav((state) => state.shown);
   const insteadVersion = useAppStore((state) => state.insteadVersion);
 
@@ -102,6 +105,8 @@ export const DesignNavigation = () => {
   };
 
   const status = `Malah Ngoding Instead v.${insteadVersion}`;
+
+  useLockBodyScroll(locked);
 
   return (
     <>
@@ -169,7 +174,7 @@ export const DesignNavigation = () => {
         </NavWrapper>
       </SideNav>
       <VersionTag>{status}</VersionTag>
-      {shown ? <NavigationSheets /> : <></>}
+      {shown ? <NavigationSheets toggleLocked={toggleLocked} /> : <></>}
     </>
   );
 };
