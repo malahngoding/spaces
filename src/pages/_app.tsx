@@ -13,6 +13,7 @@ import '@fontsource/montserrat/300.css';
 import '@fontsource/mononoki/400.css';
 
 import { darkTheme, globalCss } from '@config/stitches.config';
+import { handleI18nError } from '@utils/intl';
 
 const globalStyles = globalCss({
   body: {
@@ -28,7 +29,10 @@ export default function MyApp({
   globalStyles();
   return (
     <>
-      <NextIntlProvider messages={messages as IntlMessages}>
+      <NextIntlProvider
+        messages={messages as IntlMessages}
+        onError={handleI18nError}
+      >
         <ThemeProvider
           enableSystem={false}
           defaultTheme="light"

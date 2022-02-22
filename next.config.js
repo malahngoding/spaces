@@ -1,6 +1,10 @@
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   swcMinify: true,
   reactStrictMode: true,
+  experimental: {
+    reactRoot: true,
+  },
   images: {
     domains: ['images.unsplash.com', 'siasky.net'],
   },
@@ -10,3 +14,5 @@ module.exports = {
     localeDetection: false,
   },
 };
+
+module.exports = nextConfig;
