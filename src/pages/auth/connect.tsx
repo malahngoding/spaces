@@ -87,7 +87,7 @@ interface RegisterProps {
   csrfToken: string;
 }
 
-export default function Register(props: RegisterProps) {
+export default function Connect(props: RegisterProps) {
   const {
     register,
     handleSubmit,
@@ -97,9 +97,9 @@ export default function Register(props: RegisterProps) {
   const t = useTranslations(`Register`);
   const { providers, csrfToken } = props;
 
-  const onSubmit: SubmitHandler<RegisterForm> = (data) =>
-    // eslint-disable-next-line no-console
+  const onSubmit: SubmitHandler<RegisterForm> = (data) => {
     console.warn(data, props, csrfToken);
+  };
 
   const altImage = `/static/images/camps-instead.webp`;
 
@@ -108,7 +108,7 @@ export default function Register(props: RegisterProps) {
   };
 
   return (
-    <AuthLayout title="Register">
+    <AuthLayout title={t(`connect`)}>
       <Left
         css={{
           backgroundPosition: `center`,

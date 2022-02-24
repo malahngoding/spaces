@@ -32,7 +32,7 @@ export const NavigationBar = () => {
             <a>
               <Button
                 alternative={
-                  item.url === `/auth/register` ? `primary` : `ghostAlternative`
+                  item.url === `/auth/connect` ? `primary` : `ghostAlternative`
                 }
                 css={{ marginRight: `$xs` }}
               >
@@ -104,7 +104,7 @@ export const NavigationBar = () => {
                 </PopoverContent>
               </Popover>
             ) : (
-              <Link href="/auth/register" passHref key="/auth/register">
+              <Link href="/auth/connect" passHref key="/auth/connect">
                 <Button alternative="primary" css={{ marginRight: `$xs` }}>
                   {t(`connect`)}
                 </Button>

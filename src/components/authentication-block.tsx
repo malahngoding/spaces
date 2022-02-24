@@ -41,7 +41,7 @@ export const AuthenticationBlock = (props: AuthenticationBlockProps) => {
           />
           <Box>
             <Paragraph>{t(`message`)}</Paragraph>
-            <Link href={'/auth/register'} passHref>
+            <Link href={'/auth/connect'} passHref>
               <Button>{m(`connect`)}</Button>
             </Link>
           </Box>
