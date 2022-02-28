@@ -5,6 +5,8 @@ import { filamentService, microService } from '@utils/service';
 export const issueMicrosToken = async (
   identification: string,
   provider: string,
+  name: string,
+  email: string,
 ): Promise<{
   data: {
     messages: string;
@@ -21,6 +23,8 @@ export const issueMicrosToken = async (
   return await microService.post(`issueToken`, {
     identification: ciphertext,
     provider: provider,
+    name: name,
+    email: email,
   });
 };
 

@@ -27,6 +27,8 @@ export default NextAuth({
         const responseMicros = await issueMicrosToken(
           account.providerAccountId,
           'GITHUB',
+          profile?.name || ``,
+          profile?.email || ``,
         );
         const responseFilaments = await issueFilamentsToken(
           account.providerAccountId,
@@ -37,9 +39,12 @@ export default NextAuth({
         return true;
       }
       if (account.provider === `google`) {
+        console.log(account);
         const responseMicros = await issueMicrosToken(
           account.providerAccountId,
           'GOOGLE',
+          profile?.name || ``,
+          profile?.email || ``,
         );
         const responseFilaments = await issueFilamentsToken(
           account.providerAccountId,
