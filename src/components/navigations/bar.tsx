@@ -1,6 +1,11 @@
 import Link from 'next/link';
 import { useSession, signOut } from 'next-auth/react';
-import { UilUser, UilBackpack, UilSignout } from '@iconscout/react-unicons';
+import {
+  UilUser,
+  UilBackpack,
+  UilSignout,
+  UilAward,
+} from '@iconscout/react-unicons';
 import { useTranslations } from 'next-intl';
 
 import { Button, PlainButton } from '@components/design/button';
@@ -72,6 +77,20 @@ export const NavigationBar = () => {
                         }}
                       >
                         {t(`profile`)}
+                      </Paragraph>
+                    </Button>
+                  </Link>
+                  <Link href="/profile/badge" passHref>
+                    <Button alternative="ghost">
+                      <UilAward />
+                      <Paragraph
+                        css={{
+                          marginLeft: `$sm`,
+                          fontWeight: `bold`,
+                          marginBottom: 0,
+                        }}
+                      >
+                        {t(`badge`)}
                       </Paragraph>
                     </Button>
                   </Link>

@@ -70,22 +70,6 @@ export default function Badge(props: ProfileProps) {
             <></>
           )}
         </Section>
-        <Section>
-          <Link href="/inventory" passHref>
-            <Button>
-              <UilBackpack />
-              <Paragraph
-                css={{
-                  marginLeft: `$sm`,
-                  fontWeight: `bold`,
-                  marginBottom: 0,
-                }}
-              >
-                {t(`inventory`)}
-              </Paragraph>
-            </Button>
-          </Link>
-        </Section>
       </Box>
     </ProfileLayout>
   );
