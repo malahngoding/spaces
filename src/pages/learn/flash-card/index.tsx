@@ -216,7 +216,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   const rankListResponse = await getFlashCardRanking();
   if (session) {
     const flashCardStatsResponse = await getCurrentUserFlashCardStatus(
-      session.insteadToken,
+      session.microsToken,
     );
     return {
       props: {

@@ -18,7 +18,7 @@ export const getFlashCardRanking = async (): Promise<{
 };
 
 export const getCurrentUserFlashCardStatus = async (
-  insteadToken: string,
+  microsToken: string,
 ): Promise<{
   data: {
     messages: string;
@@ -41,13 +41,13 @@ export const getCurrentUserFlashCardStatus = async (
     `getCurrentUserFlashCardStatus`,
     {},
     {
-      headers: { Authorization: `Bearer ${insteadToken}` },
+      headers: { Authorization: `Bearer ${microsToken}` },
     },
   );
 };
 
 export const getCurrentFlashCardBlock = async (
-  insteadToken: string,
+  microsToken: string,
   hash: string,
 ): Promise<{
   data: {
@@ -60,6 +60,6 @@ export const getCurrentFlashCardBlock = async (
   };
 }> => {
   return await microService.get(`getCurrentFlashCardBlock/${hash}`, {
-    headers: { Authorization: `Bearer ${insteadToken}` },
+    headers: { Authorization: `Bearer ${microsToken}` },
   });
 };

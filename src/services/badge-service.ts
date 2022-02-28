@@ -13,6 +13,6 @@ export const getBadgeList = async (): Promise<{
 }> => {
   const session = await getSession();
   return await microService.get(`getBadgeList`, {
-    headers: { Authorization: `Bearer ${session?.insteadToken}` },
+    headers: { Authorization: `Bearer ${session?.microsToken}` },
   });
 };

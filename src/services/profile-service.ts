@@ -2,7 +2,7 @@ import { microService } from '@utils/service';
 import { getSession } from 'next-auth/react';
 
 export const getProfileDetails = async (
-  insteadToken: string,
+  microsToken: string,
 ): Promise<{
   data: {
     messages: string;
@@ -14,7 +14,7 @@ export const getProfileDetails = async (
     `getProfileDetails`,
     {},
     {
-      headers: { Authorization: `Bearer ${insteadToken}` },
+      headers: { Authorization: `Bearer ${microsToken}` },
     },
   );
 };
@@ -46,7 +46,7 @@ export const updateProfileDetails = async (objkt: {
       bio: objkt.bio,
     },
     {
-      headers: { Authorization: `Bearer ${session?.insteadToken}` },
+      headers: { Authorization: `Bearer ${session?.microsToken}` },
     },
   );
 };

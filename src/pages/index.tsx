@@ -3,12 +3,15 @@ import { GetStaticPropsContext } from 'next';
 import { Hero } from '@components/branding/hero';
 import { Box } from '@components/design/box';
 import { BaseLayout } from '@layouts/base';
+import { useSession } from 'next-auth/react';
 
 interface HomeProps {
   random: number;
 }
 
 export default function Home(props: HomeProps) {
+  const session = useSession();
+  console.log(session);
   return (
     <BaseLayout title="Hello World!">
       <Box>
