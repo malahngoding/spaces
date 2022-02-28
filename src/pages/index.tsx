@@ -11,7 +11,6 @@ interface HomeProps {
 
 export default function Home(props: HomeProps) {
   const session = useSession();
-  console.log(session);
   return (
     <BaseLayout title="Hello World!">
       <Box>
@@ -28,7 +27,7 @@ export async function getStaticProps({ locale }: GetStaticPropsContext) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   };
   const messages = await import(`../lang/${locale}.json`).then(
-    (module) => module.default,
+    (module: any) => module.default,
   );
   return {
     props: {

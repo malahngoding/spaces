@@ -12,7 +12,6 @@ import {
 } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
 import { InventoryCard } from '@components/cards/inventory-card';
-import { CryptoCard } from '@components/cards/crypto-card';
 
 export default function Inventory() {
   const t = useTranslations(`Inventory`);
