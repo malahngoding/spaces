@@ -1,8 +1,16 @@
+import { useEffect, useState } from 'react';
+
 function getRandomNumberBetween(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-export default function NFT() {
+export default function RobotBuddies() {
+  const [state, setState] = useState<number>(0);
+  useEffect(() => {
+    setTimeout(() => {
+      setState(state + 1);
+    }, 500);
+  }, [state]);
   const color = [
     '#1a1c2c',
     '#5d275d',
