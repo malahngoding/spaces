@@ -7,7 +7,14 @@ export const getBadgeList = async (): Promise<{
     messages: string;
     status: string;
     payload: {
-      list: { badge: { title: string; description: string; media: string } }[];
+      list: {
+        badge: {
+          title: string;
+          descriptionEn: string;
+          descriptionId: string;
+          media: string;
+        };
+      }[];
     };
   };
 }> => {

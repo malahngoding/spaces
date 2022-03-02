@@ -14,6 +14,7 @@ import { Paragraph } from '@components/design/typography';
 import { Button } from '@components/design/button';
 
 interface ProfileProps {
+  currentLocale: any;
   currentUser: {
     avatar: string;
     name: string;
@@ -51,7 +52,11 @@ export default function Badge(props: ProfileProps) {
                   >
                     <BadgeCard
                       title={item.badge.title}
-                      description={item.badge.description}
+                      description={
+                        props.currentLocale === 'id'
+                          ? item.badge.descriptionId
+                          : item.badge.descriptionEn
+                      }
                       media={item.badge.media}
                       type="MOVING"
                     />
@@ -90,6 +95,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     );
     return {
       props: {
+        currentLocale,
         messages,
         currentUser: session.currentUser,
       },
