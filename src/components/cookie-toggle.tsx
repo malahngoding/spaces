@@ -1,9 +1,9 @@
 import * as SwitchPrimitive from '@radix-ui/react-switch';
-import { useState } from 'react';
 
 import { styled } from '@config/stitches.config';
 import { Box } from '@components/design/box';
 import { Paragraph } from '@components/design/typography';
+import { useCookiesPersist } from '@store/cookies-store';
 
 const StyledSwitch = styled(SwitchPrimitive.Root, {
   all: 'unset',
@@ -32,11 +32,13 @@ const StyledThumb = styled(SwitchPrimitive.Thumb, {
 });
 
 export const Cookie = () => {
-  const [value, setValue] = useState<boolean>(true);
+  const cookies = useCookiesPersist((state) => state.cookies);
+  const toggleCookies = useCookiesPersist((state) => state.toggleCookies);
+  console.log(cookies);
   return (
     <Box css={{ display: `flex`, flexDirection: `row` }}>
-      <StyledSwitch checked={value}>
-        <StyledThumb onClick={() => setValue(!value)} />
+      <StyledSwitch checked={cookies}>
+        <StyledThumb onClick={() => toggleCookies()} />
       </StyledSwitch>
       <Paragraph css={{ marginLeft: `$md` }}>3rd party cookies usage</Paragraph>
     </Box>

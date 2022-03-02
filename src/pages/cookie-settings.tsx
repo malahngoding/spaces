@@ -3,13 +3,13 @@ import { useTranslations } from 'next-intl';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote } from 'next-mdx-remote';
 import matter from 'gray-matter';
+import dynamic from 'next/dynamic';
 
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
 import { Caption, Heading, SubTitle } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
 import { Markdown, MarkdownWrapper } from '@components/markdown';
-import { Cookie } from '@components/cookie-toggle';
 
 interface CookieSettingsProps {
   source: any;
@@ -23,7 +23,9 @@ interface CookieSettingsProps {
 
 export default function CookieSettings(props: CookieSettingsProps) {
   const t = useTranslations(`Articles`);
-
+  const CookieClient = dynamic((): any =>
+    import(`@components/cookie-toggle`).then((mod) => mod.Cookie),
+  );
   return (
     <BaseLayout title={props.frontMatter.title}>
       <Box>
@@ -40,7 +42,7 @@ export default function CookieSettings(props: CookieSettingsProps) {
           </MarkdownWrapper>
         </Section>
         <Section>
-          <Cookie />
+          <CookieClient />
         </Section>
         <Section>
           <Caption>
