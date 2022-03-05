@@ -1,12 +1,13 @@
-import { GetServerSidePropsContext } from 'next';
 import { getSession } from 'next-auth/react';
+import { useTranslations } from 'next-intl';
+import dynamic from 'next/dynamic';
 
 import { ProfileLayout } from '@layouts/profile';
 import { Section } from '@components/design/section';
-import dynamic from 'next/dynamic';
 import { Box } from '@components/design/box';
-import { Caption, Paragraph, SubTitle } from '@components/design/typography';
-import { useTranslations } from 'next-intl';
+import { Paragraph, SubTitle } from '@components/design/typography';
+
+import type { GetServerSidePropsContext } from 'next';
 
 interface ProfileProps {
   currentUser: {

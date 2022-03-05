@@ -1,9 +1,9 @@
-import { BadgeCard } from '@components/cards/badge-card';
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
 import { Heading, SubTitle } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
-import { GetStaticPropsContext } from 'next';
+
+import type { GetStaticPropsContext } from 'next';
 
 interface AwesomeNoobsProps {}
 

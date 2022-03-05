@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router';
-import { GetStaticPropsContext } from 'next';
 import { useTranslations } from 'next-intl';
 
 import { BadgeCard } from '@components/cards/badge-card';
@@ -7,6 +6,8 @@ import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
 import { Heading, SubTitle } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
+
+import type { GetStaticPropsContext } from 'next';
 
 interface LearnProps {}
 

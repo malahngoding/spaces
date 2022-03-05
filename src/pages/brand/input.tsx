@@ -1,8 +1,6 @@
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
 import { DesignLayout } from '@layouts/design-layout';
-import { Grid } from '@components/design/grid';
-import { GetStaticPropsContext } from 'next';
 import { Heading, SubTitle, Title } from '@components/design/typography';
 import {
   InputGroup,
@@ -12,6 +10,8 @@ import {
   InputText,
   InputTextArea,
 } from '@components/design/input';
+
+import type { GetStaticPropsContext } from 'next';
 
 interface HomeProps {
   applicationName: string;

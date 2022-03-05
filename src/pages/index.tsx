@@ -1,9 +1,10 @@
-import { GetStaticPropsContext } from 'next';
+import { useSession } from 'next-auth/react';
 
 import { Hero } from '@components/branding/hero';
 import { Box } from '@components/design/box';
 import { BaseLayout } from '@layouts/base';
-import { useSession } from 'next-auth/react';
+
+import type { GetStaticPropsContext } from 'next';
 
 interface HomeProps {
   random: number;

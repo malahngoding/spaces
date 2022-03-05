@@ -1,4 +1,3 @@
-import { GetStaticPropsContext } from 'next';
 import { useTranslations } from 'next-intl';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote } from 'next-mdx-remote';
@@ -10,6 +9,7 @@ import { Caption, Heading, SubTitle } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
 import { Markdown, MarkdownWrapper } from '@components/markdown';
 
+import type { GetStaticPropsContext } from 'next';
 interface SoftwareConsultingProps {
   source: any;
   frontMatter: {

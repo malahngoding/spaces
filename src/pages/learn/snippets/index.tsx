@@ -1,4 +1,3 @@
-import { GetStaticPropsContext } from 'next';
 import { useTranslations } from 'next-intl';
 import { UilAngleLeft } from '@iconscout/react-unicons';
 import Link from 'next/link';
@@ -10,6 +9,8 @@ import { BaseLayout } from '@layouts/base';
 import { SnippetCard, SnippetCardProps } from '@components/cards/snippet-card';
 import { getSnippets } from '@services/content-service';
 import { Button } from '@components/design/button';
+
+import type { GetStaticPropsContext } from 'next';
 
 interface SnippetsProps {
   data: SnippetCardProps[];

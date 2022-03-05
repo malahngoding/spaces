@@ -1,8 +1,5 @@
-import { GetServerSidePropsContext } from 'next';
 import { getSession } from 'next-auth/react';
-import { UilBackpack } from '@iconscout/react-unicons';
 import { useTranslations } from 'next-intl';
-import Link from 'next/link';
 import useSWR from 'swr';
 
 import { ProfileLayout } from '@layouts/profile';
@@ -11,7 +8,8 @@ import { Box } from '@components/design/box';
 import { BadgeCard } from '@components/cards/badge-card';
 import { getBadgeList } from '@services/badge-service';
 import { Paragraph } from '@components/design/typography';
-import { Button } from '@components/design/button';
+
+import type { GetServerSidePropsContext } from 'next';
 
 interface ProfileProps {
   currentLocale: any;

@@ -1,4 +1,3 @@
-import { GetStaticPropsContext } from 'next';
 import { useTranslations } from 'next-intl';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote } from 'next-mdx-remote';
@@ -9,6 +8,8 @@ import { Section } from '@components/design/section';
 import { Caption, Heading, SubTitle } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
 import { Markdown, MarkdownWrapper } from '@components/markdown';
+
+import type { GetStaticPropsContext } from 'next';
 
 interface HelpAndFaqsProps {
   source: any;

@@ -1,10 +1,11 @@
-import { GetStaticPropsContext } from 'next';
 import { useRouter } from 'next/router';
 
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
 import { Paragraph, SubTitle } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
+
+import type { GetStaticPropsContext } from 'next';
 
 export default function AuthError() {
   const router = useRouter();

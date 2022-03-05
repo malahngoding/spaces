@@ -1,6 +1,7 @@
-import { GetServerSidePropsContext } from 'next';
 import { useTranslations } from 'next-intl';
 import { getSession } from 'next-auth/react';
+
+import type { GetServerSidePropsContext } from 'next';
 
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';

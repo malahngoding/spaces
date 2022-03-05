@@ -1,5 +1,3 @@
-import { GetStaticPropsContext } from 'next';
-
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
 import { DesignLayout } from '@layouts/design-layout';
@@ -10,6 +8,8 @@ import {
   Paragraph,
 } from '@components/design/typography';
 import Image from 'next/image';
+
+import type { GetStaticPropsContext } from 'next';
 
 interface HomeProps {
   applicationName: string;

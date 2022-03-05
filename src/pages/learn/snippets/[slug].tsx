@@ -1,4 +1,3 @@
-import { GetStaticPropsContext, GetStaticPaths } from 'next';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { serialize } from 'next-mdx-remote/serialize';
@@ -15,6 +14,8 @@ import { BaseLayout } from '@layouts/base';
 import { getSnippetsPath } from '@services/content-service';
 import { Markdown, MarkdownWrapper } from '@components/markdown';
 import { Button } from '@components/design/button';
+
+import type { GetStaticPropsContext, GetStaticPaths } from 'next';
 
 interface SnippetsPostProps {
   source: any;

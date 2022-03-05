@@ -1,4 +1,3 @@
-import { GetStaticPropsContext } from 'next';
 import { useTranslations } from 'next-intl';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote } from 'next-mdx-remote';
@@ -11,6 +10,7 @@ import { BaseLayout } from '@layouts/base';
 import { Markdown, MarkdownWrapper } from '@components/markdown';
 import { ServiceCard } from '@components/cards/service-card';
 
+import type { GetStaticPropsContext } from 'next';
 interface ServiceProps {
   source: any;
   frontMatter: {

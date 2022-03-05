@@ -1,4 +1,3 @@
-import { GetStaticPropsContext } from 'next';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { serialize } from 'next-mdx-remote/serialize';
@@ -10,6 +9,8 @@ import { Section } from '@components/design/section';
 import { Caption, Heading, SubTitle } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
 import { Markdown, MarkdownWrapper } from '@components/markdown';
+
+import type { GetStaticPropsContext } from 'next';
 
 interface AboutUsProps {
   source: any;
