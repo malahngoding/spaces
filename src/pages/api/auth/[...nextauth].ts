@@ -39,7 +39,6 @@ export default NextAuth({
         return true;
       }
       if (account.provider === `google`) {
-        console.log(account);
         const responseMicros = await issueMicrosToken(
           account.providerAccountId,
           'GOOGLE',

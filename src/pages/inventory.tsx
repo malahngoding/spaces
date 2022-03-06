@@ -1,29 +1,54 @@
-import { useTranslations } from 'next-intl';
 import { getSession } from 'next-auth/react';
-
-import type { GetServerSidePropsContext } from 'next';
+import { useTranslations } from 'next-intl';
 
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
-import {
-  Heading,
-  Paragraph,
-  SubTitle,
-  Title,
-} from '@components/design/typography';
+import { Heading, SubTitle } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
 import { InventoryCard } from '@components/cards/inventory-card';
+
+import type { GetServerSidePropsContext } from 'next';
 
 export default function Inventory() {
   const t = useTranslations(`Inventory`);
 
   const theInventoryGroup = [
-    { magicItem: `Fuels`, colors: `$sweet2` },
-    { magicItem: `Shards`, colors: `$sweet4` },
-    { magicItem: `Armors`, colors: `$sweet8` },
-    { magicItem: `Weapons`, colors: `$sweet11` },
-    { magicItem: `Vehicles`, colors: `$sweet10` },
-    { magicItem: `Base`, colors: `$sweet15` },
+    {
+      magicItem: `Fuels`,
+      colors: `$sweet3`,
+      image: `/static/inventory/fuel.png`,
+      description: ``,
+    },
+    {
+      magicItem: `Shards`,
+      colors: `$sweet4`,
+      image: `/static/inventory/shard.png`,
+      description: ``,
+    },
+    {
+      magicItem: `Armors`,
+      colors: `$sweet8`,
+      image: `/static/inventory/armor.png`,
+      description: ``,
+    },
+    {
+      magicItem: `Weapons`,
+      colors: `$sweet11`,
+      image: `/static/inventory/weapon.png`,
+      description: ``,
+    },
+    {
+      magicItem: `Vehicles`,
+      colors: `$sweet10`,
+      image: `/static/inventory/vehicle.png`,
+      description: ``,
+    },
+    {
+      magicItem: `Base`,
+      colors: `$sweet15`,
+      image: `/static/inventory/base.png`,
+      description: ``,
+    },
   ];
 
   return (
@@ -37,8 +62,17 @@ export default function Inventory() {
         <Section
           css={{
             display: `grid`,
-            gridTemplateColumns: `1fr 1fr 1fr 1fr`,
-            gap: `$xs`,
+            gridTemplateColumns: `1fr`,
+            gap: `$md`,
+            '@sm': {
+              gridTemplateColumns: `1fr 1fr`,
+            },
+            '@md': {
+              gridTemplateColumns: `1fr 1fr 1fr`,
+            },
+            '@lg': {
+              gridTemplateColumns: `1fr 1fr 1fr 1fr`,
+            },
           }}
         >
           {theInventoryGroup.map((item) => {
@@ -47,8 +81,8 @@ export default function Inventory() {
                 key={item.magicItem}
                 magicItem={item.magicItem}
                 colors={item.colors}
-                description={`WOK`}
-                image={`https://images.unsplash.com/photo-1576916385844-befd8945138c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=320`}
+                description={item.description}
+                image={item.image}
               />
             );
           })}

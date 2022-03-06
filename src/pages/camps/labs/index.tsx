@@ -26,6 +26,11 @@ export default function Labs(props: LabsProps) {
       name: `Trading View`,
       description: `Hedera Hashgraph native cryptocurrencies ($HBAR) chart on trading view`,
     },
+    {
+      url: `/camps/labs/nft`,
+      name: `SVG Asset randomizer`,
+      description: `NFT like randomizer with SVG and some javascript code`,
+    },
   ];
   return (
     <BaseLayout title="Hello World!">
