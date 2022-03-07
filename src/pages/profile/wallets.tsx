@@ -7,11 +7,12 @@ import { Section } from '@components/design/section';
 import { Box } from '@components/design/box';
 import { Paragraph, SubTitle } from '@components/design/typography';
 import { getProfileWallets } from '@services/profile-service';
+import { Card } from '@components/design/card';
 
 import type { GetServerSidePropsContext } from 'next';
 import useSWR from 'swr';
 
-interface ProfileProps {
+interface CryptoWalletsProps {
   currentUser: {
     avatar: string;
     name: string;
@@ -21,31 +22,39 @@ interface ProfileProps {
   };
 }
 
-export default function Settings(props: ProfileProps) {
-  const t = useTranslations(`Profile`);
+const fetcher = (url: string) => getProfileWallets();
 
-  const ThemeToggleComponent = dynamic((): any =>
-    import(`@components/theme-toggle`).then((mod) => mod.ThemeToggle),
-  );
+export default function Settings(props: CryptoWalletsProps) {
+  const t = useTranslations(`Profile`);
+  const { data, error } = useSWR('/api/user', fetcher);
+
+  const walletList = data?.data.payload.wallets;
 
   return (
-    <ProfileLayout layout={{ tab: 3 }} currentUser={props.currentUser}>
+    <ProfileLayout layout={{ tab: 2 }} currentUser={props.currentUser}>
       <Box>
         <br />
-        <Section>
-          <SubTitle>{t(`theme`)}</SubTitle>
-          <Box
-            css={{
-              display: `flex`,
-              flexDirection: `row`,
-              alignItems: `center`,
-            }}
-          >
-            <ThemeToggleComponent />
-            <Paragraph css={{ marginBottom: 0, marginLeft: `$sm` }}>
-              {t(`themeMessage`)}
-            </Paragraph>
-          </Box>
+        <Section
+          css={{ display: `flex`, flexDirection: `row`, flexWrap: `wrap` }}
+        >
+          {walletList ? (
+            <>
+              {walletList.map((item, index) => {
+                return (
+                  <Card key={index}>
+                    <SubTitle>
+                      Verified {index === 0 ? `EVM Address` : `Hedera Address`}
+                    </SubTitle>
+                    <SubTitle css={{ fontWeight: `$normal`, fontSize: `$sm` }}>
+                      {item === '' ? t(`noWallet`) : item}
+                    </SubTitle>
+                  </Card>
+                );
+              })}
+            </>
+          ) : (
+            <Paragraph>Loading...</Paragraph>
+          )}
         </Section>
       </Box>
     </ProfileLayout>

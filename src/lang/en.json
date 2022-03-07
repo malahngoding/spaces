@@ -54,7 +54,9 @@
     "badge": "Badge",
     "settings": "Settings",
     "theme": "Themes",
-    "themeMessage": "Toggle your color theme"
+    "themeMessage": "Toggle your color theme",
+    "wallet": "Crypto Wallet",
+    "noWallet": "No registered wallet yet"
   },
   "Inventory": {
     "welcome": "Your Inventory",

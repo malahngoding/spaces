@@ -33,6 +33,8 @@ export const ProfileLayout = (props: ProfileLayoutProps) => {
       case 1:
         return `${t(`badge`)} - ${props.currentUser.name}`;
       case 2:
+        return `${t(`wallets`)} - ${props.currentUser.name}`;
+      case 3:
         return `${t(`settings`)} - ${props.currentUser.name}`;
       default:
         return `${t(`profile`)} - ${props.currentUser.name}`;
@@ -128,6 +130,20 @@ export const ProfileLayout = (props: ProfileLayoutProps) => {
                   marginRight: `$xs`,
                   borderBottom:
                     props.layout.tab === 2
+                      ? '4px solid $cyan8'
+                      : '4px solid $slate1',
+                }}
+                type="button"
+                alternative="ghost"
+                onClick={() => router.push('/profile/wallets')}
+              >
+                {t(`wallet`)}
+              </Button>
+              <Button
+                css={{
+                  marginRight: `$xs`,
+                  borderBottom:
+                    props.layout.tab === 3
                       ? '4px solid $cyan8'
                       : '4px solid $slate1',
                 }}

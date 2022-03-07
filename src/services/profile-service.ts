@@ -50,3 +50,18 @@ export const updateProfileDetails = async (objkt: {
     },
   );
 };
+
+export const getProfileWallets = async (): Promise<{
+  data: {
+    messages: string;
+    status: string;
+    payload: {
+      wallets: string[];
+    };
+  };
+}> => {
+  const session = await getSession();
+  return await microService.get(`getProfileWallets`, {
+    headers: { Authorization: `Bearer ${session?.microsToken}` },
+  });
+};

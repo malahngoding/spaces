@@ -39,7 +39,7 @@ export const NavigationBar = () => {
                 alternative={
                   item.url === `/auth/connect` ? `primary` : `ghostAlternative`
                 }
-                css={{ marginRight: `$xs` }}
+                css={{ marginRight: `$xs`, fontSize: `$xs` }}
               >
                 {item.title}
               </Button>
@@ -47,7 +47,9 @@ export const NavigationBar = () => {
           </Link>
         ))}
         {status === `loading` ? (
-          <Button alternative="ghost">Loading...</Button>
+          <Button alternative="ghost" css={{ fontSize: `$xs` }}>
+            Loading...
+          </Button>
         ) : (
           <>
             {status === `authenticated` ? (
@@ -71,6 +73,7 @@ export const NavigationBar = () => {
                       <UilUser />
                       <Paragraph
                         css={{
+                          fontSize: `$xs`,
                           marginLeft: `$sm`,
                           fontWeight: `bold`,
                           marginBottom: 0,
@@ -85,6 +88,7 @@ export const NavigationBar = () => {
                       <UilAward />
                       <Paragraph
                         css={{
+                          fontSize: `$xs`,
                           marginLeft: `$sm`,
                           fontWeight: `bold`,
                           marginBottom: 0,
@@ -99,6 +103,7 @@ export const NavigationBar = () => {
                       <UilBackpack />
                       <Paragraph
                         css={{
+                          fontSize: `$xs`,
                           marginLeft: `$sm`,
                           fontWeight: `bold`,
                           marginBottom: 0,
@@ -112,6 +117,7 @@ export const NavigationBar = () => {
                     <UilSignout />
                     <Paragraph
                       css={{
+                        fontSize: `$xs`,
                         marginLeft: `$sm`,
                         fontWeight: `bold`,
                         marginBottom: 0,
@@ -124,7 +130,10 @@ export const NavigationBar = () => {
               </Popover>
             ) : (
               <Link href="/auth/connect" passHref key="/auth/connect">
-                <Button alternative="primary" css={{ marginRight: `$xs` }}>
+                <Button
+                  alternative="primary"
+                  css={{ marginRight: `$xs`, fontSize: `$xs` }}
+                >
                   {t(`connect`)}
                 </Button>
               </Link>

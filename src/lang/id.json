@@ -25,7 +25,7 @@
     "settings": "Pengaturan",
     "inventory": "Tas",
     "badge": "Lencana",
-    "connect": "Masuk",
+    "connect": "Gabung",
     "disconnect": "Keluar"
   },
   "Home": {
@@ -54,7 +54,9 @@
     "badge": "Lencana",
     "settings": "Pengaturan",
     "theme": "Tema",
-    "themeMessage": "Ganti tema warna kamu"
+    "themeMessage": "Ganti tema warna kamu",
+    "wallet": "Crypto Connect",
+    "noWallet": "Belum ada wallet yang di daftarkan"
   },
   "Inventory": {
     "welcome": "Tas Kamu",
