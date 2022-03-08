@@ -25,6 +25,7 @@ const bounceGhostAlternative = keyframes({
 });
 
 export const PlainButton = styled(`button`, {
+  fontFamily: `$brand`,
   border: `none`,
   background: `none`,
   '&:hover': {
@@ -33,7 +34,7 @@ export const PlainButton = styled(`button`, {
 });
 
 export const Button = styled(`button`, {
-  fontFamily: `Montserrat`,
+  fontFamily: `$brand`,
   border: `none`,
   paddingY: `$xxs`,
   paddingX: `$md`,
@@ -110,6 +111,7 @@ export const Button = styled(`button`, {
 });
 
 export const SmallButton = styled(Button, {
+  fontFamily: `$brand`,
   paddingY: `4px`,
   paddingX: `12px`,
   fontSize: `$xs`,

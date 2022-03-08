@@ -61,6 +61,7 @@ export const BadgeCard = (props: BadgeCardProps) => {
               fontSize: `$md`,
               fontWeight: `bold`,
               padding: `$xs`,
+              fontFamily: `$brand`,
             }}
             as="h3"
           >

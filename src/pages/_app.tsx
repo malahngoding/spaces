@@ -6,6 +6,7 @@ import { NextIntlProvider, IntlMessages } from 'next-intl';
 import '@styles/minireset.min.css';
 import '@styles/rush.min.css';
 import '@styles/prism.css';
+import '@styles/satoshi.css';
 import '@fontsource/montserrat/900.css';
 import '@fontsource/montserrat/700.css';
 import '@fontsource/montserrat/400.css';
@@ -18,7 +19,7 @@ import { handleI18nError } from '@utils/intl';
 const globalStyles = globalCss({
   body: {
     backgroundColor: `$slate1`,
-    fontFamily: `Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif`,
+    fontFamily: `Satoshi, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif`,
   },
 });
 

@@ -60,7 +60,7 @@ export const BlogCard = (props: BlogCardProps) => {
             },
           }}
         >
-          <Title css={{ margin: 0 }}>{title}</Title>
+          <Title css={{ margin: 0, fontFamily: `$brand` }}>{title}</Title>
           <Paragraph css={{ fontWeight: `$normal` }}>{description}</Paragraph>
           <Paragraph css={{ fontFamily: `$mono`, margin: 0 }}>
             {published}

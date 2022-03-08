@@ -49,6 +49,7 @@ export const CryptoCard = (props: CryptoCardProps) => {
         >
           <Box
             css={{
+              fontFamily: `$brand`,
               fontSize: `$md`,
               fontWeight: `bold`,
               padding: `$xs`,

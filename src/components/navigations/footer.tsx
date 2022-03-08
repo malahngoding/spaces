@@ -148,8 +148,12 @@ const Linkage = () => {
           width={81}
         />
         <Box>
-          <Heading css={{ fontSize: `$lg` }}>Malah</Heading>
-          <Heading css={{ fontSize: `$lg` }}>Ngoding</Heading>
+          <Heading css={{ fontSize: `$lg`, fontFamily: `$brand` }}>
+            Malah
+          </Heading>
+          <Heading css={{ fontSize: `$lg`, fontFamily: `$brand` }}>
+            Ngoding
+          </Heading>
         </Box>
       </Box>
       <Box

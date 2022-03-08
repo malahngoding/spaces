@@ -40,8 +40,19 @@ export const ServiceChecker = () => {
   }, [isMicrosUp, isFilamentsUp]);
   return (
     <Box css={{ display: `flex`, flexDirection: `row` }}>
-      <Paragraph css={{ color: isMicrosUp }}>Micros</Paragraph>
-      <Paragraph css={{ marginLeft: `$sm`, color: isFilamentsUp }}>
+      <Paragraph
+        css={{ color: isMicrosUp, fontFamily: `$brand`, fontWeight: `$bold` }}
+      >
+        Micros
+      </Paragraph>
+      <Paragraph
+        css={{
+          marginLeft: `$xs`,
+          color: isFilamentsUp,
+          fontFamily: `$brand`,
+          fontWeight: `$bold`,
+        }}
+      >
         Filaments
       </Paragraph>
     </Box>

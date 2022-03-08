@@ -28,6 +28,7 @@ export const InventoryCard = (props: InventoryCardProps) => {
           color: `$slate12`,
           fontSize: `1.25em`,
           padding: `$sm $sm 0 $sm`,
+          fontFamily: `$brand`,
         }}
       >
         {props.magicItem}

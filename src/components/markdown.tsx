@@ -16,7 +16,7 @@ const MdxHeading = (props: any) => {
       <Heading
         {...props}
         id={props.children.replace(/\s+/g, '-').toLowerCase()}
-        css={{ marginY: `$md` }}
+        css={{ marginY: `$md`, fontFamily: `$brand` }}
       />
     </>
   );
@@ -28,7 +28,7 @@ const MdxSubHeading = (props: any) => {
       <SubHeading
         {...props}
         id={props.children.replace(/\s+/g, '-').toLowerCase()}
-        css={{ marginY: `$md` }}
+        css={{ marginY: `$md`, fontFamily: `$brand` }}
       />
     </>
   );
@@ -40,7 +40,7 @@ const MdxTitle = (props: any) => {
       <Title
         {...props}
         id={props.children.replace(/\s+/g, '-').toLowerCase()}
-        css={{ marginY: `$md` }}
+        css={{ marginY: `$md`, fontFamily: `$brand` }}
       />
     </>
   );
@@ -52,7 +52,7 @@ const MdxSubTitle = (props: any) => {
       <SubTitle
         {...props}
         id={props.children.replace(/\s+/g, '-').toLowerCase()}
-        css={{ marginY: `$md` }}
+        css={{ marginY: `$md`, fontFamily: `$brand` }}
       />
     </>
   );
@@ -61,7 +61,7 @@ const MdxSubTitle = (props: any) => {
 const MdxCaptionTitle = (props: any) => {
   return (
     <>
-      <CaptionTitle {...props} css={{ marginY: `$md` }} />
+      <CaptionTitle {...props} css={{ marginY: `$md`, fontFamily: `$brand` }} />
     </>
   );
 };
@@ -77,7 +77,7 @@ const MdxCaption = (props: any) => {
 const MdxParagraph = (props: any) => {
   return (
     <>
-      <Paragraph {...props} css={{ marginY: `$md` }} />
+      <Paragraph {...props} css={{ marginY: `$md`, fontFamily: `$sans` }} />
     </>
   );
 };
@@ -85,7 +85,11 @@ const MdxParagraph = (props: any) => {
 const CustomLink = (props: any) => {
   return (
     <>
-      <Box as="a" css={{ textDecoration: `underline` }} {...props} />
+      <Box
+        as="a"
+        css={{ textDecoration: `underline`, fontFamily: `$brand` }}
+        {...props}
+      />
     </>
   );
 };
@@ -96,6 +100,7 @@ const BlockQuote = (props: any) => {
       <Box
         as="blockquote"
         css={{
+          fontFamily: `$brand`,
           backgroundColor: `$crimson4`,
           padding: `$sm`,
           borderLeft: `4px solid $crimson6`,
@@ -109,7 +114,7 @@ const BlockQuote = (props: any) => {
 const LineBreak = (props: any) => {
   return (
     <>
-      <blockquote {...props} />
+      <Box as="blockquote" {...props} />
     </>
   );
 };
@@ -117,23 +122,23 @@ const LineBreak = (props: any) => {
 const CodeBlock = (props: any) => {
   return (
     <>
-      <code style={{ fontFamily: `monospace` }} {...props} />
+      <Box as="code" {...props} />
     </>
   );
 };
 
 const TextBold = (props: any) => {
-  return <strong {...props} />;
+  return <Box as="strong" css={{ fontFamily: `$brand` }} {...props} />;
 };
 
 const Emphasis = (props: any) => {
-  return <em {...props} />;
+  return <Box as="em" css={{ fontFamily: `$brand` }} {...props} />;
 };
 
 const HairLine = (props: any) => {
   return (
     <>
-      <hr {...props} />
+      <Box as="hr" {...props} />
     </>
   );
 };
@@ -149,7 +154,7 @@ const ImageCustom = (props: any) => {
 const Pre = (props: any) => {
   return (
     <>
-      <pre {...props} />
+      <Box as="pre" {...props} />
     </>
   );
 };

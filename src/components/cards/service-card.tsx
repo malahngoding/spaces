@@ -51,6 +51,7 @@ export const ServiceCard = (props: ServiceCardProps) => {
         >
           <Box
             css={{
+              fontFamily: `$brand`,
               fontSize: `$md`,
               fontWeight: `bold`,
               padding: `$xs`,

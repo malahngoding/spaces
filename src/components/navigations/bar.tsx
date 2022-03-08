@@ -5,12 +5,13 @@ import {
   UilBackpack,
   UilSignout,
   UilAward,
+  UilCog,
 } from '@iconscout/react-unicons';
 import { useTranslations } from 'next-intl';
 
 import { Button, PlainButton } from '@components/design/button';
 import { Nav } from '@components/design/nav';
-import { Paragraph } from '@components/design/typography';
+import { Paragraph, SubTitle } from '@components/design/typography';
 import {
   Avatar,
   AvatarImage,
@@ -71,7 +72,7 @@ export const NavigationBar = () => {
                   <Link href="/profile" passHref>
                     <Button alternative="ghost">
                       <UilUser />
-                      <Paragraph
+                      <SubTitle
                         css={{
                           fontSize: `$xs`,
                           marginLeft: `$sm`,
@@ -80,13 +81,13 @@ export const NavigationBar = () => {
                         }}
                       >
                         {t(`profile`)}
-                      </Paragraph>
+                      </SubTitle>
                     </Button>
                   </Link>
                   <Link href="/profile/badge" passHref>
                     <Button alternative="ghost">
                       <UilAward />
-                      <Paragraph
+                      <SubTitle
                         css={{
                           fontSize: `$xs`,
                           marginLeft: `$sm`,
@@ -95,13 +96,13 @@ export const NavigationBar = () => {
                         }}
                       >
                         {t(`badge`)}
-                      </Paragraph>
+                      </SubTitle>
                     </Button>
                   </Link>
                   <Link href="/inventory" passHref>
                     <Button alternative="ghost">
                       <UilBackpack />
-                      <Paragraph
+                      <SubTitle
                         css={{
                           fontSize: `$xs`,
                           marginLeft: `$sm`,
@@ -110,12 +111,27 @@ export const NavigationBar = () => {
                         }}
                       >
                         {t(`inventory`)}
-                      </Paragraph>
+                      </SubTitle>
+                    </Button>
+                  </Link>
+                  <Link href="/profile/settings" passHref>
+                    <Button alternative="ghost">
+                      <UilCog />
+                      <SubTitle
+                        css={{
+                          fontSize: `$xs`,
+                          marginLeft: `$sm`,
+                          fontWeight: `bold`,
+                          marginBottom: 0,
+                        }}
+                      >
+                        {t(`settings`)}
+                      </SubTitle>
                     </Button>
                   </Link>
                   <Button alternative="ghost" onClick={() => signOut()}>
                     <UilSignout />
-                    <Paragraph
+                    <SubTitle
                       css={{
                         fontSize: `$xs`,
                         marginLeft: `$sm`,
@@ -124,7 +140,7 @@ export const NavigationBar = () => {
                       }}
                     >
                       {t(`disconnect`)}
-                    </Paragraph>
+                    </SubTitle>
                   </Button>
                 </PopoverContent>
               </Popover>
