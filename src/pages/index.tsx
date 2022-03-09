@@ -1,5 +1,3 @@
-import { useSession } from 'next-auth/react';
-
 import { Hero } from '@components/branding/hero';
 import { Box } from '@components/design/box';
 import { BaseLayout } from '@layouts/base';
@@ -11,7 +9,6 @@ interface HomeProps {
 }
 
 export default function Home(props: HomeProps) {
-  const session = useSession();
   return (
     <BaseLayout title="Hello World!">
       <Box>
