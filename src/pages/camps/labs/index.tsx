@@ -56,11 +56,11 @@ export default function Labs(props: LabsProps) {
                     },
                   }}
                 >
-                  <Paragraph
+                  <SubTitle
                     css={{ fontWeight: `bolder`, color: `$slate12`, margin: 0 }}
                   >
                     {item.name}
-                  </Paragraph>
+                  </SubTitle>
                   <Paragraph css={{ color: `$slate12` }}>
                     {item.description}
                   </Paragraph>

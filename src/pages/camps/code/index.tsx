@@ -1,6 +1,6 @@
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
-import { Heading, SubTitle } from '@components/design/typography';
+import { SubTitle } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
 
 import type { GetStaticPropsContext } from 'next';
@@ -13,9 +13,22 @@ export default function Code(props: CodeProps) {
       <Box>
         <br />
         <Section>
-          <SubTitle data-testid="welcome-text">Welcome to</SubTitle>
-          <Heading>Camps of Malah Ngoding</Heading>
+          <SubTitle data-testid="welcome-text">Instead Codesandbox</SubTitle>
+          <div id="editor" />
         </Section>
+        <iframe
+          src="https://codesandbox.io/embed/bold-brahmagupta-cdo78b?fontsize=14&hidenavigation=1&theme=dark"
+          style={{
+            width: `100%`,
+            height: `500px`,
+            border: 0,
+            borderRadius: `4px`,
+            overflow: `hidden`,
+          }}
+          title="bold-brahmagupta-cdo78b"
+          allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+          sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+        />
       </Box>
     </BaseLayout>
   );
