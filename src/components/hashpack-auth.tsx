@@ -1,10 +1,9 @@
 import { HashConnect, HashConnectTypes } from 'hashconnect';
 import { useEffect, useRef } from 'react';
-import { UilWallet } from '@iconscout/react-unicons';
 
 import { Button } from '@components/design/button';
 
-export const HashConnectButton = (): JSX.Element => {
+export const HashpackAuth = (): JSX.Element => {
   const hashconnect = new HashConnect(true);
   let appMetadata: HashConnectTypes.AppMetadata = {
     name: 'dApp Example',
@@ -63,7 +62,7 @@ export const HashConnectButton = (): JSX.Element => {
         onClick={handleWallet}
         className="my-2 sm:m-2 flex flex-row justify-center items-center hover:bg-black-100"
       >
-        <UilWallet />
+        HP
       </Button>
     </>
   );

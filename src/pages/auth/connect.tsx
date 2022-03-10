@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import {
   getCsrfToken,
   getProviders,
@@ -25,7 +26,6 @@ import { Span } from '@components/design/span';
 import { styled } from '@config/stitches.config';
 import { StyledLink } from '@components/design/link';
 import { Grid } from '@components/design/grid';
-import { HashConnectButton } from '@components/hash-connect';
 
 interface RegisterForm {
   email: string;
@@ -88,6 +88,14 @@ interface RegisterProps {
   csrfToken: string;
 }
 
+const HashpackConnectButton = dynamic((): any =>
+  import(`@components/hashpack-auth`).then((mod) => mod.HashpackAuth),
+);
+
+const MetamaskConnectButton = dynamic((): any =>
+  import(`@components/metamask-auth`).then((mod) => mod.MetamaskAuth),
+);
+
 export default function Connect(props: RegisterProps) {
   const {
     register,
@@ -99,14 +107,10 @@ export default function Connect(props: RegisterProps) {
   const { providers, csrfToken } = props;
 
   const onSubmit: SubmitHandler<RegisterForm> = (data) => {
-    console.warn(data, props, csrfToken);
+    console.log(data, props, csrfToken);
   };
 
   const altImage = `/static/images/camps-instead.webp`;
-
-  const handleWallet = (): void => {
-    console.log('Test');
-  };
 
   return (
     <AuthLayout title={t(`connect`)}>
@@ -136,7 +140,12 @@ export default function Connect(props: RegisterProps) {
           </Paragraph>
           <Grid
             css={{
-              gridTemplateColumns: `1fr 1fr`,
+              gridTemplateColumns: `1fr`,
+              width: `100%`,
+              '@sm': {
+                gridTemplateColumns: `1fr 1fr 1fr`,
+                width: `auto`,
+              },
             }}
           >
             <Button
@@ -153,9 +162,8 @@ export default function Connect(props: RegisterProps) {
             >
               <UilGoogle />
             </Button>
-            <Grid css={{ display: `none` }}>
-              <HashConnectButton />
-            </Grid>
+            <MetamaskConnectButton />
+            {false ? <HashpackConnectButton /> : <></>}
           </Grid>
           <Paragraph css={{ marginY: `$md`, display: `none` }}>
             or using email
