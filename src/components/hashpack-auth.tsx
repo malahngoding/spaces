@@ -1,5 +1,6 @@
+import Image from 'next/image';
 import { HashConnect, HashConnectTypes } from 'hashconnect';
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 
 import { Button } from '@components/design/button';
 
@@ -62,7 +63,12 @@ export const HashpackAuth = (): JSX.Element => {
         onClick={handleWallet}
         className="my-2 sm:m-2 flex flex-row justify-center items-center hover:bg-black-100"
       >
-        HP
+        <Image
+          src="/static/wallets/hashpack.webp"
+          width="32"
+          height="32"
+          alt="Hashpack Connect"
+        />
       </Button>
     </>
   );

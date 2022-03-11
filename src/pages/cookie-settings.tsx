@@ -24,8 +24,9 @@ interface CookieSettingsProps {
 
 export default function CookieSettings(props: CookieSettingsProps) {
   const t = useTranslations(`Articles`);
-  const CookieClient = dynamic((): any =>
-    import(`@components/cookie-toggle`).then((mod) => mod.Cookie),
+  const CookieClient = dynamic(
+    (): any => import(`@components/cookie-toggle`).then((mod) => mod.Cookie),
+    { ssr: false },
   );
   return (
     <BaseLayout title={props.frontMatter.title}>

@@ -208,12 +208,16 @@ export const FooterNavigation = () => {
 
   const t = useTranslations(`Menu`);
 
-  const LanguageToggleComponent = dynamic((): any =>
-    import(`@components/language-toggle`).then((mod) => mod.LanguageToggle),
+  const LanguageToggleComponent = dynamic(
+    (): any =>
+      import(`@components/language-toggle`).then((mod) => mod.LanguageToggle),
+    { ssr: false },
   );
 
-  const ThemeToggleComponent = dynamic((): any =>
-    import(`@components/theme-toggle`).then((mod) => mod.ThemeToggle),
+  const ThemeToggleComponent = dynamic(
+    (): any =>
+      import(`@components/theme-toggle`).then((mod) => mod.ThemeToggle),
+    { ssr: false },
   );
 
   return (

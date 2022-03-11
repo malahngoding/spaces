@@ -1,6 +1,5 @@
 import { getSession } from 'next-auth/react';
 import { useTranslations } from 'next-intl';
-import dynamic from 'next/dynamic';
 
 import { ProfileLayout } from '@layouts/profile';
 import { Section } from '@components/design/section';

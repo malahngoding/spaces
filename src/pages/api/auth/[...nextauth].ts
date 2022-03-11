@@ -1,6 +1,7 @@
 import NextAuth from 'next-auth';
 import GithubProvider from 'next-auth/providers/github';
 import GoogleProvider from 'next-auth/providers/google';
+import CredentialsProvider from 'next-auth/providers/credentials';
 
 import { issueMicrosToken, issueFilamentsToken } from '@services/auth-service';
 import { getProfileDetails } from '@services/profile-service';
@@ -12,6 +13,20 @@ export default NextAuth({
     error: `/auth/error`,
   },
   providers: [
+    CredentialsProvider({
+      name: 'Credentials',
+      credentials: {
+        address: { label: 'Address', type: 'text' },
+        signer: { label: 'Signer', type: 'text' },
+      },
+      async authorize(credentials, req) {
+        return {
+          name: `${credentials?.address}`,
+          email: `${credentials?.address}@polygon.network`,
+          image: `https://avatars.dicebear.com/api/miniavs/${credentials?.address}.svg`,
+        };
+      },
+    }),
     GithubProvider({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
@@ -23,6 +38,21 @@ export default NextAuth({
   ],
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
+      if (account.provider === 'credentials') {
+        const responseMicros = await issueMicrosToken(
+          credentials?.address.toString() || ``,
+          'METAMASK',
+          profile?.name || ``,
+          profile?.email || ``,
+        );
+        const responseFilaments = await issueFilamentsToken(
+          credentials?.address.toString() || ``,
+          'METAMASK',
+        );
+        user.microsToken = responseMicros.data.payload.token;
+        user.filamentsToken = responseFilaments.data.payload.token;
+        return true;
+      }
       if (account.provider === `github`) {
         const responseMicros = await issueMicrosToken(
           account.providerAccountId,

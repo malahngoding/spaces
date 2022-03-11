@@ -88,12 +88,16 @@ interface RegisterProps {
   csrfToken: string;
 }
 
-const HashpackConnectButton = dynamic((): any =>
-  import(`@components/hashpack-auth`).then((mod) => mod.HashpackAuth),
+const HashpackConnectButton = dynamic(
+  (): any =>
+    import(`@components/hashpack-auth`).then((mod) => mod.HashpackAuth),
+  { ssr: false },
 );
 
-const MetamaskConnectButton = dynamic((): any =>
-  import(`@components/metamask-auth`).then((mod) => mod.MetamaskAuth),
+const MetamaskConnectButton = dynamic(
+  (): any =>
+    import(`@components/metamask-auth`).then((mod) => mod.MetamaskAuth),
+  { ssr: false },
 );
 
 export default function Connect(props: RegisterProps) {
@@ -143,7 +147,7 @@ export default function Connect(props: RegisterProps) {
               gridTemplateColumns: `1fr`,
               width: `100%`,
               '@sm': {
-                gridTemplateColumns: `1fr 1fr 1fr`,
+                gridTemplateColumns: `1fr 1fr 1fr 1fr`,
                 width: `auto`,
               },
             }}
@@ -163,7 +167,7 @@ export default function Connect(props: RegisterProps) {
               <UilGoogle />
             </Button>
             <MetamaskConnectButton />
-            {false ? <HashpackConnectButton /> : <></>}
+            <HashpackConnectButton />
           </Grid>
           <Paragraph css={{ marginY: `$md`, display: `none` }}>
             or using email

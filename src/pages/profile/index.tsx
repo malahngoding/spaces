@@ -22,8 +22,10 @@ interface ProfileProps {
 export default function Profile(props: ProfileProps) {
   const t = useTranslations(`Profile`);
 
-  const DetailsFormComponent = dynamic((): any =>
-    import(`@components/profile/details-form`).then((mod) => mod.DetailsForm),
+  const DetailsFormComponent = dynamic(
+    (): any =>
+      import(`@components/profile/details-form`).then((mod) => mod.DetailsForm),
+    { ssr: false },
   );
 
   return (

@@ -34,7 +34,6 @@ const StyledThumb = styled(SwitchPrimitive.Thumb, {
 export const Cookie = () => {
   const cookies = useCookiesPersist((state) => state.cookies);
   const toggleCookies = useCookiesPersist((state) => state.toggleCookies);
-  console.log(cookies);
   return (
     <Box css={{ display: `flex`, flexDirection: `row` }}>
       <StyledSwitch checked={cookies}>

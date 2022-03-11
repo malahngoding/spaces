@@ -24,8 +24,10 @@ interface ProfileProps {
 export default function Settings(props: ProfileProps) {
   const t = useTranslations(`Profile`);
 
-  const ThemeToggleComponent = dynamic((): any =>
-    import(`@components/theme-toggle`).then((mod) => mod.ThemeToggle),
+  const ThemeToggleComponent = dynamic(
+    (): any =>
+      import(`@components/theme-toggle`).then((mod) => mod.ThemeToggle),
+    { ssr: false },
   );
 
   return (
