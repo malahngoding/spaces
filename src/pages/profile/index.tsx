@@ -19,14 +19,14 @@ interface ProfileProps {
   };
 }
 
+const DetailsFormComponent = dynamic(
+  (): any =>
+    import(`@components/profile/details-form`).then((mod) => mod.DetailsForm),
+  { ssr: false },
+);
+
 export default function Profile(props: ProfileProps) {
   const t = useTranslations(`Profile`);
-
-  const DetailsFormComponent = dynamic(
-    (): any =>
-      import(`@components/profile/details-form`).then((mod) => mod.DetailsForm),
-    { ssr: false },
-  );
 
   return (
     <ProfileLayout layout={{ tab: 0 }} currentUser={props.currentUser}>

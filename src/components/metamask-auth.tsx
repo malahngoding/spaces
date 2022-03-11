@@ -1,14 +1,16 @@
 import { ethers } from 'ethers';
 import Image from 'next/image';
 import { signIn } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 import { Button } from '@components/design/button';
 import { deployedChain } from '@config/contractAddress';
 import { ApplicationUrl } from '@config/application';
 
 export const MetamaskAuth = (): JSX.Element => {
+  const router = useRouter();
+
   const handleWallet = async (): Promise<void> => {
-    console.log('Start');
     if (typeof window.ethereum !== undefined) {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const network = await provider.getNetwork();
@@ -27,13 +29,15 @@ export const MetamaskAuth = (): JSX.Element => {
           .getSigner(account[0])
           .signMessage(message);
 
-        const nextstep = await signIn('credentials', {
+        let response = await signIn('credentials', {
           address: account[0],
           signature: signatureMessage,
           redirect: false,
         });
 
-        console.log({ nextstep });
+        if (response) {
+          router.push('/');
+        }
       } else {
         await window.ethereum.request({
           method: 'wallet_switchEthereumChain',

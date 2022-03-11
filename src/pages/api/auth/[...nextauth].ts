@@ -20,6 +20,7 @@ export default NextAuth({
         signer: { label: 'Signer', type: 'text' },
       },
       async authorize(credentials, req) {
+        // TODO: Implement check
         return {
           name: `${credentials?.address}`,
           email: `${credentials?.address}@polygon.network`,
