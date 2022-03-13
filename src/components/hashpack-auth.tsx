@@ -7,8 +7,8 @@ import { Button } from '@components/design/button';
 export const HashpackAuth = (): JSX.Element => {
   const hashconnect = new HashConnect(true);
   let appMetadata: HashConnectTypes.AppMetadata = {
-    name: 'dApp Example',
-    description: 'An example hedera dApp',
+    name: 'Malah Ngoding',
+    description: 'Meta Malah Ngoding',
     icon: 'https://absolute.url/to/icon.png',
   };
 
