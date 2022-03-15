@@ -21,27 +21,39 @@ export default NextAuth({
         address: { label: 'Address', type: 'text' },
         signer: { label: 'Signer', type: 'text' },
         signature: { label: 'Signature', type: 'text' },
+        network: { label: 'Network', type: 'text' },
       },
       async authorize(credentials, req) {
-        const message = [
-          `I have read and accept the terms and condition`,
-          `for this website ${ApplicationUrl}`,
-          `Please sign me in!`,
-        ].join('\n');
-        const signature = credentials?.signature || '';
-        const verified = ethers.utils.verifyMessage(message, signature);
+        switch (credentials?.network) {
+          case 'evm':
+            const message = [
+              `I have read and accept the terms and condition`,
+              `for this website ${ApplicationUrl}`,
+              `Please sign me in!`,
+            ].join('\n');
+            const signature = credentials?.signature || '';
+            const verified = ethers.utils.verifyMessage(message, signature);
 
-        if (
-          verified.toLowerCase() ===
-          credentials?.address.toString().toLowerCase()
-        ) {
-          return {
-            name: `${credentials?.address.toString()}`,
-            email: `${credentials?.address}@polygon.network`,
-            image: `https://avatars.dicebear.com/api/miniavs/${credentials?.address}.svg`,
-          };
+            if (
+              verified.toLowerCase() ===
+              credentials?.address.toString().toLowerCase()
+            ) {
+              return {
+                name: `${credentials?.address.toString()}`,
+                email: `${credentials?.address}@`,
+                image: `https://avatars.dicebear.com/api/miniavs/${credentials?.address}.svg`,
+              };
+            }
+            return null;
+          case 'hedera':
+            return {
+              name: `${credentials?.address.toString()}`,
+              email: `${credentials?.address}@`,
+              image: `https://avatars.dicebear.com/api/miniavs/${credentials?.address}.svg`,
+            };
+          default:
+            return null;
         }
-        return null;
       },
     }),
     GithubProvider({
@@ -56,11 +68,16 @@ export default NextAuth({
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
       if (account.provider === 'credentials') {
-        console.log(credentials?.address.toString());
-        console.log(profile);
+        let wallet;
+        if (credentials?.network === 'evm') {
+          wallet = `METAMASK`;
+        } else {
+          wallet = `HASHPACK`;
+        }
+
         const responseMicros = await issueMicrosToken(
           credentials?.address.toString() || ``,
-          'METAMASK',
+          wallet,
           profile?.name || credentials?.address.toString() || ``,
           profile?.email ||
             `${credentials?.address.toString()}@malahngoding.com` ||
@@ -68,7 +85,7 @@ export default NextAuth({
         );
         const responseFilaments = await issueFilamentsToken(
           credentials?.address.toString() || ``,
-          'METAMASK',
+          wallet,
         );
         user.microsToken = responseMicros.data.payload.token;
         user.filamentsToken = responseFilaments.data.payload.token;

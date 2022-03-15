@@ -32,6 +32,7 @@ export const MetamaskAuth = (): JSX.Element => {
         let response = await signIn('credentials', {
           address: account[0],
           signature: signatureMessage,
+          network: 'evm',
           redirect: false,
         });
 
