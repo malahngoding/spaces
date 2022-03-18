@@ -13,46 +13,50 @@ export const Hero = (props: HeroProps): JSX.Element => {
   const t = useTranslations(`Home`);
 
   const altImage = [
-    `/static/gifs/giphy.gif`,
-    `/static/gifs/kusama.gif`,
-    `/static/gifs/spacecar.gif`,
+    `/static/gifs/first.mp4`,
+    `/static/gifs/second.mp4`,
+    `/static/gifs/third.mp4`,
+    `/static/gifs/forth.mp4`,
   ];
 
   return (
-    <>
+    <Box css={{ height: `520px`, position: `relative` }}>
       <Box
+        as="video"
+        autoPlay
+        muted
+        loop
         css={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("${
-            altImage[props.random || 0]
-          }")`,
-          backgroundPosition: `center`,
-          backgroundRepeat: `no-repeat`,
-          backgroundSize: `cover`,
-          position: `relative`,
-          filter: `hue-rotate(5deg)`,
-          transform: `rotate(180deg)`,
+          width: `100vw`,
+          height: `100%`,
+          objectFit: `cover`,
+          top: 0,
+          left: 0,
+          zIndex: -1,
         }}
       >
-        <Box
-          css={{
-            height: `380px`,
-            display: `flex`,
-            flexDirection: `column`,
-            justifyContent: `flex-end`,
-            alignItems: `flex-start`,
-            padding: `$md`,
-            transform: `rotate(180deg)`,
-          }}
-        >
-          <SubTitle
-            data-testid="welcome-text"
-            css={{ color: `#ffffff`, marginTop: `$md` }}
-          >
-            {t(`welcome`)}
-          </SubTitle>
-          <Heading css={{ color: `#ffffff` }}>{t(`title`)}</Heading>
-        </Box>
+        <Box as="source" src={altImage[props.random]} type="video/mp4" />
       </Box>
-    </>
+      <Box
+        css={{
+          paddingX: `$md`,
+          position: `absolute`,
+          bottom: 0,
+          left: 0,
+          height: `100%`,
+          width: `100%`,
+          backgroundImage: `linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0))`,
+          display: `flex`,
+          flexDirection: `column`,
+          justifyContent: `flex-end`,
+          alignItems: `flex-start`,
+        }}
+      >
+        <SubTitle css={{ color: `#ffffff`, marginTop: `$md` }}>
+          {t(`welcome`)}
+        </SubTitle>
+        <Heading css={{ color: `#ffffff` }}>{t(`title`)}</Heading>
+      </Box>
+    </Box>
   );
 };

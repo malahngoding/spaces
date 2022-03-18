@@ -39,7 +39,6 @@ const StyledContent = styled(AlertDialogPrimitive.Content, {
   maxHeight: '85vh',
   border: `2px solid $slate6`,
   padding: `$md`,
-  clipPath: `polygon(85% 0, 100% 15%, 100% 100%, 15% 100%, 0% 85%, 0 0)`,
   '@media (prefers-reduced-motion: no-preference)': {
     animation: `${contentShow} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,
   },

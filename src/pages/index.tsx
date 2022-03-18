@@ -30,7 +30,7 @@ export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {
     props: {
       messages,
-      random: getRandomInt(0, 2),
+      random: getRandomInt(0, 3),
     },
   };
 }

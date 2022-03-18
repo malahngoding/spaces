@@ -7,16 +7,13 @@ import type { GetStaticPropsContext } from 'next';
 
 const TradingView = dynamic(() => import('../../../components/trading-view'), {
   ssr: false,
-  suspense: true,
 });
 
 export default function Hedera() {
   return (
     <BaseLayout title="Hedera Hashgraph">
       <>
-        <Suspense fallback={<p>Loading...</p>}>
-          <TradingView />
-        </Suspense>
+        <TradingView />
       </>
     </BaseLayout>
   );

@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 
 import { Button } from '@components/design/button';
 import { Box } from './design/box';
-import { Paragraph } from './design/typography';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -21,7 +20,7 @@ import { useRouter } from 'next/router';
 export const HashpackAuth = (): JSX.Element => {
   const router = useRouter();
   const [signingString, setSigningString] = useState<string>('');
-  const hashconnect = new HashConnect(true);
+  const hashconnect = new HashConnect();
 
   let appMetadata: HashConnectTypes.AppMetadata = {
     name: 'Malah Ngoding',
@@ -30,10 +29,8 @@ export const HashpackAuth = (): JSX.Element => {
   };
 
   const handleWallet = async (): Promise<void> => {
-    let initData = await hashconnect.init(appMetadata);
-    let privateKey = initData.privKey;
+    await hashconnect.init(appMetadata);
     let state = await hashconnect.connect();
-    let topic = state.topic;
     let pairingString = hashconnect.generatePairingString(
       state,
       'testnet',
@@ -44,31 +41,28 @@ export const HashpackAuth = (): JSX.Element => {
     hashconnect.connectToLocalWallet(pairingString);
   };
 
-  const signInHandler = async (
-    account: string,
-    signature: string,
-  ): Promise<void> => {
-    let response = await signIn('credentials', {
-      address: account,
-      signature: signature,
-      network: 'hedera',
-      redirect: false,
-    });
-
-    if (response) {
-      router.push('/');
-    }
-  };
-
   useEffect(() => {
+    const signInHandler = async (
+      account: string,
+      signature: string,
+    ): Promise<void> => {
+      let response = await signIn('credentials', {
+        address: account,
+        signature: signature,
+        network: 'hedera',
+        redirect: false,
+      });
+
+      if (response) {
+        router.push('/');
+      }
+    };
+
     const foundExtensionEventHandler = (data: any) => {
-      console.log('foundExtensionEvent', data);
       // Do a thing
     };
 
     const pairingEventHandler = (data: any) => {
-      console.log('pairingEvent', data);
-      // Do a thing
       const account = data?.accountIds[0] as string;
       const signature = data?.metadata?.publicKey as string;
       signInHandler(account, signature);
@@ -80,6 +74,7 @@ export const HashpackAuth = (): JSX.Element => {
       hashconnect.foundExtensionEvent.off(foundExtensionEventHandler);
       hashconnect.pairingEvent.off(pairingEventHandler);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <>
