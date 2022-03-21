@@ -32,7 +32,7 @@ export const CampsLayout = (props: CampsLayoutProps): JSX.Element => {
           >
             <Box
               css={{
-                overflow: `scroll`,
+                overflowY: `scroll`,
                 height: `100%`,
                 borderRight: `1px solid $slate6`,
               }}
@@ -41,7 +41,7 @@ export const CampsLayout = (props: CampsLayoutProps): JSX.Element => {
             </Box>
             <Box
               css={{
-                overflow: `scroll`,
+                overflowY: `scroll`,
                 height: `100%`,
               }}
             >

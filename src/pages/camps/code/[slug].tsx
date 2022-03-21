@@ -3,7 +3,7 @@ import { Section } from '@components/design/section';
 import { Heading, SubTitle } from '@components/design/typography';
 import { CampsLayout } from '@layouts/camps';
 
-import type { GetStaticPropsContext } from 'next';
+import type { GetServerSidePropsContext } from 'next';
 
 interface CodeProps {}
 
@@ -13,7 +13,7 @@ const CodeNavigation = (): JSX.Element => {
       <Box css={{ padding: `$md` }}>
         <SubTitle>Introduction To Programming</SubTitle>
       </Box>
-      <Box css={{ padding: `$md`, borderTop: `1px solid $slate1` }}>WOW</Box>
+      <Box css={{ padding: `$md`, borderTop: `1px solid $slate6` }}>WOW</Box>
     </>
   );
 };
@@ -36,7 +36,9 @@ export default function Code(props: CodeProps) {
   );
 }
 
-export async function getStaticProps({ locale }: GetStaticPropsContext) {
+export async function getServerSideProps({
+  locale,
+}: GetServerSidePropsContext) {
   const messages = await import(`../../../lang/${locale}.json`).then(
     (module) => module.default,
   );
