@@ -1,38 +1,68 @@
+import Link from 'next/link';
+
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
-import { Heading, SubTitle } from '@components/design/typography';
-import { CampsLayout } from '@layouts/camps';
+import {
+  Heading,
+  Paragraph,
+  SubTitle,
+  LinkText,
+} from '@components/design/typography';
+import { BaseLayout } from '@layouts/base';
 
 import type { GetStaticPropsContext } from 'next';
 
-interface CodeProps {}
+interface LabsProps {
+  currentUrl: string;
+}
 
-const CodeNavigation = (): JSX.Element => {
+export default function Labs(props: LabsProps) {
+  const experiments = [
+    {
+      url: `/camps/code/${props.currentUrl}`,
+      name: `Learn to code, Build your future.`,
+      description: `Computer Science is the world's first superpower. It enables people of all backgrounds to earn a six figure salary while building the world of tomorrow.`,
+    },
+  ];
   return (
-    <>
-      <Box css={{ padding: `$md` }}>
-        <SubTitle>Introduction To Programming</SubTitle>
+    <BaseLayout title="Hello World!">
+      <Box>
+        <br />
+        <Section>
+          <SubTitle>The Adventure Begins</SubTitle>
+          <Heading>Course Introduction</Heading>
+        </Section>
+        <Section>
+          {experiments.map((item) => {
+            return (
+              <Link href={item.url} passHref key={item.url}>
+                <Box
+                  css={{
+                    margin: `$sm`,
+                    border: `2px solid $slate12`,
+                    padding: `$xs`,
+                    '&:hover': {
+                      cursor: `pointer`,
+                      border: `2px solid $slate12`,
+                      boxShadow: `0px 8px 6px -8px hsl(198 6.6% 15.8%)`,
+                    },
+                  }}
+                >
+                  <SubTitle
+                    css={{ fontWeight: `bolder`, color: `$slate12`, margin: 0 }}
+                  >
+                    {item.name}
+                  </SubTitle>
+                  <Paragraph css={{ color: `$slate12` }}>
+                    {item.description}
+                  </Paragraph>
+                </Box>
+              </Link>
+            );
+          })}
+        </Section>
       </Box>
-      <Box css={{ padding: `$md`, borderTop: `1px solid $slate1` }}>WOW</Box>
-    </>
-  );
-};
-
-export default function Code(props: CodeProps) {
-  return (
-    <CampsLayout title="Hello World!" sideNav={<CodeNavigation />}>
-      <>
-        <Box>
-          <br />
-          <Section>
-            <SubTitle data-testid="about-us-text">
-              The Adventure Begins → The Adventure Begins
-            </SubTitle>
-            <Heading>Course Introduction</Heading>
-          </Section>
-        </Box>
-      </>
-    </CampsLayout>
+    </BaseLayout>
   );
 }
 
@@ -43,6 +73,7 @@ export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {
     props: {
       messages,
+      currentUrl: `intro-into-programming/the-adventure-begin`,
     },
   };
 }
