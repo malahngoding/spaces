@@ -13,13 +13,14 @@ import { BaseLayout } from '@layouts/base';
 import type { GetStaticPropsContext } from 'next';
 
 interface LabsProps {
-  currentUrl: string;
+  courses: string;
+  slug: string;
 }
 
 export default function Labs(props: LabsProps) {
   const experiments = [
     {
-      url: `/camps/code/${props.currentUrl}`,
+      url: `/camps/code/${props.courses}/${props.slug}`,
       name: `Learn to code, Build your future.`,
       description: `Computer Science is the world's first superpower. It enables people of all backgrounds to earn a six figure salary while building the world of tomorrow.`,
     },
@@ -73,7 +74,8 @@ export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {
     props: {
       messages,
-      currentUrl: `intro-into-programming/the-adventure-begin`,
+      courses: `pengenalan-pemrograman`,
+      slug: `01-petualangan-dimulai`,
     },
   };
 }
