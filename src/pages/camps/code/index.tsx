@@ -9,6 +9,7 @@ import {
   LinkText,
 } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
+import { getCampsList } from '@services/camps-services';
 
 import type { GetStaticPropsContext } from 'next';
 
@@ -71,11 +72,12 @@ export async function getStaticProps({ locale }: GetStaticPropsContext) {
   const messages = await import(`../../../lang/${locale}.json`).then(
     (module) => module.default,
   );
+  const campsContent = await getCampsList(locale);
   return {
     props: {
       messages,
-      courses: `pengenalan-pemrograman`,
-      slug: `01-petualangan-dimulai`,
+      courses: campsContent.data.payload.courses,
+      slug: campsContent.data.payload.slug,
     },
   };
 }
