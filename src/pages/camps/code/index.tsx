@@ -1,15 +1,11 @@
-import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
-import {
-  Heading,
-  Paragraph,
-  SubTitle,
-  LinkText,
-} from '@components/design/typography';
-import { BaseLayout } from '@layouts/base';
+import { HeroLayout } from '@layouts/hero-layout';
 import { getCampsList } from '@services/camps-services';
+import { AltHero } from '@components/branding/hero-alt';
+import { CampsCard } from '@components/cards/camps-card';
 
 import type { GetStaticPropsContext } from 'next';
 
@@ -18,53 +14,55 @@ interface LabsProps {
   slug: string;
 }
 
+const imageURL = `https://images.unsplash.com/photo-1547961547-321889bff29e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx`;
+
 export default function Labs(props: LabsProps) {
+  const t = useTranslations(`Camps`);
+
   const experiments = [
     {
-      url: `/camps/code/${props.courses}/${props.slug}`,
-      name: `Learn to code, Build your future.`,
+      id: 1,
+      image: imageURL,
       description: `Computer Science is the world's first superpower. It enables people of all backgrounds to earn a six figure salary while building the world of tomorrow.`,
+      title: `Learn to code, Build your future.`,
+      slug: props.slug,
+      courses: props.courses,
     },
   ];
   return (
-    <BaseLayout title="Hello World!">
+    <HeroLayout title={t(`codeTitle`)}>
       <Box>
-        <br />
-        <Section>
-          <SubTitle>The Adventure Begins</SubTitle>
-          <Heading>Course Introduction</Heading>
-        </Section>
-        <Section>
+        <AltHero
+          image={imageURL}
+          title={t(`codeTitle`)}
+          description={t(`codeDescription`)}
+          height="65vh"
+        />
+        <Section
+          css={{
+            display: `grid`,
+            gap: `$xs`,
+            '@md': {
+              gridTemplateColumns: `1fr 1fr 1fr`,
+            },
+          }}
+        >
           {experiments.map((item) => {
             return (
-              <Link href={item.url} passHref key={item.url}>
-                <Box
-                  css={{
-                    margin: `$sm`,
-                    border: `2px solid $slate12`,
-                    padding: `$xs`,
-                    '&:hover': {
-                      cursor: `pointer`,
-                      border: `2px solid $slate12`,
-                      boxShadow: `0px 8px 6px -8px hsl(198 6.6% 15.8%)`,
-                    },
-                  }}
-                >
-                  <SubTitle
-                    css={{ fontWeight: `bolder`, color: `$slate12`, margin: 0 }}
-                  >
-                    {item.name}
-                  </SubTitle>
-                  <Paragraph css={{ color: `$slate12` }}>
-                    {item.description}
-                  </Paragraph>
-                </Box>
-              </Link>
+              <CampsCard
+                key={item.id}
+                id={item.id}
+                image={item.image}
+                description={item.description}
+                title={item.title}
+                slug={item.slug}
+                courses={item.courses}
+              />
             );
           })}
         </Section>
       </Box>
-    </BaseLayout>
+    </HeroLayout>
   );
 }
 

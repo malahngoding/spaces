@@ -20,7 +20,12 @@ import {
   PopoverTrigger,
 } from '@components/navigations/avatar';
 
-export const NavigationBar = () => {
+interface NavigationBarProps {
+  transparent?: boolean;
+}
+
+export const NavigationBar = (props: NavigationBarProps) => {
+  const transparent = props.transparent ? props.transparent : false;
   const { data: session, status } = useSession();
   const t = useTranslations(`Menu`);
 
