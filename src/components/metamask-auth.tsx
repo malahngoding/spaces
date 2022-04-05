@@ -14,7 +14,7 @@ export const MetamaskAuth = (): JSX.Element => {
     if (typeof window.ethereum !== undefined) {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const network = await provider.getNetwork();
-      if (network.chainId === deployedChain) {
+      const metamaskSigning = async () => {
         const account = await window.ethereum.request({
           method: 'eth_requestAccounts',
           params: [],
@@ -39,11 +39,15 @@ export const MetamaskAuth = (): JSX.Element => {
         if (response) {
           router.push('/');
         }
+      };
+      if (network.chainId === deployedChain) {
+        metamaskSigning();
       } else {
         await window.ethereum.request({
           method: 'wallet_switchEthereumChain',
           params: [{ chainId: '0x13881' }],
         });
+        metamaskSigning();
       }
     }
   };
