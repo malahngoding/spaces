@@ -76,7 +76,9 @@
     "codeTitle": "Kemah Kode",
     "codeDescription": "Berkemah kode, bersama-sama",
     "labsTitle": "Laboratorium",
-    "labsDescription": "Eksperimental project untuk belajar dan eksplorasi"
+    "labsDescription": "Eksperimental project untuk belajar dan eksplorasi",
+    "flashCardTitle": "Flash Card",
+    "flashCardDescription": "Pertajam analisa kamu dengan menjawab pertanyaan-pertanyaan seputar kode dan sekitarnya. Daftarkan dirimu untuk meraih posisi teratas."
   },
   "Learn": {
     "learnTitle": "Belajar Secara Mandiri",
@@ -84,9 +86,7 @@
     "articlesTitle": "Artikel",
     "articlesDescription": "Artikel yang akan memandu mu melakukan berbagai macam hal tentang programming.",
     "snippetsTitle": "Potongan Kode",
-    "snippetsDescription": "Potongan kode untuk melakukan suatu hal. Tinggal copy kemudian paste di bagian kamu membutuhkannya.",
-    "flashCardTitle": "Flash Card",
-    "flashCardDescription": "Pertajam analisa kamu dengan menjawab pertanyaan-pertanyaan seputar kode dan sekitarnya. Daftarkan dirimu untuk meraih posisi teratas."
+    "snippetsDescription": "Potongan kode untuk melakukan suatu hal. Tinggal copy kemudian paste di bagian kamu membutuhkannya."
   },
   "Snippets": {
     "snippetsTitle": "Potongan Kode",

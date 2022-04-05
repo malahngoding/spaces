@@ -46,7 +46,7 @@ export const BadgeCard = (props: BadgeCardProps) => {
             as="img"
             src={props.media}
             alt={props.description}
-            css={{ width: `100%` }}
+            css={{ height: `128px`, padding: `$xs` }}
           />
         )}
         <Box

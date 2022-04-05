@@ -31,13 +31,20 @@ export default function Camps(props: CampsProps) {
     },
     {
       id: 2,
+      title: `${t(`flashCardTitle`)}`,
+      description: `${t(`flashCardDescription`)}`,
+      media: `static/images/flash_card.png`,
+      url: `/camps/flash-card`,
+    },
+    {
+      id: 3,
       title: `${t(`codeTitle`)}`,
       description: `${t(`codeDescription`)}`,
       media: `static/images/computer_code.png`,
       url: `/camps/code`,
     },
     {
-      id: 3,
+      id: 4,
       title: `${t(`labsTitle`)}`,
       description: `${t(`labsDescription`)}`,
       media: `static/images/potion_lab.png`,

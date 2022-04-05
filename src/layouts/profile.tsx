@@ -33,7 +33,7 @@ export const ProfileLayout = (props: ProfileLayoutProps) => {
       case 1:
         return `${t(`badge`)} - ${props.currentUser.name}`;
       case 2:
-        return `${t(`wallets`)} - ${props.currentUser.name}`;
+        return `${t(`wallet`)} - ${props.currentUser.name}`;
       case 3:
         return `${t(`settings`)} - ${props.currentUser.name}`;
       default:

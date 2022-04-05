@@ -171,7 +171,7 @@ export default function FlashCard(props: FlashCardProps) {
                   priority
                 />
                 <Link
-                  href={`/learn/flash-card/${props.stats.currentHash}`}
+                  href={`/camps/flash-card/${props.stats.currentHash}`}
                   passHref
                 >
                   <Button>Mulai</Button>

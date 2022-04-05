@@ -76,7 +76,9 @@
     "codeTitle": "Coding Camps",
     "codeDescription": "Together climb the code mountains",
     "labsTitle": "Labs",
-    "labsDescription": "Our explorative project and showcase"
+    "labsDescription": "Our explorative project and showcase",
+    "flashCardTitle": "Flash Card",
+    "flashCardDescription": "Answer question. Be the top."
   },
   "Learn": {
     "learnTitle": "Learn by yourself",
@@ -84,9 +86,7 @@
     "articlesTitle": "Articles",
     "articlesDescription": "Our articles stash.",
     "snippetsTitle": "Snippets",
-    "snippetsDescription": "Copy paste it when you need it where you at it.",
-    "flashCardTitle": "Flash Card",
-    "flashCardDescription": "Answer question. Be the top."
+    "snippetsDescription": "Copy paste it when you need it where you at it."
   },
   "Snippets": {
     "snippetsTitle": "Code Snippets",

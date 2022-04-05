@@ -61,10 +61,6 @@ const Linkage = () => {
             title: t(`snippets`),
             url: `/learn/snippets`,
           },
-          {
-            title: t(`flashCard`),
-            url: `/learn/flash-card`,
-          },
         ],
       },
       {
@@ -73,6 +69,10 @@ const Linkage = () => {
           {
             title: t(`awesomeNoob`),
             url: `/camps/awesome-noob`,
+          },
+          {
+            title: t(`flashCard`),
+            url: `/camps/flash-card`,
           },
           {
             title: t(`code`),

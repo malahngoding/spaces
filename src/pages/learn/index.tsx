@@ -37,13 +37,6 @@ export default function Learn(props: LearnProps) {
       media: `static/images/snippets.png`,
       url: `/learn/snippets`,
     },
-    {
-      id: 3,
-      title: `${t(`flashCardTitle`)}`,
-      description: `${t(`flashCardDescription`)}`,
-      media: `static/images/flash_card.png`,
-      url: `/learn/flash-card`,
-    },
   ];
 
   return (
