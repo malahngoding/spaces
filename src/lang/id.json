@@ -55,8 +55,9 @@
     "settings": "Pengaturan",
     "theme": "Tema",
     "themeMessage": "Ganti tema warna kamu",
-    "wallet": "Crypto Connect",
-    "noWallet": "Belum ada wallet yang di daftarkan"
+    "wallet": "Kripto",
+    "noWallet": "Belum ada wallet yang di daftarkan",
+    "verified": "{wallet} yang terverifikasi"
   },
   "Inventory": {
     "welcome": "Tas Kamu",

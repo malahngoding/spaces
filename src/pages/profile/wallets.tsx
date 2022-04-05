@@ -47,7 +47,9 @@ export default function Settings(props: CryptoWalletsProps) {
                 return (
                   <Card key={index}>
                     <SubTitle>
-                      Verified {index === 0 ? `EVM Address` : `Hedera Address`}
+                      {t(`verified`, {
+                        wallet: index === 0 ? `EVM Address` : `Hedera Address`,
+                      })}
                     </SubTitle>
                     <SubTitle css={{ fontWeight: `$normal`, fontSize: `$sm` }}>
                       {item === '' ? t(`noWallet`) : item}

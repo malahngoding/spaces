@@ -56,7 +56,8 @@
     "theme": "Themes",
     "themeMessage": "Toggle your color theme",
     "wallet": "Crypto Wallet",
-    "noWallet": "No registered wallet yet"
+    "noWallet": "No registered wallet yet",
+    "verified": "Verified {wallet}"
   },
   "Inventory": {
     "welcome": "Your Inventory",
