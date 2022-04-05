@@ -14,7 +14,7 @@ interface LabsProps {
   slug: string;
 }
 
-const imageURL = `https://images.unsplash.com/photo-1547961547-321889bff29e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx`;
+const imageURL = `https://images.unsplash.com/photo-1531498860502-7c67cf02f657?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1280&q=10`;
 
 export default function Labs(props: LabsProps) {
   const t = useTranslations(`Camps`);
