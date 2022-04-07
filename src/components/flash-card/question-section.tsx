@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 import { Box } from '@components/design/box';
 import { Button } from '@components/design/button';
@@ -24,20 +25,25 @@ export interface QuestionAnswer {
 
 interface QuestionsSectionProps {
   question: QuestionGroup;
+  hash: string;
 }
 
 export const QuestionSection = (props: QuestionsSectionProps): JSX.Element => {
+  const router = useRouter();
+
   const [currentQuestion, setCurrentQuestion] = useState<number>(0);
   const [correctAnswer, setCorrectAnswer] = useState<number>(0);
   const questionLength = props.question.QuestionDetail.length;
 
   const handleAnswerClick = (isCorrect: boolean): void => {
-    console.log(isCorrect);
     if (currentQuestion !== questionLength - 1) {
       if (isCorrect) {
         setCorrectAnswer(correctAnswer + 1);
       }
       setCurrentQuestion(currentQuestion + 1);
+    } else {
+      // TODO: POST RESULT
+      router.push(`/camps/flash-card/${props.hash}/finished`);
     }
   };
 

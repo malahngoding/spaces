@@ -12,6 +12,7 @@ import type { GetServerSidePropsContext } from 'next';
 import type { QuestionGroup } from '@components/flash-card/question-section';
 
 interface FlashCardPostProps {
+  hash: string;
   questionGroupName: string;
   questions: QuestionGroup;
 }
@@ -29,7 +30,7 @@ export default function FlashCardPost(props: FlashCardPostProps) {
           </SubTitle>
         </Section>
         <Section>
-          <QuestionSection question={props.questions} />
+          <QuestionSection question={props.questions} hash={props.hash} />
         </Section>
       </Box>
     </QuizLayout>
@@ -37,7 +38,7 @@ export default function FlashCardPost(props: FlashCardPostProps) {
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const messages = await import(`../../../lang/${context.locale}.json`).then(
+  const messages = await import(`../../../../lang/${context.locale}.json`).then(
     (module) => module.default,
   );
   const session = await getSession(context);
@@ -50,6 +51,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     return {
       props: {
         messages,
+        hash,
         questionGroupName: flashCardBlockResponse.data.payload.groupName,
         questions: flashCardBlockResponse.data.payload.questions,
       },
