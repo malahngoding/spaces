@@ -107,6 +107,14 @@ export default function DesignButton(props: HomeProps) {
             *adopted from SWEETIE 16 PALETTE Palette created by GrafxKid.
           </Paragraph>
         </Section>
+        <Section>
+          <Box
+            as="img"
+            src="https://pbs.twimg.com/media/FP179cRVQAI1lP2?format=png&name=large"
+            alt="image"
+            css={{ width: `100%`, imageRendering: `pixelated` }}
+          />
+        </Section>
       </Box>
     </DesignLayout>
   );

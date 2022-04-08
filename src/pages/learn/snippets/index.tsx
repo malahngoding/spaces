@@ -33,7 +33,7 @@ export default function Snippets(props: SnippetsProps) {
         <Section
           css={{
             display: `grid`,
-            gridTemplateColumns: `1fr 1fr`,
+            gridTemplateColumns: `1fr`,
             gap: `$xs`,
             '@md': { gridTemplateColumns: `1fr 1fr 1fr` },
           }}
