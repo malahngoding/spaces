@@ -59,6 +59,19 @@
     "noWallet": "Belum ada wallet yang di daftarkan",
     "verified": "{wallet} yang terverifikasi"
   },
+  "ProfileForm": {
+    "name": "Nama",
+    "email": "Surel",
+    "avatar": "Avatar",
+    "bio": "Bio",
+    "update": "Perbarui",
+    "reset": "Atur ulang",
+    "modalTitle": "Apakah kamu yakin?",
+    "modalDescription": "Dengan menerima aksi ini kamu akan melakukan pembaharuan data pada formulir yang sudah kamu isi",
+    "modalAccept": "Terima",
+    "modalReject": "Tolak",
+    "error": "Error, mohon tetap tenang"
+  },
   "Inventory": {
     "welcome": "Tas Kamu",
     "title": "Barang-barang Instead"

@@ -1,5 +1,7 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useSession } from 'next-auth/react';
+import { useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 import {
   InputGroup,
@@ -20,7 +22,6 @@ import {
   AlertDialogAction,
 } from '@components/design/alert';
 import { updateProfileDetails } from '@services/profile-service';
-import { useEffect, useState } from 'react';
 import { Avatar, AvatarImage } from '@components/navigations/avatar';
 
 interface DetailFormData {
@@ -32,6 +33,7 @@ interface DetailFormData {
 
 export const DetailsForm = (): JSX.Element => {
   const { data: session } = useSession();
+  const t = useTranslations(`ProfileForm`);
 
   const [selectedAvatar, setSelectedAvatar] = useState<string>('');
 
@@ -51,7 +53,6 @@ export const DetailsForm = (): JSX.Element => {
     register,
     handleSubmit,
     reset,
-    watch,
     formState: { errors, isSubmitting },
   } = useForm<DetailFormData>({
     defaultValues: {
@@ -93,17 +94,17 @@ export const DetailsForm = (): JSX.Element => {
       <AlertDialog>
         <Box as="form" css={{ marginBottom: `$md` }} autoComplete="off">
           <InputGroup>
-            <InputLabel>Name</InputLabel>
+            <InputLabel>{t(`name`)}</InputLabel>
             <InputText {...register(`name`)} />
-            {errors.name && <InputHelperText>Help</InputHelperText>}
+            {errors.name && <InputHelperText>{t(`error`)}</InputHelperText>}
           </InputGroup>
           <InputGroup>
-            <InputLabel>Email</InputLabel>
+            <InputLabel>{t(`email`)}</InputLabel>
             <InputText {...register(`email`)} />
-            {errors.email && <InputHelperText>Help</InputHelperText>}
+            {errors.email && <InputHelperText>{t(`error`)}</InputHelperText>}
           </InputGroup>
           <InputGroup>
-            <InputLabel>Avatar</InputLabel>
+            <InputLabel>{t(`avatar`)}</InputLabel>
             <Box
               css={{ display: `flex`, flexDirection: `row`, flexWrap: `wrap` }}
             >
@@ -139,13 +140,13 @@ export const DetailsForm = (): JSX.Element => {
             <InputText {...register(`avatar`)} />
           </InputGroup>
           <InputGroup>
-            <InputLabel>Bio</InputLabel>
+            <InputLabel>{t(`bio`)}</InputLabel>
             <InputTextArea {...register(`bio`)} rows={4} />
-            {errors.bio && <InputHelperText>Help</InputHelperText>}
+            {errors.bio && <InputHelperText>{t(`error`)}</InputHelperText>}
           </InputGroup>
           <Box css={{ display: `flex`, flexDirection: `row` }}>
             <AlertDialogTrigger asChild>
-              <Button>Update Profile</Button>
+              <Button>{t(`update`)}</Button>
             </AlertDialogTrigger>
             <Button
               type="button"
@@ -153,24 +154,23 @@ export const DetailsForm = (): JSX.Element => {
               css={{ marginLeft: `$sm` }}
               onClick={() => reset()}
             >
-              Reset Changes
+              {t(`reset`)}
             </Button>
           </Box>
           <AlertDialogContent>
-            <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+            <AlertDialogTitle>{t(`modalTitle`)}</AlertDialogTitle>
             <AlertDialogDescription>
-              This action cannot be undone. This will permanently delete your
-              account and remove your data from our servers.
+              {t(`modalDescription`)}
             </AlertDialogDescription>
             <Box css={{ display: 'flex', justifyContent: 'flex-end' }}>
               <AlertDialogCancel asChild>
                 <Button alternative="secondary" css={{ marginRight: 25 }}>
-                  Reject
+                  {t(`modalReject`)}
                 </Button>
               </AlertDialogCancel>
               <AlertDialogAction asChild>
                 <Button type="submit" onClick={handleSubmit(onSubmit)}>
-                  Accept
+                  {t(`modalAccept`)}
                 </Button>
               </AlertDialogAction>
             </Box>

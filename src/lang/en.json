@@ -59,6 +59,19 @@
     "noWallet": "No registered wallet yet",
     "verified": "Verified {wallet}"
   },
+  "ProfileForm": {
+    "name": "Name",
+    "email": "E-Mail",
+    "avatar": "Avatar",
+    "bio": "Bio",
+    "update": "Update Profile",
+    "reset": "Reset Changes",
+    "modalTitle": "Are you sure?",
+    "modalDescription": "This action will update your data based on whatever things you fill in that form",
+    "modalAccept": "Accept",
+    "modalReject": "Reject",
+    "error": "Error, please stay calm"
+  },
   "Inventory": {
     "welcome": "Your Inventory",
     "title": "Instead Stuff"
