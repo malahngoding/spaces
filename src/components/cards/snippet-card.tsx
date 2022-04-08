@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 import { Box } from '@components/design/box';
 import { Caption, Paragraph } from '@components/design/typography';
+import { keyframes } from '@config/stitches.config';
 
 export interface SnippetCardProps {
   id: number;
@@ -12,6 +13,11 @@ export interface SnippetCardProps {
   slug: string;
 }
 
+const scaleUp = keyframes({
+  '0%': { transform: 'translateY(0px)', backgroundColor: `none` },
+  '100%': { transform: 'translateY(-4px)', backgroundColor: `$slate2` },
+});
+
 export const SnippetCard = (props: SnippetCardProps) => {
   const { id, title, icon, tags, slug } = props;
   return (
@@ -19,18 +25,21 @@ export const SnippetCard = (props: SnippetCardProps) => {
       <Box
         key={id}
         css={{
-          backgroundColor: `$slate2`,
-          border: `2px solid $slate12`,
+          backgroundColor: `$slate1`,
+          border: `2px solid $slate2`,
           padding: `$xs`,
           display: `flex`,
           flexDirection: `row`,
           justifyContent: `flex-start`,
           alignItems: `center`,
+          transform: 'translateY(0px)',
           height: `calc(120px)`,
           '&:hover': {
             cursor: `pointer`,
-            transform: `translateY(-4px)`,
-            boxShadow: `0px 8px 6px -8px hsl(198 6.6% 15.8%)`,
+            backgroundColor: `$slate2`,
+            animation: `${scaleUp} 200ms`,
+            border: `2px solid $slate2`,
+            transform: 'translateY(-4px)',
           },
         }}
       >

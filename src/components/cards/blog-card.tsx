@@ -2,7 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { Box } from '@components/design/box';
-import { Paragraph, SubTitle, Title } from '@components/design/typography';
+import { Paragraph, Title } from '@components/design/typography';
+import { keyframes } from '@config/stitches.config';
 
 export interface BlogCardProps {
   id: number;
@@ -13,6 +14,11 @@ export interface BlogCardProps {
   slug: string;
 }
 
+const scaleUp = keyframes({
+  '0%': { transform: 'translateY(0px)', background: `none` },
+  '100%': { transform: 'translateY(-4px)', background: `$slate4` },
+});
+
 export const BlogCard = (props: BlogCardProps) => {
   const { id, image, published, title, description, slug } = props;
   return (
@@ -20,20 +26,24 @@ export const BlogCard = (props: BlogCardProps) => {
       <Box
         key={id}
         css={{
-          border: `2px solid $slate12`,
-          background: `$slate4`,
+          border: `2px solid $slate1`,
+          background: `none`,
           marginY: `$xxs`,
           width: `100%`,
           display: `flex`,
           flexDirection: `column`,
           alignItems: `center`,
           justifyContent: `center`,
+          transform: 'translateY(0px)',
           '@lg': {
             flexDirection: `row`,
           },
           '&:hover': {
+            border: `2px solid $slate12`,
+            background: `$slate4`,
             cursor: `pointer`,
-            transform: `translateY(-4px)`,
+            animation: `${scaleUp} 200ms`,
+            transform: 'translateY(-4px)',
             boxShadow: `0px 8px 6px -8px hsl(198 6.6% 15.8%)`,
           },
         }}
