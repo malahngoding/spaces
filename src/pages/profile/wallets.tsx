@@ -10,6 +10,7 @@ import { Card } from '@components/design/card';
 
 import type { GetServerSidePropsContext } from 'next';
 import useSWR from 'swr';
+import Image from 'next/image';
 
 interface CryptoWalletsProps {
   currentUser: {
