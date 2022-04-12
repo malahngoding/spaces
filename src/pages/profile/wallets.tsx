@@ -1,5 +1,7 @@
 import { getSession } from 'next-auth/react';
 import { useTranslations } from 'next-intl';
+import useSWR from 'swr';
+import Image from 'next/image';
 
 import { ProfileLayout } from '@layouts/profile';
 import { Section } from '@components/design/section';
@@ -9,8 +11,6 @@ import { getProfileWallets } from '@services/profile-service';
 import { Card } from '@components/design/card';
 
 import type { GetServerSidePropsContext } from 'next';
-import useSWR from 'swr';
-import Image from 'next/image';
 
 interface CryptoWalletsProps {
   currentUser: {
@@ -47,6 +47,20 @@ export default function Settings(props: CryptoWalletsProps) {
               {walletList.map((item, index) => {
                 return (
                   <Card key={index}>
+                    <Box css={{ height: 64, width: 64, borderRadius: `50%` }}>
+                      <Image
+                        width={48}
+                        height={48}
+                        layout="fixed"
+                        src={
+                          index === 0
+                            ? `/static/wallets/polygon.png`
+                            : `/static/wallets/hedera.png`
+                        }
+                        alt={index === 0 ? `EVM Address` : `Hedera Address`}
+                      />
+                    </Box>
+
                     <SubTitle>
                       {t(`verified`, {
                         wallet: index === 0 ? `EVM Address` : `Hedera Address`,
