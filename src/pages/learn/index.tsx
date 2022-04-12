@@ -27,14 +27,14 @@ export default function Learn(props: LearnProps) {
       id: 1,
       title: `${t(`articlesTitle`)}`,
       description: `${t(`articlesDescription`)}`,
-      media: `static/images/articles.png`,
+      media: `/static/images/articles.png`,
       url: `/learn/articles`,
     },
     {
       id: 2,
       title: `${t(`snippetsTitle`)}`,
       description: `${t(`snippetsDescription`)}`,
-      media: `static/images/snippets.png`,
+      media: `/static/images/snippets.png`,
       url: `/learn/snippets`,
     },
   ];
