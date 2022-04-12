@@ -8,10 +8,11 @@ import {
   UilCog,
 } from '@iconscout/react-unicons';
 import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/router';
 
 import { Button, PlainButton } from '@components/design/button';
 import { Nav } from '@components/design/nav';
-import { Paragraph, SubTitle } from '@components/design/typography';
+import { SubTitle } from '@components/design/typography';
 import {
   Avatar,
   AvatarImage,
@@ -25,6 +26,7 @@ interface NavigationBarProps {
 }
 
 export const NavigationBar = (props: NavigationBarProps) => {
+  const router = useRouter();
   const transparent = props.transparent ? props.transparent : false;
   const { data: session, status } = useSession();
   const t = useTranslations(`Menu`);
@@ -134,7 +136,14 @@ export const NavigationBar = (props: NavigationBarProps) => {
                       </SubTitle>
                     </Button>
                   </Link>
-                  <Button alternative="ghost" onClick={() => signOut()}>
+                  <Button
+                    alternative="ghost"
+                    onClick={() =>
+                      signOut({
+                        callbackUrl: `/${router.locale}`,
+                      })
+                    }
+                  >
                     <UilSignout />
                     <SubTitle
                       css={{

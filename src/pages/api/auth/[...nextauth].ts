@@ -124,6 +124,8 @@ export default NextAuth({
       return false;
     },
     async redirect({ url, baseUrl }) {
+      if (url.startsWith('/')) return new URL(url, baseUrl).toString();
+      else if (new URL(url).origin === baseUrl) return url;
       return baseUrl;
     },
     async session({ session, user, token }) {
