@@ -46,7 +46,7 @@ export default function Settings(props: CryptoWalletsProps) {
             <>
               {walletList.map((item, index) => {
                 return (
-                  <Card key={index}>
+                  <Card key={index} css={{ width: `100%` }}>
                     <Box css={{ height: 64, width: 64, borderRadius: `50%` }}>
                       <Image
                         width={48}
@@ -61,13 +61,15 @@ export default function Settings(props: CryptoWalletsProps) {
                       />
                     </Box>
 
-                    <SubTitle>
+                    <SubTitle css={{ textOverflow: `ellipsis` }}>
                       {t(`verified`, {
                         wallet: index === 0 ? `EVM Address` : `Hedera Address`,
                       })}
                     </SubTitle>
                     <SubTitle css={{ fontWeight: `$normal`, fontSize: `$sm` }}>
-                      {item === '' ? t(`noWallet`) : item}
+                      {item === ''
+                        ? t(`noWallet`)
+                        : `${item.slice(0, 5)}...${item.slice(-4)}`}
                     </SubTitle>
                   </Card>
                 );

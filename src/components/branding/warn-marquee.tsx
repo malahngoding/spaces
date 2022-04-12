@@ -4,6 +4,28 @@ import { useTranslations } from 'next-intl';
 import { Box } from '@components/design/box';
 import { Paragraph } from '@components/design/typography';
 
+import type { ReactElement } from 'react';
+
+interface RunningTextProps {
+  children: ReactElement | string;
+}
+
+const RunningText = (props: RunningTextProps): JSX.Element => {
+  return (
+    <Paragraph
+      css={{
+        fontFamily: `$mono`,
+        color: `$slate1`,
+        userSelect: `none`,
+        marginRight: `$xs`,
+        '&:hover': { cursor: `default` },
+      }}
+    >
+      {props.children}
+    </Paragraph>
+  );
+};
+
 export const WarnMarquee = (): JSX.Element => {
   const t = useTranslations(`Marquee`);
 
@@ -22,18 +44,17 @@ export const WarnMarquee = (): JSX.Element => {
         overflow: `hidden`,
       }}
     >
-      <Marquee speed={30} delay={0.5}>
-        <Paragraph
-          css={{
-            marginLeft: `$md`,
-            fontFamily: `$mono`,
-            color: `$slate1`,
-            userSelect: `none`,
-            '&:hover': { cursor: `default` },
-          }}
-        >
-          {t(`warnMarquee`)}
-        </Paragraph>
+      <Marquee speed={30} delay={0.5} pauseOnHover>
+        <RunningText>{t(`warnMarquee`)}</RunningText>
+        <RunningText>
+          <a
+            href="mailto: admin@malahngoding.com"
+            target="_blank"
+            rel="noreferrer"
+          >
+            admin@malahngoding.com
+          </a>
+        </RunningText>
       </Marquee>
     </Box>
   );

@@ -35,19 +35,17 @@ export default function Badge(props: ProfileProps) {
       <Box>
         <br />
         <Section
-          css={{ display: `flex`, flexDirection: `row`, flexWrap: `wrap` }}
+          css={{
+            display: `grid`,
+            gridTemplateColumns: `repeat(auto-fit, minmax(260px, 1fr))`,
+            gap: `$sm`,
+          }}
         >
           {badgeList ? (
             <>
               {badgeList.map((item, index) => {
                 return (
-                  <Box
-                    key={index}
-                    css={{
-                      marginTop: `$md`,
-                      marginRight: `$md`,
-                    }}
-                  >
+                  <Box key={index}>
                     <BadgeCard
                       title={item.badge.title}
                       description={

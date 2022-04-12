@@ -126,6 +126,6 @@
     "message": "Please connect your account before continue, Thanks!"
   },
   "Marquee": {
-    "warnMarquee": "This site is extremely under development, expect off-chain database reset once in a while. Further inquiries e-mail malahngoding@gmail.com"
+    "warnMarquee": "This site is extremely under development, expect off-chain database reset once in a while. Further inquiries e-mail"
   }
 }

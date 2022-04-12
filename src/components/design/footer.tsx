@@ -9,4 +9,6 @@ export const Footer = styled(`footer`, {
   justifyContent: `center`,
   alignItems: `center`,
   borderTop: `1px solid $slate6`,
+  background: `url("/static/images/footer.png") no-repeat`,
+  backgroundPosition: `right bottom -80px`,
 });
