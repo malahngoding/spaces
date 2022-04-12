@@ -119,7 +119,7 @@ export const NavigationSheets = (props: NavigationSheetsProps) => {
               >
                 {status === `unauthenticated` ? (
                   <Button
-                    onClick={() => routerPush(`/auth/register`)}
+                    onClick={() => routerPush(`/auth/connect`)}
                     alternative="ghost"
                     css={{
                       '&:hover': {
