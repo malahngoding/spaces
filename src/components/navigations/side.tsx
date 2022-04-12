@@ -16,7 +16,7 @@ const SideNav = styled(`div`, {
   height: `83px`,
   left: `0`,
   position: `fixed`,
-  top: `0`,
+  top: `32px`,
   transition: `transform 0.1s`,
   width: `100vh`,
   zIndex: `100001`,

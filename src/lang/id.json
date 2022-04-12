@@ -124,5 +124,8 @@
   },
   "AuthBlock": {
     "message": "Silahkan masuk dahulu sebelum melanjutkan, terima kasih!"
+  },
+  "Marquee": {
+    "warnMarquee": "Laman ini sedang dalam pengembangan, silahkan digunakan dengan semestinya. Akan ada selalu proses reset untuk off-chain data. Pertanyaan lebih lanjut hubungi malahngoding@gmail.com"
   }
 }
