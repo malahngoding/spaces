@@ -9,6 +9,19 @@ const nextConfig = {
     defaultLocale: 'id',
     localeDetection: false,
   },
+  async headers() {
+    return [
+      {
+        source: '/.well-known/brave-rewards-verification.txt',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'text/plain',
+          },
+        ],
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
