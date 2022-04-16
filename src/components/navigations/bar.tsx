@@ -20,6 +20,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@components/navigations/avatar';
+import { useWarnMarquee } from '@store/marquee-store';
 
 interface NavigationBarProps {
   transparent?: boolean;
@@ -29,6 +30,7 @@ export const NavigationBar = (props: NavigationBarProps) => {
   const router = useRouter();
   const transparent = props.transparent ? props.transparent : false;
   const { data: session, status } = useSession();
+  const shown = useWarnMarquee((state) => state.shown);
   const t = useTranslations(`Menu`);
 
   const NavItems = [
@@ -39,7 +41,7 @@ export const NavigationBar = (props: NavigationBarProps) => {
 
   return (
     <>
-      <Nav>
+      <Nav css={{ marginTop: shown ? '32px' : '0px' }}>
         {NavItems.map((item) => (
           <Link href={item.url} passHref key={item.url}>
             <a>

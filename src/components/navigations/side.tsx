@@ -9,6 +9,7 @@ import { useDashNav } from '@store/navigation-store';
 import { useAppStore } from '@store/app-store';
 import { NavigationSheets } from '@components/navigations/sheets';
 import { ServiceChecker } from '@components/service-checker';
+import { useWarnMarquee } from '@store/marquee-store';
 
 const SideNav = styled(`div`, {
   borderRight: `0`,
@@ -96,6 +97,7 @@ export const SideNavigation = () => {
   const shown = useDashNav((state) => state.shown);
   const spacesVersion = useAppStore((state) => state.spacesVersion);
   const toggleNav = useDashNav((state) => state.toggleNav);
+  const shownMarquee = useWarnMarquee((state) => state.shown);
 
   const handleNavigation = (): void => {
     toggleLocked();
@@ -107,7 +109,7 @@ export const SideNavigation = () => {
   const status = `Malah Ngoding Spaces v.${spacesVersion}`;
   return (
     <>
-      <SideNav>
+      <SideNav css={{ top: shownMarquee ? '32px' : '0px' }}>
         <NavWrapper>
           <Menu>
             <Link href="/" passHref>
