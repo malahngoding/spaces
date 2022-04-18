@@ -1,14 +1,24 @@
-import create from 'zustand';
+import create, { StateCreator } from 'zustand';
+import { persist, PersistOptions } from 'zustand/middleware';
 
-interface WarnMarquee {
+type WarnMarquee = {
   shown: boolean;
   toggleMarquee: () => void;
-}
+};
 
-export const useWarnMarquee = create<WarnMarquee>((set) => ({
-  shown: true,
-  toggleMarquee: () =>
-    set((state: WarnMarquee) => ({
-      shown: !state.shown,
-    })),
-}));
+type CookiesPersist = (
+  config: StateCreator<WarnMarquee>,
+  options: PersistOptions<WarnMarquee>,
+) => StateCreator<WarnMarquee>;
+
+export const useWarnMarquee = create<WarnMarquee>(
+  (persist as CookiesPersist)(
+    (set, get) => ({
+      shown: false,
+      toggleMarquee: () => {
+        set({ shown: !get().shown });
+      },
+    }),
+    { name: 'instead-marquee-store' },
+  ),
+);
