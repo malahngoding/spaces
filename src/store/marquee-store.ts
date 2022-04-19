@@ -14,11 +14,13 @@ type CookiesPersist = (
 export const useWarnMarquee = create<WarnMarquee>(
   (persist as CookiesPersist)(
     (set, get) => ({
-      shown: false,
+      shown: true,
       toggleMarquee: () => {
         set({ shown: !get().shown });
       },
     }),
-    { name: 'instead-marquee-store' },
+    {
+      name: 'instead-marquee-store',
+    },
   ),
 );

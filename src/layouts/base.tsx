@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import dynamic from 'next/dynamic';
 
 import { ApplicationName } from '@config/application';
 import { NavigationBar } from '@components/navigations/bar';
@@ -7,17 +8,20 @@ import { Main } from '@components/design/main';
 import { Box } from '@components/design/box';
 import { SideNavigation } from '@components/navigations/side';
 import { PeekProfile } from '@components/profile/peek-profile';
-import { WarnMarquee } from '@components/branding/warn-marquee';
-import { useWarnMarquee } from '@store/marquee-store';
 
 interface BaseLayoutProps {
   title: string;
   children: JSX.Element;
 }
 
+const WarnMarqueeComponent = dynamic(
+  (): any =>
+    import(`@components/branding/warn-marquee`).then((mod) => mod.WarnMarquee),
+  { ssr: false },
+);
+
 export const BaseLayout = (props: BaseLayoutProps): JSX.Element => {
   const { title, children } = props;
-  const shown = useWarnMarquee((state) => state.shown);
 
   return (
     <>
@@ -26,9 +30,7 @@ export const BaseLayout = (props: BaseLayoutProps): JSX.Element => {
           {title} - {ApplicationName}
         </title>
       </Head>
-      <Box css={{ display: shown ? 'block' : 'none' }}>
-        <WarnMarquee />
-      </Box>
+      <WarnMarqueeComponent />
       <SideNavigation />
       <Main>
         <PeekProfile />

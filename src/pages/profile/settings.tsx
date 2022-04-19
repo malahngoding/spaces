@@ -6,10 +6,8 @@ import { ProfileLayout } from '@layouts/profile';
 import { Section } from '@components/design/section';
 import { Box } from '@components/design/box';
 import { Paragraph, SubTitle } from '@components/design/typography';
-import { getProfileWallets } from '@services/profile-service';
 
 import type { GetServerSidePropsContext } from 'next';
-import useSWR from 'swr';
 
 interface ProfileProps {
   currentUser: {
@@ -30,6 +28,12 @@ export default function Settings(props: ProfileProps) {
     { ssr: false },
   );
 
+  const MarqueeToggleComponent = dynamic(
+    (): any =>
+      import(`@components/marquee-toggle`).then((mod) => mod.MarqueeToggle),
+    { ssr: false },
+  );
+
   return (
     <ProfileLayout layout={{ tab: 3 }} currentUser={props.currentUser}>
       <Box>
@@ -47,6 +51,18 @@ export default function Settings(props: ProfileProps) {
             <Paragraph css={{ marginBottom: 0, marginLeft: `$sm` }}>
               {t(`themeMessage`)}
             </Paragraph>
+          </Box>
+        </Section>
+        <Section>
+          <SubTitle>Marquee</SubTitle>
+          <Box
+            css={{
+              display: `flex`,
+              flexDirection: `row`,
+              alignItems: `center`,
+            }}
+          >
+            <MarqueeToggleComponent />
           </Box>
         </Section>
       </Box>

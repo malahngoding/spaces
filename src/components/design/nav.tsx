@@ -1,7 +1,7 @@
 import { styled } from '@config/stitches.config';
 
 export const Nav = styled(`nav`, {
-  marginTop: `32px`,
+  marginTop: `0px`,
   display: `none`,
   flexDirection: `row`,
   justifyContent: `flex-end`,
