@@ -31,6 +31,11 @@ export default function Labs(props: LabsProps) {
       name: `SVG Asset randomizer`,
       description: `NFT like randomizer with SVG and some javascript code`,
     },
+    {
+      url: `/marketplace`,
+      name: `NFT Marketplace`,
+      description: `NFT marketplace for multichain network (Hedera x Polygon)`,
+    },
   ];
   return (
     <BaseLayout title="Hello World!">
