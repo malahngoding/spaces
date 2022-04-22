@@ -225,7 +225,7 @@ export const FooterNavigation = () => {
       <Footer>
         <Linkage />
         <Caption>
-          © {year} Malah Ngoding. {t(`allRights`)}
+          © 2019-{year} Malah Ngoding. {t(`allRights`)}
         </Caption>
         <BottomLinkBox />
         <LanguageToggleComponent />
