@@ -23,60 +23,62 @@ export const BlogCard = (props: BlogCardProps) => {
   const { id, image, published, title, description, slug } = props;
   return (
     <Link href={`/learn/articles/${slug}`} passHref>
-      <Box
-        key={id}
-        css={{
-          border: `2px solid $slate1`,
-          background: `none`,
-          marginY: `$xxs`,
-          width: `100%`,
-          display: `flex`,
-          flexDirection: `column`,
-          alignItems: `center`,
-          justifyContent: `center`,
-          transform: 'translateY(0px)',
-          '@lg': {
-            flexDirection: `row`,
-          },
-          '&:hover': {
-            border: `2px solid $slate12`,
-            background: `$slate4`,
-            cursor: `pointer`,
-            animation: `${scaleUp} 200ms`,
-            transform: 'translateY(-4px)',
-            boxShadow: `0px 8px 6px -8px hsl(198 6.6% 15.8%)`,
-          },
-        }}
-      >
-        <Box css={{ height: `100%` }}>
-          <Image
-            src={`${image}&w=320&h=320&q=80`}
-            alt={title}
-            width="310px"
-            height="310px"
-          />
-        </Box>
+      <a>
         <Box
+          key={id}
           css={{
+            border: `2px solid $slate1`,
+            background: `none`,
+            marginY: `$xxs`,
             width: `100%`,
-            height: 'none',
-            padding: `$sm`,
             display: `flex`,
             flexDirection: `column`,
-            alignItems: `space-between`,
-            justifyContent: `space-between`,
+            alignItems: `center`,
+            justifyContent: `center`,
+            transform: 'translateY(0px)',
             '@lg': {
-              width: `calc(100% - 640)`,
+              flexDirection: `row`,
+            },
+            '&:hover': {
+              border: `2px solid $slate12`,
+              background: `$slate4`,
+              cursor: `pointer`,
+              animation: `${scaleUp} 200ms`,
+              transform: 'translateY(-4px)',
+              boxShadow: `0px 8px 6px -8px hsl(198 6.6% 15.8%)`,
             },
           }}
         >
-          <Title css={{ margin: 0, fontFamily: `$brand` }}>{title}</Title>
-          <Paragraph css={{ fontWeight: `$normal` }}>{description}</Paragraph>
-          <Paragraph css={{ fontFamily: `$mono`, margin: 0 }}>
-            {published}
-          </Paragraph>
+          <Box css={{ height: `100%` }}>
+            <Image
+              src={`${image}&w=320&h=320&q=80`}
+              alt={title}
+              width="310px"
+              height="310px"
+            />
+          </Box>
+          <Box
+            css={{
+              width: `100%`,
+              height: 'none',
+              padding: `$sm`,
+              display: `flex`,
+              flexDirection: `column`,
+              alignItems: `space-between`,
+              justifyContent: `space-between`,
+              '@lg': {
+                width: `calc(100% - 640)`,
+              },
+            }}
+          >
+            <Title css={{ margin: 0, fontFamily: `$brand` }}>{title}</Title>
+            <Paragraph css={{ fontWeight: `$normal` }}>{description}</Paragraph>
+            <Paragraph css={{ fontFamily: `$mono`, margin: 0 }}>
+              {published}
+            </Paragraph>
+          </Box>
         </Box>
-      </Box>
+      </a>
     </Link>
   );
 };

@@ -66,11 +66,21 @@ export default function Settings(props: CryptoWalletsProps) {
                         wallet: index === 0 ? `EVM Address` : `Hedera Address`,
                       })}
                     </SubTitle>
-                    <SubTitle css={{ fontWeight: `$normal`, fontSize: `$sm` }}>
-                      {item === ''
-                        ? t(`noWallet`)
-                        : `${item.slice(0, 5)}...${item.slice(-4)}`}
-                    </SubTitle>
+                    {index === 0 ? (
+                      <SubTitle
+                        css={{ fontWeight: `$normal`, fontSize: `$sm` }}
+                      >
+                        {item === ''
+                          ? t(`noWallet`)
+                          : `${item.slice(0, 5)}...${item.slice(-4)}`}
+                      </SubTitle>
+                    ) : (
+                      <SubTitle
+                        css={{ fontWeight: `$normal`, fontSize: `$sm` }}
+                      >
+                        {item === '' ? t(`noWallet`) : item}
+                      </SubTitle>
+                    )}
                   </Card>
                 );
               })}

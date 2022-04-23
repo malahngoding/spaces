@@ -49,27 +49,34 @@ export default function Labs(props: LabsProps) {
           {experiments.map((item) => {
             return (
               <Link href={item.url} passHref key={item.url}>
-                <Box
-                  css={{
-                    margin: `$sm`,
-                    border: `2px solid $slate12`,
-                    padding: `$xs`,
-                    '&:hover': {
-                      cursor: `pointer`,
+                <a>
+                  <Box
+                    css={{
+                      width: `100%`,
+                      margin: `$sm`,
                       border: `2px solid $slate12`,
-                      boxShadow: `0px 8px 6px -8px hsl(198 6.6% 15.8%)`,
-                    },
-                  }}
-                >
-                  <SubTitle
-                    css={{ fontWeight: `bolder`, color: `$slate12`, margin: 0 }}
+                      padding: `$xs`,
+                      '&:hover': {
+                        cursor: `pointer`,
+                        border: `2px solid $slate12`,
+                        boxShadow: `0px 8px 6px -8px hsl(198 6.6% 15.8%)`,
+                      },
+                    }}
                   >
-                    {item.name}
-                  </SubTitle>
-                  <Paragraph css={{ color: `$slate12` }}>
-                    {item.description}
-                  </Paragraph>
-                </Box>
+                    <SubTitle
+                      css={{
+                        fontWeight: `bolder`,
+                        color: `$slate12`,
+                        margin: 0,
+                      }}
+                    >
+                      {item.name}
+                    </SubTitle>
+                    <Paragraph css={{ color: `$slate12` }}>
+                      {item.description}
+                    </Paragraph>
+                  </Box>
+                </a>
               </Link>
             );
           })}
