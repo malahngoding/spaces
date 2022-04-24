@@ -1,4 +1,4 @@
-import * as actions from './add';
+import * as actions from '../add';
 
 describe('Add', () => {
   it('it should return correct number, negative and positve', () => {
