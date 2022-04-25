@@ -218,7 +218,6 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     const flashCardStatsResponse = await getCurrentUserFlashCardStatus(
       session.microsToken,
     );
-    console.log(flashCardStatsResponse.data.payload.stats.currentHash);
     return {
       props: {
         rankList: rankListResponse.data.payload.ranks,

@@ -128,5 +128,9 @@
   "Marquee": {
     "closeMarquee": "Click to hide.",
     "warnMarquee": "This site is extremely under development, expect off-chain database reset once in a while. Further inquiries e-mail"
+  },
+  "MetamaskConnectLoader": {
+    "title": "Sign the message in your wallet to continue",
+    "subTitle": "We uses this signature to verify that you’re the owner of this address."
   }
 }

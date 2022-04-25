@@ -6,14 +6,19 @@ import { useRouter } from 'next/router';
 import { Button } from '@components/design/button';
 import { deployedChain } from '@config/contractAddress';
 import { ApplicationUrl } from '@config/application';
+import { useAuthLoading } from '@store/auth-loading-store';
 
 export const MetamaskAuth = (): JSX.Element => {
+  const toggleLoading = useAuthLoading((state) => state.toggleLoading);
+
   const router = useRouter();
 
   const handleWallet = async (): Promise<void> => {
+    toggleLoading();
     if (typeof window.ethereum !== undefined) {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const network = await provider.getNetwork();
+      // Starting Metamask Signing Method
       const metamaskSigning = async () => {
         const account = await window.ethereum.request({
           method: 'eth_requestAccounts',
@@ -40,14 +45,41 @@ export const MetamaskAuth = (): JSX.Element => {
           router.push('/');
         }
       };
+      // End of Metamask Signing Method
       if (network.chainId === deployedChain) {
-        metamaskSigning();
+        await metamaskSigning().catch((error) => {
+          if (error.code === 4001) {
+            toggleLoading();
+          }
+        });
       } else {
+        await window.ethereum.request({
+          id: 1,
+          jsonrpc: '2.0',
+          method: 'wallet_addEthereumChain',
+          params: [
+            {
+              chainId: '0x13881',
+              rpcUrls: ['https://rpc-mumbai.maticvigil.com'],
+              chainName: 'Polygon Testnet Mumbai',
+              nativeCurrency: {
+                name: 'tMATIC',
+                symbol: 'tMATIC',
+                decimals: 18,
+              },
+              blockExplorerUrls: ['https://mumbai.polygonscan.com/'],
+            },
+          ],
+        });
         await window.ethereum.request({
           method: 'wallet_switchEthereumChain',
           params: [{ chainId: '0x13881' }],
         });
-        metamaskSigning();
+        await metamaskSigning().catch((error) => {
+          if (error.code === 4001) {
+            toggleLoading();
+          }
+        });
       }
     }
   };

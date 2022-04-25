@@ -26,6 +26,8 @@ import { Span } from '@components/design/span';
 import { styled } from '@config/stitches.config';
 import { StyledLink } from '@components/design/link';
 import { Grid } from '@components/design/grid';
+import { useAuthLoading } from '@store/auth-loading-store';
+import { AuthLoader } from '@components/loader/auth';
 
 interface RegisterForm {
   email: string;
@@ -101,6 +103,8 @@ const MetamaskConnectButton = dynamic(
 );
 
 export default function Connect(props: RegisterProps) {
+  const isLoading = useAuthLoading((state) => state.isLoading);
+
   const {
     register,
     handleSubmit,
@@ -142,33 +146,39 @@ export default function Connect(props: RegisterProps) {
           <Paragraph css={{ marginY: `$md`, maxWidth: `315px` }}>
             {t(`message`)}
           </Paragraph>
-          <Grid
-            css={{
-              gridTemplateColumns: `1fr`,
-              width: `100%`,
-              '@sm': {
-                gridTemplateColumns: `1fr 1fr 1fr 1fr`,
-                width: `auto`,
-              },
-            }}
-          >
-            <Button
-              alternative="secondary"
-              onClick={() => signIn(providers.github.id)}
-              className="my-2 sm:m-2 flex flex-row justify-center items-center hover:bg-black-100"
-            >
-              <UilGithub />
-            </Button>
-            <Button
-              alternative="secondary"
-              onClick={() => signIn(providers.google.id)}
-              className="my-2 sm:m-2 flex flex-row justify-center items-center hover:bg-black-100"
-            >
-              <UilGoogle />
-            </Button>
-            <MetamaskConnectButton />
-            <HashpackConnectButton />
-          </Grid>
+          {isLoading ? (
+            <AuthLoader />
+          ) : (
+            <>
+              <Grid
+                css={{
+                  gridTemplateColumns: `1fr`,
+                  width: `100%`,
+                  '@sm': {
+                    gridTemplateColumns: `1fr 1fr 1fr 1fr`,
+                    width: `auto`,
+                  },
+                }}
+              >
+                <Button
+                  alternative="secondary"
+                  onClick={() => signIn(providers.github.id)}
+                  className="my-2 sm:m-2 flex flex-row justify-center items-center hover:bg-black-100"
+                >
+                  <UilGithub />
+                </Button>
+                <Button
+                  alternative="secondary"
+                  onClick={() => signIn(providers.google.id)}
+                  className="my-2 sm:m-2 flex flex-row justify-center items-center hover:bg-black-100"
+                >
+                  <UilGoogle />
+                </Button>
+                <MetamaskConnectButton />
+                <HashpackConnectButton />
+              </Grid>
+            </>
+          )}
           <Paragraph css={{ marginY: `$md`, display: `none` }}>
             or using email
           </Paragraph>

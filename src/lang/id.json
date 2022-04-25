@@ -128,5 +128,9 @@
   "Marquee": {
     "closeMarquee": "Klik untuk menyembunyikan.",
     "warnMarquee": "Laman ini sedang dalam pengembangan, silahkan digunakan dengan semestinya. Akan ada selalu proses reset untuk off-chain data. Pertanyaan lebih lanjut hubungi"
+  },
+  "MetamaskConnectLoader": {
+    "title": "Tekan SIGN pada wallet kamu untuk melanjutkan",
+    "subTitle": "Kita menggunakan signature ini untuk memastikan bahwasannya memang kamu pemilik wallet."
   }
 }
