@@ -5,11 +5,14 @@ export const getFlashCardRanking = async (): Promise<{
     messages: string;
     status: string;
     payload: {
-      ranks: {
-        rank: number;
-        userName: string;
-        avatar: string;
-        score: string;
+      rankings: {
+        user: {
+          userName: string;
+          Profile: {
+            avatar: string;
+          };
+        };
+        currentPoint: number;
       }[];
     };
   };

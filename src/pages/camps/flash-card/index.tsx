@@ -22,10 +22,13 @@ import { Button } from '@components/design/button';
 import Link from 'next/link';
 
 type RankList = {
-  rank: number;
-  userName: string;
-  avatar: string;
-  score: string;
+  user: {
+    userName: string;
+    Profile: {
+      avatar: string;
+    };
+  };
+  currentPoint: number;
 };
 interface FlashCardProps {
   rankList: RankList[];
@@ -76,14 +79,14 @@ export default function FlashCard(props: FlashCardProps) {
               '@lg': { gridTemplateColumns: `1fr 1fr 1fr` },
             }}
           >
-            {props.rankList?.map((item: RankList) => {
+            {props.rankList?.map((item: RankList, index) => {
               return (
                 <RankCard
-                  key={item.rank}
-                  rank={item.rank}
-                  userName={item.userName}
-                  avatar={item.avatar}
-                  score={item.score}
+                  key={item.user.userName}
+                  rank={index + 1}
+                  userName={item.user.userName}
+                  avatar={item.user.Profile.avatar}
+                  score={item.currentPoint.toString()}
                 />
               );
             })}
@@ -214,13 +217,14 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     (module) => module.default,
   );
   const rankListResponse = await getFlashCardRanking();
+  console.log(rankListResponse);
   if (session) {
     const flashCardStatsResponse = await getCurrentUserFlashCardStatus(
       session.microsToken,
     );
     return {
       props: {
-        rankList: rankListResponse.data.payload.ranks,
+        rankList: rankListResponse.data.payload.rankings,
         messages,
         currentSession: session,
         stats: flashCardStatsResponse.data.payload.stats,
@@ -229,7 +233,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   } else {
     return {
       props: {
-        rankList: rankListResponse.data.payload.ranks,
+        rankList: rankListResponse.data.payload.rankings,
         messages,
         currentSession: session,
         stats: {
