@@ -13,6 +13,7 @@ export const getBadgeList = async (): Promise<{
           descriptionEn: string;
           descriptionId: string;
           media: string;
+          type: `MOVING` | `STILL`;
         };
       }[];
     };

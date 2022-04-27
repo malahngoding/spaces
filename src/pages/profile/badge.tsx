@@ -36,9 +36,8 @@ export default function Badge(props: ProfileProps) {
         <br />
         <Section
           css={{
-            display: `grid`,
-            gridTemplateColumns: `repeat(auto-fit, minmax(260px, 1fr))`,
-            gap: `$sm`,
+            display: `flex`,
+            flexWrap: `wrap`,
           }}
         >
           {badgeList ? (
@@ -54,7 +53,7 @@ export default function Badge(props: ProfileProps) {
                           : item.badge.descriptionEn
                       }
                       media={item.badge.media}
-                      type="MOVING"
+                      type={item.badge.type}
                     />
                   </Box>
                 );
