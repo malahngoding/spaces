@@ -47,7 +47,6 @@ export const PeekProfile = (props: PeekProfileProps): JSX.Element => {
         >
           <PlainButton
             onClick={() => {
-              console.log('ok');
               router.push(`/profile`);
             }}
           >
