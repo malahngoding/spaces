@@ -120,7 +120,8 @@
     "skippedQuestion": "Pertanyaan Dilewat",
     "correctAnswer": "Jawaban Benar",
     "wrongAnswer": "Jawaban Salah",
-    "accuracy": "Akurasi"
+    "accuracy": "Akurasi",
+    "start": "Mulai Quiz"
   },
   "AuthBlock": {
     "message": "Silahkan masuk dahulu sebelum melanjutkan, terima kasih!"

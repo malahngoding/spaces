@@ -35,6 +35,7 @@ export const getCurrentUserFlashCardStatus = async (
         wrongAnswer: number;
         accuracy: number;
         currentPoint: number;
+        currentGroupName: string;
         currentHash: string;
       };
     };

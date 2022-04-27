@@ -41,6 +41,7 @@ interface FlashCardProps {
     wrongAnswer: number;
     accuracy: number;
     currentPoint: number;
+    currentGroupName: string;
     currentHash: string;
   };
 }
@@ -116,7 +117,7 @@ export default function FlashCard(props: FlashCardProps) {
                   {t(`yourStatistics`, { point: props.stats.currentPoint })}
                 </Title>
                 <SubTitle>
-                  {t(`nextRound`, { groupName: 'Next Round' })}
+                  {t(`nextRound`, { groupName: props.stats.currentGroupName })}
                 </SubTitle>
                 <Paragraph>{t(`quotes`)}</Paragraph>
                 <Box
@@ -177,7 +178,7 @@ export default function FlashCard(props: FlashCardProps) {
                   href={`/camps/flash-card/${props.stats.currentHash}`}
                   passHref
                 >
-                  <Button>Mulai</Button>
+                  <Button>{t(`start`)}</Button>
                 </Link>
               </Box>
             </Box>
@@ -243,6 +244,8 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
           wrongAnswer: 0,
           accuracy: 0,
           currentPoint: 0,
+          currentGroupName: ``,
+          currentHash: ``,
         },
       },
     };

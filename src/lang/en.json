@@ -120,7 +120,8 @@
     "skippedQuestion": "Skipped Question",
     "correctAnswer": "Correct Answer",
     "wrongAnswer": "Wrong Answer",
-    "accuracy": "Accuracy"
+    "accuracy": "Accuracy",
+    "start": "Quiz Start"
   },
   "AuthBlock": {
     "message": "Please connect your account before continue, Thanks!"
