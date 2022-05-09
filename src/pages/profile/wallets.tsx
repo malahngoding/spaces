@@ -26,7 +26,7 @@ const fetcher = (url: string) => getProfileWallets();
 
 export default function Settings(props: CryptoWalletsProps) {
   const t = useTranslations(`Profile`);
-  const { data, error } = useSWR('/api/user', fetcher);
+  const { data, error } = useSWR('/getProfileWallets', fetcher);
 
   const walletList = data?.data.payload.wallets;
 

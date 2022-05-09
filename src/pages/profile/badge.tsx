@@ -26,7 +26,7 @@ const fetcher = (url: string) => getBadgeList();
 
 export default function Badge(props: ProfileProps) {
   const t = useTranslations(`Menu`);
-  const { data, error } = useSWR('/api/user', fetcher);
+  const { data, error } = useSWR('/getBadgeList', fetcher);
 
   const badgeList = data?.data.payload.list;
 

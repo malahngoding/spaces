@@ -6,6 +6,7 @@ import { Button } from '@components/design/button';
 import { Section } from '@components/design/section';
 import { Heading, Caption } from '@components/design/typography';
 import { Avatar, AvatarImage } from '@components/navigations/avatar';
+
 import { BaseLayout } from './base';
 
 interface ProfileLayoutProps {
@@ -25,7 +26,6 @@ interface ProfileLayoutProps {
 export const ProfileLayout = (props: ProfileLayoutProps) => {
   const router = useRouter();
   const t = useTranslations(`Profile`);
-
   const titleBuilder = (item: number): string => {
     switch (item) {
       case 0:
@@ -40,8 +40,6 @@ export const ProfileLayout = (props: ProfileLayoutProps) => {
         return `${t(`profile`)} - ${props.currentUser.name}`;
     }
   };
-
-  const handleRedirection = (): void => {};
 
   return (
     <BaseLayout title={titleBuilder(props.layout.tab)}>

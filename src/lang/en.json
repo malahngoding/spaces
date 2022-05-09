@@ -61,6 +61,7 @@
   },
   "ProfileForm": {
     "name": "Name",
+    "userName": "UserName",
     "email": "E-Mail",
     "avatar": "Avatar",
     "bio": "Bio",

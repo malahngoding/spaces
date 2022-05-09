@@ -26,6 +26,7 @@ import { Avatar, AvatarImage } from '@components/navigations/avatar';
 
 interface DetailFormData {
   name: string;
+  userName: string;
   avatar: string;
   bio: string;
   email: string;
@@ -56,6 +57,7 @@ export const DetailsForm = (): JSX.Element => {
     formState: { errors, isSubmitting },
   } = useForm<DetailFormData>({
     defaultValues: {
+      userName: ``,
       name: session?.currentUser.name,
       email: session?.currentUser.email,
       avatar: session?.currentUser.avatar,
@@ -97,6 +99,11 @@ export const DetailsForm = (): JSX.Element => {
             <InputLabel>{t(`name`)}</InputLabel>
             <InputText {...register(`name`)} />
             {errors.name && <InputHelperText>{t(`error`)}</InputHelperText>}
+          </InputGroup>
+          <InputGroup>
+            <InputLabel>{t(`userName`)}</InputLabel>
+            <InputText {...register(`userName`)} />
+            {errors.userName && <InputHelperText>{t(`error`)}</InputHelperText>}
           </InputGroup>
           <InputGroup>
             <InputLabel>{t(`email`)}</InputLabel>
