@@ -2,6 +2,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
+import { useDebounce } from 'react-use';
 
 import {
   InputGroup,
@@ -36,8 +37,9 @@ export const DetailsForm = (): JSX.Element => {
   const { data: session } = useSession();
   const t = useTranslations(`ProfileForm`);
 
-  const [selectedAvatar, setSelectedAvatar] = useState<string>('');
-
+  const [selectedAvatar, setSelectedAvatar] = useState<string>(``);
+  const [val, setVal] = useState<string>(``);
+  const [debouncedValue, setDebouncedValue] = useState<string>(``);
   const [avatars] = useState<string[]>([
     session?.currentUser.avatar,
     `Apple-${new Date()}`,
@@ -91,6 +93,20 @@ export const DetailsForm = (): JSX.Element => {
     window.location.reload();
   };
 
+  const [, cancel] = useDebounce(
+    () => {
+      setDebouncedValue(val);
+    },
+    1000,
+    [val],
+  );
+
+  useEffect(() => {
+    if (debouncedValue !== ``) {
+      console.log(debouncedValue);
+    }
+  }, [debouncedValue]);
+
   return (
     <>
       <AlertDialog>
@@ -102,7 +118,12 @@ export const DetailsForm = (): JSX.Element => {
           </InputGroup>
           <InputGroup>
             <InputLabel>{t(`userName`)}</InputLabel>
-            <InputText {...register(`userName`)} />
+            <InputText
+              {...register(`userName`)}
+              onChange={({ currentTarget }) => {
+                setVal(currentTarget.value);
+              }}
+            />
             {errors.userName && <InputHelperText>{t(`error`)}</InputHelperText>}
           </InputGroup>
           <InputGroup>
