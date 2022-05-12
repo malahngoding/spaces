@@ -21,6 +21,7 @@ export const getProfileDetails = async (
 
 export const updateProfileDetails = async (objkt: {
   name: string;
+  userName: string;
   avatar: string;
   bio: string;
   email: string;
@@ -42,6 +43,7 @@ export const updateProfileDetails = async (objkt: {
     {
       name: objkt.name,
       email: objkt.email,
+      userName: objkt.userName,
       avatar: objkt.avatar,
       bio: objkt.bio,
     },

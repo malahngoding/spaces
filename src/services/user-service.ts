@@ -16,3 +16,24 @@ export const getCurrentUser = async (): Promise<{
     headers: { Authorization: `Bearer ${session?.microsToken}` },
   });
 };
+
+export const checkUserName = async (
+  userName: string,
+): Promise<{
+  data: {
+    messages: string;
+    status: string;
+    payload: {
+      available: boolean;
+    };
+  };
+}> => {
+  const session = await getSession();
+  return await microService.post(
+    `checkUserName`,
+    { newUserName: userName },
+    {
+      headers: { Authorization: `Bearer ${session?.microsToken}` },
+    },
+  );
+};

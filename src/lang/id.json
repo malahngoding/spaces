@@ -62,6 +62,7 @@
   "ProfileForm": {
     "name": "Nama",
     "userName": "Nama User",
+    "userNameNotAvailable": "Please use another username",
     "email": "Surel",
     "avatar": "Avatar",
     "bio": "Bio",

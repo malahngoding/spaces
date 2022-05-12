@@ -24,6 +24,7 @@ import {
 } from '@components/design/alert';
 import { updateProfileDetails } from '@services/profile-service';
 import { Avatar, AvatarImage } from '@components/navigations/avatar';
+import { checkUserName, getCurrentUser } from '@services/user-service';
 
 interface DetailFormData {
   name: string;
@@ -37,6 +38,7 @@ export const DetailsForm = (): JSX.Element => {
   const { data: session } = useSession();
   const t = useTranslations(`ProfileForm`);
 
+  const [defaultUserName, setDefaultUserName] = useState<string>(``);
   const [selectedAvatar, setSelectedAvatar] = useState<string>(``);
   const [val, setVal] = useState<string>(``);
   const [debouncedValue, setDebouncedValue] = useState<string>(``);
@@ -56,6 +58,9 @@ export const DetailsForm = (): JSX.Element => {
     register,
     handleSubmit,
     reset,
+    setError,
+    clearErrors,
+    watch,
     formState: { errors, isSubmitting },
   } = useForm<DetailFormData>({
     defaultValues: {
@@ -73,18 +78,28 @@ export const DetailsForm = (): JSX.Element => {
   };
 
   useEffect(() => {
+    const currentUserName = async (): Promise<void> => {
+      const response = await getCurrentUser();
+      setDefaultUserName(response.data.payload.userName);
+    };
+    currentUserName();
+  }, []);
+
+  useEffect(() => {
     let defaults = {
       name: session?.currentUser.name,
       email: session?.currentUser.email,
+      userName: defaultUserName,
       avatar: session?.currentUser.avatar,
       bio: session?.currentUser.bio,
     };
     reset(defaults);
-  }, [reset, session]);
+  }, [reset, session, defaultUserName]);
 
   const onSubmit: SubmitHandler<DetailFormData> = async (data) => {
     const response = await updateProfileDetails({
       name: data.name,
+      userName: data.userName,
       avatar: data.avatar,
       bio: data.bio,
       email: data.email,
@@ -102,10 +117,23 @@ export const DetailsForm = (): JSX.Element => {
   );
 
   useEffect(() => {
+    const isUserNameAvailable = async (value: string): Promise<void> => {
+      const response = await checkUserName(value);
+      if (response.data.payload.available) {
+        clearErrors(`userName`);
+      } else if (defaultUserName === debouncedValue) {
+        clearErrors(`userName`);
+      } else {
+        setError('userName', {
+          type: 'custom',
+          message: 'error message custom',
+        });
+      }
+    };
     if (debouncedValue !== ``) {
-      console.log(debouncedValue);
+      isUserNameAvailable(debouncedValue);
     }
-  }, [debouncedValue]);
+  }, [debouncedValue, clearErrors, setError, watch, defaultUserName]);
 
   return (
     <>
@@ -124,7 +152,9 @@ export const DetailsForm = (): JSX.Element => {
                 setVal(currentTarget.value);
               }}
             />
-            {errors.userName && <InputHelperText>{t(`error`)}</InputHelperText>}
+            {errors.userName && (
+              <InputHelperText>{t(`userNameNotAvailable`)}</InputHelperText>
+            )}
           </InputGroup>
           <InputGroup>
             <InputLabel>{t(`email`)}</InputLabel>
