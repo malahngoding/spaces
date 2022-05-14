@@ -30,6 +30,15 @@ export default function Settings(props: CryptoWalletsProps) {
 
   const walletList = data?.data.payload.wallets;
 
+  const openExplorer = (index: number, address: string): void => {
+    if (index === 0 && address !== ``) {
+      window.open(`https://polygonscan.com/address/${address}`, '_blank');
+    } else if (index === 1 && address !== ``) {
+      console.log(address);
+      window.open(`https://hashscan.io/#/testnet/account/${address}`, '_blank');
+    }
+  };
+
   return (
     <ProfileLayout layout={{ tab: 2 }} currentUser={props.currentUser}>
       <Box>
@@ -46,7 +55,11 @@ export default function Settings(props: CryptoWalletsProps) {
             <>
               {walletList.map((item, index) => {
                 return (
-                  <Card key={index} css={{ width: `100%` }}>
+                  <Card
+                    key={index}
+                    css={{ width: `100%` }}
+                    onClick={() => openExplorer(index, item)}
+                  >
                     <Box css={{ height: 64, width: 64, borderRadius: `50%` }}>
                       <Image
                         width={48}
@@ -70,9 +83,7 @@ export default function Settings(props: CryptoWalletsProps) {
                       <SubTitle
                         css={{ fontWeight: `$normal`, fontSize: `$sm` }}
                       >
-                        {item === ''
-                          ? t(`noWallet`)
-                          : `${item.slice(0, 5)}...${item.slice(-4)}`}
+                        {item === '' ? t(`noWallet`) : `${item}`}
                       </SubTitle>
                     ) : (
                       <SubTitle

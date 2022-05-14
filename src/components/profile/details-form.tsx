@@ -131,7 +131,15 @@ export const DetailsForm = (): JSX.Element => {
       }
     };
     if (debouncedValue !== ``) {
-      isUserNameAvailable(debouncedValue);
+      let theRegEx: RegExp = /[^A-Za-z0-9_.]/;
+      if (!theRegEx.test(debouncedValue)) {
+        isUserNameAvailable(debouncedValue);
+      } else {
+        setError('userName', {
+          type: 'custom',
+          message: 'error message custom',
+        });
+      }
     }
   }, [debouncedValue, clearErrors, setError, watch, defaultUserName]);
 
@@ -199,7 +207,10 @@ export const DetailsForm = (): JSX.Element => {
           </InputGroup>
           <InputGroup>
             <InputLabel>{t(`bio`)}</InputLabel>
-            <InputTextArea {...register(`bio`)} rows={4} />
+            <InputTextArea
+              {...(register(`bio`), { required: true })}
+              rows={4}
+            />
             {errors.bio && <InputHelperText>{t(`error`)}</InputHelperText>}
           </InputGroup>
           <Box css={{ display: `flex`, flexDirection: `row` }}>
