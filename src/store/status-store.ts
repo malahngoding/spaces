@@ -12,6 +12,6 @@ interface Status {
 export const useStatusStore = create<Status>((set) => ({
   isFilamentsUp: 'yellow',
   isMicrosUp: 'yellow',
-  setFilamentsStatus: async (state) => set({ isFilamentsUp: state }),
-  setMicrosStatus: async (state) => set({ isMicrosUp: state }),
+  setFilamentsStatus: (state) => set({ isFilamentsUp: state }),
+  setMicrosStatus: (state) => set({ isMicrosUp: state }),
 }));

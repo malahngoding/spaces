@@ -1,7 +1,7 @@
 import { AppProps } from 'next/app';
 import { ThemeProvider } from 'next-themes';
 import { SessionProvider } from 'next-auth/react';
-import { NextIntlProvider, IntlMessages } from 'next-intl';
+import { NextIntlProvider, AbstractIntlMessages } from 'next-intl';
 
 import '@styles/minireset.min.css';
 import '@styles/rush.min.css';
@@ -30,7 +30,7 @@ export default function MyApp({
   return (
     <>
       <NextIntlProvider
-        messages={messages as IntlMessages}
+        messages={messages as AbstractIntlMessages}
         onError={handleI18nError}
       >
         <ThemeProvider

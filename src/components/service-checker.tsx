@@ -11,33 +11,38 @@ import {
 export const ServiceChecker = () => {
   const isFilamentsUp = useStatusStore((state) => state.isFilamentsUp);
   const isMicrosUp = useStatusStore((state) => state.isMicrosUp);
-
-  const runMicros = async () => {
-    try {
-      const micros = await pingServiceMicros();
-      if (micros.data.status === 'OK') {
-        useStatusStore.setState((state) => state.setMicrosStatus('green'));
-      }
-    } catch (error) {
-      useStatusStore.setState((state) => state.setMicrosStatus('red'));
-    }
-  };
-
-  const runFilaments = async () => {
-    try {
-      const filaments = await pingServiceFilaments();
-      if (filaments.data.status === 'OK') {
-        useStatusStore.setState((state) => state.setFilamentsStatus('green'));
-      }
-    } catch (error) {
-      useStatusStore.setState((state) => state.setFilamentsStatus('red'));
-    }
-  };
+  const setFilamentsStatusFunction = useStatusStore(
+    (state) => state.setFilamentsStatus,
+  );
+  const setMicrosStatusFunction = useStatusStore(
+    (state) => state.setMicrosStatus,
+  );
 
   useEffect(() => {
+    const runMicros = async () => {
+      try {
+        const micros = await pingServiceMicros();
+        if (micros.data.status === 'OK') {
+          setMicrosStatusFunction(`green`);
+        }
+      } catch (error) {
+        setMicrosStatusFunction(`red`);
+      }
+    };
+
+    const runFilaments = async () => {
+      try {
+        const filaments = await pingServiceFilaments();
+        if (filaments.data.status === 'OK') {
+          setFilamentsStatusFunction(`green`);
+        }
+      } catch (error) {
+        setFilamentsStatusFunction(`red`);
+      }
+    };
     runMicros();
     runFilaments();
-  }, [isMicrosUp, isFilamentsUp]);
+  }, [setFilamentsStatusFunction, setMicrosStatusFunction]);
   return (
     <Box css={{ display: `flex`, flexDirection: `row` }}>
       <Paragraph
