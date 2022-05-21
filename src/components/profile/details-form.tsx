@@ -97,6 +97,7 @@ export const DetailsForm = (): JSX.Element => {
   }, [reset, session, defaultUserName]);
 
   const onSubmit: SubmitHandler<DetailFormData> = async (data) => {
+    console.log(data);
     const response = await updateProfileDetails({
       name: data.name,
       userName: data.userName,
@@ -207,10 +208,7 @@ export const DetailsForm = (): JSX.Element => {
           </InputGroup>
           <InputGroup>
             <InputLabel>{t(`bio`)}</InputLabel>
-            <InputTextArea
-              {...(register(`bio`), { required: true })}
-              rows={4}
-            />
+            <InputTextArea {...register(`bio`)} rows={4} />
             {errors.bio && <InputHelperText>{t(`error`)}</InputHelperText>}
           </InputGroup>
           <Box css={{ display: `flex`, flexDirection: `row` }}>
