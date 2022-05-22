@@ -36,10 +36,19 @@ export const Cookie = () => {
   const toggleCookies = useCookiesPersist((state) => state.toggleCookies);
   return (
     <Box css={{ display: `flex`, flexDirection: `row` }}>
-      <StyledSwitch checked={cookies}>
+      <StyledSwitch
+        checked={cookies}
+        css={{
+          '&:hover': {
+            cursor: `pointer`,
+          },
+        }}
+      >
         <StyledThumb onClick={() => toggleCookies()} />
       </StyledSwitch>
-      <Paragraph css={{ marginLeft: `$md` }}>3rd party cookies usage</Paragraph>
+      <Paragraph css={{ marginLeft: `$md` }}>
+        3rd party cookies usage is {cookies ? `enabled` : `disabled`}
+      </Paragraph>
     </Box>
   );
 };

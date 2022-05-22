@@ -7,10 +7,13 @@ type Cookies = {
 };
 
 export const useCookiesPersist = create<Cookies>()(
-  persist((set, get) => ({
-    cookies: false,
-    toggleCookies: () => {
-      set({ cookies: !get().cookies });
-    },
-  })),
+  persist(
+    (set, get) => ({
+      cookies: false,
+      toggleCookies: () => {
+        set({ cookies: !get().cookies });
+      },
+    }),
+    { name: `instead-cookies` },
+  ),
 );
