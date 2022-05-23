@@ -63,7 +63,11 @@ export const getCurrentFlashCardBlock = async (
     };
   };
 }> => {
-  return await microService.get(`getCurrentFlashCardBlock/${hash}`, {
-    headers: { Authorization: `Bearer ${microsToken}` },
-  });
+  return await microService.post(
+    `getCurrentFlashCardBlock`,
+    { hash: hash },
+    {
+      headers: { Authorization: `Bearer ${microsToken}` },
+    },
+  );
 };
