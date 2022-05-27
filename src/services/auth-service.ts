@@ -20,12 +20,18 @@ export const issueMicrosToken = async (
     identification,
     process.env.INSTEAD_TOKEN || ``,
   ).toString();
-  return await microService.post(`issueToken`, {
-    identification: ciphertext,
-    provider: provider,
-    name: name,
-    email: email,
-  });
+  return await microService.post(
+    `issueToken`,
+    {
+      identification: ciphertext,
+      provider: provider,
+      name: name,
+      email: email,
+    },
+    {
+      headers: { Authorization: `instead_${process.env.INSTEAD_TOKEN}` },
+    },
+  );
 };
 
 export const issueFilamentsToken = async (
