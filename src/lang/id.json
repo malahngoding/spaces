@@ -102,7 +102,8 @@
     "articlesTitle": "Artikel",
     "articlesDescription": "Artikel yang akan memandu mu melakukan berbagai macam hal tentang programming.",
     "snippetsTitle": "Potongan Kode",
-    "snippetsDescription": "Potongan kode untuk melakukan suatu hal. Tinggal copy kemudian paste di bagian kamu membutuhkannya."
+    "snippetsDescription": "Potongan kode untuk melakukan suatu hal. Tinggal copy kemudian paste di bagian kamu membutuhkannya.",
+    "latest": "Baca Artikel Terakhir"
   },
   "Snippets": {
     "snippetsTitle": "Potongan Kode",

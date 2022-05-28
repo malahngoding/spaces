@@ -1,16 +1,23 @@
 import { useRouter } from 'next/router';
 import { useTranslations } from 'next-intl';
+import { useEffect } from 'react';
 
 import { BadgeCard } from '@components/cards/badge-card';
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
-import { Heading, SubTitle } from '@components/design/typography';
+import { Heading, SubHeading, SubTitle } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
 import { keyframes } from '@config/stitches.config';
+import { getArticles, getSnippets } from '@services/content-service';
+import { BlogCard, BlogCardProps } from '@components/cards/blog-card';
 
 import type { GetStaticPropsContext } from 'next';
+import type { SnippetCardProps } from '@components/cards/snippet-card';
 
-interface LearnProps {}
+interface LearnProps {
+  articles: BlogCardProps[];
+  snippets: SnippetCardProps[];
+}
 
 const scaleUp = keyframes({
   '0%': { transform: 'translateY(0px)', background: `none` },
@@ -53,6 +60,33 @@ export default function Learn(props: LearnProps) {
           <SubTitle data-testid="welcome-text">{t(`learnSubTitle`)}</SubTitle>
           <Heading>{t(`learnTitle`)}</Heading>
         </Section>
+        <br />
+        <Section>
+          <SubHeading css={{ fontSize: `$md` }}>{t(`latest`)}</SubHeading>
+        </Section>
+        <Section
+          css={{
+            display: `grid`,
+            gap: `$xs`,
+            '@md': {
+              gridTemplateColumns: `1fr 1fr`,
+            },
+          }}
+        >
+          {props.articles.map((item) => {
+            return (
+              <BlogCard
+                key={item.id}
+                id={item.id}
+                image={item.image}
+                description={item.description}
+                published={item.published}
+                title={item.title}
+                slug={item.slug}
+              />
+            );
+          })}
+        </Section>
         <Section
           css={{ display: `flex`, flexDirection: `row`, flexWrap: `wrap` }}
         >
@@ -93,9 +127,15 @@ export async function getStaticProps({ locale }: GetStaticPropsContext) {
   const messages = await import(`../../lang/${locale}.json`).then(
     (module) => module.default,
   );
+  // TODO: Try Catch
+  const articleResults = await getArticles(0, 3, locale || 'id');
+  const snippetResults = await getSnippets(0, 3, locale || 'id');
+
   return {
     props: {
       messages,
+      articles: articleResults.data.payload.articles,
+      snippets: snippetResults.data.payload.snippets,
     },
   };
 }
