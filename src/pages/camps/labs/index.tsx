@@ -59,7 +59,7 @@ export default function Labs(props: LabsProps) {
                       '&:hover': {
                         cursor: `pointer`,
                         border: `2px solid $slate12`,
-                        boxShadow: `0px 8px 6px -8px hsl(198 6.6% 15.8%)`,
+                        boxShadow: `5px 5px`,
                       },
                     }}
                   >

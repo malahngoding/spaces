@@ -16,6 +16,7 @@ import {
 import { InputText } from './design/input';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/router';
+import { callbackUrlHandler } from '@utils/urlHandler';
 
 export const HashpackAuth = (): JSX.Element => {
   const router = useRouter();
@@ -54,7 +55,9 @@ export const HashpackAuth = (): JSX.Element => {
       });
 
       if (response) {
-        router.push('/');
+        router.push(
+          `${callbackUrlHandler(router.query.callBackUrl as string)}`,
+        );
       }
     };
 

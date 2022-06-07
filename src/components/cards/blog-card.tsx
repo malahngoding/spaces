@@ -16,7 +16,7 @@ export interface BlogCardProps {
 
 const scaleUp = keyframes({
   '0%': { transform: 'translateY(0px)', background: `none` },
-  '100%': { transform: 'translateY(-4px)', background: `$slate4` },
+  '100%': { transform: 'translateY(-4px)', background: `$slate2` },
 });
 
 export const BlogCard = (props: BlogCardProps) => {
@@ -27,8 +27,9 @@ export const BlogCard = (props: BlogCardProps) => {
         <Box
           key={id}
           css={{
-            border: `2px solid $slate1`,
+            border: `2px solid $slate10`,
             background: `none`,
+            padding: `$xs`,
             marginY: `$xxs`,
             width: `100%`,
             display: `flex`,
@@ -41,11 +42,11 @@ export const BlogCard = (props: BlogCardProps) => {
             },
             '&:hover': {
               border: `2px solid $slate12`,
-              background: `$slate4`,
+              background: `$slate2`,
               cursor: `pointer`,
               animation: `${scaleUp} 200ms`,
               transform: 'translateY(-4px)',
-              boxShadow: `0px 8px 6px -8px hsl(198 6.6% 15.8%)`,
+              boxShadow: `5px 5px`,
             },
           }}
         >

@@ -1,8 +1,8 @@
 import { styled, keyframes } from '@config/stitches.config';
 
 const bouncePrimary = keyframes({
-  '0%': { boxShadow: `0px 0px 0px #18191F` },
-  '100%': { boxShadow: `0px 4px 0px #18191F` },
+  '0%': { boxShadow: `0px 0px` },
+  '100%': { boxShadow: `5px 5px` },
 });
 
 const bounceGhostAlternative = keyframes({
@@ -60,7 +60,7 @@ export const Button = styled(`button`, {
         backgroundColor: `$cyan8`,
         boxSizing: `border-box`,
         '&:hover': {
-          boxShadow: `0px 4px 0px #18191F`,
+          boxShadow: `5px 5px`,
           animation: `${bouncePrimary} 200ms`,
         },
       },
@@ -84,7 +84,7 @@ export const Button = styled(`button`, {
         backgroundColor: `$crimson8`,
         boxSizing: `border-box`,
         '&:hover': {
-          boxShadow: `0px 4px 0px #18191F`,
+          boxShadow: `5px 5px`,
           animation: `${bouncePrimary} 200ms`,
         },
       },

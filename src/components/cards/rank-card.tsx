@@ -20,6 +20,10 @@ export const RankCard = (props: RankCardProps) => {
         alignItems: `center`,
         border: `2px solid $slate6`,
         padding: `$xxs`,
+        '&:hover': {
+          boxShadow: `5px 5px`,
+          cursor: `pointer`,
+        },
       }}
     >
       <PlainButton>
@@ -30,7 +34,7 @@ export const RankCard = (props: RankCardProps) => {
           />
         </Avatar>
       </PlainButton>
-      <Box>
+      <Box css={{ marginLeft: `$xxs` }}>
         <Paragraph css={{ margin: 0, fontWeight: `bolder` }}>
           #{props.rank} - {props.score}pts
         </Paragraph>

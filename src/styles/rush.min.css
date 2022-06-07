@@ -8,3 +8,6 @@ a:active {
 html {
   scroll-behavior: smooth;
 }
+video::-webkit-media-controls {
+  display: none !important;
+}

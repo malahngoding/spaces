@@ -7,6 +7,7 @@ import { Button } from '@components/design/button';
 import { deployedChain } from '@config/contractAddress';
 import { ApplicationUrl } from '@config/application';
 import { useAuthLoading } from '@store/auth-loading-store';
+import { callbackUrlHandler } from '@utils/urlHandler';
 
 export const MetamaskAuth = (): JSX.Element => {
   const toggleLoading = useAuthLoading((state) => state.toggleLoading);
@@ -38,7 +39,10 @@ export const MetamaskAuth = (): JSX.Element => {
           address: account[0],
           signature: signatureMessage,
           network: 'evm',
-          redirect: false,
+          redirect: true,
+          callbackUrl: `${callbackUrlHandler(
+            router.query.callBackUrl as string,
+          )}`,
         });
 
         if (response) {

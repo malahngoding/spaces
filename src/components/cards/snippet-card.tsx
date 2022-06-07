@@ -14,8 +14,8 @@ export interface SnippetCardProps {
 }
 
 const scaleUp = keyframes({
-  '0%': { transform: 'translateY(0px)', backgroundColor: `none` },
-  '100%': { transform: 'translateY(-4px)', backgroundColor: `$slate2` },
+  '0%': { backgroundColor: `none` },
+  '100%': { backgroundColor: `$slate2` },
 });
 
 export const SnippetCard = (props: SnippetCardProps) => {
@@ -33,14 +33,14 @@ export const SnippetCard = (props: SnippetCardProps) => {
             flexDirection: `row`,
             justifyContent: `flex-start`,
             alignItems: `center`,
-            transform: 'translateY(0px)',
             height: `calc(120px)`,
             '&:hover': {
               cursor: `pointer`,
               backgroundColor: `$slate2`,
               animation: `${scaleUp} 200ms`,
-              border: `2px solid $slate2`,
+              border: `2px solid $slate12`,
               transform: 'translateY(-4px)',
+              boxShadow: `5px 5px`,
             },
           }}
         >

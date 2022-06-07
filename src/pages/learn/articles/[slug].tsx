@@ -7,6 +7,7 @@ import matter, { test } from 'gray-matter';
 import remarkGfm from 'remark-gfm';
 import rehypePrism from 'rehype-prism-plus';
 import { UilAngleLeft } from '@iconscout/react-unicons';
+import dynamic from 'next/dynamic';
 
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
@@ -27,39 +28,47 @@ interface ArticlesProps {
   };
 }
 
+const JoinUs = dynamic(
+  (): any => import(`@components/join-us`).then((mod) => mod.JoinUs),
+  { ssr: false },
+);
+
 export default function Articles(props: ArticlesProps) {
   const t = useTranslations(`Articles`);
 
   return (
     <BaseLayout title={props.frontMatter.title}>
-      <Box>
-        <br />
-        <Section>
-          <SubTitle data-testid="about-us-text">
-            {props.frontMatter.subTitle}
-          </SubTitle>
-          <Heading>{props.frontMatter.title}</Heading>
-        </Section>
+      <>
+        <Box>
+          <br />
+          <Section>
+            <SubTitle data-testid="about-us-text">
+              {props.frontMatter.subTitle}
+            </SubTitle>
+            <Heading>{props.frontMatter.title}</Heading>
+          </Section>
 
-        <Section>
-          <MarkdownWrapper>
-            <MDXRemote {...props.source} components={Markdown} />
-          </MarkdownWrapper>
-        </Section>
-        <Section>
-          <Caption>
-            {t(`updated`)} {props.frontMatter.published}
-          </Caption>
-        </Section>
-        <Section>
-          <Link href="/learn/articles" passHref>
-            <Button alternative={'ghost'}>
-              <UilAngleLeft size="32" />
-              {t(`backTo`)}
-            </Button>
-          </Link>
-        </Section>
-      </Box>
+          <Section>
+            <MarkdownWrapper>
+              <MDXRemote {...props.source} components={Markdown} />
+            </MarkdownWrapper>
+          </Section>
+          <Section>
+            <Caption>
+              {t(`updated`)} {props.frontMatter.published}
+            </Caption>
+          </Section>
+          <Section>
+            <Link href="/learn/articles" passHref>
+              <Button alternative={'ghost'}>
+                <UilAngleLeft size="32" />
+                {t(`backTo`)}
+              </Button>
+            </Link>
+          </Section>
+        </Box>
+        <JoinUs />
+      </>
     </BaseLayout>
   );
 }

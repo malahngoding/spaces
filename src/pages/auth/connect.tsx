@@ -11,6 +11,7 @@ import Link from 'next/link';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { UilGithub, UilGoogle } from '@iconscout/react-unicons';
 import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/router';
 
 import { Button } from '@components/design/button';
 import { Form } from '@components/design/form';
@@ -28,6 +29,7 @@ import { StyledLink } from '@components/design/link';
 import { Grid } from '@components/design/grid';
 import { useAuthLoading } from '@store/auth-loading-store';
 import { AuthLoader } from '@components/loader/auth';
+import { callbackUrlHandler } from '@utils/urlHandler';
 
 interface RegisterForm {
   email: string;
@@ -111,6 +113,7 @@ export default function Connect(props: RegisterProps) {
     formState: { errors },
   } = useForm<RegisterForm>();
 
+  const router = useRouter();
   const t = useTranslations(`Register`);
   const { providers, csrfToken } = props;
 
@@ -162,14 +165,28 @@ export default function Connect(props: RegisterProps) {
               >
                 <Button
                   alternative="secondary"
-                  onClick={() => signIn(providers.github.id)}
+                  onClick={() =>
+                    signIn(providers.github.id, {
+                      redirect: true,
+                      callbackUrl: `${callbackUrlHandler(
+                        router.query.callBackUrl as string,
+                      )}`,
+                    })
+                  }
                   className="my-2 sm:m-2 flex flex-row justify-center items-center hover:bg-black-100"
                 >
                   <UilGithub />
                 </Button>
                 <Button
                   alternative="secondary"
-                  onClick={() => signIn(providers.google.id)}
+                  onClick={() =>
+                    signIn(providers.google.id, {
+                      redirect: true,
+                      callbackUrl: `${callbackUrlHandler(
+                        router.query.callBackUrl as string,
+                      )}`,
+                    })
+                  }
                   className="my-2 sm:m-2 flex flex-row justify-center items-center hover:bg-black-100"
                 >
                   <UilGoogle />
