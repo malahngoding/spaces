@@ -42,16 +42,15 @@ export const NavigationBar = (props: NavigationBarProps) => {
       <Nav>
         {NavItems.map((item) => (
           <Link href={item.url} passHref key={item.url}>
-            <a>
-              <Button
-                alternative={
-                  item.url === `/auth/connect` ? `primary` : `ghostAlternative`
-                }
-                css={{ marginRight: `$xs`, fontSize: `$xs` }}
-              >
-                {item.title}
-              </Button>
-            </a>
+            <Button
+              as="a"
+              alternative={
+                item.url === `/auth/connect` ? `primary` : `ghostAlternative`
+              }
+              css={{ marginRight: `$xs`, fontSize: `$xs` }}
+            >
+              {item.title}
+            </Button>
           </Link>
         ))}
         {status === `loading` ? (
@@ -77,7 +76,7 @@ export const NavigationBar = (props: NavigationBarProps) => {
                 </PopoverTrigger>
                 <PopoverContent sideOffset={5}>
                   <Link href="/profile" passHref>
-                    <Button alternative="ghost">
+                    <Button as="a" alternative="ghost">
                       <UilUser />
                       <SubTitle
                         css={{
@@ -92,7 +91,7 @@ export const NavigationBar = (props: NavigationBarProps) => {
                     </Button>
                   </Link>
                   <Link href="/profile/badge" passHref>
-                    <Button alternative="ghost">
+                    <Button as="a" alternative="ghost">
                       <UilAward />
                       <SubTitle
                         css={{
@@ -107,7 +106,7 @@ export const NavigationBar = (props: NavigationBarProps) => {
                     </Button>
                   </Link>
                   <Link href="/inventory" passHref>
-                    <Button alternative="ghost">
+                    <Button as="a" alternative="ghost">
                       <UilBackpack />
                       <SubTitle
                         css={{
@@ -122,7 +121,7 @@ export const NavigationBar = (props: NavigationBarProps) => {
                     </Button>
                   </Link>
                   <Link href="/profile/settings" passHref>
-                    <Button alternative="ghost">
+                    <Button as="a" alternative="ghost">
                       <UilCog />
                       <SubTitle
                         css={{
@@ -161,6 +160,7 @@ export const NavigationBar = (props: NavigationBarProps) => {
             ) : (
               <Link href="/auth/connect" passHref key="/auth/connect">
                 <Button
+                  as="a"
                   alternative="primary"
                   css={{ marginRight: `$xs`, fontSize: `$xs` }}
                 >

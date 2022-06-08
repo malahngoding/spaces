@@ -60,12 +60,14 @@ export default function Snippets(props: SnippetsProps) {
           }}
         >
           <Link href="/learn" passHref>
-            <Button alternative={'tertiary'}>
+            <Button as="a" alternative={'tertiary'}>
               <UilAngleLeft size="32" />
             </Button>
           </Link>
           <Link href="/learn/articles" passHref>
-            <Button alternative={'tertiary'}>{l(`articlesTitle`)}</Button>
+            <Button as="a" alternative={'tertiary'}>
+              {l(`articlesTitle`)}
+            </Button>
           </Link>
         </Section>
       </Box>

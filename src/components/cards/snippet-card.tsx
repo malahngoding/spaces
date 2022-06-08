@@ -22,79 +22,78 @@ export const SnippetCard = (props: SnippetCardProps) => {
   const { id, title, icon, tags, slug } = props;
   return (
     <Link href={`/learn/snippets/${slug}`} passHref>
-      <a>
+      <Box
+        as="a"
+        key={id}
+        css={{
+          backgroundColor: `$slate1`,
+          border: `2px solid $slate2`,
+          padding: `$xs`,
+          display: `flex`,
+          flexDirection: `row`,
+          justifyContent: `flex-start`,
+          alignItems: `center`,
+          height: `calc(120px)`,
+          '&:hover': {
+            cursor: `pointer`,
+            backgroundColor: `$slate2`,
+            animation: `${scaleUp} 200ms`,
+            border: `2px solid $slate12`,
+            transform: 'translateY(-4px)',
+            boxShadow: `5px 5px`,
+          },
+        }}
+      >
         <Box
-          key={id}
           css={{
-            backgroundColor: `$slate1`,
-            border: `2px solid $slate2`,
-            padding: `$xs`,
             display: `flex`,
-            flexDirection: `row`,
-            justifyContent: `flex-start`,
+            flexDirection: `column`,
+            justifyContent: `center`,
             alignItems: `center`,
-            height: `calc(120px)`,
-            '&:hover': {
-              cursor: `pointer`,
-              backgroundColor: `$slate2`,
-              animation: `${scaleUp} 200ms`,
-              border: `2px solid $slate12`,
-              transform: 'translateY(-4px)',
-              boxShadow: `5px 5px`,
-            },
           }}
         >
+          <Image
+            src={`/static/programming-icon/${icon}.png`}
+            height={64}
+            width={64}
+            alt="item"
+          />
+        </Box>
+        <Box
+          css={{
+            marginLeft: `$xs`,
+            display: `flex`,
+            flexDirection: `column`,
+            justifyContent: `flex-start`,
+            alignItems: `flex-start`,
+          }}
+        >
+          <Paragraph css={{ fontWeight: `bold` }}>{title}</Paragraph>
           <Box
             css={{
               display: `flex`,
-              flexDirection: `column`,
-              justifyContent: `center`,
+              flexDirection: `row`,
+              justifyContent: `flex-start`,
               alignItems: `center`,
             }}
           >
-            <Image
-              src={`/static/programming-icon/${icon}.png`}
-              height={64}
-              width={64}
-              alt="item"
-            />
-          </Box>
-          <Box
-            css={{
-              marginLeft: `$xs`,
-              display: `flex`,
-              flexDirection: `column`,
-              justifyContent: `flex-start`,
-              alignItems: `flex-start`,
-            }}
-          >
-            <Paragraph css={{ fontWeight: `bold` }}>{title}</Paragraph>
-            <Box
-              css={{
-                display: `flex`,
-                flexDirection: `row`,
-                justifyContent: `flex-start`,
-                alignItems: `center`,
-              }}
-            >
-              {tags.map((item: string) => {
-                return (
-                  <Caption
-                    css={{
-                      margin: 0,
-                      marginRight: `$xs`,
-                      fontWeight: `bold`,
-                    }}
-                    key={item}
-                  >
-                    {`#${item}`}
-                  </Caption>
-                );
-              })}
-            </Box>
+            {tags.map((item: string) => {
+              return (
+                <Caption
+                  css={{
+                    margin: 0,
+                    marginRight: `$xs`,
+                    fontWeight: `bold`,
+                  }}
+                  key={item}
+                >
+                  {`#${item}`}
+                </Caption>
+              );
+            })}
           </Box>
         </Box>
-      </a>
+      </Box>
     </Link>
   );
 };

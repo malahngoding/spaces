@@ -178,7 +178,7 @@ export default function FlashCard(props: FlashCardProps) {
                   href={`/camps/flash-card/${props.stats.currentHash}`}
                   passHref
                 >
-                  <Button>{t(`start`)}</Button>
+                  <Button as="a">{t(`start`)}</Button>
                 </Link>
               </Box>
             </Box>

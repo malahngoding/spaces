@@ -49,7 +49,7 @@ export default function Labs(props: LabsProps) {
           {experiments.map((item) => {
             return (
               <Link href={item.url} passHref key={item.url}>
-                <a>
+                <Box as="a">
                   <Box
                     css={{
                       width: `100%`,
@@ -76,7 +76,7 @@ export default function Labs(props: LabsProps) {
                       {item.description}
                     </Paragraph>
                   </Box>
-                </a>
+                </Box>
               </Link>
             );
           })}

@@ -14,6 +14,7 @@ export const ServiceCard = (props: ServiceCardProps) => {
   return (
     <Link href={props.url} passHref={true}>
       <Box
+        as="a"
         css={{
           display: `flex`,
           flexDirection: `column`,

@@ -60,7 +60,7 @@ export default function Articles(props: ArticlesProps) {
           </Section>
           <Section>
             <Link href="/learn/articles" passHref>
-              <Button alternative={'ghost'}>
+              <Button as="a" alternative={'ghost'}>
                 <UilAngleLeft size="32" />
                 {t(`backTo`)}
               </Button>

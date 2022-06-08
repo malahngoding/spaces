@@ -30,6 +30,7 @@ import { Grid } from '@components/design/grid';
 import { useAuthLoading } from '@store/auth-loading-store';
 import { AuthLoader } from '@components/loader/auth';
 import { callbackUrlHandler } from '@utils/urlHandler';
+import { Box } from '@components/design/box';
 
 interface RegisterForm {
   email: string;
@@ -136,14 +137,14 @@ export default function Connect(props: RegisterProps) {
       <Right>
         <Card>
           <Link href="/" passHref>
-            <a>
+            <Box as="a">
               <Image
                 alt="Malah Ngoding Logo"
                 src="/static/favicons/android-chrome-96x96.png"
                 height={64}
                 width={64}
               />
-            </a>
+            </Box>
           </Link>
           <Title>{t(`connect`)}</Title>
           <Paragraph css={{ marginY: `$md`, maxWidth: `315px` }}>

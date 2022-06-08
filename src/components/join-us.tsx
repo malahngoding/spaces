@@ -32,7 +32,9 @@ export const JoinUs = (): JSX.Element => {
             query: { callBackUrl: router.asPath },
           }}
         >
-          <Button alternative={`secondary`}>OK</Button>
+          <Button as="a" alternative={`secondary`}>
+            OK
+          </Button>
         </Link>
       </Section>
       <Image

@@ -1,4 +1,5 @@
 import { useSession } from 'next-auth/react';
+import { useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 
 import { Heading, SubTitle } from '@components/design/typography';
@@ -18,6 +19,10 @@ export const Hero = (props: HeroProps): JSX.Element => {
     `/static/gifs/third.mp4`,
     `/static/gifs/forth.mp4`,
   ];
+
+  useEffect(() => {
+    console.log(session, status);
+  }, [session, status]);
 
   return (
     <Box css={{ height: `520px`, position: `relative` }}>

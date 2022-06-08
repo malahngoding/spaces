@@ -134,6 +134,7 @@ export default NextAuth({
       session.user = undefined;
       const currentUser = await getProfileDetails(session?.microsToken || ``);
       session.currentUser = currentUser.data.payload;
+      session.fresh = currentUser.data.payload.fresh;
       return session;
     },
     async jwt({ token, user, account, profile, isNewUser }) {

@@ -50,7 +50,7 @@ export const AuthenticationBlock = (props: AuthenticationBlockProps) => {
               }}
               passHref
             >
-              <Button>{m(`connect`)}</Button>
+              <Button as="a">{m(`connect`)}</Button>
             </Link>
           </Box>
         </Section>

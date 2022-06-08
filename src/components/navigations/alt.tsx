@@ -121,14 +121,14 @@ export const DesignNavigation = () => {
             }}
           >
             <Link href="/" passHref>
-              <a>
+              <Box as="a">
                 <Image
                   alt="Malah Ngoding Logo"
                   src="/static/favicons/android-chrome-96x96.png"
                   height={48}
                   width={48}
                 />
-              </a>
+              </Box>
             </Link>
           </Menu>
           {!shown && (
@@ -144,6 +144,7 @@ export const DesignNavigation = () => {
                 <Menu key={item.url}>
                   <Link href={item.url} passHref>
                     <Button
+                      as="a"
                       alternative="ghost"
                       type="button"
                       css={{ display: `none`, '@lg': { display: `block` } }}

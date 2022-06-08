@@ -7,7 +7,13 @@ export const getProfileDetails = async (
   data: {
     messages: string;
     status: string;
-    payload: any;
+    payload: {
+      avatar: string;
+      bio: string;
+      name: string;
+      email: string;
+      fresh: boolean;
+    };
   };
 }> => {
   return await microService.post(

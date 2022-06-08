@@ -9,6 +9,7 @@ import { useDashNav } from '@store/navigation-store';
 import { useAppStore } from '@store/app-store';
 import { NavigationSheets } from '@components/navigations/sheets';
 import { ServiceChecker } from '@components/service-checker';
+import { Box } from '@components/design/box';
 
 const SideNav = styled(`div`, {
   borderRight: `0`,
@@ -111,14 +112,14 @@ export const SideNavigation = () => {
         <NavWrapper>
           <Menu>
             <Link href="/" passHref>
-              <a>
+              <Box as="a">
                 <Image
                   alt="Malah Ngoding Logo"
                   src="/static/favicons/android-chrome-96x96.png"
                   height={64}
                   width={64}
                 />
-              </a>
+              </Box>
             </Link>
           </Menu>
           <Menu>
