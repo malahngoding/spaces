@@ -42,7 +42,7 @@ export const WarnMarquee = (): JSX.Element => {
         left: 0,
         height: `32px`,
         width: `100vw`,
-        backgroundColor: `$slate12`,
+        backgroundColor: `$slate11`,
         borderBottom: `1px solid $slate10`,
         zIndex: 999999999,
         fontFamily: `$mono`,

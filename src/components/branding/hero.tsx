@@ -20,10 +20,6 @@ export const Hero = (props: HeroProps): JSX.Element => {
     `/static/gifs/forth.mp4`,
   ];
 
-  useEffect(() => {
-    console.log(session, status);
-  }, [session, status]);
-
   return (
     <Box css={{ height: `520px`, position: `relative` }}>
       <Box
