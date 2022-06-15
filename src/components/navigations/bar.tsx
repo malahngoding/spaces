@@ -76,7 +76,7 @@ export const NavigationBar = (props: NavigationBarProps) => {
                 </PopoverTrigger>
                 <PopoverContent sideOffset={5}>
                   <Link href="/profile" passHref>
-                    <Button as="a" alternative="ghost">
+                    <Button as="button" alternative="ghost">
                       <UilUser />
                       <SubTitle
                         css={{
@@ -91,7 +91,7 @@ export const NavigationBar = (props: NavigationBarProps) => {
                     </Button>
                   </Link>
                   <Link href="/profile/badge" passHref>
-                    <Button as="a" alternative="ghost">
+                    <Button as="button" alternative="ghost">
                       <UilAward />
                       <SubTitle
                         css={{
@@ -106,7 +106,7 @@ export const NavigationBar = (props: NavigationBarProps) => {
                     </Button>
                   </Link>
                   <Link href="/inventory" passHref>
-                    <Button as="a" alternative="ghost">
+                    <Button as="button" alternative="ghost">
                       <UilBackpack />
                       <SubTitle
                         css={{
@@ -121,7 +121,7 @@ export const NavigationBar = (props: NavigationBarProps) => {
                     </Button>
                   </Link>
                   <Link href="/profile/settings" passHref>
-                    <Button as="a" alternative="ghost">
+                    <Button as="button" alternative="ghost">
                       <UilCog />
                       <SubTitle
                         css={{

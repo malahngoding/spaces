@@ -112,6 +112,7 @@ export const NavigationSheets = (props: NavigationSheetsProps) => {
               <Box
                 as="a"
                 css={{
+                  maxWidth: `100%`,
                   '@md': {
                     display: `none`,
                   },
@@ -143,6 +144,10 @@ export const NavigationSheets = (props: NavigationSheetsProps) => {
                   >
                     <SubTitle
                       css={{
+                        width: `50vw`,
+                        whiteSpace: `nowrap`,
+                        overflow: `hidden`,
+                        textOverflow: `ellipsis`,
                         marginBottom: 0,
                         color: `$cyan10`,
                         textAlign: `left`,
