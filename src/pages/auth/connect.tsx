@@ -119,7 +119,7 @@ export default function Connect(props: RegisterProps) {
   const { providers, csrfToken } = props;
 
   const onSubmit: SubmitHandler<RegisterForm> = (data) => {
-    console.log(data, props, csrfToken);
+    console.debug(data, props, csrfToken);
   };
 
   const altImage = `/static/images/camps-instead.webp`;

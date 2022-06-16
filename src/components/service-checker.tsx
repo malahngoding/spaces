@@ -19,6 +19,7 @@ export const ServiceChecker = () => {
   );
 
   useEffect(() => {
+    console.warn(`run,micc`);
     const runMicros = async () => {
       try {
         const micros = await pingServiceMicros();

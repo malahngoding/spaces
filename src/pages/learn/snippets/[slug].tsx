@@ -46,7 +46,7 @@ export default function SnippetsPost(props: SnippetsPostProps) {
         </Section>
         <Section>
           <Link href="/learn/snippets" passHref>
-            <Button as="a" alternative={'ghost'}>
+            <Button as="button" alternative={'ghost'}>
               <UilAngleLeft size="32" />
               {t(`backTo`)}
             </Button>

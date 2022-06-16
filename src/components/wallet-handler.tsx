@@ -67,9 +67,9 @@ export const WalletHandler = () => {
       const signer = provider.getSigner();
       let mySignature = await signer.signMessage('Sign');
       if (mySignature) {
-        console.log(mySignature);
+        console.debug(mySignature);
       } else {
-        console.log('Rejected');
+        console.debug('Rejected');
       }
     }
   }
@@ -102,7 +102,7 @@ export const WalletHandler = () => {
           return false;
         }
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     }
   }

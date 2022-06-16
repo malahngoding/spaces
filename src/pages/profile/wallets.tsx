@@ -34,7 +34,7 @@ export default function Settings(props: CryptoWalletsProps) {
     if (index === 0 && address !== ``) {
       window.open(`https://polygonscan.com/address/${address}`, '_blank');
     } else if (index === 1 && address !== ``) {
-      console.log(address);
+      console.debug(address);
       window.open(`https://hashscan.io/#/testnet/account/${address}`, '_blank');
     }
   };

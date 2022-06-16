@@ -97,7 +97,6 @@ export const DetailsForm = (): JSX.Element => {
   }, [reset, session, defaultUserName]);
 
   const onSubmit: SubmitHandler<DetailFormData> = async (data) => {
-    console.log(data);
     const response = await updateProfileDetails({
       name: data.name,
       userName: data.userName,
