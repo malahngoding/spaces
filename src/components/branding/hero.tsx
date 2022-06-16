@@ -1,5 +1,4 @@
 import { useSession } from 'next-auth/react';
-import { useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 
 import { Heading, SubTitle } from '@components/design/typography';

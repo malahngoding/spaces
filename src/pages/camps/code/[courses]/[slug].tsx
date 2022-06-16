@@ -3,7 +3,7 @@ import { MDXRemote } from 'next-mdx-remote';
 import matter, { test } from 'gray-matter';
 import remarkGfm from 'remark-gfm';
 import rehypePrism from 'rehype-prism-plus';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
@@ -27,20 +27,16 @@ interface CodeProps {
   };
 }
 
-const CodeNavigation = (): JSX.Element => {
-  const [progress, setProgress] = useState(50);
-  useEffect(() => {
-    setTimeout(() => setProgress((progress) => progress), 500);
-  }, []);
+const CodeNavigation = (props: { progress: number }): JSX.Element => {
   return (
     <>
       <Box css={{ padding: `$xs` }}>
         <SubTitle>Introduction To Programming</SubTitle>
         <SubTitle css={{ fontSize: `$xs`, marginBottom: `8px` }}>
-          Course Progress {progress}%
+          Course Progress {props.progress}%
         </SubTitle>
-        <Progress value={progress}>
-          <ProgressIndicator style={{ width: `${progress}%` }} />
+        <Progress value={props.progress}>
+          <ProgressIndicator style={{ width: `${props.progress}%` }} />
         </Progress>
       </Box>
       <Box css={{ padding: `$md`, borderTop: `1px solid $slate6` }}></Box>
@@ -50,7 +46,10 @@ const CodeNavigation = (): JSX.Element => {
 
 export default function Code(props: CodeProps) {
   return (
-    <CampsLayout title={props.frontMatter.title} sideNav={<CodeNavigation />}>
+    <CampsLayout
+      title={props.frontMatter.title}
+      sideNav={<CodeNavigation progress={25} />}
+    >
       <>
         <Box>
           <br />

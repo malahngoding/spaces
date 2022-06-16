@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router';
 import { useTranslations } from 'next-intl';
-import { useEffect } from 'react';
 
 import { BadgeCard } from '@components/cards/badge-card';
 import { Box } from '@components/design/box';
