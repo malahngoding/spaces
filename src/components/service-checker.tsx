@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import useSWR from 'swr';
 
 import { Box } from '@components/design/box';
 import { Paragraph } from '@components/design/typography';
@@ -18,32 +19,29 @@ export const ServiceChecker = () => {
     (state) => state.setMicrosStatus,
   );
 
-  useEffect(() => {
-    console.warn(`run,micc`);
-    const runMicros = async () => {
-      try {
-        const micros = await pingServiceMicros();
-        if (micros.data.status === 'OK') {
-          setMicrosStatusFunction(`green`);
-        }
-      } catch (error) {
-        setMicrosStatusFunction(`red`);
-      }
-    };
+  const filamentsData = useSWR('/ping/filaments', () => pingServiceFilaments());
+  const microsData = useSWR('/ping/micros', () => pingServiceMicros());
 
-    const runFilaments = async () => {
-      try {
-        const filaments = await pingServiceFilaments();
-        if (filaments.data.status === 'OK') {
-          setFilamentsStatusFunction(`green`);
-        }
-      } catch (error) {
-        setFilamentsStatusFunction(`red`);
-      }
-    };
-    runMicros();
-    runFilaments();
-  }, [setFilamentsStatusFunction, setMicrosStatusFunction]);
+  useEffect(() => {
+    if (filamentsData.data?.data.status === 'OK') {
+      setFilamentsStatusFunction(`green`);
+    }
+    if (filamentsData.data?.data.status === undefined) {
+      setFilamentsStatusFunction(`red`);
+    }
+    if (microsData.data?.data.status === 'OK') {
+      setMicrosStatusFunction(`green`);
+    }
+    if (microsData.data?.data.status === undefined) {
+      setMicrosStatusFunction(`red`);
+    }
+  }, [
+    filamentsData.data?.data.status,
+    microsData.data?.data.status,
+    setFilamentsStatusFunction,
+    setMicrosStatusFunction,
+  ]);
+
   return (
     <Box css={{ display: `flex`, flexDirection: `row` }}>
       <Paragraph

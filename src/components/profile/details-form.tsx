@@ -3,6 +3,7 @@ import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { useDebounce } from 'react-use';
+import useSWR from 'swr';
 
 import {
   InputGroup,
@@ -77,13 +78,10 @@ export const DetailsForm = (): JSX.Element => {
     setSelectedAvatar(value);
   };
 
+  const userData = useSWR('/getCurrentUser', () => getCurrentUser());
   useEffect(() => {
-    const currentUserName = async (): Promise<void> => {
-      const response = await getCurrentUser();
-      setDefaultUserName(response.data.payload.userName);
-    };
-    currentUserName();
-  }, []);
+    setDefaultUserName(userData.data?.data.payload.userName || ``);
+  }, [userData.data?.data.payload.userName]);
 
   useEffect(() => {
     let defaults = {
