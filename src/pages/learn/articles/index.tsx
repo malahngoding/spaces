@@ -61,14 +61,12 @@ export default function Articles(props: ArticlesProps) {
           }}
         >
           <Link href="/learn" passHref>
-            <Button as="a" alternative={'tertiary'}>
+            <Button alternative={'tertiary'}>
               <UilAngleLeft size="32" />
             </Button>
           </Link>
           <Link href="/learn/snippets" passHref>
-            <Button as="a" alternative={'tertiary'}>
-              {l(`snippetsTitle`)}
-            </Button>
+            <Button alternative={'tertiary'}>{l(`snippetsTitle`)}</Button>
           </Link>
         </Section>
       </Box>
