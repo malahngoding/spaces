@@ -44,6 +44,7 @@ export const ProfileLayout = (props: ProfileLayoutProps) => {
   return (
     <BaseLayout title={titleBuilder(props.layout.tab)}>
       <>
+        <br />
         <Box>
           <Section
             css={{

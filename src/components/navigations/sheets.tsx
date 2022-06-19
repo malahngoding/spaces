@@ -65,16 +65,16 @@ export const NavigationSheets = (props: NavigationSheetsProps) => {
         css={{
           background:
             theme === `dark`
-              ? `rgba(0, 0, 0, 0.48)`
-              : `rgba(253, 252, 253, 0.48)`,
+              ? `rgba(0, 0, 0, 0.72)`
+              : `rgba(253, 252, 253, 0.72)`,
         }}
       >
         <Box
           css={{
             background:
               theme === `dark`
-                ? `rgba(0, 0, 0, 0.48)`
-                : `rgba(253, 252, 253, 0.48)`,
+                ? `rgba(0, 0, 0, 0.72)`
+                : `rgba(253, 252, 253, 0.72)`,
             minHeight: `100vh`,
             minWidth: `100vw`,
             borderRight: `1px solid $slate6`,
