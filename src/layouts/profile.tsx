@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/router';
+import { UilUser, UilWallet, UilAward, UilCog } from '@iconscout/react-unicons';
 
 import { Box } from '@components/design/box';
 import { Button } from '@components/design/button';
@@ -57,12 +58,10 @@ export const ProfileLayout = (props: ProfileLayoutProps) => {
               },
             }}
           >
-            <Box>
-              <Caption data-testid="about-us-text">
-                {props.currentUser.bio}
-              </Caption>
-              <Heading>{t(`profile`)}</Heading>
-            </Box>
+            <Caption data-testid="about-us-text">
+              {props.currentUser.bio}
+            </Caption>
+            <Heading>{t(`profile`)}</Heading>
             <Box>
               <Avatar css={{ width: 92, height: 92 }}>
                 <AvatarImage
@@ -108,7 +107,12 @@ export const ProfileLayout = (props: ProfileLayoutProps) => {
                 alternative="ghost"
                 onClick={() => router.push('/profile')}
               >
-                {props.currentUser.name}
+                <Box css={{ display: `block`, '@md': { display: `none` } }}>
+                  <UilUser />
+                </Box>
+                <Box css={{ display: `none`, '@md': { display: `block` } }}>
+                  {props.currentUser.name}
+                </Box>
               </Button>
               <Button
                 css={{
@@ -122,7 +126,12 @@ export const ProfileLayout = (props: ProfileLayoutProps) => {
                 alternative="ghost"
                 onClick={() => router.push('/profile/badge')}
               >
-                {t(`badge`)}
+                <Box css={{ display: `block`, '@md': { display: `none` } }}>
+                  <UilAward />
+                </Box>
+                <Box css={{ display: `none`, '@md': { display: `block` } }}>
+                  {t(`badge`)}
+                </Box>
               </Button>
               <Button
                 css={{
@@ -136,7 +145,12 @@ export const ProfileLayout = (props: ProfileLayoutProps) => {
                 alternative="ghost"
                 onClick={() => router.push('/profile/wallets')}
               >
-                {t(`wallet`)}
+                <Box css={{ display: `block`, '@md': { display: `none` } }}>
+                  <UilWallet />
+                </Box>
+                <Box css={{ display: `none`, '@md': { display: `block` } }}>
+                  {t(`wallet`)}
+                </Box>
               </Button>
               <Button
                 css={{
@@ -150,7 +164,12 @@ export const ProfileLayout = (props: ProfileLayoutProps) => {
                 alternative="ghost"
                 onClick={() => router.push('/profile/settings')}
               >
-                {t(`settings`)}
+                <Box css={{ display: `block`, '@md': { display: `none` } }}>
+                  <UilCog />
+                </Box>
+                <Box css={{ display: `none`, '@md': { display: `block` } }}>
+                  {t(`settings`)}
+                </Box>
               </Button>
             </Box>
           </Box>

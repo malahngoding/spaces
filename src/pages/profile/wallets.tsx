@@ -48,7 +48,7 @@ export default function Settings(props: CryptoWalletsProps) {
             display: `grid`,
             gridTemplateColumns: `1fr`,
             gap: `$xs`,
-            '@md': { gridTemplateColumns: `1fr 1fr` },
+            '@lg': { gridTemplateColumns: `1fr 1fr` },
           }}
         >
           {walletList ? (
@@ -81,7 +81,11 @@ export default function Settings(props: CryptoWalletsProps) {
                     </SubTitle>
                     {index === 0 ? (
                       <SubTitle
-                        css={{ fontWeight: `$normal`, fontSize: `$sm` }}
+                        css={{
+                          fontWeight: `$normal`,
+                          fontSize: `$sm`,
+                          wordBreak: `break-all`,
+                        }}
                       >
                         {item === '' ? t(`noWallet`) : `${item}`}
                       </SubTitle>
