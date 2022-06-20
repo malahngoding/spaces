@@ -51,7 +51,6 @@ export const NavigationSheets = (props: NavigationSheetsProps) => {
     { title: t(`labs`), url: `/camps/labs` },
     { title: t(`aboutUs`), url: `/about-us` },
     { title: t(`services`), url: `/services` },
-    { title: t(`design`), url: `/brand` },
   ];
 
   const routerPush = async (url: string) => {
@@ -65,16 +64,16 @@ export const NavigationSheets = (props: NavigationSheetsProps) => {
         css={{
           background:
             theme === `dark`
-              ? `rgba(0, 0, 0, 0.72)`
-              : `rgba(253, 252, 253, 0.72)`,
+              ? `rgba(0, 0, 0, 0.64)`
+              : `rgba(253, 252, 253, 0.64)`,
         }}
       >
         <Box
           css={{
             background:
               theme === `dark`
-                ? `rgba(0, 0, 0, 0.72)`
-                : `rgba(253, 252, 253, 0.72)`,
+                ? `rgba(0, 0, 0, 0.64)`
+                : `rgba(253, 252, 253, 0.64)`,
             minHeight: `100vh`,
             minWidth: `100vw`,
             borderRight: `1px solid $slate6`,

@@ -58,10 +58,27 @@ export const ProfileLayout = (props: ProfileLayoutProps) => {
               },
             }}
           >
-            <Caption data-testid="about-us-text">
-              {props.currentUser.bio}
-            </Caption>
-            <Heading>{t(`profile`)}</Heading>
+            <Box
+              css={{
+                display: `flex`,
+                flexDirection: `column`,
+                alignItem: `center`,
+                justifyContent: `center`,
+                alignText: `center`,
+                '@sm': {
+                  display: `flex`,
+                  flexDirection: `column`,
+                  alignItem: `flex-start`,
+                  justifyContent: `flex-start`,
+                  alignText: `center`,
+                },
+              }}
+            >
+              <Caption data-testid="about-us-text">
+                {props.currentUser.bio}
+              </Caption>
+              <Heading>{t(`profile`)}</Heading>
+            </Box>
             <Box>
               <Avatar css={{ width: 92, height: 92 }}>
                 <AvatarImage

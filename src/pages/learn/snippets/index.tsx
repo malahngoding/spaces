@@ -41,9 +41,8 @@ export default function Snippets(props: SnippetsProps) {
           {props.data.map((item) => {
             return (
               <SnippetCard
-                key={item.id}
+                key={item.slug}
                 tags={item.tags}
-                id={item.id}
                 icon={item.icon}
                 title={item.title}
                 slug={item.slug}

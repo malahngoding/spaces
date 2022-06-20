@@ -2,6 +2,12 @@ import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+import {
+  UilGithubAlt,
+  UilPresentationPlay,
+  UilInstagram,
+  UilYoutube,
+} from '@iconscout/react-unicons';
 
 import { Footer } from '@components/design/footer';
 import { Box } from '@components/design/box';
@@ -198,6 +204,41 @@ const Linkage = () => {
           </Box>
         ))}
       </Box>
+    </Box>
+  );
+};
+
+const SocialLinkBox = (): JSX.Element => {
+  return (
+    <Box>
+      <a
+        href="https://github.com/malahngoding"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <UilGithubAlt />
+      </a>
+      <a
+        href="https://youtube.com/malahngoding"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <UilYoutube />
+      </a>
+      <a
+        href="https://tiktok.com/malahngoding"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <UilPresentationPlay />
+      </a>
+      <a
+        href="https://instagram.com/malahngoding"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <UilInstagram />
+      </a>
     </Box>
   );
 };

@@ -44,7 +44,7 @@ export default function SnippetsPost(props: SnippetsPostProps) {
             <MDXRemote {...props.source} components={Markdown} />
           </MarkdownWrapper>
         </Section>
-        <Section>
+        <Section css={{ marginX: `0px` }}>
           <Link href="/learn/snippets" passHref>
             <Button as="button" alternative={'ghost'}>
               <UilAngleLeft size="32" />

@@ -58,7 +58,7 @@ export default function Articles(props: ArticlesProps) {
               {t(`updated`)} {props.frontMatter.published}
             </Caption>
           </Section>
-          <Section>
+          <Section css={{ marginX: `0px` }}>
             <Link href="/learn/articles" passHref>
               <Button as="button" alternative={'ghost'}>
                 <UilAngleLeft size="32" />

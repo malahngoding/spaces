@@ -6,7 +6,6 @@ import { Caption, Paragraph } from '@components/design/typography';
 import { keyframes } from '@config/stitches.config';
 
 export interface SnippetCardProps {
-  id: number;
   title: string;
   icon: 'javascript' | 'golang' | 'css' | 'solidity' | string;
   tags: string[];
@@ -19,15 +18,15 @@ const scaleUp = keyframes({
 });
 
 export const SnippetCard = (props: SnippetCardProps) => {
-  const { id, title, icon, tags, slug } = props;
+  const { title, icon, tags, slug } = props;
   return (
     <Link href={`/learn/snippets/${slug}`} passHref>
       <Box
         as="a"
-        key={id}
+        key={slug}
         css={{
           backgroundColor: `$slate1`,
-          border: `2px solid $slate2`,
+          border: `2px solid $slate8`,
           padding: `$xs`,
           display: `flex`,
           flexDirection: `row`,
@@ -36,9 +35,9 @@ export const SnippetCard = (props: SnippetCardProps) => {
           height: `calc(120px)`,
           '&:hover': {
             cursor: `pointer`,
+            border: `2px solid $slate12`,
             backgroundColor: `$slate2`,
             animation: `${scaleUp} 200ms`,
-            border: `2px solid $slate12`,
             transform: 'translateY(-4px)',
             boxShadow: `5px 5px`,
           },
