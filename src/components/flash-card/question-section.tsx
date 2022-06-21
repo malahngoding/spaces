@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 
 import { Box } from '@components/design/box';
 import { Button } from '@components/design/button';
+import { useFlashCard } from '@store/flash-card-store';
 
 export interface QuestionGroup {
   id: number;
@@ -30,19 +31,26 @@ interface QuestionsSectionProps {
 
 export const QuestionSection = (props: QuestionsSectionProps): JSX.Element => {
   const router = useRouter();
-
-  const [currentQuestion, setCurrentQuestion] = useState<number>(0);
-  const [correctAnswer, setCorrectAnswer] = useState<number>(0);
   const questionLength = props.question.QuestionDetail.length;
 
+  const activeQuestion = useFlashCard((state) => state.activeQuestion);
+
+  const nextQuestion = useFlashCard((state) => state.nextQuestion);
+  const answeringCorrect = useFlashCard((state) => state.answeringCorrect);
+  const timePunch = useFlashCard((state) => state.timePunch);
+
   const handleAnswerClick = (isCorrect: boolean): void => {
-    if (currentQuestion !== questionLength - 1) {
+    if (activeQuestion < questionLength - 1) {
+      timePunch(1);
       if (isCorrect) {
-        setCorrectAnswer(correctAnswer + 1);
+        answeringCorrect();
       }
-      setCurrentQuestion(currentQuestion + 1);
+      nextQuestion();
     } else {
-      // TODO: POST RESULT
+      timePunch(1);
+      if (isCorrect) {
+        answeringCorrect();
+      }
       router.push(`/camps/flash-card/${props.hash}/finished`);
     }
   };
@@ -61,7 +69,7 @@ export const QuestionSection = (props: QuestionsSectionProps): JSX.Element => {
             The Question
           </Box>
           <Box>
-            {props.question.QuestionDetail[currentQuestion].questionString}
+            {props.question.QuestionDetail[activeQuestion].questionString}
           </Box>
         </Box>
         <Box>
@@ -69,7 +77,7 @@ export const QuestionSection = (props: QuestionsSectionProps): JSX.Element => {
             The Information
           </Box>
           <Box>
-            {currentQuestion + 1}/{questionLength}
+            {activeQuestion + 1}/{questionLength}
           </Box>
         </Box>
       </Box>
@@ -80,7 +88,7 @@ export const QuestionSection = (props: QuestionsSectionProps): JSX.Element => {
           gap: `$xs`,
         }}
       >
-        {props.question.QuestionDetail[currentQuestion].QuestionAnswer.map(
+        {props.question.QuestionDetail[activeQuestion].QuestionAnswer.map(
           (item) => {
             return (
               <Button

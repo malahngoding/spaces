@@ -5,6 +5,7 @@ import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
 import { SubTitle } from '@components/design/typography';
 import { QuizLayout } from '@layouts/quiz';
+import { useFlashCard } from '@store/flash-card-store';
 import { getCurrentFlashCardBlock } from '@services/flash-card-service';
 
 import type { GetServerSidePropsContext } from 'next';
@@ -17,6 +18,9 @@ interface FlashCardPostProps {
 export default function FlashCardPost(props: FlashCardPostProps) {
   const t = useTranslations(`Snippets`);
 
+  const correctAnswer = useFlashCard((state) => state.correctAnswer);
+  const counter = useFlashCard((state) => state.counter);
+
   return (
     <QuizLayout title="Hello World!">
       <Box>
@@ -28,6 +32,10 @@ export default function FlashCardPost(props: FlashCardPostProps) {
         </Section>
         <Section>
           <h1>Finished</h1>
+          CORRECT ANSWER : {correctAnswer}
+          {counter.map((item, index) => (
+            <p key={index}>{item}</p>
+          ))}
         </Section>
       </Box>
     </QuizLayout>
