@@ -118,6 +118,7 @@ export const SideNavigation = () => {
                   src="/static/favicons/android-chrome-96x96.png"
                   height={64}
                   width={64}
+                  priority={true}
                 />
               </Box>
             </Link>

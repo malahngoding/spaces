@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { Box } from '@components/design/box';
 import { Button } from '@components/design/button';
 import { useFlashCard } from '@store/flash-card-store';
+import { CountdownTicker } from '@components/flash-card/countdown';
 
 export interface QuestionGroup {
   id: number;
@@ -30,7 +31,9 @@ interface QuestionsSectionProps {
 }
 
 export const QuestionSection = (props: QuestionsSectionProps): JSX.Element => {
+  const [timeLeft, setTimeLeft] = useState<number>(60);
   const router = useRouter();
+
   const questionLength = props.question.QuestionDetail.length;
 
   const activeQuestion = useFlashCard((state) => state.activeQuestion);
@@ -40,14 +43,15 @@ export const QuestionSection = (props: QuestionsSectionProps): JSX.Element => {
   const timePunch = useFlashCard((state) => state.timePunch);
 
   const handleAnswerClick = (isCorrect: boolean): void => {
+    setTimeLeft(60);
     if (activeQuestion < questionLength - 1) {
-      timePunch(1);
+      timePunch(timeLeft);
       if (isCorrect) {
         answeringCorrect();
       }
       nextQuestion();
     } else {
-      timePunch(1);
+      timePunch(timeLeft);
       if (isCorrect) {
         answeringCorrect();
       }
@@ -100,6 +104,9 @@ export const QuestionSection = (props: QuestionsSectionProps): JSX.Element => {
             );
           },
         )}
+      </Box>
+      <Box>
+        <CountdownTicker timeLeft={timeLeft} setTimeLeft={setTimeLeft} />
       </Box>
     </>
   );
