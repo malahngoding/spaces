@@ -35,7 +35,8 @@ export default function Snippets(props: SnippetsProps) {
             display: `grid`,
             gridTemplateColumns: `1fr`,
             gap: `$xs`,
-            '@md': { gridTemplateColumns: `1fr 1fr 1fr` },
+            '@lg': { gridTemplateColumns: `1fr 1fr` },
+            '@xl': { gridTemplateColumns: `1fr 1fr 1fr` },
           }}
         >
           {props.data.map((item) => {

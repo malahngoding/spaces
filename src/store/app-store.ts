@@ -1,3 +1,4 @@
+import version from '../../version.json';
 import create from 'zustand';
 
 interface Application {
@@ -6,6 +7,6 @@ interface Application {
 }
 
 export const useAppStore = create<Application>(() => ({
-  insteadVersion: `0.0.5`,
-  spacesVersion: `0.0.1`,
+  insteadVersion: version.instead,
+  spacesVersion: version.spaces,
 }));
