@@ -27,3 +27,5 @@ jobs:
 
       - name: Automated Version Bump
         uses: phips28/gh-action-bump-version@v9.0.20
+        with:
+          skip-tag: 'true'
