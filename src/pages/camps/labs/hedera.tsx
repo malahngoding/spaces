@@ -1,5 +1,4 @@
 import dynamic from 'next/dynamic';
-import { Suspense } from 'react';
 
 import { BaseLayout } from '@layouts/base';
 

@@ -1,5 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { getCssText } from '@config/stitches.config';
+import { getSandpackCssText } from '@codesandbox/sandpack-react';
 
 class MyDocument extends Document {
   render() {
@@ -34,6 +35,10 @@ class MyDocument extends Document {
           <style
             id="stitches"
             dangerouslySetInnerHTML={{ __html: getCssText() }}
+          />
+          <style
+            dangerouslySetInnerHTML={{ __html: getSandpackCssText() }}
+            id="sandpack"
           />
         </Head>
         <body>
