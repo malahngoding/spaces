@@ -30,9 +30,6 @@
     "typescript"
   ],
   "dependencies": {
-    "@codemirror/autocomplete": "6.0.2",
-    "@codesandbox/sandpack-client": "1.1.6",
-    "@codesandbox/sandpack-react": "1.2.0",
     "@fontsource/mononoki": "^4.5.3",
     "@fontsource/montserrat": "^4.5.10",
     "@grpc/grpc-js": "^1.6.7",
