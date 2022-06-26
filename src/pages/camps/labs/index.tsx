@@ -36,6 +36,11 @@ export default function Labs(props: LabsProps) {
       name: `NFT Marketplace`,
       description: `NFT marketplace for multichain network (Hedera x Polygon)`,
     },
+    {
+      url: `/code`,
+      name: `Sandpack Codesandbox`,
+      description: `For interactive coding`,
+    },
   ];
   return (
     <BaseLayout title="Hello World!">

@@ -7,15 +7,39 @@ import { keyframes } from '@config/stitches.config';
 
 export interface SnippetCardProps {
   title: string;
-  icon: 'javascript' | 'golang' | 'css' | 'solidity' | string;
+  icon:
+    | 'javascript'
+    | 'golang'
+    | 'css'
+    | 'solidity'
+    | 'php'
+    | 'bash'
+    | 'typescript'
+    | string;
   tags: string[];
   slug: string;
 }
 
-const scaleUp = keyframes({
-  '0%': { backgroundColor: `none` },
-  '100%': { backgroundColor: `$slate2` },
-});
+const getBackgroundColor = (icon: string): string => {
+  switch (icon) {
+    case 'javascript':
+      return `$sweet5`;
+    case 'golang':
+      return `$sweet12`;
+    case 'css':
+      return `$sweet3`;
+    case 'solidity':
+      return `$sweet14`;
+    case 'php':
+      return `$sweet11`;
+    case 'bash':
+      return `$sweet7`;
+    case 'typescript':
+      return `$sweet10`;
+    default:
+      return `$sweet13`;
+  }
+};
 
 export const SnippetCard = (props: SnippetCardProps) => {
   const { title, icon, tags, slug } = props;
@@ -29,15 +53,13 @@ export const SnippetCard = (props: SnippetCardProps) => {
           border: `2px solid $slate8`,
           padding: `$xs`,
           display: `flex`,
-          flexDirection: `row`,
+          flexDirection: `column`,
           justifyContent: `flex-start`,
-          alignItems: `center`,
-          height: `calc(120px)`,
+          alignItems: `flex-start`,
           '&:hover': {
             cursor: `pointer`,
-            border: `2px solid $slate12`,
+            border: `2px solid ${getBackgroundColor(icon)}`,
             backgroundColor: `$slate2`,
-            animation: `${scaleUp} 200ms`,
             transform: 'translateY(-4px)',
             boxShadow: `5px 5px`,
           },
@@ -53,21 +75,21 @@ export const SnippetCard = (props: SnippetCardProps) => {
         >
           <Image
             src={`/static/programming-icon/${icon}.png`}
-            height={64}
-            width={64}
+            height={32}
+            width={32}
             alt="item"
           />
         </Box>
         <Box
           css={{
-            marginLeft: `$xs`,
+            marginTop: `$xs`,
             display: `flex`,
             flexDirection: `column`,
-            justifyContent: `flex-start`,
-            alignItems: `flex-start`,
+            justifyContent: `space-between`,
+            alignItems: `space-between`,
           }}
         >
-          <Paragraph css={{ fontWeight: `bold` }}>{title}</Paragraph>
+          <Paragraph>{title}</Paragraph>
           <Box
             css={{
               display: `flex`,

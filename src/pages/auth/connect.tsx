@@ -31,6 +31,7 @@ import { useAuthLoading } from '@store/auth-loading-store';
 import { AuthLoader } from '@components/loader/auth';
 import { callbackUrlHandler } from '@utils/urlHandler';
 import { Box } from '@components/design/box';
+import { Suspense } from 'react';
 
 interface RegisterForm {
   email: string;

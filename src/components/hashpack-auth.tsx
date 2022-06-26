@@ -1,21 +1,22 @@
 import Image from 'next/image';
 import { HashConnect, HashConnectTypes } from 'hashconnect';
 import { useEffect, useState } from 'react';
+import { UilCopy } from '@iconscout/react-unicons';
+import { signIn } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 import { Button } from '@components/design/button';
-import { Box } from './design/box';
+import { Box } from '@components/design/box';
 import {
   AlertDialog,
-  AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
   AlertDialogDescription,
   AlertDialogTitle,
   AlertDialogTrigger,
 } from './design/alert';
-import { InputText } from './design/input';
-import { signIn } from 'next-auth/react';
-import { useRouter } from 'next/router';
+import { InputText } from '@components/design/input';
+import { Paragraph } from '@components/design/typography';
 import { callbackUrlHandler } from '@utils/urlHandler';
 
 export const HashpackAuth = (): JSX.Element => {
@@ -98,8 +99,9 @@ export const HashpackAuth = (): JSX.Element => {
         </AlertDialogTrigger>
         <AlertDialogContent>
           <AlertDialogTitle>HashConnect String</AlertDialogTitle>
+          <Paragraph>with Hashpack Wallet</Paragraph>
           <AlertDialogDescription>
-            <InputText value={signingString} readOnly />
+            <InputText value={signingString} readOnly disabled />
           </AlertDialogDescription>
           <Box css={{ display: 'flex', justifyContent: 'flex-end' }}>
             <AlertDialogCancel asChild>
@@ -107,11 +109,14 @@ export const HashpackAuth = (): JSX.Element => {
                 Cancel
               </Button>
             </AlertDialogCancel>
-            <AlertDialogAction asChild style={{ display: `none` }}>
-              <Button type="submit" onClick={() => {}}>
-                Accept
-              </Button>
-            </AlertDialogAction>
+            <Button
+              type="submit"
+              onClick={() => {
+                navigator.clipboard.writeText(signingString);
+              }}
+            >
+              <UilCopy />
+            </Button>
           </Box>
         </AlertDialogContent>
       </AlertDialog>
