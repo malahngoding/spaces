@@ -52,7 +52,7 @@ export default function Learn(props: LearnProps) {
   ];
 
   return (
-    <BaseLayout title="Hello World!">
+    <BaseLayout title={t(`learnTitle`)}>
       <Box>
         <br />
         <Section>

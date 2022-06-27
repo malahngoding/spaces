@@ -35,10 +35,11 @@ export const WarnMarquee = (): JSX.Element => {
 
   return (
     <Box
+      onClick={marqueeToggle}
       css={{
         display: shown ? 'block' : 'none',
         position: `fixed`,
-        top: 0,
+        bottom: 0,
         left: 0,
         height: `32px`,
         width: `100vw`,
@@ -51,10 +52,9 @@ export const WarnMarquee = (): JSX.Element => {
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
-      {' '}
       <Marquee speed={30} delay={0.5} pauseOnHover>
         {hover ? (
-          <Box onClick={marqueeToggle}>
+          <Box>
             <RunningText>
               <>
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => {

@@ -271,6 +271,7 @@ export const FooterNavigation = () => {
         <BottomLinkBox />
         <LanguageToggleComponent />
         <ThemeToggleComponent />
+        <Box css={{ height: `32px` }} />
       </Footer>
     </>
   );

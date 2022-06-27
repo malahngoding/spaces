@@ -20,7 +20,7 @@ interface HomeProps {
 export default function DesignInput(props: HomeProps) {
   const { applicationName } = props;
   return (
-    <DesignLayout title="Hello World!">
+    <DesignLayout title="Instead Input">
       <Box>
         <br />
         <Section>

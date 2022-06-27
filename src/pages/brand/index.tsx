@@ -15,10 +15,10 @@ interface HomeProps {
   applicationName: string;
 }
 
-export default function DesignButton(props: HomeProps) {
+export default function TheBrand(props: HomeProps) {
   const { applicationName } = props;
   return (
-    <DesignLayout title="Hello World!">
+    <DesignLayout title="Instead  Brand!">
       <Box>
         <br />
         <Section>

@@ -59,7 +59,7 @@ export default function Camps(props: CampsProps) {
   ];
 
   return (
-    <BaseLayout title="Hello World!">
+    <BaseLayout title={t(`campsTitle`)}>
       <Box>
         <br />
         <Section>

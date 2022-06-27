@@ -23,12 +23,19 @@ const WarnMarqueeComponent = dynamic(
 export const BaseLayout = (props: BaseLayoutProps): JSX.Element => {
   const { title, children } = props;
 
+  const titleHandler = (title: string, applicationName: string): string => {
+    return `${title} - ${applicationName}`;
+  };
+
   return (
     <>
       <Head>
-        <title>
-          {title} - {ApplicationName}
-        </title>
+        <title>{titleHandler(title, ApplicationName)}</title>
+        <meta
+          property="og:title"
+          content={`${title} - ${ApplicationName}`}
+          key="title"
+        />
       </Head>
       <WarnMarqueeComponent />
       <SideNavigation />

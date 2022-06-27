@@ -13,7 +13,7 @@ interface HomeProps {
 export default function DesignButton(props: HomeProps) {
   const { applicationName } = props;
   return (
-    <DesignLayout title="Hello World!">
+    <DesignLayout title="Instead Button">
       <Box>
         <br />
         <Section>

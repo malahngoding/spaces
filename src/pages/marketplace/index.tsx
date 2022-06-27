@@ -15,8 +15,9 @@ export default function Marketplace() {
   );
 }
 
-
-export async function getServerSideProps ({ locale }: GetServerSidePropsContext) {
+export async function getServerSideProps({
+  locale,
+}: GetServerSidePropsContext) {
   const messages = await import(`../../lang/${locale}.json`).then(
     (module) => module.default,
   );
@@ -26,4 +27,3 @@ export async function getServerSideProps ({ locale }: GetServerSidePropsContext)
     },
   };
 }
-

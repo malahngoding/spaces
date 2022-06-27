@@ -9,7 +9,7 @@ interface AwesomeNoobsProps {}
 
 export default function AwesomeNoobs(props: AwesomeNoobsProps) {
   return (
-    <BaseLayout title="Hello World!">
+    <BaseLayout title="Awesome Noobs">
       <Box>
         <br />
         <Section>

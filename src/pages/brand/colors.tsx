@@ -19,7 +19,7 @@ export default function DesignButton(props: HomeProps) {
   const sizeBox = `96px`;
   const { applicationName, repeater } = props;
   return (
-    <DesignLayout title="Hello World!">
+    <DesignLayout title="Instead Colors">
       <Box>
         <br />
         <Section>

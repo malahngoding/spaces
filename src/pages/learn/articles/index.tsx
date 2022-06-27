@@ -20,7 +20,7 @@ export default function Articles(props: ArticlesProps) {
   const l = useTranslations(`Learn`);
 
   return (
-    <BaseLayout title="Hello World!">
+    <BaseLayout title={t(`articlesTitle`)}>
       <Box>
         <br />
         <Section>

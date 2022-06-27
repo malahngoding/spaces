@@ -11,7 +11,7 @@ export default function AuthError() {
   const router = useRouter();
 
   return (
-    <BaseLayout title="Hello World!">
+    <BaseLayout title="Hello Error!">
       <Box>
         <br />
         <Section>

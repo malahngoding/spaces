@@ -21,7 +21,7 @@ export default function Snippets(props: SnippetsProps) {
   const l = useTranslations(`Learn`);
 
   return (
-    <BaseLayout title="Hello World!">
+    <BaseLayout title={t(`snippetsTitle`)}>
       <Box>
         <br />
         <Section>

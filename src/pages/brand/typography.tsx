@@ -22,7 +22,7 @@ export default function DesignTypography(props: HomeProps) {
   const allphabetString = `The wizard quickly jinxed the gnomes before they vaporized.`;
 
   return (
-    <DesignLayout title="Hello World!">
+    <DesignLayout title="Instead Typography">
       <Box>
         <br />
         <Section>

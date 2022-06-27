@@ -43,7 +43,7 @@ export default function Labs(props: LabsProps) {
     },
   ];
   return (
-    <BaseLayout title="Hello World!">
+    <BaseLayout title="Labs!">
       <Box>
         <br />
         <Section>
