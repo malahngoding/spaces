@@ -150,8 +150,8 @@ const Linkage = () => {
         <Image
           alt={logo}
           src="/static/favicons/android-chrome-96x96.png"
-          height={81}
-          width={81}
+          height="81px"
+          width="81px"
         />
         <Box>
           <Heading css={{ fontSize: `$lg`, fontFamily: `$brand` }}>

@@ -17,6 +17,7 @@ export const ThemeToggle = () => {
         justifyContent: `center`,
         alignItems: `center`,
       }}
+      aria-label="Click to toggle theme"
     >
       {theme !== `light` ? <UilSun /> : <UilMoon />}
     </SmallButton>

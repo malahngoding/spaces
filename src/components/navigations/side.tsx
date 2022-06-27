@@ -116,8 +116,8 @@ export const SideNavigation = () => {
                 <Image
                   alt="Malah Ngoding Logo"
                   src="/static/favicons/android-chrome-96x96.png"
-                  height={64}
-                  width={64}
+                  height="64px"
+                  width="64px"
                   priority={true}
                 />
               </Box>
@@ -134,6 +134,7 @@ export const SideNavigation = () => {
                   height: `100%`,
                 },
               }}
+              aria-label="Menu Button Toggle"
             >
               {shown ? <UilMultiply /> : <UilBars />}
             </Button>

@@ -76,7 +76,11 @@ export const NavigationBar = (props: NavigationBarProps) => {
                 </PopoverTrigger>
                 <PopoverContent sideOffset={5}>
                   <Link href="/profile" passHref>
-                    <Button as="button" alternative="ghost">
+                    <Button
+                      as="button"
+                      alternative="ghost"
+                      aria-label="User Profile"
+                    >
                       <UilUser />
                       <SubTitle
                         css={{
@@ -91,7 +95,11 @@ export const NavigationBar = (props: NavigationBarProps) => {
                     </Button>
                   </Link>
                   <Link href="/profile/badge" passHref>
-                    <Button as="button" alternative="ghost">
+                    <Button
+                      as="button"
+                      alternative="ghost"
+                      aria-label="User's Badge"
+                    >
                       <UilAward />
                       <SubTitle
                         css={{
@@ -106,7 +114,11 @@ export const NavigationBar = (props: NavigationBarProps) => {
                     </Button>
                   </Link>
                   <Link href="/inventory" passHref>
-                    <Button as="button" alternative="ghost">
+                    <Button
+                      as="button"
+                      alternative="ghost"
+                      aria-label="User's Inventory"
+                    >
                       <UilBackpack />
                       <SubTitle
                         css={{
@@ -121,7 +133,11 @@ export const NavigationBar = (props: NavigationBarProps) => {
                     </Button>
                   </Link>
                   <Link href="/profile/settings" passHref>
-                    <Button as="button" alternative="ghost">
+                    <Button
+                      as="button"
+                      alternative="ghost"
+                      aria-label="Settings"
+                    >
                       <UilCog />
                       <SubTitle
                         css={{
@@ -142,6 +158,7 @@ export const NavigationBar = (props: NavigationBarProps) => {
                         callbackUrl: `/${router.locale}`,
                       })
                     }
+                    aria-label="Logout"
                   >
                     <UilSignout />
                     <SubTitle
