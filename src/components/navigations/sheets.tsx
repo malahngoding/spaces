@@ -157,6 +157,7 @@ export const NavigationSheets = (props: NavigationSheetsProps) => {
                   </Button>
                 )}
               </Box>
+              <Box css={{ height: `32px` }} />
             </>
           )}
         </Box>

@@ -52,7 +52,13 @@ export const WarnMarquee = (): JSX.Element => {
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
-      <Marquee speed={30} delay={0.5} pauseOnHover>
+      <Marquee
+        speed={30}
+        delay={0.5}
+        pauseOnHover
+        gradientWidth={50}
+        gradientColor={[10, 10, 10]}
+      >
         {hover ? (
           <Box>
             <RunningText>
