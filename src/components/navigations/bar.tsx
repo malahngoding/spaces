@@ -37,6 +37,13 @@ export const NavigationBar = (props: NavigationBarProps) => {
     { title: t(`aboutUs`), url: `/about-us` },
   ];
 
+  const signOutHandler = async (): Promise<void> => {
+    signOut({
+      callbackUrl: `/${router.locale}`,
+      redirect: false,
+    });
+  };
+
   return (
     <>
       <Nav>
@@ -153,11 +160,7 @@ export const NavigationBar = (props: NavigationBarProps) => {
                   </Link>
                   <Button
                     alternative="ghost"
-                    onClick={() =>
-                      signOut({
-                        callbackUrl: `/${router.locale}`,
-                      })
-                    }
+                    onClick={() => signOutHandler()}
                     aria-label="Logout"
                   >
                     <UilSignout />
