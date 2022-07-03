@@ -88,7 +88,7 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
 
   return {
     paths,
-    fallback: false,
+    fallback: 'blocking',
   };
 };
 
@@ -126,6 +126,7 @@ export async function getStaticProps({
       redirect: {
         destination: `/auth/error?error=${error}`,
       },
+      revalidate: 86400,
     };
   }
 }
