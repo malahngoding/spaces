@@ -5,13 +5,26 @@ import matter from 'gray-matter';
 
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
-import { Caption, Heading, SubTitle } from '@components/design/typography';
+import {
+  Caption,
+  Heading,
+  Paragraph,
+  SubTitle,
+} from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
 import { Markdown, MarkdownWrapper } from '@components/markdown';
+import { getAnsweredCommentByLang } from '@services/comment-service';
 
-import type { GetStaticPropsContext } from 'next';
+import type { GetServerSidePropsContext } from 'next';
 
 interface HelpAndFaqsProps {
+  comments: {
+    key: string;
+    comment: string;
+    answer: string;
+    isAnswered: boolean;
+    lang: string;
+  }[];
   source: any;
   frontMatter: {
     title: string;
@@ -19,6 +32,7 @@ interface HelpAndFaqsProps {
     description: string;
     publishedAt: string;
   };
+  date: any;
 }
 
 export default function HelpAndFaqs(props: HelpAndFaqsProps) {
@@ -39,9 +53,20 @@ export default function HelpAndFaqs(props: HelpAndFaqsProps) {
             <MDXRemote {...props.source} components={Markdown} />
           </MarkdownWrapper>
         </Section>
+        <br />
+        <Section>
+          {props.comments.map((item) => {
+            return (
+              <Box key={item.key}>
+                <SubTitle>{item.comment}</SubTitle>
+                <Paragraph>{item.answer}</Paragraph>
+              </Box>
+            );
+          })}
+        </Section>
         <Section>
           <Caption>
-            {t(`updated`)} {props.frontMatter.publishedAt}
+            {t(`updated`)} {props.date}
           </Caption>
         </Section>
       </Box>
@@ -49,7 +74,9 @@ export default function HelpAndFaqs(props: HelpAndFaqsProps) {
   );
 }
 
-export async function getStaticProps({ locale }: GetStaticPropsContext) {
+export async function getServerSideProps({
+  locale,
+}: GetServerSidePropsContext) {
   try {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_MICROS_URL}/public/static/${locale}/help-and-faqs.md`,
@@ -62,11 +89,16 @@ export async function getStaticProps({ locale }: GetStaticPropsContext) {
     const messages = await import(`../lang/${locale}.json`).then(
       (module) => module.default,
     );
+
+    const comments = await getAnsweredCommentByLang(locale || `id`);
+
     return {
       props: {
         messages,
         source: mdxSource,
         frontMatter: data,
+        comments: comments.data.payload.comments,
+        date: new Date().toUTCString(),
       },
     };
   } catch (error) {
