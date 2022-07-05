@@ -14,6 +14,7 @@ import {
 import { BaseLayout } from '@layouts/base';
 import { Markdown, MarkdownWrapper } from '@components/markdown';
 import { getAnsweredCommentByLang } from '@services/comment-service';
+import { AskDQuestions } from '@components/forms/ask-d-questions';
 
 import type { GetServerSidePropsContext } from 'next';
 
@@ -63,6 +64,9 @@ export default function HelpAndFaqs(props: HelpAndFaqsProps) {
               </Box>
             );
           })}
+        </Section>
+        <Section>
+          <AskDQuestions />
         </Section>
         <Section>
           <Caption>

@@ -136,5 +136,16 @@
   "MetamaskConnectLoader": {
     "title": "Tekan SIGN pada wallet kamu untuk melanjutkan",
     "subTitle": "Kita menggunakan signature ini untuk memastikan bahwasannya memang kamu pemilik wallet."
+  },
+  "Help": {
+    "unAuthorized": "Silahkan bergabung terlebih dahulu sebelum menanyakan pertanyaan",
+    "question": "Bertanya kepada kami",
+    "questionSub": "Tulis pertanyaan-mu dibawah sini",
+    "error": "Silahkan, jangan malu-malu",
+    "thankYou": "Terima kasih sudah bertanya",
+    "submit": "Tanyakan"
+  },
+  "OnBoarding": {
+    "firstMessage": "Selamat datang di Malah Ngoding"
   }
 }

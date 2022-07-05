@@ -45,7 +45,14 @@ export const postComment = async (
   };
 }> => {
   const session = await getSession();
-  return await filamentService.post(`/api/comments/add`, {
-    headers: { Authorization: `Bearer ${session?.microsToken}` },
-  });
+  return await filamentService.post(
+    `/api/comments/add`,
+    {
+      message: message,
+      lang: lang,
+    },
+    {
+      headers: { Authorization: `Bearer instead_${session?.filamentsToken}` },
+    },
+  );
 };
