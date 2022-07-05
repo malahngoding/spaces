@@ -2,6 +2,7 @@ import { useTranslations } from 'next-intl';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote } from 'next-mdx-remote';
 import matter from 'gray-matter';
+import dynamic from 'next/dynamic';
 
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
@@ -14,7 +15,6 @@ import {
 import { BaseLayout } from '@layouts/base';
 import { Markdown, MarkdownWrapper } from '@components/markdown';
 import { getAnsweredCommentByLang } from '@services/comment-service';
-import { AskDQuestions } from '@components/forms/ask-d-questions';
 
 import type { GetServerSidePropsContext } from 'next';
 
@@ -35,6 +35,16 @@ interface HelpAndFaqsProps {
   };
   date: any;
 }
+
+const AskDQuestionsLazy = dynamic(
+  (): any =>
+    import('../components/forms/ask-d-questions').then(
+      (module) => module.AskDQuestions,
+    ),
+  {
+    ssr: false,
+  },
+);
 
 export default function HelpAndFaqs(props: HelpAndFaqsProps) {
   const t = useTranslations(`Articles`);
@@ -66,7 +76,7 @@ export default function HelpAndFaqs(props: HelpAndFaqsProps) {
           })}
         </Section>
         <Section>
-          <AskDQuestions />
+          <AskDQuestionsLazy />
         </Section>
         <Section>
           <Caption>
