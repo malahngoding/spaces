@@ -146,6 +146,8 @@
     "submit": "Tanyakan"
   },
   "OnBoarding": {
+    "before": "Sebelum",
+    "next": "Lanjut",
     "firstMessage": "Selamat datang di Malah Ngoding"
   }
 }

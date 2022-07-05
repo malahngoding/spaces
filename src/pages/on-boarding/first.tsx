@@ -7,6 +7,7 @@ import { Title } from '@components/design/typography';
 import { Button } from '@components/design/button';
 
 import type { GetServerSidePropsContext } from 'next';
+import { BlankLayout } from '@layouts/blank';
 
 interface OnBoardingFirstProps {
   redirectionUrl: string;
@@ -15,14 +16,16 @@ interface OnBoardingFirstProps {
 export default function OnBoardingFirst(props: OnBoardingFirstProps) {
   const t = useTranslations(`OnBoarding`);
   return (
-    <AllCenterColumnBox css={{ minHeight: `100vh` }}>
-      <Box css={{ marginBottom: `$lg` }}>
-        <Title>{t(`firstMessage`)}</Title>
-      </Box>
-      <Link href={props.redirectionUrl} passHref>
-        <Button as="a">OK</Button>
-      </Link>
-    </AllCenterColumnBox>
+    <BlankLayout title={t(`firstMessage`)}>
+      <AllCenterColumnBox css={{ minHeight: `100vh` }}>
+        <Box css={{ marginBottom: `$lg` }}>
+          <Title>{t(`firstMessage`)}</Title>
+        </Box>
+        <Link href={props.redirectionUrl} passHref>
+          <Button as="a">{t(`next`)}</Button>
+        </Link>
+      </AllCenterColumnBox>
+    </BlankLayout>
   );
 }
 

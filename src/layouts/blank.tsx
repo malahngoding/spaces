@@ -15,6 +15,11 @@ export const BlankLayout = (props: BaseLayoutProps): JSX.Element => {
         <title>
           {title} - {ApplicationName}
         </title>
+        <meta
+          property="og:title"
+          content={`${title} - ${ApplicationName}`}
+          key="title"
+        />
       </Head>
       <Box className="wrapper">{children}</Box>
     </>

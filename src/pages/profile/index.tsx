@@ -21,7 +21,7 @@ interface ProfileProps {
 
 const DetailsFormComponent = dynamic(
   (): any =>
-    import(`@components/profile/details-form`).then((mod) => mod.DetailsForm),
+    import(`@components/forms/profile-details`).then((mod) => mod.DetailsForm),
   { ssr: false },
 );
 

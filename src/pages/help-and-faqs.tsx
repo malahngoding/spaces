@@ -38,7 +38,7 @@ interface HelpAndFaqsProps {
 
 const AskDQuestionsLazy = dynamic(
   (): any =>
-    import('../components/forms/ask-d-questions').then(
+    import('@components/forms/ask-d-questions').then(
       (module) => module.AskDQuestions,
     ),
   {

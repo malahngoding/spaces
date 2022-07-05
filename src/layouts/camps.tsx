@@ -19,6 +19,11 @@ export const CampsLayout = (props: CampsLayoutProps): JSX.Element => {
         <title>
           {title} - {ApplicationName}
         </title>
+        <meta
+          property="og:title"
+          content={`${title} - ${ApplicationName}`}
+          key="title"
+        />
       </Head>
       <SideNavigation />
       <Main>

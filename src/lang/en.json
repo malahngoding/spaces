@@ -146,6 +146,8 @@
     "submit": "Submit"
   },
   "OnBoarding": {
+    "before": "Before",
+    "next": "Next",
     "firstMessage": "Welcome to Malah Ngoding"
   }
 }

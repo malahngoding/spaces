@@ -7,7 +7,7 @@ import { FooterNavigation } from '@components/navigations/footer';
 import { Main } from '@components/design/main';
 import { Box } from '@components/design/box';
 import { SideNavigation } from '@components/navigations/side';
-import { PeekProfile } from '@components/profile/peek-profile';
+import { PeekProfile } from '@components/peek-profile';
 
 interface BaseLayoutProps {
   title: string;

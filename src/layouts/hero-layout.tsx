@@ -4,7 +4,7 @@ import { ApplicationName } from '@config/application';
 import { Box } from '@components/design/box';
 import { SideNavigation } from '@components/navigations/side';
 import { Main } from '@components/design/main';
-import { PeekProfile } from '@components/profile/peek-profile';
+import { PeekProfile } from '@components/peek-profile';
 import { FooterNavigation } from '@components/navigations/footer';
 
 interface HeroLayoutProps {
@@ -20,6 +20,11 @@ export const HeroLayout = (props: HeroLayoutProps): JSX.Element => {
         <title>
           {title} - {ApplicationName}
         </title>
+        <meta
+          property="og:title"
+          content={`${title} - ${ApplicationName}`}
+          key="title"
+        />
       </Head>
       <SideNavigation />
       <Main>
