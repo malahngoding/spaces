@@ -148,6 +148,7 @@
   "OnBoarding": {
     "before": "Before",
     "next": "Next",
-    "firstMessage": "Welcome to Malah Ngoding"
+    "firstMessage": "Welcome to Malah Ngoding",
+    "secondMessage": "Why did you decide to code?"
   }
 }

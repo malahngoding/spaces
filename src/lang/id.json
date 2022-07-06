@@ -148,6 +148,7 @@
   "OnBoarding": {
     "before": "Sebelum",
     "next": "Lanjut",
-    "firstMessage": "Selamat datang di Malah Ngoding"
+    "firstMessage": "Selamat datang di Malah Ngoding",
+    "secondMessage": "Kenapa kamu memutuskan untuk malah ngoding?"
   }
 }
