@@ -27,7 +27,9 @@ export default function OnBoardingFirst(props: OnBoardingFirstProps) {
             href={`/on-boarding/second?redirect=${props.redirectionUrl}`}
             passHref
           >
-            <Button as="a">{t(`next`)}</Button>
+            <Button alternative={'secondary'} as="a">
+              {t(`next`)}
+            </Button>
           </Link>
         </Section>
         <Box css={{ position: `fixed`, bottom: -100 }}>

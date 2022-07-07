@@ -1,5 +1,6 @@
 import { getSession } from 'next-auth/react';
 import { useTranslations } from 'next-intl';
+import dynamic from 'next/dynamic';
 
 import { AllCenterColumnBox } from '@components/design/box';
 import { Title } from '@components/design/typography';
@@ -12,6 +13,14 @@ interface OnBoardingSecondProps {
   redirectionUrl: string;
 }
 
+const OnBoardingReasonLazy = dynamic(
+  (): any =>
+    import(`@components/forms/onboarding-reason`).then(
+      (mod) => mod.OnBoardingReason,
+    ),
+  { ssr: false },
+);
+
 export default function OnBoardingSecond(props: OnBoardingSecondProps) {
   const t = useTranslations(`OnBoarding`);
   return (
@@ -19,6 +28,9 @@ export default function OnBoardingSecond(props: OnBoardingSecondProps) {
       <AllCenterColumnBox css={{ minHeight: `100vh` }}>
         <Section css={{ marginBottom: `$lg` }}>
           <Title>{t(`secondMessage`)}</Title>
+        </Section>
+        <Section>
+          <OnBoardingReasonLazy />
         </Section>
       </AllCenterColumnBox>
     </BlankLayout>

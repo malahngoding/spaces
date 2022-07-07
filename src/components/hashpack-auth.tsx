@@ -22,6 +22,8 @@ import { callbackUrlHandler } from '@utils/urlHandler';
 export const HashpackAuth = (): JSX.Element => {
   const router = useRouter();
   const [signingString, setSigningString] = useState<string>('');
+  const [showCopyMessage, setShowCopyMessage] = useState<boolean>(false);
+
   const hashconnect = new HashConnect();
 
   let appMetadata: HashConnectTypes.AppMetadata = {
@@ -41,6 +43,13 @@ export const HashpackAuth = (): JSX.Element => {
     setSigningString(pairingString);
     hashconnect.findLocalWallets();
     hashconnect.connectToLocalWallet(pairingString);
+  };
+
+  const handleCopyMessage = (): void => {
+    setShowCopyMessage(true);
+    setTimeout(() => {
+      setShowCopyMessage(false);
+    }, 1000);
   };
 
   useEffect(() => {
@@ -103,6 +112,11 @@ export const HashpackAuth = (): JSX.Element => {
           <AlertDialogDescription>
             <InputText value={signingString} readOnly disabled />
           </AlertDialogDescription>
+          {showCopyMessage ? (
+            <Paragraph>ConnectionString copied to clipboard</Paragraph>
+          ) : (
+            <Paragraph>&nbsp;</Paragraph>
+          )}
           <Box css={{ display: 'flex', justifyContent: 'flex-end' }}>
             <AlertDialogCancel asChild>
               <Button alternative="secondary" css={{ marginRight: 25 }}>
@@ -113,6 +127,7 @@ export const HashpackAuth = (): JSX.Element => {
               type="submit"
               onClick={() => {
                 navigator.clipboard.writeText(signingString);
+                handleCopyMessage();
               }}
             >
               <UilCopy />
