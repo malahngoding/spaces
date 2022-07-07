@@ -1,6 +1,8 @@
 import { microService } from '@utils/service';
 
-export const getFlashCardRanking = async (): Promise<{
+// interface GetFlashCardRankingRequest {}
+
+interface GetFlashCardRankingResponse {
   data: {
     messages: string;
     status: string;
@@ -16,13 +18,18 @@ export const getFlashCardRanking = async (): Promise<{
       }[];
     };
   };
-}> => {
-  return await microService.get(`getFlashCardRanking`, {});
-};
+}
 
-export const getCurrentUserFlashCardStatus = async (
-  microsToken: string,
-): Promise<{
+export const getFlashCardRanking =
+  async (): Promise<GetFlashCardRankingResponse> => {
+    return await microService.get(`getFlashCardRanking`, {});
+  };
+
+interface GetCurrentUserFlashCardStatusRequest {
+  microsToken: string;
+}
+
+interface GetCurrentUserFlashCardStatusResponse {
   data: {
     messages: string;
     status: string;
@@ -40,20 +47,25 @@ export const getCurrentUserFlashCardStatus = async (
       };
     };
   };
-}> => {
+}
+
+export const getCurrentUserFlashCardStatus = async (
+  req: GetCurrentUserFlashCardStatusRequest,
+): Promise<GetCurrentUserFlashCardStatusResponse> => {
   return await microService.post(
     `getCurrentUserFlashCardStatus`,
     {},
     {
-      headers: { Authorization: `Bearer ${microsToken}` },
+      headers: { Authorization: `Bearer ${req.microsToken}` },
     },
   );
 };
 
-export const getCurrentFlashCardBlock = async (
-  microsToken: string,
-  hash: string,
-): Promise<{
+interface GetCurrentFlashCardBlockRequest {
+  microsToken: string;
+  hash: string;
+}
+interface GetCurrentFlashCardBlockResponse {
   data: {
     messages: string;
     status: string;
@@ -62,12 +74,16 @@ export const getCurrentFlashCardBlock = async (
       questions: any[];
     };
   };
-}> => {
+}
+
+export const getCurrentFlashCardBlock = async (
+  req: GetCurrentFlashCardBlockRequest,
+): Promise<GetCurrentFlashCardBlockResponse> => {
   return await microService.post(
     `getCurrentFlashCardBlock`,
-    { hash: hash },
+    { hash: req.hash },
     {
-      headers: { Authorization: `Bearer ${microsToken}` },
+      headers: { Authorization: `Bearer ${req.microsToken}` },
     },
   );
 };

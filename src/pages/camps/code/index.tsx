@@ -70,7 +70,7 @@ export async function getStaticProps({ locale }: GetStaticPropsContext) {
   const messages = await import(`../../../lang/${locale}.json`).then(
     (module) => module.default,
   );
-  const campsContent = await getCampsList(locale);
+  const campsContent = await getCampsList({ lang: locale || `` });
   return {
     props: {
       messages,

@@ -2,7 +2,7 @@ import { getSession } from 'next-auth/react';
 import { useTranslations } from 'next-intl';
 import dynamic from 'next/dynamic';
 
-import { AllCenterColumnBox } from '@components/design/box';
+import { AllCenterColumnBox, Box } from '@components/design/box';
 import { Title } from '@components/design/typography';
 import { Section } from '@components/design/section';
 import { BlankLayout } from '@layouts/blank';
@@ -25,7 +25,14 @@ export default function OnBoardingSecond(props: OnBoardingSecondProps) {
   const t = useTranslations(`OnBoarding`);
   return (
     <BlankLayout title={t(`secondMessage`)}>
-      <AllCenterColumnBox css={{ minHeight: `100vh` }}>
+      <AllCenterColumnBox
+        css={{
+          minHeight: `100vh`,
+          backgroundColor: `$slate1`,
+          justifyContent: `flex-start`,
+        }}
+      >
+        <Box as="img" src={`/static/images/homepage-globe.png`} alt="Global" />
         <Section css={{ marginBottom: `$lg` }}>
           <Title>{t(`secondMessage`)}</Title>
         </Section>

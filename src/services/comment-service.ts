@@ -2,9 +2,11 @@ import { getSession } from 'next-auth/react';
 
 import { filamentService } from '@utils/service';
 
-export const getAnsweredCommentByLang = async (
-  lang: string,
-): Promise<{
+interface GetAnsweredCommentByLangRequest {
+  lang: string;
+}
+
+interface GetAnsweredCommentByLangResponse {
   data: {
     messages: string;
     status: string;
@@ -18,16 +20,22 @@ export const getAnsweredCommentByLang = async (
       }[];
     };
   };
-}> => {
-  return await filamentService.get(`/api/comments?lang=${lang}`, {
+}
+
+export const getAnsweredCommentByLang = async (
+  req: GetAnsweredCommentByLangRequest,
+): Promise<GetAnsweredCommentByLangResponse> => {
+  return await filamentService.get(`/api/comments?lang=${req.lang}`, {
     headers: { Authorization: `Bearer instead_${process.env.INSTEAD_TOKEN}` },
   });
 };
 
-export const postComment = async (
-  message: string,
-  lang: string,
-): Promise<{
+interface PostCommentRequest {
+  message: string;
+  lang: string;
+}
+
+interface PostCommentResponse {
   data: {
     messages: string;
     status: string;
@@ -43,13 +51,17 @@ export const postComment = async (
       }[];
     };
   };
-}> => {
+}
+
+export const postComment = async (
+  req: PostCommentRequest,
+): Promise<PostCommentResponse> => {
   const session = await getSession();
   return await filamentService.post(
     `/api/comments/add`,
     {
-      message: message,
-      lang: lang,
+      message: req.message,
+      lang: req.lang,
     },
     {
       headers: { Authorization: `Bearer instead_${session?.filamentsToken}` },

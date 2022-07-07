@@ -1,9 +1,11 @@
 import { microService } from '@utils/service';
 import { getSession } from 'next-auth/react';
 
-export const getProfileDetails = async (
-  microsToken: string,
-): Promise<{
+interface GetProfileDetailsRequest {
+  microsToken: string;
+}
+
+interface GetProfileDetailsResponse {
   data: {
     messages: string;
     status: string;
@@ -15,23 +17,29 @@ export const getProfileDetails = async (
       fresh: boolean;
     };
   };
-}> => {
+}
+
+export const getProfileDetails = async (
+  req: GetProfileDetailsRequest,
+): Promise<GetProfileDetailsResponse> => {
   return await microService.post(
     `getProfileDetails`,
     {},
     {
-      headers: { Authorization: `Bearer ${microsToken}` },
+      headers: { Authorization: `Bearer ${req.microsToken}` },
     },
   );
 };
 
-export const updateProfileDetails = async (objkt: {
+interface UpdateProfileDetailsRequest {
   name: string;
   userName: string;
   avatar: string;
   bio: string;
   email: string;
-}): Promise<{
+}
+
+interface UpdateProfileDetailsResponse {
   data: {
     messages: string;
     status: string;
@@ -42,16 +50,20 @@ export const updateProfileDetails = async (objkt: {
       email: string;
     };
   };
-}> => {
+}
+
+export const updateProfileDetails = async (
+  req: UpdateProfileDetailsRequest,
+): Promise<UpdateProfileDetailsResponse> => {
   const session = await getSession();
   return await microService.post(
     `updateProfileDetails`,
     {
-      name: objkt.name,
-      email: objkt.email,
-      userName: objkt.userName,
-      avatar: objkt.avatar,
-      bio: objkt.bio,
+      name: req.name,
+      email: req.email,
+      userName: req.userName,
+      avatar: req.avatar,
+      bio: req.bio,
     },
     {
       headers: { Authorization: `Bearer ${session?.microsToken}` },
@@ -59,7 +71,9 @@ export const updateProfileDetails = async (objkt: {
   );
 };
 
-export const getProfileWallets = async (): Promise<{
+// interface GetProfileWalletsRequest {}
+
+interface GetProfileWalletsReponse {
   data: {
     messages: string;
     status: string;
@@ -67,9 +81,12 @@ export const getProfileWallets = async (): Promise<{
       wallets: string[];
     };
   };
-}> => {
-  const session = await getSession();
-  return await microService.get(`getProfileWallets`, {
-    headers: { Authorization: `Bearer ${session?.microsToken}` },
-  });
-};
+}
+
+export const getProfileWallets =
+  async (): Promise<GetProfileWalletsReponse> => {
+    const session = await getSession();
+    return await microService.get(`getProfileWallets`, {
+      headers: { Authorization: `Bearer ${session?.microsToken}` },
+    });
+  };

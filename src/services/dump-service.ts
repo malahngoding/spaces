@@ -1,6 +1,8 @@
 import { filamentService } from '@utils/service';
 
-export const dumpData = async (): Promise<{
+// interface DumpDataRequest {}
+
+interface DumpDataResponse {
   data: {
     messages: string;
     status: string;
@@ -8,6 +10,8 @@ export const dumpData = async (): Promise<{
       empty: boolean;
     };
   };
-}> => {
+}
+
+export const dumpData = async (): Promise<DumpDataResponse> => {
   return await filamentService.get(`api`, {});
 };

@@ -1,13 +1,22 @@
+/* 3rd Party Modules Import */
 import { useSession } from 'next-auth/react';
 import { useTranslations } from 'next-intl';
-
+/* Internal Modules Import */
 import { Heading, SubTitle } from '@components/design/typography';
 import { Box } from '@components/design/box';
+/* Types Import */
 
+/**  Props Declaration
+ * @private
+ */
 interface HeroProps {
   random: number;
 }
 
+/**
+ * Component Declaration
+ * @public
+ */
 export const Hero = (props: HeroProps): JSX.Element => {
   const { data: session, status } = useSession();
   const t = useTranslations(`Home`);

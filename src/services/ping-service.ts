@@ -1,18 +1,8 @@
 import { microService, filamentService } from '@utils/service';
 
-export const pingServiceMicros = async (): Promise<{
-  data: {
-    messages: string;
-    status: string;
-    payload: {
-      empty: boolean;
-    };
-  };
-}> => {
-  return await microService.get(``, {});
-};
+// interface PingServiceMicrosRequest {}
 
-export const pingServiceFilaments = async (): Promise<{
+interface PingServiceMicrosResponse {
   data: {
     messages: string;
     status: string;
@@ -20,6 +10,26 @@ export const pingServiceFilaments = async (): Promise<{
       empty: boolean;
     };
   };
-}> => {
-  return await filamentService.get(`api`, {});
-};
+}
+
+export const pingServiceMicros =
+  async (): Promise<PingServiceMicrosResponse> => {
+    return await microService.get(``, {});
+  };
+
+// interface PingServiceFilamentsRequest {}
+
+interface PingServiceFilamentsResponse {
+  data: {
+    messages: string;
+    status: string;
+    payload: {
+      empty: boolean;
+    };
+  };
+}
+
+export const pingServiceFilaments =
+  async (): Promise<PingServiceFilamentsResponse> => {
+    return await filamentService.get(`api`, {});
+  };

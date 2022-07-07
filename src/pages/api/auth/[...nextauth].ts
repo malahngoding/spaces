@@ -75,48 +75,49 @@ export default NextAuth({
           wallet = `HASHPACK`;
         }
 
-        const responseMicros = await issueMicrosToken(
-          credentials?.address.toString() || ``,
-          wallet,
-          profile?.name || credentials?.address.toString() || ``,
-          profile?.email ||
+        const responseMicros = await issueMicrosToken({
+          identification: credentials?.address.toString() || ``,
+          provider: wallet,
+          name: profile?.name || credentials?.address.toString() || ``,
+          email:
+            profile?.email ||
             `${credentials?.address.toString()}@malahngoding.com` ||
             ``,
-        );
-        const responseFilaments = await issueFilamentsToken(
-          credentials?.address.toString() || ``,
-          wallet,
-        );
+        });
+        const responseFilaments = await issueFilamentsToken({
+          identification: credentials?.address.toString() || ``,
+          provider: wallet,
+        });
         user.microsToken = responseMicros.data.payload.token;
         user.filamentsToken = responseFilaments.data.payload.token;
         return true;
       }
       if (account.provider === `github`) {
-        const responseMicros = await issueMicrosToken(
-          account.providerAccountId,
-          'GITHUB',
-          profile?.name || ``,
-          profile?.email || ``,
-        );
-        const responseFilaments = await issueFilamentsToken(
-          account.providerAccountId,
-          'GITHUB',
-        );
+        const responseMicros = await issueMicrosToken({
+          identification: account.providerAccountId,
+          provider: 'GITHUB',
+          name: profile?.name || ``,
+          email: profile?.email || ``,
+        });
+        const responseFilaments = await issueFilamentsToken({
+          identification: account.providerAccountId,
+          provider: 'GITHUB',
+        });
         user.microsToken = responseMicros.data.payload.token;
         user.filamentsToken = responseFilaments.data.payload.token;
         return true;
       }
       if (account.provider === `google`) {
-        const responseMicros = await issueMicrosToken(
-          account.providerAccountId,
-          'GOOGLE',
-          profile?.name || ``,
-          profile?.email || ``,
-        );
-        const responseFilaments = await issueFilamentsToken(
-          account.providerAccountId,
-          'GOOGLE',
-        );
+        const responseMicros = await issueMicrosToken({
+          identification: account.providerAccountId,
+          provider: 'GOOGLE',
+          name: profile?.name || ``,
+          email: profile?.email || ``,
+        });
+        const responseFilaments = await issueFilamentsToken({
+          identification: account.providerAccountId,
+          provider: 'GOOGLE',
+        });
         user.microsToken = responseMicros.data.payload.token;
         user.filamentsToken = responseFilaments.data.payload.token;
         return true;

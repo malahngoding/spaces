@@ -1,6 +1,10 @@
+/* 3rd Party Modules Import */
+/* Internal Modules Import */
 import { Box } from '@components/design/box';
 import { Heading, SubTitle } from '@components/design/typography';
+/* Types Import */
 
+/* Props Declaration */
 interface AltHeroProps {
   image: string;
   title: string;
@@ -8,7 +12,11 @@ interface AltHeroProps {
   height?: string;
 }
 
-export const AltHero = (props: AltHeroProps) => {
+/**
+ * Component Declaration
+ * @public
+ */
+export const AltHero = (props: AltHeroProps): JSX.Element => {
   return (
     <Box css={{ height: props.height || `520px`, position: `relative` }}>
       <Box
