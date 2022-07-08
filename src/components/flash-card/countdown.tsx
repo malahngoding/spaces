@@ -2,6 +2,7 @@
 import { useEffect } from 'react';
 /* Internal Modules Import */
 /* Types Import */
+import type { ReactElement } from 'react';
 /**
  * Internal Type Declaration
  * @private
@@ -18,7 +19,7 @@ interface CountdownTickerProps {
  * Component Declaration
  * @public
  */
-export const CountdownTicker = (props: CountdownTickerProps) => {
+export const CountdownTicker = (props: CountdownTickerProps): ReactElement => {
   useEffect(() => {
     if (!props.timeLeft) return;
     const intervalId = setInterval(() => {

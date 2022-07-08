@@ -1,4 +1,4 @@
-import { GetServerSidePropsContext } from 'next';
+import type { GetServerSidePropsContext } from 'next';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
@@ -211,7 +211,10 @@ const LocalBox = (props: LocalBoxProps) => {
     </Box>
   );
 };
-
+/**
+ * Next Page Server Code Declaration
+ * @public
+ */
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await getSession(context);
   const messages = await import(`../../../lang/${context.locale}.json`).then(

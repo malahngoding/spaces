@@ -6,6 +6,7 @@ import { Box } from '@components/design/box';
 import { Paragraph, Title } from '@components/design/typography';
 import { scaleUp } from '@components/design/animation';
 /* Types Import */
+import type { ReactElement } from 'react';
 /**
  * Internal Type Declaration
  * @private
@@ -26,7 +27,7 @@ export interface BlogCardProps {
  * Component Declaration
  * @public
  */
-export const BlogCard = (props: BlogCardProps) => {
+export const BlogCard = (props: BlogCardProps): ReactElement => {
   const { id, image, published, title, description, slug } = props;
   return (
     <Link href={`/learn/articles/${slug}`} passHref>

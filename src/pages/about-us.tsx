@@ -1,17 +1,29 @@
+/* 3rd Party Modules Import */
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote } from 'next-mdx-remote';
 import matter from 'gray-matter';
-
+/* Internal Modules Import */
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
 import { Caption, Heading, SubTitle } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
 import { Markdown, MarkdownWrapper } from '@components/markdown';
-
+/* Types Import */
 import type { GetStaticPropsContext } from 'next';
-
+/**
+ * Internal Type Declaration
+ * @private
+ */
+/**
+ * Next Laziefied Components Import
+ * @private
+ */
+/**
+ * Next Page Components Props Declaration
+ * @private
+ */
 interface AboutUsProps {
   source: any;
   frontMatter: {
@@ -21,7 +33,10 @@ interface AboutUsProps {
     publishedAt: string;
   };
 }
-
+/**
+ * Next Page Component Declaration
+ * @public
+ */
 export default function AboutUs(props: AboutUsProps) {
   const t = useTranslations(`Articles`);
 
@@ -56,7 +71,10 @@ export default function AboutUs(props: AboutUsProps) {
     </BaseLayout>
   );
 }
-
+/**
+ * Next Page Server Code Declaration
+ * @public
+ */
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   try {
     const response = await fetch(

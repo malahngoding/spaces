@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Box } from '@components/design/box';
 import { Paragraph, Title } from '@components/design/typography';
 /* Types Import */
+import type { ReactElement } from 'react';
 /**
  * Internal Type Declaration
  * @private
@@ -25,7 +26,7 @@ export interface CampsCardProps {
  * Component Declaration
  * @public
  */
-export const CampsCard = (props: CampsCardProps) => {
+export const CampsCard = (props: CampsCardProps): ReactElement => {
   const { id, image, courses, title, description, slug } = props;
   return (
     <Link href={`/camps/code/${courses}/${slug}`} passHref>

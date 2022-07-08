@@ -7,6 +7,7 @@ import { Button } from '@components/design/button';
 import { useFlashCard } from '@store/flash-card-store';
 import { CountdownTicker } from '@components/flash-card/countdown';
 /* Types Import */
+import type { ReactElement } from 'react';
 /**
  * Internal Type Declaration
  * @private
@@ -17,13 +18,11 @@ interface QuestionGroup {
   questionTag: string;
   QuestionDetail: QuestionDetail[];
 }
-
 interface QuestionDetail {
   questionGroupId: number;
   questionString: string;
   QuestionAnswer: QuestionAnswer[];
 }
-
 interface QuestionAnswer {
   order: number;
   answerString: string;
@@ -41,7 +40,7 @@ interface QuestionsSectionProps {
  * Component Declaration
  * @public
  */
-export const QuestionSection = (props: QuestionsSectionProps): JSX.Element => {
+export const QuestionSection = (props: QuestionsSectionProps): ReactElement => {
   const [timeLeft, setTimeLeft] = useState<number>(60);
   const router = useRouter();
 

@@ -16,6 +16,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { Button } from '@components/design/button';
 import { postComment } from '@services/comment-service';
 /* Types Import */
+import type { ReactElement } from 'react';
 /**
  * Internal Type Declaration
  * @private
@@ -31,7 +32,7 @@ interface DetailFormData {
  * Component Declaration
  * @public
  */
-export const AskDQuestions = (): JSX.Element => {
+export const AskDQuestions = (): ReactElement => {
   const [asked, setAsked] = useState<boolean>(false);
   const t = useTranslations(`Help`);
   const { data: session, status } = useSession();

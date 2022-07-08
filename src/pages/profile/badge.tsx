@@ -1,16 +1,28 @@
+/* 3rd Party Modules Import */
 import { getSession } from 'next-auth/react';
 import { useTranslations } from 'next-intl';
 import useSWR from 'swr';
-
+/* Internal Modules Import */
 import { ProfileLayout } from '@layouts/profile';
 import { Section } from '@components/design/section';
 import { Box } from '@components/design/box';
 import { BadgeCard } from '@components/cards/badge-card';
 import { getBadgeList } from '@services/badge-service';
 import { Paragraph } from '@components/design/typography';
-
+/* Types Import */
 import type { GetServerSidePropsContext } from 'next';
-
+/**
+ * Internal Type Declaration
+ * @private
+ */
+/**
+ * Next Laziefied Components Import
+ * @private
+ */
+/**
+ * Next Page Components Props Declaration
+ * @private
+ */
 interface ProfileProps {
   currentLocale: any;
   currentUser: {
@@ -21,7 +33,10 @@ interface ProfileProps {
     joinedSince: string;
   };
 }
-
+/**
+ * Next Page Component Declaration
+ * @public
+ */
 const fetcher = (url: string) => getBadgeList();
 
 export default function Badge(props: ProfileProps) {
@@ -74,7 +89,10 @@ export default function Badge(props: ProfileProps) {
     </ProfileLayout>
   );
 }
-
+/**
+ * Next Page Server Code Declaration
+ * @public
+ */
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await getSession(context);
   if (session === null) {

@@ -5,6 +5,7 @@ import { PlainButton } from '@components/design/button';
 import { Paragraph } from '@components/design/typography';
 import { Avatar, AvatarImage } from '@components/navigations/avatar';
 /* Types Import */
+import type { ReactElement } from 'react';
 /**
  * Internal Type Declaration
  * @private
@@ -23,7 +24,7 @@ interface RankCardProps {
  * Component Declaration
  * @public
  */
-export const RankCard = (props: RankCardProps) => {
+export const RankCard = (props: RankCardProps): ReactElement => {
   return (
     <Box
       css={{

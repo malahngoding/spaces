@@ -1,18 +1,22 @@
+/* 3rd Party Modules Import */
 import { getSession } from 'next-auth/react';
 import { useTranslations } from 'next-intl';
 import dynamic from 'next/dynamic';
-
+/* Internal Modules Import */
 import { AllCenterColumnBox, Box } from '@components/design/box';
 import { Title } from '@components/design/typography';
 import { Section } from '@components/design/section';
 import { BlankLayout } from '@layouts/blank';
-
+/* Types Import */
 import type { GetServerSidePropsContext } from 'next';
-
-interface OnBoardingSecondProps {
-  redirectionUrl: string;
-}
-
+/**
+ * Internal Type Declaration
+ * @private
+ */
+/**
+ * Next Laziefied Components Import
+ * @private
+ */
 const OnBoardingReasonLazy = dynamic(
   (): any =>
     import(`@components/forms/onboarding-reason`).then(
@@ -20,7 +24,17 @@ const OnBoardingReasonLazy = dynamic(
     ),
   { ssr: false },
 );
-
+/**
+ * Next Page Components Props Declaration
+ * @private
+ */
+interface OnBoardingSecondProps {
+  redirectionUrl: string;
+}
+/**
+ * Next Page Component Declaration
+ * @public
+ */
 export default function OnBoardingSecond(props: OnBoardingSecondProps) {
   const t = useTranslations(`OnBoarding`);
   return (
@@ -43,7 +57,10 @@ export default function OnBoardingSecond(props: OnBoardingSecondProps) {
     </BlankLayout>
   );
 }
-
+/**
+ * Next Page Server Code Declaration
+ * @public
+ */
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const redirectionUrl = context.query.redirect;
   const session = await getSession(context);

@@ -28,6 +28,7 @@ import { updateProfileDetails } from '@services/profile-service';
 import { Avatar, AvatarImage } from '@components/navigations/avatar';
 import { checkUserName, getCurrentUser } from '@services/user-service';
 /* Types Import */
+import type { ReactElement } from 'react';
 /**
  * Internal Type Declaration
  * @private
@@ -47,7 +48,7 @@ interface DetailFormData {
  * Component Declaration
  * @public
  */
-export const DetailsForm = (): JSX.Element => {
+export const DetailsForm = (): ReactElement => {
   const { data: session } = useSession();
   const t = useTranslations(`ProfileForm`);
 

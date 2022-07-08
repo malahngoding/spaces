@@ -2,6 +2,7 @@
 /* Internal Modules Import */
 import { Box } from '@components/design/box';
 /* Types Import */
+import type { ReactElement } from 'react';
 /**
  * Internal Type Declaration
  * @private
@@ -21,7 +22,7 @@ interface CryptoCardProps {
  * Component Declaration
  * @public
  */
-export const CryptoCard = (props: CryptoCardProps) => {
+export const CryptoCard = (props: CryptoCardProps): ReactElement => {
   return (
     <>
       <Box

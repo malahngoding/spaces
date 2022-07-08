@@ -4,6 +4,7 @@ import Link from 'next/link';
 /* Internal Modules Import */
 import { Box } from '@components/design/box';
 /* Types Import */
+import type { ReactElement } from 'react';
 /**
  * Internal Type Declaration
  * @private
@@ -22,7 +23,7 @@ interface ServiceCardProps {
  * Component Declaration
  * @public
  */
-export const ServiceCard = (props: ServiceCardProps) => {
+export const ServiceCard = (props: ServiceCardProps): ReactElement => {
   return (
     <Link href={props.url} passHref={true}>
       <Box

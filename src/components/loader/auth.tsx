@@ -9,6 +9,7 @@ import {
 } from '@components/design/alert';
 import { Box } from '@components/design/box';
 /* Types Import */
+import type { ReactElement } from 'react';
 /**
  * Internal Type Declaration
  * @private
@@ -21,7 +22,7 @@ import { Box } from '@components/design/box';
  * Component Declaration
  * @public
  */
-export const AuthLoader = (): JSX.Element => {
+export const AuthLoader = (): ReactElement => {
   const t = useTranslations(`MetamaskConnectLoader`);
 
   return (

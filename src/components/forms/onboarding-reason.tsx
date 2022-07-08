@@ -2,6 +2,7 @@
 /* Internal Modules Import */
 import { Box } from '@components/design/box';
 /* Types Import */
+import type { ReactElement } from 'react';
 /**
  * Internal Type Declaration
  * @private
@@ -14,7 +15,7 @@ import { Box } from '@components/design/box';
  * Component Declaration
  * @public
  */
-export const OnBoardingReason = (): JSX.Element => {
+export const OnBoardingReason = (): ReactElement => {
   return (
     <Box>
       <Box>OnBoardingReason</Box>

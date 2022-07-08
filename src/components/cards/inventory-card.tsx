@@ -4,6 +4,8 @@ import Image from 'next/image';
 import { Box } from '@components/design/box';
 import { Paragraph } from '@components/design/typography';
 /* Types Import */
+import type { ReactElement } from 'react';
+
 /**
  * Internal Type Declaration
  * @private
@@ -22,7 +24,7 @@ interface InventoryCardProps {
  * Component Declaration
  * @public
  */
-export const InventoryCard = (props: InventoryCardProps) => {
+export const InventoryCard = (props: InventoryCardProps): ReactElement => {
   return (
     <Box
       css={{

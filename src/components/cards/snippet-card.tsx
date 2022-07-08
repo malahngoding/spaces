@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Box } from '@components/design/box';
 import { Caption, Paragraph } from '@components/design/typography';
 /* Types Import */
+import type { ReactElement } from 'react';
 /**
  * Internal Type Declaration
  * @private
@@ -31,7 +32,7 @@ export interface SnippetCardProps {
  * Component Declaration
  * @public
  */
-export const SnippetCard = (props: SnippetCardProps) => {
+export const SnippetCard = (props: SnippetCardProps): ReactElement => {
   const { title, icon, tags, slug } = props;
   return (
     <Link href={`/learn/snippets/${slug}`} passHref>
