@@ -1,6 +1,7 @@
+/* 3rd Party Modules Import */
 import { useEffect } from 'react';
 import useSWR from 'swr';
-
+/* Internal Modules Import */
 import { Box } from '@components/design/box';
 import { Paragraph } from '@components/design/typography';
 import { useStatusStore } from '@store/status-store';
@@ -8,7 +9,15 @@ import {
   pingServiceFilaments,
   pingServiceMicros,
 } from '@services/ping-service';
-
+/* Types Import */
+/**
+ * Props Declaration
+ * @private
+ */
+/**
+ * Component Declaration
+ * @public
+ */
 export const ServiceChecker = () => {
   const isFilamentsUp = useStatusStore((state) => state.isFilamentsUp);
   const isMicrosUp = useStatusStore((state) => state.isMicrosUp);
@@ -62,3 +71,7 @@ export const ServiceChecker = () => {
     </Box>
   );
 };
+/**
+ * Internal Component Declaration
+ * @private
+ */

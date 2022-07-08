@@ -1,10 +1,44 @@
+/* 3rd Party Modules Import */
 import * as SwitchPrimitive from '@radix-ui/react-switch';
-
+/* Internal Modules Import */
 import { styled } from '@config/stitches.config';
 import { Box } from '@components/design/box';
 import { Paragraph } from '@components/design/typography';
 import { useCookiesPersist } from '@store/cookies-store';
-
+/* Types Import */
+/**
+ * Props Declaration
+ * @private
+ */
+/**
+ * Component Declaration
+ * @public
+ */
+export const Cookie = () => {
+  const cookies = useCookiesPersist((state) => state.cookies);
+  const toggleCookies = useCookiesPersist((state) => state.toggleCookies);
+  return (
+    <Box css={{ display: `flex`, flexDirection: `row` }}>
+      <StyledSwitch
+        checked={cookies}
+        css={{
+          '&:hover': {
+            cursor: `pointer`,
+          },
+        }}
+      >
+        <StyledThumb onClick={() => toggleCookies()} />
+      </StyledSwitch>
+      <Paragraph css={{ marginLeft: `$md` }}>
+        3rd party cookies usage is {cookies ? `enabled` : `disabled`}
+      </Paragraph>
+    </Box>
+  );
+};
+/**
+ * Internal Component Declaration
+ * @private
+ */
 const StyledSwitch = styled(SwitchPrimitive.Root, {
   all: 'unset',
   width: 42,
@@ -30,25 +64,3 @@ const StyledThumb = styled(SwitchPrimitive.Thumb, {
   willChange: 'transform',
   '&[data-state="checked"]': { transform: 'translateX(19px)' },
 });
-
-export const Cookie = () => {
-  const cookies = useCookiesPersist((state) => state.cookies);
-  const toggleCookies = useCookiesPersist((state) => state.toggleCookies);
-  return (
-    <Box css={{ display: `flex`, flexDirection: `row` }}>
-      <StyledSwitch
-        checked={cookies}
-        css={{
-          '&:hover': {
-            cursor: `pointer`,
-          },
-        }}
-      >
-        <StyledThumb onClick={() => toggleCookies()} />
-      </StyledSwitch>
-      <Paragraph css={{ marginLeft: `$md` }}>
-        3rd party cookies usage is {cookies ? `enabled` : `disabled`}
-      </Paragraph>
-    </Box>
-  );
-};

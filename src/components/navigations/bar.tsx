@@ -1,3 +1,4 @@
+/* 3rd Party Modules Import */
 import Link from 'next/link';
 import { useSession, signOut } from 'next-auth/react';
 import {
@@ -9,7 +10,7 @@ import {
 } from '@iconscout/react-unicons';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/router';
-
+/* Internal Modules Import */
 import { Button, PlainButton } from '@components/design/button';
 import { Nav } from '@components/design/nav';
 import { SubTitle } from '@components/design/typography';
@@ -20,11 +21,18 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@components/navigations/avatar';
-
+/* Types Import */
+/**
+ * Props Declaration
+ * @private
+ */
 interface NavigationBarProps {
   transparent?: boolean;
 }
-
+/**
+ * Component Declaration
+ * @public
+ */
 export const NavigationBar = (props: NavigationBarProps) => {
   const router = useRouter();
   const transparent = props.transparent ? props.transparent : false;
@@ -194,3 +202,7 @@ export const NavigationBar = (props: NavigationBarProps) => {
     </>
   );
 };
+/**
+ * Internal Component Declaration
+ * @private
+ */

@@ -78,7 +78,11 @@ export async function getStaticProps({ locale }: GetStaticPropsContext) {
   const messages = await import(`../../../lang/${locale}.json`).then(
     (module) => module.default,
   );
-  const response = await getArticles(10, 10, locale || 'id');
+  const response = await getArticles({
+    offset: 10,
+    limit: 10,
+    lang: locale || 'id',
+  });
   return {
     props: {
       messages,

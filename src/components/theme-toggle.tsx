@@ -1,7 +1,17 @@
+/* 3rd Party Modules Import */
 import { UilSun, UilMoon } from '@iconscout/react-unicons';
-import { SmallButton } from '@components/design/button';
 import { useTheme } from 'next-themes';
-
+/* Internal Modules Import */
+import { SmallButton } from '@components/design/button';
+/* Types Import */
+/**
+ * Props Declaration
+ * @private
+ */
+/**
+ * Component Declaration
+ * @public
+ */
 export const ThemeToggle = () => {
   const { theme, setTheme } = useTheme();
 
@@ -23,3 +33,7 @@ export const ThemeToggle = () => {
     </SmallButton>
   );
 };
+/**
+ * Internal Component Declaration
+ * @private
+ */

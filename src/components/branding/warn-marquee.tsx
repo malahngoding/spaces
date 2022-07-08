@@ -1,32 +1,24 @@
+/* 3rd Party Modules Import */
 import Marquee from 'react-fast-marquee';
 import { useTranslations } from 'next-intl';
-
+import { useState } from 'react';
+/* Internal Modules Import */
 import { Box } from '@components/design/box';
 import { Paragraph } from '@components/design/typography';
 import { useWarnMarquee } from '@store/marquee-store';
-
-import { ReactElement, useState } from 'react';
-
+/* Types Import */
+import type { ReactElement } from 'react';
+/**
+ * Props Declaration
+ * @private
+ */
 interface RunningTextProps {
   children: ReactElement | string;
 }
-
-const RunningText = (props: RunningTextProps): JSX.Element => {
-  return (
-    <Paragraph
-      css={{
-        fontFamily: `$mono`,
-        color: `$slate1`,
-        userSelect: `none`,
-        marginRight: `$xs`,
-        '&:hover': { cursor: `default` },
-      }}
-    >
-      {props.children}
-    </Paragraph>
-  );
-};
-
+/**
+ * Component Declaration
+ * @public
+ */
 export const WarnMarquee = (): JSX.Element => {
   const [hover, setHover] = useState<boolean>(false);
   const t = useTranslations(`Marquee`);
@@ -87,3 +79,26 @@ export const WarnMarquee = (): JSX.Element => {
     </Box>
   );
 };
+/**
+ * Internal Component Declaration
+ * @private
+ */
+const RunningText = (props: RunningTextProps): JSX.Element => {
+  return (
+    <Paragraph
+      css={{
+        fontFamily: `$mono`,
+        color: `$slate1`,
+        userSelect: `none`,
+        marginRight: `$xs`,
+        '&:hover': { cursor: `default` },
+      }}
+    >
+      {props.children}
+    </Paragraph>
+  );
+};
+/**
+ * Internal Component Declaration
+ * @private
+ */

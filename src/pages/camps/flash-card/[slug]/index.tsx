@@ -44,10 +44,10 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await getSession(context);
   const hash = context?.params?.slug as string;
   if (session) {
-    const flashCardBlockResponse = await getCurrentFlashCardBlock(
-      session.microsToken,
-      hash,
-    );
+    const flashCardBlockResponse = await getCurrentFlashCardBlock({
+      microsToken: session.microsToken,
+      hash: hash,
+    });
     return {
       props: {
         messages,

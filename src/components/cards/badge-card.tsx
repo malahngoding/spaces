@@ -1,12 +1,21 @@
+/* 3rd Party Modules Import */
+/* Internal Modules Import */
 import { Box } from '@components/design/box';
-
+/* Types Import */
+/**
+ * Props Declaration
+ * @private
+ */
 interface BadgeCardProps {
   title: string;
   media: string;
   type?: 'MOVING' | 'STILL';
   description: string;
 }
-
+/**
+ * Component Declaration
+ * @public
+ */
 export const BadgeCard = (props: BadgeCardProps) => {
   return (
     <>
@@ -76,3 +85,7 @@ export const BadgeCard = (props: BadgeCardProps) => {
     </>
   );
 };
+/**
+ * Internal Component Declaration
+ * @private
+ */

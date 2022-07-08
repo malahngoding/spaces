@@ -1,3 +1,14 @@
+/* 3rd Party Modules Import */
+/* Internal Modules Import */
+/* Types Import */
+/**
+ * Props Declaration
+ * @private
+ */
+/**
+ * Component Declaration
+ * @public
+ */
 export const OnboardingThird = (): JSX.Element => {
   return (
     <div>
@@ -5,3 +16,7 @@ export const OnboardingThird = (): JSX.Element => {
     </div>
   );
 };
+/**
+ * Internal Component Declaration
+ * @private
+ */

@@ -104,7 +104,7 @@ export async function getServerSideProps({
       (module) => module.default,
     );
 
-    const comments = await getAnsweredCommentByLang(locale || `id`);
+    const comments = await getAnsweredCommentByLang({ lang: locale || `id` });
 
     return {
       props: {

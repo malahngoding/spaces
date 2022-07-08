@@ -1,35 +1,25 @@
+/* 3rd Party Modules Import */
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-
+/* Internal Modules Import */
 import { Box } from '@components/design/box';
 import { Button } from '@components/design/button';
 import { useFlashCard } from '@store/flash-card-store';
 import { CountdownTicker } from '@components/flash-card/countdown';
-
-export interface QuestionGroup {
-  id: number;
-  groupName: string;
-  questionTag: string;
-  QuestionDetail: QuestionDetail[];
-}
-
-export interface QuestionDetail {
-  questionGroupId: number;
-  questionString: string;
-  QuestionAnswer: QuestionAnswer[];
-}
-
-export interface QuestionAnswer {
-  order: number;
-  answerString: string;
-  isCorrect: boolean;
-}
-
+/* Types Import */
+import type { QuestionGroup } from '@components/flash-card/types';
+/**
+ * Props Declaration
+ * @private
+ */
 interface QuestionsSectionProps {
   question: QuestionGroup;
   hash: string;
 }
-
+/**
+ * Component Declaration
+ * @public
+ */
 export const QuestionSection = (props: QuestionsSectionProps): JSX.Element => {
   const [timeLeft, setTimeLeft] = useState<number>(60);
   const router = useRouter();
@@ -111,3 +101,7 @@ export const QuestionSection = (props: QuestionsSectionProps): JSX.Element => {
     </>
   );
 };
+/**
+ * Internal Component Declaration
+ * @private
+ */

@@ -1,13 +1,22 @@
+/* 3rd Party Modules Import */
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
-
+/* Internal Modules Import */
 import { Section } from '@components/design/section';
 import { Title } from '@components/design/typography';
 import { Button } from '@components/design/button';
-
+/* Types Import */
+/**
+ * Props Declaration
+ * @private
+ */
+/**
+ * Component Declaration
+ * @public
+ */
 export const JoinUs = (): JSX.Element => {
   const { data: session, status } = useSession();
   const router = useRouter();
@@ -52,3 +61,7 @@ export const JoinUs = (): JSX.Element => {
     </>
   );
 };
+/**
+ * Internal Component Declaration
+ * @private
+ */

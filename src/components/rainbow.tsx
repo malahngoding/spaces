@@ -1,5 +1,5 @@
+/* 3rd Party Modules Import */
 import '@rainbow-me/rainbowkit/styles.css';
-
 import {
   getDefaultWallets,
   RainbowKitProvider,
@@ -10,25 +10,18 @@ import {
 import { chain, configureChains, createClient, WagmiConfig } from 'wagmi';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { useTheme } from 'next-themes';
-
+/* Internal Modules Import */
 import { Button } from '@components/design/button';
 import { Box } from '@components/design/box';
-
-const alchemyId = process.env.NEXT_PUBLIC_ALCHEMY_ID;
-const { chains, provider } = configureChains(
-  [chain.polygon, chain.polygonMumbai],
-  [alchemyProvider({ alchemyId })],
-);
-const { connectors } = getDefaultWallets({
-  appName: 'Malah Ngoding',
-  chains,
-});
-const wagmiClient = createClient({
-  autoConnect: true,
-  connectors,
-  provider,
-});
-
+/* Types Import */
+/**
+ * Props Declaration
+ * @private
+ */
+/**
+ * Component Declaration
+ * @public
+ */
 export const Rainbow = (): JSX.Element => {
   const { theme } = useTheme();
   return (
@@ -129,3 +122,21 @@ export const Rainbow = (): JSX.Element => {
     </WagmiConfig>
   );
 };
+/**
+ * Internal Component Declaration
+ * @private
+ */
+const alchemyId = process.env.NEXT_PUBLIC_ALCHEMY_ID;
+const { chains, provider } = configureChains(
+  [chain.polygon, chain.polygonMumbai],
+  [alchemyProvider({ alchemyId })],
+);
+const { connectors } = getDefaultWallets({
+  appName: 'Malah Ngoding',
+  chains,
+});
+const wagmiClient = createClient({
+  autoConnect: true,
+  connectors,
+  provider,
+});

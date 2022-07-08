@@ -1,9 +1,14 @@
+/* 3rd Party Modules Import */
 import Image from 'next/image';
 import Link from 'next/link';
-
+/* Internal Modules Import */
 import { Box } from '@components/design/box';
-import { Paragraph, SubTitle, Title } from '@components/design/typography';
-
+import { Paragraph, Title } from '@components/design/typography';
+/* Types Import */
+/**
+ * Props Declaration
+ * @private
+ */
 export interface CampsCardProps {
   id: number;
   image: string;
@@ -12,7 +17,10 @@ export interface CampsCardProps {
   courses: string;
   slug: string;
 }
-
+/**
+ * Component Declaration
+ * @public
+ */
 export const CampsCard = (props: CampsCardProps) => {
   const { id, image, courses, title, description, slug } = props;
   return (
@@ -68,3 +76,7 @@ export const CampsCard = (props: CampsCardProps) => {
     </Link>
   );
 };
+/**
+ * Internal Component Declaration
+ * @private
+ */

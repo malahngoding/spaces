@@ -9,6 +9,11 @@ const nextConfig = {
     defaultLocale: 'id',
     localeDetection: false,
   },
+  compiler: {
+    removeConsole: {
+      exclude: ['log'],
+    },
+  },
   async headers() {
     return [
       {

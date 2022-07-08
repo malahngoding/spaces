@@ -1,42 +1,26 @@
+/* 3rd Party Modules Import */
 import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
 import { useTranslations } from 'next-intl';
-
+/* Internal Modules Import */
 import { Button } from '@components/design/button';
 import { SubTitle } from '@components/design/typography';
 import { Box } from '@components/design/box';
 import { styled } from '@config/stitches.config';
 import { useDashNav } from '@store/navigation-store';
 import { useSession } from 'next-auth/react';
-
-const NavigationCard = styled(`div`, {
-  position: `fixed`,
-  left: `0px`,
-  top: `0`,
-  width: `calc(100% - 0px)`,
-  height: `100vh`,
-  zIndex: `100000`,
-  background: `rgba(253, 252, 253, 0.69)`,
-  backdropFilter: `blur(9px)`,
-  webkitBackdropFilter: `blur(9px)`,
-  display: `flex`,
-  flexDirection: `row`,
-  justifyContent: `flex-start`,
-  alignItems: `center`,
-  '@sm': {
-    left: `100px`,
-    width: `calc(100% - 100px)`,
-  },
-  '@lg': {
-    left: `140px`,
-    width: `calc(100% - 140px)`,
-  },
-});
-
+/* Types Import */
+/**
+ * Props Declaration
+ * @private
+ */
 interface NavigationSheetsProps {
   toggleLocked: () => void;
 }
-
+/**
+ * Component Declaration
+ * @public
+ */
 export const NavigationSheets = (props: NavigationSheetsProps) => {
   const { data: session, status } = useSession();
 
@@ -183,3 +167,30 @@ export const NavigationSheets = (props: NavigationSheetsProps) => {
     </>
   );
 };
+/**
+ * Internal Component Declaration
+ * @private
+ */
+const NavigationCard = styled(`div`, {
+  position: `fixed`,
+  left: `0px`,
+  top: `0`,
+  width: `calc(100% - 0px)`,
+  height: `100vh`,
+  zIndex: `100000`,
+  background: `rgba(253, 252, 253, 0.69)`,
+  backdropFilter: `blur(9px)`,
+  webkitBackdropFilter: `blur(9px)`,
+  display: `flex`,
+  flexDirection: `row`,
+  justifyContent: `flex-start`,
+  alignItems: `center`,
+  '@sm': {
+    left: `100px`,
+    width: `calc(100% - 100px)`,
+  },
+  '@lg': {
+    left: `140px`,
+    width: `calc(100% - 140px)`,
+  },
+});

@@ -1,5 +1,11 @@
+/* 3rd Party Modules Import */
+/* Internal Modules Import */
 import { Box } from '@components/design/box';
-
+/* Types Import */
+/**
+ * Props Declaration
+ * @private
+ */
 interface CryptoCardProps {
   mnt: string;
   gas: string;
@@ -7,7 +13,10 @@ interface CryptoCardProps {
   image: string;
   description: string;
 }
-
+/**
+ * Component Declaration
+ * @public
+ */
 export const CryptoCard = (props: CryptoCardProps) => {
   return (
     <>
@@ -81,3 +90,7 @@ export const CryptoCard = (props: CryptoCardProps) => {
     </>
   );
 };
+/**
+ * Internal Component Declaration
+ * @private
+ */

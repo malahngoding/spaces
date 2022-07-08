@@ -1,4 +1,6 @@
+/* 3rd Party Modules Import */
 import Image from 'next/image';
+/* Internal Modules Import */
 import { Box } from '@components/design/box';
 import {
   Heading,
@@ -9,7 +11,19 @@ import {
   Caption,
   Paragraph,
 } from '@components/design/typography';
-
+/* Types Import */
+/**
+ * Props Declaration
+ * @private
+ */
+/**
+ * Component Declaration
+ * @public
+ */
+/**
+ * Internal Component Declaration
+ * @private
+ */
 const MdxHeading = (props: any) => {
   return (
     <>

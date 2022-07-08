@@ -1,7 +1,17 @@
+/* 3rd Party Modules Import */
 import Script from 'next/script';
-
+/* Internal Modules Import */
 import { Box } from '@components/design/box';
-
+/* Internal Modules Import */
+/* Types Import */
+/**
+ * Props Declaration
+ * @private
+ */
+/**
+ * Component Declaration
+ * @public
+ */
 const TView = () => {
   return (
     <Box>
@@ -35,3 +45,7 @@ const TView = () => {
 };
 
 export default TView;
+/**
+ * Internal Component Declaration
+ * @private
+ */

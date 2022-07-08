@@ -1,8 +1,9 @@
+/* 3rd Party Modules Import */
 import Link from 'next/link';
 import Image from 'next/image';
 import { UilBars, UilMultiply } from '@iconscout/react-unicons';
 import { useLockBodyScroll, useToggle } from 'react-use';
-
+/* Internal Modules Import */
 import { styled } from '@config/stitches.config';
 import { Button } from '@components/design/button';
 import { useDashNav } from '@store/navigation-store';
@@ -10,7 +11,77 @@ import { useAppStore } from '@store/app-store';
 import { NavigationSheets } from '@components/navigations/sheets';
 import { ServiceChecker } from '@components/service-checker';
 import { Box } from '@components/design/box';
+/* Types Import */
+/**
+ * Props Declaration
+ * @private
+ */
+/**
+ * Component Declaration
+ * @public
+ */
+export const SideNavigation = () => {
+  const [locked, toggleLocked] = useToggle(false);
 
+  const shown = useDashNav((state) => state.shown);
+  const spacesVersion = useAppStore((state) => state.spacesVersion);
+  const toggleNav = useDashNav((state) => state.toggleNav);
+
+  const handleNavigation = (): void => {
+    toggleLocked();
+    toggleNav();
+  };
+
+  useLockBodyScroll(locked);
+
+  const status = `Malah Ngoding Spaces v.${spacesVersion}`;
+  return (
+    <>
+      <SideNav>
+        <NavWrapper>
+          <Menu>
+            <Link href="/" passHref>
+              <Box as="a">
+                <Image
+                  alt="Malah Ngoding Logo"
+                  src="/static/favicons/android-chrome-96x96.png"
+                  height="64px"
+                  width="64px"
+                  priority={true}
+                />
+              </Box>
+            </Link>
+          </Menu>
+          <Menu>
+            <Button
+              alternative="ghost"
+              type="button"
+              onClick={handleNavigation}
+              css={{
+                '@sm': {
+                  width: `100%`,
+                  height: `100%`,
+                },
+              }}
+              aria-label="Menu Button Toggle"
+            >
+              {shown ? <UilMultiply /> : <UilBars />}
+            </Button>
+          </Menu>
+        </NavWrapper>
+      </SideNav>
+      <VersionTag>
+        <ServiceChecker />
+        {status}
+      </VersionTag>
+      {shown ? <NavigationSheets toggleLocked={toggleLocked} /> : <></>}
+    </>
+  );
+};
+/**
+ * Internal Component Declaration
+ * @private
+ */
 const SideNav = styled(`div`, {
   borderRight: `0`,
   borderBottom: `1px solid $slate6`,
@@ -90,62 +161,3 @@ const VersionTag = styled(`div`, {
     transform: `rotate(90deg) translateX(-120px) translateY(29px)`,
   },
 });
-
-export const SideNavigation = () => {
-  const [locked, toggleLocked] = useToggle(false);
-
-  const shown = useDashNav((state) => state.shown);
-  const spacesVersion = useAppStore((state) => state.spacesVersion);
-  const toggleNav = useDashNav((state) => state.toggleNav);
-
-  const handleNavigation = (): void => {
-    toggleLocked();
-    toggleNav();
-  };
-
-  useLockBodyScroll(locked);
-
-  const status = `Malah Ngoding Spaces v.${spacesVersion}`;
-  return (
-    <>
-      <SideNav>
-        <NavWrapper>
-          <Menu>
-            <Link href="/" passHref>
-              <Box as="a">
-                <Image
-                  alt="Malah Ngoding Logo"
-                  src="/static/favicons/android-chrome-96x96.png"
-                  height="64px"
-                  width="64px"
-                  priority={true}
-                />
-              </Box>
-            </Link>
-          </Menu>
-          <Menu>
-            <Button
-              alternative="ghost"
-              type="button"
-              onClick={handleNavigation}
-              css={{
-                '@sm': {
-                  width: `100%`,
-                  height: `100%`,
-                },
-              }}
-              aria-label="Menu Button Toggle"
-            >
-              {shown ? <UilMultiply /> : <UilBars />}
-            </Button>
-          </Menu>
-        </NavWrapper>
-      </SideNav>
-      <VersionTag>
-        <ServiceChecker />
-        {status}
-      </VersionTag>
-      {shown ? <NavigationSheets toggleLocked={toggleLocked} /> : <></>}
-    </>
-  );
-};

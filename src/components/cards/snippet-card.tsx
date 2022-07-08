@@ -1,10 +1,14 @@
+/* 3rd Party Modules Import */
 import Image from 'next/image';
 import Link from 'next/link';
-
+/* Internal Modules Import */
 import { Box } from '@components/design/box';
 import { Caption, Paragraph } from '@components/design/typography';
-import { keyframes } from '@config/stitches.config';
-
+/* Types Import */
+/**
+ * Props Declaration
+ * @private
+ */
 export interface SnippetCardProps {
   title: string;
   icon:
@@ -19,28 +23,10 @@ export interface SnippetCardProps {
   tags: string[];
   slug: string;
 }
-
-const getBackgroundColor = (icon: string): string => {
-  switch (icon) {
-    case 'javascript':
-      return `$sweet5`;
-    case 'golang':
-      return `$sweet12`;
-    case 'css':
-      return `$sweet3`;
-    case 'solidity':
-      return `$sweet14`;
-    case 'php':
-      return `$sweet11`;
-    case 'bash':
-      return `$sweet7`;
-    case 'typescript':
-      return `$sweet10`;
-    default:
-      return `$sweet13`;
-  }
-};
-
+/**
+ * Component Declaration
+ * @public
+ */
 export const SnippetCard = (props: SnippetCardProps) => {
   const { title, icon, tags, slug } = props;
   return (
@@ -117,4 +103,28 @@ export const SnippetCard = (props: SnippetCardProps) => {
       </Box>
     </Link>
   );
+};
+/**
+ * Internal Component Declaration
+ * @private
+ */
+const getBackgroundColor = (icon: string): string => {
+  switch (icon) {
+    case 'javascript':
+      return `$sweet5`;
+    case 'golang':
+      return `$sweet12`;
+    case 'css':
+      return `$sweet3`;
+    case 'solidity':
+      return `$sweet14`;
+    case 'php':
+      return `$sweet11`;
+    case 'bash':
+      return `$sweet7`;
+    case 'typescript':
+      return `$sweet10`;
+    default:
+      return `$sweet13`;
+  }
 };

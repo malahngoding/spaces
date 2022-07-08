@@ -1,7 +1,8 @@
+/* 3rd Party Modules Import */
 import { useTranslations } from 'next-intl';
 import { useSession } from 'next-auth/react';
 import { useState } from 'react';
-
+/* Internal Modules Import */
 import { Box } from '@components/design/box';
 import { SubTitle } from '@components/design/typography';
 import { AuthenticationBlock } from '@components/authentication-block';
@@ -14,11 +15,18 @@ import {
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { Button } from '@components/design/button';
 import { postComment } from '@services/comment-service';
-
+/* Types Import */
+/**
+ * Props Declaration
+ * @private
+ */
 interface DetailFormData {
   question: string;
 }
-
+/**
+ * Component Declaration
+ * @public
+ */
 export const AskDQuestions = (): JSX.Element => {
   const [asked, setAsked] = useState<boolean>(false);
   const t = useTranslations(`Help`);
@@ -37,7 +45,7 @@ export const AskDQuestions = (): JSX.Element => {
 
   const onSubmit: SubmitHandler<DetailFormData> = async (data) => {
     try {
-      await postComment(data.question, `id`);
+      await postComment({ message: data.question, lang: `id` });
       setAsked(true);
     } catch (error) {
       console.error(error);
@@ -89,3 +97,7 @@ export const AskDQuestions = (): JSX.Element => {
     </Box>
   );
 };
+/**
+ * Internal Component Declaration
+ * @private
+ */

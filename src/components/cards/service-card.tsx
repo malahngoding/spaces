@@ -1,15 +1,23 @@
+/* 3rd Party Modules Import */
 import Image from 'next/image';
 import Link from 'next/link';
-
+/* Internal Modules Import */
 import { Box } from '@components/design/box';
-
+/* Types Import */
+/**
+ * Props Declaration
+ * @private
+ */
 interface ServiceCardProps {
   title: string;
   image: string;
   description: string;
   url: string;
 }
-
+/**
+ * Component Declaration
+ * @public
+ */
 export const ServiceCard = (props: ServiceCardProps) => {
   return (
     <Link href={props.url} passHref={true}>
@@ -69,3 +77,7 @@ export const ServiceCard = (props: ServiceCardProps) => {
     </Link>
   );
 };
+/**
+ * Internal Component Declaration
+ * @private
+ */

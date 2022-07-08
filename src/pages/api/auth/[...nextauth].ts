@@ -133,7 +133,9 @@ export default NextAuth({
       session.filamentsToken = token.filamentsToken as string;
       session.microsToken = token.microsToken as string;
       session.user = undefined;
-      const currentUser = await getProfileDetails(session?.microsToken || ``);
+      const currentUser = await getProfileDetails({
+        microsToken: session?.microsToken || ``,
+      });
       session.currentUser = currentUser.data.payload;
       session.fresh = currentUser.data.payload.fresh;
       return session;

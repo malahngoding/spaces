@@ -3,15 +3,16 @@
 import { Box } from '@components/design/box';
 import { Heading, SubTitle } from '@components/design/typography';
 /* Types Import */
-
-/* Props Declaration */
+/**
+ * Props Declaration
+ * @private
+ */
 interface AltHeroProps {
   image: string;
   title: string;
   description: string;
   height?: string;
 }
-
 /**
  * Component Declaration
  * @public
@@ -54,3 +55,7 @@ export const AltHero = (props: AltHeroProps): JSX.Element => {
     </Box>
   );
 };
+/**
+ * Internal Component Declaration
+ * @private
+ */

@@ -1,10 +1,11 @@
+/* 3rd Party Modules Import */
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { useDebounce } from 'react-use';
 import useSWR from 'swr';
-
+/* Internal Modules Import */
 import {
   InputGroup,
   InputHelperText,
@@ -26,7 +27,7 @@ import {
 import { updateProfileDetails } from '@services/profile-service';
 import { Avatar, AvatarImage } from '@components/navigations/avatar';
 import { checkUserName, getCurrentUser } from '@services/user-service';
-
+/* Types Import */
 interface DetailFormData {
   name: string;
   userName: string;
@@ -34,7 +35,14 @@ interface DetailFormData {
   bio: string;
   email: string;
 }
-
+/**
+ * Props Declaration
+ * @private
+ */
+/**
+ * Component Declaration
+ * @public
+ */
 export const DetailsForm = (): JSX.Element => {
   const { data: session } = useSession();
   const t = useTranslations(`ProfileForm`);
@@ -116,7 +124,7 @@ export const DetailsForm = (): JSX.Element => {
 
   useEffect(() => {
     const isUserNameAvailable = async (value: string): Promise<void> => {
-      const response = await checkUserName(value);
+      const response = await checkUserName({ userName: value });
       if (response.data.payload.available) {
         clearErrors(`userName`);
       } else if (defaultUserName === debouncedValue) {
@@ -244,3 +252,7 @@ export const DetailsForm = (): JSX.Element => {
     </>
   );
 };
+/**
+ * Internal Component Declaration
+ * @private
+ */

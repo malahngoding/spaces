@@ -1,17 +1,27 @@
+/* 3rd Party Modules Import */
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useTranslations } from 'next-intl';
-
+/* Internal Modules Import */
 import { Section } from '@components/design/section';
 import { Paragraph } from '@components/design/typography';
 import { Button } from '@components/design/button';
 import { Box } from '@components/design/box';
-
+/* Types Import */
+/**
+ * Props Declaration
+ * @private
+ */
 interface AuthenticationBlockProps {
   currentSession: any;
   children: any;
 }
+/**
+ * Component Declaration
+ * @public
+ */
 export const AuthenticationBlock = (props: AuthenticationBlockProps) => {
   const router = useRouter();
   const t = useTranslations(`AuthBlock`);
@@ -58,3 +68,7 @@ export const AuthenticationBlock = (props: AuthenticationBlockProps) => {
     </>
   );
 };
+/**
+ * Internal Component Declaration
+ * @private
+ */

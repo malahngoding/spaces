@@ -1,10 +1,11 @@
+/* 3rd Party Modules Import */
 import Image from 'next/image';
 import { HashConnect, HashConnectTypes } from 'hashconnect';
 import { useEffect, useState } from 'react';
 import { UilCopy } from '@iconscout/react-unicons';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/router';
-
+/* Internal Modules Import */
 import { Button } from '@components/design/button';
 import { Box } from '@components/design/box';
 import {
@@ -18,7 +19,15 @@ import {
 import { InputText } from '@components/design/input';
 import { Paragraph } from '@components/design/typography';
 import { callbackUrlHandler } from '@utils/urlHandler';
-
+/* Types Import */
+/**
+ * Props Declaration
+ * @private
+ */
+/**
+ * Component Declaration
+ * @public
+ */
 export const HashpackAuth = (): JSX.Element => {
   const router = useRouter();
   const [signingString, setSigningString] = useState<string>('');
@@ -138,3 +147,7 @@ export const HashpackAuth = (): JSX.Element => {
     </>
   );
 };
+/**
+ * Internal Component Declaration
+ * @private
+ */

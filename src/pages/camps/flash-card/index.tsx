@@ -219,9 +219,9 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   );
   const rankListResponse = await getFlashCardRanking();
   if (session) {
-    const flashCardStatsResponse = await getCurrentUserFlashCardStatus(
-      session.microsToken,
-    );
+    const flashCardStatsResponse = await getCurrentUserFlashCardStatus({
+      microsToken: session.microsToken,
+    });
     return {
       props: {
         rankList: rankListResponse.data.payload.rankings,

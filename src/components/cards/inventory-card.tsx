@@ -1,15 +1,23 @@
+/* 3rd Party Modules Import */
 import Image from 'next/image';
-
+/* Internal Modules Import */
 import { Box } from '@components/design/box';
 import { Paragraph } from '@components/design/typography';
-
+/* Types Import */
+/**
+ * Props Declaration
+ * @private
+ */
 interface InventoryCardProps {
   colors: string;
   magicItem: string;
   description: string;
   image: string;
 }
-
+/**
+ * Component Declaration
+ * @public
+ */
 export const InventoryCard = (props: InventoryCardProps) => {
   return (
     <Box
@@ -50,3 +58,7 @@ export const InventoryCard = (props: InventoryCardProps) => {
     </Box>
   );
 };
+/**
+ * Internal Component Declaration
+ * @private
+ */

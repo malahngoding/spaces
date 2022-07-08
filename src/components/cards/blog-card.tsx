@@ -1,10 +1,15 @@
+/* 3rd Party Modules Import */
 import Image from 'next/image';
 import Link from 'next/link';
-
+/* Internal Modules Import */
 import { Box } from '@components/design/box';
 import { Paragraph, Title } from '@components/design/typography';
-import { keyframes } from '@config/stitches.config';
-
+import { scaleUp } from '@components/design/animation';
+/* Types Import */
+/**
+ * Props Declaration
+ * @private
+ */
 export interface BlogCardProps {
   id: number;
   image: string;
@@ -13,12 +18,10 @@ export interface BlogCardProps {
   description: string;
   slug: string;
 }
-
-const scaleUp = keyframes({
-  '0%': { transform: 'translateY(0px)', background: `none` },
-  '100%': { transform: 'translateY(-4px)', background: `$slate2` },
-});
-
+/**
+ * Component Declaration
+ * @public
+ */
 export const BlogCard = (props: BlogCardProps) => {
   const { id, image, published, title, description, slug } = props;
   return (
@@ -82,3 +85,7 @@ export const BlogCard = (props: BlogCardProps) => {
     </Link>
   );
 };
+/**
+ * Internal Component Declaration
+ * @private
+ */

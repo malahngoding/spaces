@@ -1,15 +1,24 @@
+/* 3rd Party Modules Import */
+/* Internal Modules Import */
 import { Box } from '@components/design/box';
 import { PlainButton } from '@components/design/button';
 import { Paragraph } from '@components/design/typography';
 import { Avatar, AvatarImage } from '@components/navigations/avatar';
-
+/* Types Import */
+/**
+ * Props Declaration
+ * @private
+ */
 interface RankCardProps {
   rank: number;
   userName: string;
   avatar: string;
   score: string;
 }
-
+/**
+ * Component Declaration
+ * @public
+ */
 export const RankCard = (props: RankCardProps) => {
   return (
     <Box
@@ -43,3 +52,7 @@ export const RankCard = (props: RankCardProps) => {
     </Box>
   );
 };
+/**
+ * Internal Component Declaration
+ * @private
+ */

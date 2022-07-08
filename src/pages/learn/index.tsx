@@ -127,8 +127,16 @@ export async function getStaticProps({ locale }: GetStaticPropsContext) {
     (module) => module.default,
   );
   // TODO: Try Catch
-  const articleResults = await getArticles(0, 3, locale || 'id');
-  const snippetResults = await getSnippets(0, 3, locale || 'id');
+  const articleResults = await getArticles({
+    offset: 0,
+    limit: 3,
+    lang: locale || 'id',
+  });
+  const snippetResults = await getSnippets({
+    offset: 0,
+    limit: 3,
+    lang: locale || 'id',
+  });
 
   return {
     props: {
