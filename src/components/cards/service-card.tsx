@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Box } from '@components/design/box';
 /* Types Import */
 /**
- * Props Declaration
+ * Component Props Declaration
  * @private
  */
 interface ServiceCardProps {

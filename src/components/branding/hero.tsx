@@ -4,8 +4,13 @@ import { useTranslations } from 'next-intl';
 import { Heading, SubTitle } from '@components/design/typography';
 import { Box } from '@components/design/box';
 /* Types Import */
+import type { ReactElement } from 'react';
 /**
- * Props Declaration
+ * Internal Types Declaration
+ * @private
+ */
+/**
+ * Component Props Declaration
  * @private
  */
 interface HeroProps {
@@ -15,7 +20,7 @@ interface HeroProps {
  * Component Declaration
  * @public
  */
-export const Hero = (props: HeroProps): JSX.Element => {
+export const Hero = (props: HeroProps): ReactElement => {
   const t = useTranslations(`Home`);
 
   const altImage = [

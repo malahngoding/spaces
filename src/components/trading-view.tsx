@@ -5,7 +5,7 @@ import { Box } from '@components/design/box';
 /* Internal Modules Import */
 /* Types Import */
 /**
- * Props Declaration
+ * Component Props Declaration
  * @private
  */
 /**

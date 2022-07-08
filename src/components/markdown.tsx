@@ -13,7 +13,7 @@ import {
 } from '@components/design/typography';
 /* Types Import */
 /**
- * Props Declaration
+ * Component Props Declaration
  * @private
  */
 /**

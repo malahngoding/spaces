@@ -7,7 +7,7 @@ import { Paragraph } from '@components/design/typography';
 import { useCookiesPersist } from '@store/cookies-store';
 /* Types Import */
 /**
- * Props Declaration
+ * Component Props Declaration
  * @private
  */
 /**

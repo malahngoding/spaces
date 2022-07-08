@@ -23,7 +23,7 @@ import {
 } from '@components/navigations/avatar';
 /* Types Import */
 /**
- * Props Declaration
+ * Component Props Declaration
  * @private
  */
 interface NavigationBarProps {

@@ -13,7 +13,7 @@ import { ServiceChecker } from '@components/service-checker';
 import { Box } from '@components/design/box';
 /* Types Import */
 /**
- * Props Declaration
+ * Component Props Declaration
  * @private
  */
 /**

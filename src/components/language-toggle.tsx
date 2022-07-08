@@ -5,7 +5,7 @@ import { SmallButton } from '@components/design/button';
 import { Box } from '@components/design/box';
 /* Types Import */
 /**
- * Props Declaration
+ * Component Props Declaration
  * @private
  */
 /**

@@ -11,7 +11,7 @@ import { useAuthLoading } from '@store/auth-loading-store';
 import { callbackUrlHandler } from '@utils/urlHandler';
 /* Types Import */
 /**
- * Props Declaration
+ * Component Props Declaration
  * @private
  */
 /**

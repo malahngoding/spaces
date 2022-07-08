@@ -12,7 +12,7 @@ import { useAppStore } from '@store/app-store';
 import { NavigationSheets } from '@components/navigations/sheets';
 /* Types Import */
 /**
- * Props Declaration
+ * Component Props Declaration
  * @private
  */
 /**

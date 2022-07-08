@@ -6,7 +6,7 @@ import { Box } from '@components/design/box';
 import { Caption, Paragraph } from '@components/design/typography';
 /* Types Import */
 /**
- * Props Declaration
+ * Component Props Declaration
  * @private
  */
 export interface SnippetCardProps {

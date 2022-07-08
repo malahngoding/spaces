@@ -14,7 +14,7 @@ import {
 } from '@config/contractAddress';
 /* Types Import */
 /**
- * Props Declaration
+ * Component Props Declaration
  * @private
  */
 /**

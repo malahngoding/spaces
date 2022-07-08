@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 /* Internal Modules Import */
 /* Types Import */
 /**
- * Props Declaration
+ * Component Props Declaration
  * @private
  */
 interface CountdownTickerProps {

@@ -9,7 +9,7 @@ import { CountdownTicker } from '@components/flash-card/countdown';
 /* Types Import */
 import type { QuestionGroup } from '@components/flash-card/types';
 /**
- * Props Declaration
+ * Component Props Declaration
  * @private
  */
 interface QuestionsSectionProps {

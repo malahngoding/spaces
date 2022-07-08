@@ -7,7 +7,7 @@ import { PlainButton } from '@components/design/button';
 import { Avatar, AvatarImage } from '@components/navigations/avatar';
 /* Types Import */
 /**
- * Props Declaration
+ * Component Props Declaration
  * @private
  */
 interface PeekProfileProps {}

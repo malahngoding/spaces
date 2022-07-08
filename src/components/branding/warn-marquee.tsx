@@ -9,6 +9,10 @@ import { useWarnMarquee } from '@store/marquee-store';
 /* Types Import */
 import type { ReactElement } from 'react';
 /**
+ * Internal Type Declaration
+ * @private
+ */
+/**
  * Props Declaration
  * @private
  */

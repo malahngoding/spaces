@@ -5,7 +5,7 @@ import { SmallButton } from '@components/design/button';
 import { useWarnMarquee } from '@store/marquee-store';
 /* Types Import */
 /**
- * Props Declaration
+ * Component Props Declaration
  * @private
  */
 /**

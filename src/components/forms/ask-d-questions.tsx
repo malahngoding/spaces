@@ -17,7 +17,7 @@ import { Button } from '@components/design/button';
 import { postComment } from '@services/comment-service';
 /* Types Import */
 /**
- * Props Declaration
+ * Component Props Declaration
  * @private
  */
 interface DetailFormData {

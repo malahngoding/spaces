@@ -7,7 +7,7 @@ import { Paragraph, Title } from '@components/design/typography';
 import { scaleUp } from '@components/design/animation';
 /* Types Import */
 /**
- * Props Declaration
+ * Component Props Declaration
  * @private
  */
 export interface BlogCardProps {

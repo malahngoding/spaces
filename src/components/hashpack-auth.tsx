@@ -21,7 +21,7 @@ import { Paragraph } from '@components/design/typography';
 import { callbackUrlHandler } from '@utils/urlHandler';
 /* Types Import */
 /**
- * Props Declaration
+ * Component Props Declaration
  * @private
  */
 /**

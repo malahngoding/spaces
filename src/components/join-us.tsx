@@ -10,7 +10,7 @@ import { Title } from '@components/design/typography';
 import { Button } from '@components/design/button';
 /* Types Import */
 /**
- * Props Declaration
+ * Component Props Declaration
  * @private
  */
 /**

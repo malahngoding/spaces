@@ -11,7 +11,7 @@ import { useDashNav } from '@store/navigation-store';
 import { useSession } from 'next-auth/react';
 /* Types Import */
 /**
- * Props Declaration
+ * Component Props Declaration
  * @private
  */
 interface NavigationSheetsProps {

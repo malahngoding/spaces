@@ -3,8 +3,13 @@
 import { Box } from '@components/design/box';
 import { Heading, SubTitle } from '@components/design/typography';
 /* Types Import */
+import type { ReactElement } from 'react';
 /**
- * Props Declaration
+ * Internal Type Declaration
+ * @private
+ */
+/**
+ * Component Props Declaration
  * @private
  */
 interface AltHeroProps {
@@ -17,7 +22,7 @@ interface AltHeroProps {
  * Component Declaration
  * @public
  */
-export const AltHero = (props: AltHeroProps): JSX.Element => {
+export const AltHero = (props: AltHeroProps): ReactElement => {
   return (
     <Box css={{ height: props.height || `520px`, position: `relative` }}>
       <Box

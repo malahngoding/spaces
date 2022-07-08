@@ -36,7 +36,7 @@ interface DetailFormData {
   email: string;
 }
 /**
- * Props Declaration
+ * Component Props Declaration
  * @private
  */
 /**

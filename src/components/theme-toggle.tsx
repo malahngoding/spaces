@@ -5,7 +5,7 @@ import { useTheme } from 'next-themes';
 import { SmallButton } from '@components/design/button';
 /* Types Import */
 /**
- * Props Declaration
+ * Component Props Declaration
  * @private
  */
 /**

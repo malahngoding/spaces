@@ -16,7 +16,7 @@ import { Caption, Heading, SubTitle } from '@components/design/typography';
 import { StyledLink } from '@components/design/link';
 /* Types Import */
 /**
- * Props Declaration
+ * Component Props Declaration
  * @private
  */
 /**

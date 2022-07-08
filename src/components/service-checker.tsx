@@ -11,7 +11,7 @@ import {
 } from '@services/ping-service';
 /* Types Import */
 /**
- * Props Declaration
+ * Component Props Declaration
  * @private
  */
 /**
