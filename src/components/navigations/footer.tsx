@@ -15,6 +15,11 @@ import { Box } from '@components/design/box';
 import { Caption, Heading, SubTitle } from '@components/design/typography';
 import { StyledLink } from '@components/design/link';
 /* Types Import */
+import type { ReactElement } from 'react';
+/**
+ * Internal Type Declaration
+ * @private
+ */
 /**
  * Component Props Declaration
  * @private
@@ -23,7 +28,7 @@ import { StyledLink } from '@components/design/link';
  * Component Declaration
  * @public
  */
-const BottomLinkBox = () => {
+const BottomLinkBox = (): ReactElement => {
   const t = useTranslations(`Menu`);
 
   return (

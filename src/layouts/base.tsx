@@ -29,7 +29,7 @@ export const BaseLayout = (props: BaseLayoutProps): JSX.Element => {
 
   return (
     <>
-      <Head>
+      <Head key="base">
         <title>{titleHandler(title, ApplicationName)}</title>
         <meta
           property="og:title"

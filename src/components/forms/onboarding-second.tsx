@@ -2,6 +2,10 @@
 /* Internal Modules Import */
 /* Types Import */
 /**
+ * Internal Type Declaration
+ * @private
+ */
+/**
  * Component Props Declaration
  * @private
  */

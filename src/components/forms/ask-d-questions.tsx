@@ -17,6 +17,10 @@ import { Button } from '@components/design/button';
 import { postComment } from '@services/comment-service';
 /* Types Import */
 /**
+ * Internal Type Declaration
+ * @private
+ */
+/**
  * Component Props Declaration
  * @private
  */

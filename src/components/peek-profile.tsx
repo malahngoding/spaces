@@ -6,6 +6,7 @@ import { Box } from '@components/design/box';
 import { PlainButton } from '@components/design/button';
 import { Avatar, AvatarImage } from '@components/navigations/avatar';
 /* Types Import */
+import type { ReactElement } from 'react';
 /**
  * Component Props Declaration
  * @private
@@ -15,7 +16,7 @@ interface PeekProfileProps {}
  * Component Declaration
  * @public
  */
-export const PeekProfile = (props: PeekProfileProps): JSX.Element => {
+export const PeekProfile = (props: PeekProfileProps): ReactElement => {
   const { status, data: session } = useSession();
   const router = useRouter();
   const [scrollPosition, setScrollPosition] = useState(0);

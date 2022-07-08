@@ -14,6 +14,7 @@ import { useTheme } from 'next-themes';
 import { Button } from '@components/design/button';
 import { Box } from '@components/design/box';
 /* Types Import */
+import type { ReactElement } from 'react';
 /**
  * Component Props Declaration
  * @private
@@ -22,7 +23,7 @@ import { Box } from '@components/design/box';
  * Component Declaration
  * @public
  */
-export const Rainbow = (): JSX.Element => {
+export const Rainbow = (): ReactElement => {
   const { theme } = useTheme();
   return (
     <WagmiConfig client={wagmiClient}>

@@ -7,6 +7,10 @@ import { Paragraph, Title } from '@components/design/typography';
 import { scaleUp } from '@components/design/animation';
 /* Types Import */
 /**
+ * Internal Type Declaration
+ * @private
+ */
+/**
  * Component Props Declaration
  * @private
  */

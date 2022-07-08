@@ -4,6 +4,7 @@ import { UilPlay, UilPause } from '@iconscout/react-unicons';
 import { SmallButton } from '@components/design/button';
 import { useWarnMarquee } from '@store/marquee-store';
 /* Types Import */
+import type { ReactElement } from 'react';
 /**
  * Component Props Declaration
  * @private
@@ -12,7 +13,7 @@ import { useWarnMarquee } from '@store/marquee-store';
  * Component Declaration
  * @public
  */
-export const MarqueeToggle = () => {
+export const MarqueeToggle = (): ReactElement => {
   const shown = useWarnMarquee((state) => state.shown);
   const marqueeToggle = useWarnMarquee((state) => state.toggleMarquee);
 

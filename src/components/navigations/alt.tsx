@@ -11,6 +11,11 @@ import { Box } from '@components/design/box';
 import { useAppStore } from '@store/app-store';
 import { NavigationSheets } from '@components/navigations/sheets';
 /* Types Import */
+import type { ReactElement } from 'react';
+/**
+ * Internal Type Declaration
+ * @private
+ */
 /**
  * Component Props Declaration
  * @private
@@ -19,7 +24,7 @@ import { NavigationSheets } from '@components/navigations/sheets';
  * Component Declaration
  * @public
  */
-export const DesignNavigation = () => {
+export const DesignNavigation = (): ReactElement => {
   const [locked, toggleLocked] = useToggle(false);
 
   const shown = useDashNav((state) => state.shown);

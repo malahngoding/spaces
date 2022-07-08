@@ -22,6 +22,7 @@ import {
   PopoverTrigger,
 } from '@components/navigations/avatar';
 /* Types Import */
+import { ReactElement } from 'react';
 /**
  * Component Props Declaration
  * @private
@@ -33,7 +34,7 @@ interface NavigationBarProps {
  * Component Declaration
  * @public
  */
-export const NavigationBar = (props: NavigationBarProps) => {
+export const NavigationBar = (props: NavigationBarProps): ReactElement => {
   const router = useRouter();
   const transparent = props.transparent ? props.transparent : false;
   const { data: session, status } = useSession();

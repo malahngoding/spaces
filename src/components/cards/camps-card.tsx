@@ -6,6 +6,10 @@ import { Box } from '@components/design/box';
 import { Paragraph, Title } from '@components/design/typography';
 /* Types Import */
 /**
+ * Internal Type Declaration
+ * @private
+ */
+/**
  * Component Props Declaration
  * @private
  */

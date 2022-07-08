@@ -10,6 +10,11 @@ import { styled } from '@config/stitches.config';
 import { useDashNav } from '@store/navigation-store';
 import { useSession } from 'next-auth/react';
 /* Types Import */
+import type { ReactElement } from 'react';
+/**
+ * Internal Type Declaration
+ * @private
+ */
 /**
  * Component Props Declaration
  * @private
@@ -21,7 +26,9 @@ interface NavigationSheetsProps {
  * Component Declaration
  * @public
  */
-export const NavigationSheets = (props: NavigationSheetsProps) => {
+export const NavigationSheets = (
+  props: NavigationSheetsProps,
+): ReactElement => {
   const { data: session, status } = useSession();
 
   const toggleNav = useDashNav((state) => state.toggleNav);
@@ -65,7 +72,7 @@ export const NavigationSheets = (props: NavigationSheetsProps) => {
             flexDirection: `column`,
             justifyContent: `flex-end`,
             alignItems: `flex-start`,
-            padding: `$md $xxs`,
+            padding: `0 $xxs $xl $xxs`,
             '@lg': {
               background: `$slate1`,
               padding: `$xl`,

@@ -10,6 +10,7 @@ import {
   pingServiceMicros,
 } from '@services/ping-service';
 /* Types Import */
+import type { ReactElement } from 'react';
 /**
  * Component Props Declaration
  * @private
@@ -18,7 +19,7 @@ import {
  * Component Declaration
  * @public
  */
-export const ServiceChecker = () => {
+export const ServiceChecker = (): ReactElement => {
   const isFilamentsUp = useStatusStore((state) => state.isFilamentsUp);
   const isMicrosUp = useStatusStore((state) => state.isMicrosUp);
   const setFilamentsStatusFunction = useStatusStore(

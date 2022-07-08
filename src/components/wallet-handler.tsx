@@ -13,6 +13,11 @@ import {
   MalahNgodingTokenSymbol,
 } from '@config/contractAddress';
 /* Types Import */
+import type { ReactElement } from 'react';
+/**
+ * Internal Type Declaration
+ * @private
+ */
 /**
  * Component Props Declaration
  * @private
@@ -21,7 +26,7 @@ import {
  * Component Declaration
  * @public
  */
-export const WalletHandler = () => {
+export const WalletHandler = (): ReactElement => {
   const [currentAccount, setCurrentAccount] = useState<string>('');
   const [currentBalance, setCurrentBalance] = useState<string>('');
   const [currentGasBalance, setCurrentGasBalance] = useState<string>('');

@@ -10,6 +10,7 @@ import { ApplicationUrl } from '@config/application';
 import { useAuthLoading } from '@store/auth-loading-store';
 import { callbackUrlHandler } from '@utils/urlHandler';
 /* Types Import */
+import type { ReactElement } from 'react';
 /**
  * Component Props Declaration
  * @private
@@ -18,7 +19,7 @@ import { callbackUrlHandler } from '@utils/urlHandler';
  * Component Declaration
  * @public
  */
-export const MetamaskAuth = (): JSX.Element => {
+export const MetamaskAuth = (): ReactElement => {
   const toggleLoading = useAuthLoading((state) => state.toggleLoading);
 
   const router = useRouter();

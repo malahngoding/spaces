@@ -3,6 +3,10 @@
 import { Box } from '@components/design/box';
 /* Types Import */
 /**
+ * Internal Type Declaration
+ * @private
+ */
+/**
  * Component Props Declaration
  * @private
  */

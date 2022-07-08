@@ -20,6 +20,7 @@ import { InputText } from '@components/design/input';
 import { Paragraph } from '@components/design/typography';
 import { callbackUrlHandler } from '@utils/urlHandler';
 /* Types Import */
+import type { ReactElement } from 'react';
 /**
  * Component Props Declaration
  * @private
@@ -28,9 +29,9 @@ import { callbackUrlHandler } from '@utils/urlHandler';
  * Component Declaration
  * @public
  */
-export const HashpackAuth = (): JSX.Element => {
+export const HashpackAuth = (): ReactElement => {
   const router = useRouter();
-  const [signingString, setSigningString] = useState<string>('');
+  const [signingString, setSigningString] = useState<string>('Loading...');
   const [showCopyMessage, setShowCopyMessage] = useState<boolean>(false);
 
   const hashconnect = new HashConnect();
@@ -122,7 +123,7 @@ export const HashpackAuth = (): JSX.Element => {
             <InputText value={signingString} readOnly disabled />
           </AlertDialogDescription>
           {showCopyMessage ? (
-            <Paragraph>ConnectionString copied to clipboard</Paragraph>
+            <Paragraph css={{ color: `$cyan12` }}>Copied!</Paragraph>
           ) : (
             <Paragraph>&nbsp;</Paragraph>
           )}

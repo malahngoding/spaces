@@ -6,6 +6,7 @@ import { Box } from '@components/design/box';
 import { Paragraph } from '@components/design/typography';
 import { useCookiesPersist } from '@store/cookies-store';
 /* Types Import */
+import type { ReactElement } from 'react';
 /**
  * Component Props Declaration
  * @private
@@ -14,7 +15,7 @@ import { useCookiesPersist } from '@store/cookies-store';
  * Component Declaration
  * @public
  */
-export const Cookie = () => {
+export const Cookie = (): ReactElement => {
   const cookies = useCookiesPersist((state) => state.cookies);
   const toggleCookies = useCookiesPersist((state) => state.toggleCookies);
   return (

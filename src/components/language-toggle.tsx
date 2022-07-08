@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { SmallButton } from '@components/design/button';
 import { Box } from '@components/design/box';
 /* Types Import */
+import type { ReactElement } from 'react';
 /**
  * Component Props Declaration
  * @private
@@ -12,7 +13,7 @@ import { Box } from '@components/design/box';
  * Component Declaration
  * @public
  */
-export const LanguageToggle = () => {
+export const LanguageToggle = (): ReactElement => {
   const router = useRouter();
   const { pathname, asPath, query, locale } = router;
 

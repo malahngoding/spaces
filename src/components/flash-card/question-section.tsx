@@ -7,7 +7,28 @@ import { Button } from '@components/design/button';
 import { useFlashCard } from '@store/flash-card-store';
 import { CountdownTicker } from '@components/flash-card/countdown';
 /* Types Import */
-import type { QuestionGroup } from '@components/flash-card/types';
+/**
+ * Internal Type Declaration
+ * @private
+ */
+interface QuestionGroup {
+  id: number;
+  groupName: string;
+  questionTag: string;
+  QuestionDetail: QuestionDetail[];
+}
+
+interface QuestionDetail {
+  questionGroupId: number;
+  questionString: string;
+  QuestionAnswer: QuestionAnswer[];
+}
+
+interface QuestionAnswer {
+  order: number;
+  answerString: string;
+  isCorrect: boolean;
+}
 /**
  * Component Props Declaration
  * @private

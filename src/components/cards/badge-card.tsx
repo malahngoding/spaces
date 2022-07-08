@@ -2,6 +2,11 @@
 /* Internal Modules Import */
 import { Box } from '@components/design/box';
 /* Types Import */
+import type { ReactElement } from 'react';
+/**
+ * Internal Type Declaration
+ * @private
+ */
 /**
  * Component Props Declaration
  * @private
@@ -16,7 +21,7 @@ interface BadgeCardProps {
  * Component Declaration
  * @public
  */
-export const BadgeCard = (props: BadgeCardProps) => {
+export const BadgeCard = (props: BadgeCardProps): ReactElement => {
   return (
     <>
       <Box

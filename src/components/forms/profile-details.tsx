@@ -28,6 +28,10 @@ import { updateProfileDetails } from '@services/profile-service';
 import { Avatar, AvatarImage } from '@components/navigations/avatar';
 import { checkUserName, getCurrentUser } from '@services/user-service';
 /* Types Import */
+/**
+ * Internal Type Declaration
+ * @private
+ */
 interface DetailFormData {
   name: string;
   userName: string;

@@ -15,7 +15,7 @@ export const CampsLayout = (props: CampsLayoutProps): JSX.Element => {
   const { title, sideNav, children } = props;
   return (
     <>
-      <Head>
+      <Head key="instead">
         <title>
           {title} - {ApplicationName}
         </title>

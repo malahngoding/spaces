@@ -4,6 +4,7 @@ import { useTheme } from 'next-themes';
 /* Internal Modules Import */
 import { SmallButton } from '@components/design/button';
 /* Types Import */
+import type { ReactElement } from 'react';
 /**
  * Component Props Declaration
  * @private
@@ -12,7 +13,7 @@ import { SmallButton } from '@components/design/button';
  * Component Declaration
  * @public
  */
-export const ThemeToggle = () => {
+export const ThemeToggle = (): ReactElement => {
   const { theme, setTheme } = useTheme();
 
   return (

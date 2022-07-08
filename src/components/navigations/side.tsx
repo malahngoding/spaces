@@ -1,4 +1,5 @@
 /* 3rd Party Modules Import */
+import { Fragment } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { UilBars, UilMultiply } from '@iconscout/react-unicons';
@@ -12,6 +13,11 @@ import { NavigationSheets } from '@components/navigations/sheets';
 import { ServiceChecker } from '@components/service-checker';
 import { Box } from '@components/design/box';
 /* Types Import */
+import type { ReactElement } from 'react';
+/**
+ * Internal Type Declaration
+ * @private
+ */
 /**
  * Component Props Declaration
  * @private
@@ -20,7 +26,7 @@ import { Box } from '@components/design/box';
  * Component Declaration
  * @public
  */
-export const SideNavigation = () => {
+export const SideNavigation = (): ReactElement => {
   const [locked, toggleLocked] = useToggle(false);
 
   const shown = useDashNav((state) => state.shown);
@@ -36,10 +42,16 @@ export const SideNavigation = () => {
 
   const status = `Malah Ngoding Spaces v.${spacesVersion}`;
   return (
-    <>
+    <Fragment>
       <SideNav>
         <NavWrapper>
-          <Menu>
+          <Menu
+            css={{
+              '&:hover': {
+                backgroundColor: `$slate1`,
+              },
+            }}
+          >
             <Link href="/" passHref>
               <Box as="a">
                 <Image
@@ -52,7 +64,13 @@ export const SideNavigation = () => {
               </Box>
             </Link>
           </Menu>
-          <Menu>
+          <Menu
+            css={{
+              '&:hover': {
+                backgroundColor: `$slate1`,
+              },
+            }}
+          >
             <Button
               alternative="ghost"
               type="button"
@@ -75,7 +93,7 @@ export const SideNavigation = () => {
         {status}
       </VersionTag>
       {shown ? <NavigationSheets toggleLocked={toggleLocked} /> : <></>}
-    </>
+    </Fragment>
   );
 };
 /**

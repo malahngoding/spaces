@@ -6,6 +6,10 @@ import { Paragraph } from '@components/design/typography';
 import { Avatar, AvatarImage } from '@components/navigations/avatar';
 /* Types Import */
 /**
+ * Internal Type Declaration
+ * @private
+ */
+/**
  * Component Props Declaration
  * @private
  */

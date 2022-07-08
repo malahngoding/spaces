@@ -14,7 +14,7 @@ export const DesignLayout = (props: BaseLayoutProps): JSX.Element => {
   const { title, children } = props;
   return (
     <>
-      <Head>
+      <Head key="instead">
         <title>
           {title} - {ApplicationName}
         </title>

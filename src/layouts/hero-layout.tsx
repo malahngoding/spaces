@@ -7,16 +7,18 @@ import { Main } from '@components/design/main';
 import { PeekProfile } from '@components/peek-profile';
 import { FooterNavigation } from '@components/navigations/footer';
 
+import type { ReactElement } from 'react';
+
 interface HeroLayoutProps {
   title: string;
-  children: JSX.Element;
+  children: ReactElement;
 }
 
-export const HeroLayout = (props: HeroLayoutProps): JSX.Element => {
+export const HeroLayout = (props: HeroLayoutProps): ReactElement => {
   const { title, children } = props;
   return (
     <>
-      <Head>
+      <Head key="instead">
         <title>
           {title} - {ApplicationName}
         </title>

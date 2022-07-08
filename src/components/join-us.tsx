@@ -9,6 +9,7 @@ import { Section } from '@components/design/section';
 import { Title } from '@components/design/typography';
 import { Button } from '@components/design/button';
 /* Types Import */
+import type { ReactElement } from 'react';
 /**
  * Component Props Declaration
  * @private
@@ -17,7 +18,7 @@ import { Button } from '@components/design/button';
  * Component Declaration
  * @public
  */
-export const JoinUs = (): JSX.Element => {
+export const JoinUs = (): ReactElement => {
   const { data: session, status } = useSession();
   const router = useRouter();
   const t = useTranslations(`Menu`);

@@ -4,6 +4,7 @@ import Script from 'next/script';
 import { Box } from '@components/design/box';
 /* Internal Modules Import */
 /* Types Import */
+import type { ReactElement } from 'react';
 /**
  * Component Props Declaration
  * @private
@@ -12,7 +13,7 @@ import { Box } from '@components/design/box';
  * Component Declaration
  * @public
  */
-const TView = () => {
+const TView = (): ReactElement => {
   return (
     <Box>
       <Script
