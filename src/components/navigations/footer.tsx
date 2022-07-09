@@ -171,7 +171,9 @@ const Linkage = () => {
           <Heading css={{ fontSize: `$lg`, fontFamily: `$brand` }}>
             Malah
           </Heading>
-          <Heading css={{ fontSize: `$lg`, fontFamily: `$brand` }}>
+          <Heading
+            css={{ fontSize: `$lg`, fontFamily: `$brand`, marginTop: `-32px` }}
+          >
             Ngoding
           </Heading>
         </Box>

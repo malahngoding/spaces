@@ -4,13 +4,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { UilBars, UilMultiply } from '@iconscout/react-unicons';
 import { useLockBodyScroll, useToggle } from 'react-use';
+import dynamic from 'next/dynamic';
 /* Internal Modules Import */
 import { styled } from '@config/stitches.config';
 import { Button } from '@components/design/button';
 import { useDashNav } from '@store/navigation-store';
 import { useAppStore } from '@store/app-store';
 import { NavigationSheets } from '@components/navigations/sheets';
-import { ServiceChecker } from '@components/service-checker';
 import { Box } from '@components/design/box';
 /* Types Import */
 import type { ReactElement } from 'react';
@@ -18,6 +18,11 @@ import type { ReactElement } from 'react';
  * Internal Type Declaration
  * @private
  */
+const ServiceCheckerLazy = dynamic(
+  (): any =>
+    import(`@components/service-checker`).then((mod) => mod.ServiceChecker),
+  { ssr: false },
+);
 /**
  * Component Props Declaration
  * @private
@@ -89,7 +94,7 @@ export const SideNavigation = (): ReactElement => {
         </NavWrapper>
       </SideNav>
       <VersionTag>
-        <ServiceChecker />
+        <ServiceCheckerLazy />
         {status}
       </VersionTag>
       {shown ? <NavigationSheets toggleLocked={toggleLocked} /> : <></>}
@@ -164,7 +169,6 @@ const Menu = styled(`div`, {
 
 const VersionTag = styled(`div`, {
   display: `none`,
-  fontFamily: `$mono`,
   position: `fixed`,
   left: `0`,
   bottom: `0`,

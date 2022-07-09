@@ -1,4 +1,5 @@
 /* 3rd Party Modules Import */
+import Link from 'next/link';
 /* Internal Modules Import */
 import { Box } from '@components/design/box';
 /* Types Import */
@@ -18,7 +19,9 @@ import type { ReactElement } from 'react';
 export const OnBoardingReason = (): ReactElement => {
   return (
     <Box>
-      <Box>OnBoardingReason</Box>
+      <Link href="/" passHref>
+        <Box>OnBoardingReason</Box>
+      </Link>
     </Box>
   );
 };

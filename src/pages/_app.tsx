@@ -6,11 +6,8 @@ import { NextIntlProvider, AbstractIntlMessages } from 'next-intl';
 import '@styles/minireset.min.css';
 import '@styles/rush.min.css';
 import '@styles/prism.css';
-import '@fontsource/montserrat/900.css';
-import '@fontsource/montserrat/700.css';
-import '@fontsource/montserrat/400.css';
-import '@fontsource/montserrat/300.css';
-import '@fontsource/mononoki/400.css';
+import '@fontsource/rubik/variable.css';
+import '@fontsource/rubik/variable-italic.css';
 
 import { darkTheme, globalCss } from '@config/stitches.config';
 import { handleI18nError } from '@utils/intl';
@@ -18,7 +15,7 @@ import { handleI18nError } from '@utils/intl';
 const globalStyles = globalCss({
   body: {
     backgroundColor: `$slate1`,
-    fontFamily: `Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif`,
+    fontFamily: `Rubik, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif`,
   },
 });
 

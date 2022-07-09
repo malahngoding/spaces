@@ -1,29 +1,17 @@
-/* 3rd Party Modules Import */
+/** 3rd Party Modules Import */
 import Marquee from 'react-fast-marquee';
 import { useTranslations } from 'next-intl';
-import { useState } from 'react';
-/* Internal Modules Import */
+import { Fragment, useState } from 'react';
+/** Internal Modules Import */
 import { Box } from '@components/design/box';
 import { Paragraph } from '@components/design/typography';
 import { useWarnMarquee } from '@store/marquee-store';
-/* Types Import */
+/** Types Import */
 import type { ReactElement } from 'react';
 /**
- * Internal Type Declaration
- * @private
+ * Main Component Declaration
  */
-/**
- * Props Declaration
- * @private
- */
-interface RunningTextProps {
-  children: ReactElement | string;
-}
-/**
- * Component Declaration
- * @public
- */
-export const WarnMarquee = (): JSX.Element => {
+export const WarnMarquee = (): ReactElement => {
   const [hover, setHover] = useState<boolean>(false);
   const t = useTranslations(`Marquee`);
   const shown = useWarnMarquee((state) => state.shown);
@@ -42,7 +30,6 @@ export const WarnMarquee = (): JSX.Element => {
         backgroundColor: `$slate11`,
         borderBottom: `1px solid $slate10`,
         zIndex: 999999999,
-        fontFamily: `$mono`,
         overflow: `hidden`,
       }}
       onMouseEnter={() => setHover(true)}
@@ -56,28 +43,26 @@ export const WarnMarquee = (): JSX.Element => {
         gradientColor={[10, 10, 10]}
       >
         {hover ? (
-          <Box>
-            <RunningText>
-              <>
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => {
-                  return <span key={item}>{t(`closeMarquee`)}</span>;
-                })}
-              </>
-            </RunningText>
-          </Box>
+          <RunningText>
+            <>
+              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => {
+                return <span key={item}>{t(`closeMarquee`)}</span>;
+              })}
+            </>
+          </RunningText>
         ) : (
-          <>
+          <Fragment>
             <RunningText>{t(`warnMarquee`)}</RunningText>
             <RunningText>
               <a
-                href="mailto: admin@malahngoding.com"
+                href="mailto: malahngoding@gmail.com"
                 target="_blank"
                 rel="noreferrer"
               >
                 admin@malahngoding.com
               </a>
             </RunningText>
-          </>
+          </Fragment>
         )}
       </Marquee>
     </Box>
@@ -85,13 +70,14 @@ export const WarnMarquee = (): JSX.Element => {
 };
 /**
  * Internal Component Declaration
- * @private
  */
-const RunningText = (props: RunningTextProps): JSX.Element => {
+interface RunningTextProps {
+  children: ReactElement | string;
+}
+const RunningText = (props: RunningTextProps): ReactElement => {
   return (
     <Paragraph
       css={{
-        fontFamily: `$mono`,
         color: `$slate1`,
         userSelect: `none`,
         marginRight: `$xs`,
@@ -102,7 +88,3 @@ const RunningText = (props: RunningTextProps): JSX.Element => {
     </Paragraph>
   );
 };
-/**
- * Internal Component Declaration
- * @private
- */

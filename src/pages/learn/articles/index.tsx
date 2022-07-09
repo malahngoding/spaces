@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import { GetStaticPropsContext } from 'next';
 import { useTranslations } from 'next-intl';
 import { UilAngleLeft } from '@iconscout/react-unicons';
@@ -21,14 +22,15 @@ export default function Articles(props: ArticlesProps) {
 
   return (
     <BaseLayout title={t(`articlesTitle`)}>
-      <Box>
-        <br />
-        <Section>
-          <SubTitle data-testid="welcome-text">
-            {t(`articlesSubTitle`)}
-          </SubTitle>
-          <Heading>{t(`articlesTitle`)}</Heading>
-        </Section>
+      <Fragment>
+        <Box css={{ borderBottom: `1px solid $slate6`, paddingY: `$xs` }}>
+          <Section>
+            <SubTitle data-testid="welcome-text">
+              {t(`articlesSubTitle`)}
+            </SubTitle>
+            <Heading>{t(`articlesTitle`)}</Heading>
+          </Section>
+        </Box>
         <Section
           css={{
             display: `grid`,
@@ -69,7 +71,7 @@ export default function Articles(props: ArticlesProps) {
             <Button alternative={'tertiary'}>{l(`snippetsTitle`)}</Button>
           </Link>
         </Section>
-      </Box>
+      </Fragment>
     </BaseLayout>
   );
 }

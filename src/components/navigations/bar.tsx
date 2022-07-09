@@ -21,6 +21,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@components/navigations/avatar';
+import { Box } from '@components/design/box';
 /* Types Import */
 import { ReactElement } from 'react';
 /**
@@ -56,6 +57,12 @@ export const NavigationBar = (props: NavigationBarProps): ReactElement => {
   return (
     <>
       <Nav>
+        <Box
+          css={{
+            borderRight: `6px solid $slate1`,
+            height: `47px`,
+          }}
+        />
         {NavItems.map((item) => (
           <Link href={item.url} passHref key={item.url}>
             <Button

@@ -32,7 +32,7 @@ export default function AuthError() {
         <br />
         <Section>
           <SubTitle data-testid="about-us-text">Unexpected Error</SubTitle>
-          <Paragraph css={{ fontFamily: `$mono`, wordWrap: `break-word` }}>
+          <Paragraph css={{ wordWrap: `break-word` }}>
             {router.query.error}
           </Paragraph>
         </Section>

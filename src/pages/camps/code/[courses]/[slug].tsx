@@ -3,7 +3,7 @@ import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote } from 'next-mdx-remote';
 import matter from 'gray-matter';
 import remarkGfm from 'remark-gfm';
-import rehypePrism from 'rehype-prism-plus/.';
+import rehypePrism from 'rehype-prism-plus';
 /* Internal Modules Import */
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';

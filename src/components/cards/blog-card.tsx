@@ -82,9 +82,7 @@ export const BlogCard = (props: BlogCardProps): ReactElement => {
         >
           <Title css={{ margin: 0, fontFamily: `$brand` }}>{title}</Title>
           <Paragraph css={{ fontWeight: `$normal` }}>{description}</Paragraph>
-          <Paragraph css={{ fontFamily: `$mono`, margin: 0 }}>
-            {published}
-          </Paragraph>
+          <Paragraph css={{ margin: 0 }}>{published}</Paragraph>
         </Box>
       </Box>
     </Link>

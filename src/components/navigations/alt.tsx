@@ -180,7 +180,6 @@ const Menu = styled(`div`, {
 
 const VersionTag = styled(`div`, {
   padding: `0.5rem`,
-  fontFamily: `$mono`,
   fontSize: `$xxs`,
   position: `fixed`,
   right: `$xs`,
