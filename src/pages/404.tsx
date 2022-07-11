@@ -1,29 +1,23 @@
-/* 3rd Party Modules Import */
+/** 3rd Party Modules Import */
 import { useTranslations } from 'next-intl';
-/* Internal Modules Import */
+/** Internal Modules Import */
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
 import { Heading, SubTitle } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
-/* Types Import */
+/** Types Import */
 import type { GetStaticPropsContext } from 'next';
-/**
- * Internal Type Declaration
- * @private
- */
+
 /**
  * Next Laziefied Components Import
- * @private
+ *
  */
-/**
- * Next Page Components Props Declaration
- * @private
- */
-interface Custom404Props {}
 /**
  * Next Page Component Declaration
- * @public
+ *
  */
+interface Custom404Props {}
+
 export default function Custom404(props: Custom404Props) {
   const t = useTranslations(`Error`);
 
@@ -41,7 +35,7 @@ export default function Custom404(props: Custom404Props) {
 }
 /**
  * Next Page Server Code Declaration
- * @public
+ *
  */
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   const messages = await import(`../lang/${locale}.json`).then(
@@ -51,5 +45,6 @@ export async function getStaticProps({ locale }: GetStaticPropsContext) {
     props: {
       messages,
     },
+    revalidate: 60 * 60 * 24,
   };
 }

@@ -1,17 +1,14 @@
-/* 3rd Party Modules Import */
+/** 3rd Party Modules Import */
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-/* Internal Modules Import */
+/** Internal Modules Import */
 import { Box } from '@components/design/box';
 import { Button } from '@components/design/button';
 import { useFlashCard } from '@store/flash-card-store';
 import { CountdownTicker } from '@components/flash-card/countdown';
-/* Types Import */
+/** Types Import */
 import type { ReactElement } from 'react';
-/**
- * Internal Type Declaration
- * @private
- */
+
 interface QuestionGroup {
   id: number;
   groupName: string;
@@ -29,17 +26,14 @@ interface QuestionAnswer {
   isCorrect: boolean;
 }
 /**
- * Component Props Declaration
- * @private
+ * Main Component Declaration
+ *
  */
 interface QuestionsSectionProps {
   question: QuestionGroup;
   hash: string;
 }
-/**
- * Component Declaration
- * @public
- */
+
 export const QuestionSection = (props: QuestionsSectionProps): ReactElement => {
   const [timeLeft, setTimeLeft] = useState<number>(60);
   const router = useRouter();
@@ -123,5 +117,5 @@ export const QuestionSection = (props: QuestionsSectionProps): ReactElement => {
 };
 /**
  * Internal Component Declaration
- * @private
+ *
  */

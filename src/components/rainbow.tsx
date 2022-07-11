@@ -1,4 +1,4 @@
-/* 3rd Party Modules Import */
+/** 3rd Party Modules Import */
 import '@rainbow-me/rainbowkit/styles.css';
 import {
   getDefaultWallets,
@@ -10,19 +10,16 @@ import {
 import { chain, configureChains, createClient, WagmiConfig } from 'wagmi';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { useTheme } from 'next-themes';
-/* Internal Modules Import */
+/** Internal Modules Import */
 import { Button } from '@components/design/button';
 import { Box } from '@components/design/box';
-/* Types Import */
+/** Types Import */
 import type { ReactElement } from 'react';
 /**
- * Component Props Declaration
- * @private
+ * Main Component Declaration
+ *
  */
-/**
- * Component Declaration
- * @public
- */
+
 export const Rainbow = (): ReactElement => {
   const { theme } = useTheme();
   return (
@@ -125,7 +122,7 @@ export const Rainbow = (): ReactElement => {
 };
 /**
  * Internal Component Declaration
- * @private
+ *
  */
 const alchemyId = process.env.NEXT_PUBLIC_ALCHEMY_ID;
 const { chains, provider } = configureChains(

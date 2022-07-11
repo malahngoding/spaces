@@ -1,19 +1,16 @@
-/* 3rd Party Modules Import */
+/** 3rd Party Modules Import */
 import { useTranslations } from 'next-intl';
 import { getSession } from 'next-auth/react';
-/* Internal Modules Import */
+/** Internal Modules Import */
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
 import { SubTitle } from '@components/design/typography';
 import { QuizLayout } from '@layouts/quiz';
 import { getCurrentFlashCardBlock } from '@services/flash-card-service';
 import { QuestionSection } from '@components/flash-card/question-section';
-/* Types Import */
+/** Types Import */
 import type { GetServerSidePropsContext } from 'next';
-/**
- * Internal Type Declaration
- * @private
- */
+
 interface QuestionGroup {
   id: number;
   groupName: string;
@@ -32,21 +29,18 @@ interface QuestionAnswer {
 }
 /**
  * Next Laziefied Components Import
- * @private
+ *
  */
 /**
- * Next Page Components Props Declaration
- * @private
+ * Next Page Component Declaration
+ *
  */
 interface FlashCardPostProps {
   hash: string;
   questionGroupName: string;
   questions: QuestionGroup;
 }
-/**
- * Next Page Component Declaration
- * @public
- */
+
 export default function FlashCardPost(props: FlashCardPostProps) {
   const t = useTranslations(`Snippets`);
 
@@ -68,7 +62,7 @@ export default function FlashCardPost(props: FlashCardPostProps) {
 }
 /**
  * Next Page Server Code Declaration
- * @public
+ *
  */
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const messages = await import(`../../../../lang/${context.locale}.json`).then(

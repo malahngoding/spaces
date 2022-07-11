@@ -1,29 +1,26 @@
-/* 3rd Party Modules Import */
+/** 3rd Party Modules Import */
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote } from 'next-mdx-remote';
 import matter from 'gray-matter';
 import remarkGfm from 'remark-gfm';
 import rehypePrism from 'rehype-prism-plus';
-/* Internal Modules Import */
+/** Internal Modules Import */
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
 import { Heading, SubTitle } from '@components/design/typography';
 import { CampsLayout } from '@layouts/camps';
 import { Markdown, MarkdownWrapper } from '@components/markdown';
 import { Progress, ProgressIndicator } from '@components/design/progress';
-/* Types Import */
+/** Types Import */
 import type { GetServerSidePropsContext } from 'next';
-/**
- * Internal Type Declaration
- * @private
- */
+
 /**
  * Next Laziefied Components Import
- * @private
+ *
  */
 /**
- * Next Page Components Props Declaration
- * @private
+ * Next Page Component Declaration
+ *
  */
 interface CodeProps {
   source: any;
@@ -37,10 +34,7 @@ interface CodeProps {
     previous: string;
   };
 }
-/**
- * Next Page Component Declaration
- * @public
- */
+
 const CodeNavigation = (props: { progress: number }): JSX.Element => {
   return (
     <>
@@ -85,7 +79,7 @@ export default function Code(props: CodeProps) {
 }
 /**
  * Next Page Server Code Declaration
- * @public
+ *
  */
 export async function getServerSideProps({
   params,

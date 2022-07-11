@@ -1,18 +1,15 @@
-/* 3rd Party Modules Import */
+/** 3rd Party Modules Import */
 import { Sandpack } from '@codesandbox/sandpack-react';
 import { useTheme } from 'next-themes';
-/* Internal Modules Import */
+/** Internal Modules Import */
 import { Box } from '@components/design/box';
-/* Types Import */
+/** Types Import */
 import type { ReactElement } from 'react';
 /**
- * Component Props Declaration
- * @private
+ * Main Component Declaration
+ *
  */
-/**
- * Component Declaration
- * @public
- */
+
 export const SandpackCodeInstead = (): ReactElement => {
   const { theme } = useTheme();
 
@@ -25,5 +22,5 @@ export const SandpackCodeInstead = (): ReactElement => {
 };
 /**
  * Internal Component Declaration
- * @private
+ *
  */

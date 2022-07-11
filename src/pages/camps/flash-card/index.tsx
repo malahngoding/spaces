@@ -213,7 +213,7 @@ const LocalBox = (props: LocalBoxProps) => {
 };
 /**
  * Next Page Server Code Declaration
- * @public
+ *
  */
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await getSession(context);

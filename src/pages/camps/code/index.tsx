@@ -1,34 +1,28 @@
-/* 3rd Party Modules Import */
+/** 3rd Party Modules Import */
 import { useTranslations } from 'next-intl';
-/* Internal Modules Import */
+/** Internal Modules Import */
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
 import { HeroLayout } from '@layouts/hero-layout';
 import { getCampsList } from '@services/camps-services';
 import { AltHero } from '@components/branding/hero-alt';
 import { CampsCard } from '@components/cards/camps-card';
-/* Types Import */
+/** Types Import */
 import type { GetStaticPropsContext } from 'next';
-/**
- * Internal Type Declaration
- * @private
- */
+
 /**
  * Next Laziefied Components Import
- * @private
+ *
  */
 /**
- * Next Page Components Props Declaration
- * @private
+ * Next Page Component Declaration
+ *
  */
 interface LabsProps {
   courses: string;
   slug: string;
 }
-/**
- * Next Page Component Declaration
- * @public
- */
+
 export default function Labs(props: LabsProps) {
   const t = useTranslations(`Camps`);
 
@@ -81,7 +75,7 @@ export default function Labs(props: LabsProps) {
 }
 /**
  * Next Page Server Code Declaration
- * @public
+ *
  */
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   const messages = await import(`../../../lang/${locale}.json`).then(

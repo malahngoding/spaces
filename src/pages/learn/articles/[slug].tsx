@@ -124,13 +124,13 @@ export async function getStaticProps({
         source: mdxSource,
         frontMatter: data,
       },
+      revalidate: 60 * 60 * 24,
     };
   } catch (error) {
     return {
       redirect: {
         destination: `/auth/error?error=${error}`,
       },
-      revalidate: 86400,
     };
   }
 }

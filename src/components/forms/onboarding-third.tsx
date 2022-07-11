@@ -1,19 +1,13 @@
-/* 3rd Party Modules Import */
-/* Internal Modules Import */
-/* Types Import */
+/** 3rd Party Modules Import */
+/** Internal Modules Import */
+/** Types Import */
 import type { ReactElement } from 'react';
+
 /**
- * Internal Type Declaration
- * @private
+ * Main Component Declaration
+ *
  */
-/**
- * Component Props Declaration
- * @private
- */
-/**
- * Component Declaration
- * @public
- */
+
 export const OnboardingThird = (): ReactElement => {
   return (
     <div>
@@ -23,5 +17,5 @@ export const OnboardingThird = (): ReactElement => {
 };
 /**
  * Internal Component Declaration
- * @private
+ *
  */

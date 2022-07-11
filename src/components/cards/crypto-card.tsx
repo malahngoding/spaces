@@ -1,7 +1,7 @@
-/* 3rd Party Modules Import */
-/* Internal Modules Import */
+/** 3rd Party Modules Import */
+/** Internal Modules Import */
 import { Box } from '@components/design/box';
-/* Types Import */
+/** Types Import */
 import type { ReactElement } from 'react';
 /**
  * Main Component Declaration

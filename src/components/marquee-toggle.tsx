@@ -1,18 +1,15 @@
-/* 3rd Party Modules Import */
+/** 3rd Party Modules Import */
 import { UilPlay, UilPause } from '@iconscout/react-unicons';
-/* Internal Modules Import */
+/** Internal Modules Import */
 import { SmallButton } from '@components/design/button';
 import { useWarnMarquee } from '@store/marquee-store';
-/* Types Import */
+/** Types Import */
 import type { ReactElement } from 'react';
 /**
- * Component Props Declaration
- * @private
+ * Main Component Declaration
+ *
  */
-/**
- * Component Declaration
- * @public
- */
+
 export const MarqueeToggle = (): ReactElement => {
   const shown = useWarnMarquee((state) => state.shown);
   const marqueeToggle = useWarnMarquee((state) => state.toggleMarquee);
@@ -36,5 +33,5 @@ export const MarqueeToggle = (): ReactElement => {
 };
 /**
  * Internal Component Declaration
- * @private
+ *
  */

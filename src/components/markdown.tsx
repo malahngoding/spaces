@@ -1,6 +1,6 @@
-/* 3rd Party Modules Import */
+/** 3rd Party Modules Import */
 import Image from 'next/image';
-/* Internal Modules Import */
+/** Internal Modules Import */
 import { Box } from '@components/design/box';
 import {
   Heading,
@@ -11,19 +11,16 @@ import {
   Caption,
   Paragraph,
 } from '@components/design/typography';
-/* Types Import */
+/** Types Import */
 import type { ReactElement } from 'react';
 /**
- * Component Props Declaration
- * @private
+ * Main Component Declaration
+ *
  */
-/**
- * Component Declaration
- * @public
- */
+
 /**
  * Internal Component Declaration
- * @private
+ *
  */
 const MdxHeading = (props: any): ReactElement => {
   return (

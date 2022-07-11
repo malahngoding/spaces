@@ -1,8 +1,8 @@
-/* 3rd Party Modules Import */
+/** 3rd Party Modules Import */
 import { useEffect, useState } from 'react';
 import { CryptoCard } from '@components/cards/crypto-card';
 import { ethers } from 'ethers';
-/* Internal Modules Import */
+/** Internal Modules Import */
 import MalahNgodingToken from '@artifacts/contracts/MalahNgodingToken.sol/MalahNgodingToken.json';
 import { Box } from '@components/design/box';
 import { Button } from '@components/design/button';
@@ -12,20 +12,14 @@ import {
   MalahNgodingTokenDecimals,
   MalahNgodingTokenSymbol,
 } from '@config/contractAddress';
-/* Types Import */
+/** Types Import */
 import type { ReactElement } from 'react';
+
 /**
- * Internal Type Declaration
- * @private
+ * Main Component Declaration
+ *
  */
-/**
- * Component Props Declaration
- * @private
- */
-/**
- * Component Declaration
- * @public
- */
+
 export const WalletHandler = (): ReactElement => {
   const [currentAccount, setCurrentAccount] = useState<string>('');
   const [currentBalance, setCurrentBalance] = useState<string>('');

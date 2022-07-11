@@ -1,21 +1,17 @@
-/* 3rd Party Modules Import */
+/** 3rd Party Modules Import */
 import { getSession } from 'next-auth/react';
 import { useTranslations } from 'next-intl';
 import dynamic from 'next/dynamic';
-/* Internal Modules Import */
+/** Internal Modules Import */
 import { AllCenterColumnBox, Box } from '@components/design/box';
 import { Title } from '@components/design/typography';
 import { Section } from '@components/design/section';
 import { BlankLayout } from '@layouts/blank';
-/* Types Import */
+/** Types Import */
 import type { GetServerSidePropsContext } from 'next';
 /**
- * Internal Type Declaration
- * @private
- */
-/**
  * Next Laziefied Components Import
- * @private
+ *
  */
 const OnBoardingReasonLazy = dynamic(
   (): any =>
@@ -25,16 +21,12 @@ const OnBoardingReasonLazy = dynamic(
   { ssr: false },
 );
 /**
- * Next Page Components Props Declaration
- * @private
+ * Next Page Component Declaration
+ *
  */
 interface OnBoardingSecondProps {
   redirectionUrl: string;
 }
-/**
- * Next Page Component Declaration
- * @public
- */
 export default function OnBoardingSecond(props: OnBoardingSecondProps) {
   const t = useTranslations(`OnBoarding`);
   return (
@@ -59,7 +51,7 @@ export default function OnBoardingSecond(props: OnBoardingSecondProps) {
 }
 /**
  * Next Page Server Code Declaration
- * @public
+ *
  */
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const redirectionUrl = context.query.redirect;
@@ -83,3 +75,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     };
   }
 }
+/**
+ * Internal Component Declaration
+ *
+ */

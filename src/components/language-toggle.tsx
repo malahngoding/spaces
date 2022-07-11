@@ -1,18 +1,15 @@
-/* 3rd Party Modules Import */
+/** 3rd Party Modules Import */
 import { useRouter } from 'next/router';
-/* Internal Modules Import */
+/** Internal Modules Import */
 import { SmallButton } from '@components/design/button';
 import { Box } from '@components/design/box';
-/* Types Import */
+/** Types Import */
 import type { ReactElement } from 'react';
 /**
- * Component Props Declaration
- * @private
+ * Main Component Declaration
+ *
  */
-/**
- * Component Declaration
- * @public
- */
+
 export const LanguageToggle = (): ReactElement => {
   const router = useRouter();
   const { pathname, asPath, query, locale } = router;
@@ -61,5 +58,5 @@ export const LanguageToggle = (): ReactElement => {
 };
 /**
  * Internal Component Declaration
- * @private
+ *
  */

@@ -1,21 +1,18 @@
-/* 3rd Party Modules Import */
+/** 3rd Party Modules Import */
 import { useRouter } from 'next/router';
 import { Fragment, useEffect, useState } from 'react';
-/* Internal Modules Import */ import { useSession } from 'next-auth/react';
+/** Internal Modules Import */ import { useSession } from 'next-auth/react';
 import { Box } from '@components/design/box';
 import { PlainButton } from '@components/design/button';
 import { Avatar, AvatarImage } from '@components/navigations/avatar';
-/* Types Import */
+/** Types Import */
 import type { ReactElement } from 'react';
 /**
- * Component Props Declaration
- * @private
+ * Main Component Declaration
+ *
  */
 interface PeekProfileProps {}
-/**
- * Component Declaration
- * @public
- */
+
 export const PeekProfile = (props: PeekProfileProps): ReactElement => {
   const { status, data: session } = useSession();
   const router = useRouter();
@@ -77,5 +74,5 @@ export const PeekProfile = (props: PeekProfileProps): ReactElement => {
 };
 /**
  * Internal Component Declaration
- * @private
+ *
  */

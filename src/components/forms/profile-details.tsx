@@ -1,11 +1,11 @@
-/* 3rd Party Modules Import */
+/** 3rd Party Modules Import */
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { useDebounce } from 'react-use';
 import useSWR from 'swr';
-/* Internal Modules Import */
+/** Internal Modules Import */
 import {
   InputGroup,
   InputHelperText,
@@ -27,12 +27,9 @@ import {
 import { updateProfileDetails } from '@services/profile-service';
 import { Avatar, AvatarImage } from '@components/navigations/avatar';
 import { checkUserName, getCurrentUser } from '@services/user-service';
-/* Types Import */
+/** Types Import */
 import type { ReactElement } from 'react';
-/**
- * Internal Type Declaration
- * @private
- */
+
 interface DetailFormData {
   name: string;
   userName: string;
@@ -41,13 +38,10 @@ interface DetailFormData {
   email: string;
 }
 /**
- * Component Props Declaration
- * @private
+ * Main Component Declaration
+ *
  */
-/**
- * Component Declaration
- * @public
- */
+
 export const DetailsForm = (): ReactElement => {
   const { data: session } = useSession();
   const t = useTranslations(`ProfileForm`);
@@ -259,5 +253,5 @@ export const DetailsForm = (): ReactElement => {
 };
 /**
  * Internal Component Declaration
- * @private
+ *
  */

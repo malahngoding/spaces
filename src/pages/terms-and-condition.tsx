@@ -1,28 +1,25 @@
-/* 3rd Party Modules Import */
+/** 3rd Party Modules Import */
 import { useTranslations } from 'next-intl';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote } from 'next-mdx-remote';
 import matter from 'gray-matter';
-/* Internal Modules Import */
+/** Internal Modules Import */
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
 import { Caption, Heading, SubTitle } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
 import { Markdown, MarkdownWrapper } from '@components/markdown';
-/* Types Import */
+/** Types Import */
 
 import type { GetStaticPropsContext } from 'next';
-/**
- * Internal Type Declaration
- * @private
- */
+
 /**
  * Next Laziefied Components Import
- * @private
+ *
  */
 /**
- * Next Page Components Props Declaration
- * @private
+ * Next Page Component Declaration
+ *
  */
 interface TermsAndConditionProps {
   source: any;
@@ -33,10 +30,7 @@ interface TermsAndConditionProps {
     publishedAt: string;
   };
 }
-/**
- * Next Page Component Declaration
- * @public
- */
+
 export default function TermsAndCondition(props: TermsAndConditionProps) {
   const t = useTranslations(`Articles`);
 
@@ -66,7 +60,7 @@ export default function TermsAndCondition(props: TermsAndConditionProps) {
 }
 /**
  * Next Page Server Code Declaration
- * @public
+ *
  */
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   try {

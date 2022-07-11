@@ -1,9 +1,9 @@
-/* 3rd Party Modules Import */
+/** 3rd Party Modules Import */
 import Image from 'next/image';
-/* Internal Modules Import */
+/** Internal Modules Import */
 import { Box } from '@components/design/box';
 import { Paragraph } from '@components/design/typography';
-/* Types Import */
+/** Types Import */
 import type { ReactElement } from 'react';
 /**
  * Main Component Declaration

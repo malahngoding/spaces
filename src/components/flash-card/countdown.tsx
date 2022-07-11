@@ -1,24 +1,18 @@
-/* 3rd Party Modules Import */
+/** 3rd Party Modules Import */
 import { useEffect } from 'react';
-/* Internal Modules Import */
-/* Types Import */
+/** Internal Modules Import */
+/** Types Import */
 import type { ReactElement } from 'react';
+
 /**
- * Internal Type Declaration
- * @private
- */
-/**
- * Component Props Declaration
- * @private
+ * Main Component Declaration
+ *
  */
 interface CountdownTickerProps {
   timeLeft: number;
   setTimeLeft: (value: number) => void;
 }
-/**
- * Component Declaration
- * @public
- */
+
 export const CountdownTicker = (props: CountdownTickerProps): ReactElement => {
   useEffect(() => {
     if (!props.timeLeft) return;
@@ -31,5 +25,5 @@ export const CountdownTicker = (props: CountdownTickerProps): ReactElement => {
 };
 /**
  * Internal Component Declaration
- * @private
+ *
  */

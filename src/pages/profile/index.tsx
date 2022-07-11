@@ -1,21 +1,18 @@
-/* 3rd Party Modules Import */
+/** 3rd Party Modules Import */
 import { getSession } from 'next-auth/react';
 import { useTranslations } from 'next-intl';
 import dynamic from 'next/dynamic';
-/* Internal Modules Import */
+/** Internal Modules Import */
 import { ProfileLayout } from '@layouts/profile';
 import { Section } from '@components/design/section';
 import { SubTitle } from '@components/design/typography';
 import { Box } from '@components/design/box';
-/* Types Import */
+/** Types Import */
 import type { GetServerSidePropsContext } from 'next';
-/**
- * Internal Type Declaration
- * @private
- */
+
 /**
  * Next Laziefied Components Import
- * @private
+ *
  */
 const DetailsFormLazy = dynamic(
   (): any =>
@@ -23,8 +20,8 @@ const DetailsFormLazy = dynamic(
   { ssr: false },
 );
 /**
- * Next Page Components Props Declaration
- * @private
+ * Next Page Component Declaration
+ *
  */
 interface ProfileProps {
   currentUser: {
@@ -36,10 +33,6 @@ interface ProfileProps {
   };
 }
 
-/**
- * Next Page Component Declaration
- * @public
- */
 export default function Profile(props: ProfileProps) {
   const t = useTranslations(`Profile`);
 
@@ -57,7 +50,7 @@ export default function Profile(props: ProfileProps) {
 }
 /**
  * Next Page Server Code Declaration
- * @public
+ *
  */
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await getSession(context);

@@ -1,31 +1,25 @@
-/* 3rd Party Modules Import */
+/** 3rd Party Modules Import */
 import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
 import { useTranslations } from 'next-intl';
-/* Internal Modules Import */
+/** Internal Modules Import */
 import { Button } from '@components/design/button';
 import { SubTitle } from '@components/design/typography';
 import { Box } from '@components/design/box';
 import { styled } from '@config/stitches.config';
 import { useDashNav } from '@store/navigation-store';
 import { useSession } from 'next-auth/react';
-/* Types Import */
+/** Types Import */
 import type { ReactElement } from 'react';
+
 /**
- * Internal Type Declaration
- * @private
- */
-/**
- * Component Props Declaration
- * @private
+ * Main Component Declaration
+ *
  */
 interface NavigationSheetsProps {
   toggleLocked: () => void;
 }
-/**
- * Component Declaration
- * @public
- */
+
 export const NavigationSheets = (
   props: NavigationSheetsProps,
 ): ReactElement => {
@@ -176,7 +170,7 @@ export const NavigationSheets = (
 };
 /**
  * Internal Component Declaration
- * @private
+ *
  */
 const NavigationCard = styled(`div`, {
   position: `fixed`,

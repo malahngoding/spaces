@@ -1,34 +1,26 @@
-/* 3rd Party Modules Import */
+/** 3rd Party Modules Import */
 import { getSession } from 'next-auth/react';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-/* Internal Modules Import */
+/** Internal Modules Import */
 import { AllCenterColumnBox, Box } from '@components/design/box';
 import { Title } from '@components/design/typography';
 import { Section } from '@components/design/section';
 import { Button } from '@components/design/button';
 import { BlankLayout } from '@layouts/blank';
-/* Types Import */
+/** Types Import */
 import type { GetServerSidePropsContext } from 'next';
 /**
- * Internal Type Declaration
- * @private
- */
-/**
  * Next Laziefied Components Import
- * @private
+ *
  */
 /**
- * Next Page Components Props Declaration
- * @private
+ * Next Page Component Declaration
+ *
  */
 interface OnBoardingFirstProps {
   redirectionUrl: string;
 }
-/**
- * Next Page Component Declaration
- * @public
- */
 export default function OnBoardingFirst(props: OnBoardingFirstProps) {
   const t = useTranslations(`OnBoarding`);
   return (
@@ -61,7 +53,7 @@ export default function OnBoardingFirst(props: OnBoardingFirstProps) {
 }
 /**
  * Next Page Server Code Declaration
- * @public
+ *
  */
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const redirectionUrl = context.query.redirect;
@@ -85,3 +77,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     };
   }
 }
+/**
+ * Internal Component Declaration
+ *
+ */

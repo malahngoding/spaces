@@ -1,10 +1,10 @@
-/* 3rd Party Modules Import */
-/* Internal Modules Import */
+/** 3rd Party Modules Import */
+/** Internal Modules Import */
 import { Box } from '@components/design/box';
 import { PlainButton } from '@components/design/button';
 import { Paragraph } from '@components/design/typography';
 import { Avatar, AvatarImage } from '@components/navigations/avatar';
-/* Types Import */
+/** Types Import */
 import type { ReactElement } from 'react';
 /**
  * Main Component Declaration

@@ -1,22 +1,16 @@
-/* 3rd Party Modules Import */
-/* Internal Modules Import */
+/** 3rd Party Modules Import */
+/** Internal Modules Import */
 import { Section } from '@components/design/section';
 import { Heading, SubTitle } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
-/* Internal Modules Import */
+/** Internal Modules Import */
 import type { GetServerSidePropsContext } from 'next';
-/**
- * Internal Type Declaration
- * @private
- */
+
 /**
  * Next Laziefied Components Import
- * @private
+ *
  */
-/**
- * Next Page Component Declaration
- * @public
- */
+
 export default function Marketplace() {
   return (
     <BaseLayout title="Hashable">
@@ -29,7 +23,7 @@ export default function Marketplace() {
 }
 /**
  * Next Page Server Code Declaration
- * @public
+ *
  */
 export async function getServerSideProps({
   locale,

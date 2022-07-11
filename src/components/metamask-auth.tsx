@@ -1,24 +1,21 @@
-/* 3rd Party Modules Import */
+/** 3rd Party Modules Import */
 import { ethers } from 'ethers';
 import Image from 'next/image';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/router';
-/* Internal Modules Import */
+/** Internal Modules Import */
 import { Button } from '@components/design/button';
 import { deployedChain } from '@config/contractAddress';
 import { ApplicationUrl } from '@config/application';
 import { useAuthLoading } from '@store/auth-loading-store';
 import { callbackUrlHandler } from '@utils/urlHandler';
-/* Types Import */
+/** Types Import */
 import type { ReactElement } from 'react';
 /**
- * Component Props Declaration
- * @private
+ * Main Component Declaration
+ *
  */
-/**
- * Component Declaration
- * @public
- */
+
 export const MetamaskAuth = (): ReactElement => {
   const toggleLoading = useAuthLoading((state) => state.toggleLoading);
 
@@ -117,5 +114,5 @@ export const MetamaskAuth = (): ReactElement => {
 };
 /**
  * Internal Component Declaration
- * @private
+ *
  */

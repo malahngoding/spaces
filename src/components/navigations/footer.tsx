@@ -1,4 +1,4 @@
-/* 3rd Party Modules Import */
+/** 3rd Party Modules Import */
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
@@ -9,25 +9,19 @@ import {
   UilInstagram,
   UilYoutube,
 } from '@iconscout/react-unicons';
-/* Internal Modules Import */
+/** Internal Modules Import */
 import { Footer } from '@components/design/footer';
 import { Box } from '@components/design/box';
 import { Caption, Heading, SubTitle } from '@components/design/typography';
 import { StyledLink } from '@components/design/link';
-/* Types Import */
+/** Types Import */
 import type { ReactElement } from 'react';
+
 /**
- * Internal Type Declaration
- * @private
+ * Main Component Declaration
+ *
  */
-/**
- * Component Props Declaration
- * @private
- */
-/**
- * Component Declaration
- * @public
- */
+
 const BottomLinkBox = (): ReactElement => {
   const t = useTranslations(`Menu`);
 
@@ -294,5 +288,5 @@ export const FooterNavigation = () => {
 };
 /**
  * Internal Component Declaration
- * @private
+ *
  */

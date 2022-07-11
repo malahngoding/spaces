@@ -1,20 +1,17 @@
-/* 3rd Party Modules Import */
+/** 3rd Party Modules Import */
 import * as SwitchPrimitive from '@radix-ui/react-switch';
-/* Internal Modules Import */
+/** Internal Modules Import */
 import { styled } from '@config/stitches.config';
 import { Box } from '@components/design/box';
 import { Paragraph } from '@components/design/typography';
 import { useCookiesPersist } from '@store/cookies-store';
-/* Types Import */
+/** Types Import */
 import type { ReactElement } from 'react';
 /**
- * Component Props Declaration
- * @private
+ * Main Component Declaration
+ *
  */
-/**
- * Component Declaration
- * @public
- */
+
 export const Cookie = (): ReactElement => {
   const cookies = useCookiesPersist((state) => state.cookies);
   const toggleCookies = useCookiesPersist((state) => state.toggleCookies);
@@ -38,7 +35,7 @@ export const Cookie = (): ReactElement => {
 };
 /**
  * Internal Component Declaration
- * @private
+ *
  */
 const StyledSwitch = styled(SwitchPrimitive.Root, {
   all: 'unset',

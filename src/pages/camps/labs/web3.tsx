@@ -38,5 +38,6 @@ export async function getStaticProps({ locale }: GetStaticPropsContext) {
     props: {
       messages,
     },
+    revalidate: 60 * 60 * 24,
   };
 }

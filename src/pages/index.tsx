@@ -1,29 +1,23 @@
-/* 3rd Party Modules Import */
-/* Internal Modules Import */
+/** 3rd Party Modules Import */
+/** Internal Modules Import */
 import { Hero } from '@components/branding/hero';
 import { Box } from '@components/design/box';
 import { BaseLayout } from '@layouts/base';
-/* Types Import */
+/** Types Import */
 import type { GetStaticPropsContext } from 'next';
-/**
- * Internal Type Declaration
- * @private
- */
+
 /**
  * Next Laziefied Components Import
- * @private
+ *
  */
 /**
- * Next Page Components Props Declaration
- * @private
+ * Next Page Component Declaration
+ *
  */
 interface HomeProps {
   random: number;
 }
-/**
- * Next Page Component Declaration
- * @public
- */
+
 export default function Home(props: HomeProps) {
   return (
     <BaseLayout title="Hello World!">
@@ -35,7 +29,7 @@ export default function Home(props: HomeProps) {
 }
 /**
  * Next Page Server Code Declaration
- * @public
+ *
  */
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   const getRandomInt = (min: number, max: number): number => {

@@ -1,28 +1,22 @@
-/* 3rd Party Modules Import */
-/* Internal Modules Import */
+/** 3rd Party Modules Import */
+/** Internal Modules Import */
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
 import { Heading, SubTitle } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
-/* Types Import */
+/** Types Import */
 import type { GetStaticPropsContext } from 'next';
-/**
- * Internal Type Declaration
- * @private
- */
+
 /**
  * Next Laziefied Components Import
- * @private
+ *
  */
-/**
- * Next Page Components Props Declaration
- * @private
- */
-interface AwesomeNoobsProps {}
 /**
  * Next Page Component Declaration
- * @public
+ *
  */
+interface AwesomeNoobsProps {}
+
 export default function AwesomeNoobs(props: AwesomeNoobsProps) {
   return (
     <BaseLayout title="Awesome Noobs">
@@ -38,7 +32,7 @@ export default function AwesomeNoobs(props: AwesomeNoobsProps) {
 }
 /**
  * Next Page Server Code Declaration
- * @public
+ *
  */
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   const messages = await import(`../../../lang/${locale}.json`).then(

@@ -1,28 +1,25 @@
-/* 3rd Party Modules Import */
+/** 3rd Party Modules Import */
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useTranslations } from 'next-intl';
 import { Fragment } from 'react';
-/* Internal Modules Import */
+/** Internal Modules Import */
 import { Section } from '@components/design/section';
 import { Paragraph } from '@components/design/typography';
 import { Button } from '@components/design/button';
 import { Box } from '@components/design/box';
-/* Types Import */
+/** Types Import */
 import type { ReactElement } from 'react';
 /**
- * Component Props Declaration
- * @private
+ * Main Component Declaration
+ *
  */
 interface AuthenticationBlockProps {
   currentSession: any;
   children: ReactElement;
 }
-/**
- * Component Declaration
- * @public
- */
+
 export const AuthenticationBlock = (
   props: AuthenticationBlockProps,
 ): ReactElement => {
@@ -73,5 +70,5 @@ export const AuthenticationBlock = (
 };
 /**
  * Internal Component Declaration
- * @private
+ *
  */

@@ -1,11 +1,11 @@
-/* 3rd Party Modules Import */
+/** 3rd Party Modules Import */
 import Image from 'next/image';
 import { HashConnect, HashConnectTypes } from 'hashconnect';
 import { useEffect, useState } from 'react';
 import { UilCopy } from '@iconscout/react-unicons';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/router';
-/* Internal Modules Import */
+/** Internal Modules Import */
 import { Button } from '@components/design/button';
 import { Box } from '@components/design/box';
 import {
@@ -19,16 +19,13 @@ import {
 import { InputText } from '@components/design/input';
 import { Paragraph } from '@components/design/typography';
 import { callbackUrlHandler } from '@utils/urlHandler';
-/* Types Import */
+/** Types Import */
 import type { ReactElement } from 'react';
 /**
- * Component Props Declaration
- * @private
+ * Main Component Declaration
+ *
  */
-/**
- * Component Declaration
- * @public
- */
+
 export const HashpackAuth = (): ReactElement => {
   const router = useRouter();
   const [signingString, setSigningString] = useState<string>('Loading...');
@@ -150,5 +147,5 @@ export const HashpackAuth = (): ReactElement => {
 };
 /**
  * Internal Component Declaration
- * @private
+ *
  */

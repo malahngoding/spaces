@@ -1,36 +1,30 @@
-/* 3rd Party Modules Import */
+/** 3rd Party Modules Import */
 import { Fragment } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { UilBars, UilMultiply } from '@iconscout/react-unicons';
 import { useLockBodyScroll, useToggle } from 'react-use';
 import dynamic from 'next/dynamic';
-/* Internal Modules Import */
+/** Internal Modules Import */
 import { styled } from '@config/stitches.config';
 import { Button } from '@components/design/button';
 import { useDashNav } from '@store/navigation-store';
 import { useAppStore } from '@store/app-store';
 import { NavigationSheets } from '@components/navigations/sheets';
 import { Box } from '@components/design/box';
-/* Types Import */
+/** Types Import */
 import type { ReactElement } from 'react';
-/**
- * Internal Type Declaration
- * @private
- */
+
 const ServiceCheckerLazy = dynamic(
   (): any =>
     import(`@components/service-checker`).then((mod) => mod.ServiceChecker),
   { ssr: false },
 );
 /**
- * Component Props Declaration
- * @private
+ * Main Component Declaration
+ *
  */
-/**
- * Component Declaration
- * @public
- */
+
 export const SideNavigation = (): ReactElement => {
   const [locked, toggleLocked] = useToggle(false);
 
@@ -103,7 +97,7 @@ export const SideNavigation = (): ReactElement => {
 };
 /**
  * Internal Component Declaration
- * @private
+ *
  */
 const SideNav = styled(`div`, {
   borderRight: `0`,

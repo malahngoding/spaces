@@ -1,18 +1,15 @@
-/* 3rd Party Modules Import */
+/** 3rd Party Modules Import */
 import { UilSun, UilMoon } from '@iconscout/react-unicons';
 import { useTheme } from 'next-themes';
-/* Internal Modules Import */
+/** Internal Modules Import */
 import { SmallButton } from '@components/design/button';
-/* Types Import */
+/** Types Import */
 import type { ReactElement } from 'react';
 /**
- * Component Props Declaration
- * @private
+ * Main Component Declaration
+ *
  */
-/**
- * Component Declaration
- * @public
- */
+
 export const ThemeToggle = (): ReactElement => {
   const { theme, setTheme } = useTheme();
 
@@ -36,5 +33,5 @@ export const ThemeToggle = (): ReactElement => {
 };
 /**
  * Internal Component Declaration
- * @private
+ *
  */

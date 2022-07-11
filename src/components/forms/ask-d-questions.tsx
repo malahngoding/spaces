@@ -1,8 +1,8 @@
-/* 3rd Party Modules Import */
+/** 3rd Party Modules Import */
 import { useTranslations } from 'next-intl';
 import { useSession } from 'next-auth/react';
 import { useState } from 'react';
-/* Internal Modules Import */
+/** Internal Modules Import */
 import { Box } from '@components/design/box';
 import { SubTitle } from '@components/design/typography';
 import { AuthenticationBlock } from '@components/authentication-block';
@@ -15,23 +15,17 @@ import {
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { Button } from '@components/design/button';
 import { postComment } from '@services/comment-service';
-/* Types Import */
+/** Types Import */
 import type { ReactElement } from 'react';
+
 /**
- * Internal Type Declaration
- * @private
- */
-/**
- * Component Props Declaration
- * @private
+ * Main Component Declaration
+ *
  */
 interface DetailFormData {
   question: string;
 }
-/**
- * Component Declaration
- * @public
- */
+
 export const AskDQuestions = (): ReactElement => {
   const [asked, setAsked] = useState<boolean>(false);
   const t = useTranslations(`Help`);
@@ -104,5 +98,5 @@ export const AskDQuestions = (): ReactElement => {
 };
 /**
  * Internal Component Declaration
- * @private
+ *
  */

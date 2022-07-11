@@ -1,28 +1,25 @@
-/* 3rd Party Modules Import */
+/** 3rd Party Modules Import */
 import { getSession } from 'next-auth/react';
 import { useTranslations } from 'next-intl';
 import useSWR from 'swr';
 import Image from 'next/image';
-/* Internal Modules Import */
+/** Internal Modules Import */
 import { ProfileLayout } from '@layouts/profile';
 import { Section } from '@components/design/section';
 import { Box } from '@components/design/box';
 import { Paragraph, SubTitle } from '@components/design/typography';
 import { getProfileWallets } from '@services/profile-service';
 import { Card } from '@components/design/card';
-/* Types Import */
+/** Types Import */
 import type { GetServerSidePropsContext } from 'next';
-/**
- * Internal Type Declaration
- * @private
- */
+
 /**
  * Next Laziefied Components Import
- * @private
+ *
  */
 /**
- * Next Page Components Props Declaration
- * @private
+ * Next Page Component Declaration
+ *
  */
 interface CryptoWalletsProps {
   currentUser: {
@@ -34,10 +31,7 @@ interface CryptoWalletsProps {
   };
 }
 const fetcher = (url: string) => getProfileWallets();
-/**
- * Next Page Component Declaration
- * @public
- */
+
 export default function Settings(props: CryptoWalletsProps) {
   const t = useTranslations(`Profile`);
   const { data, error } = useSWR('/getProfileWallets', fetcher);
@@ -124,7 +118,7 @@ export default function Settings(props: CryptoWalletsProps) {
 }
 /**
  * Next Page Server Code Declaration
- * @public
+ *
  */
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await getSession(context);
