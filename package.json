@@ -30,7 +30,7 @@
   ],
   "dependencies": {
     "@codesandbox/sandpack-react": "1.2.2",
-    "@fontsource/rubik": "4.5.10",
+    "@fontsource/m-plus-1": "4.5.9",
     "@grpc/grpc-js": "^1.6.7",
     "@grpc/proto-loader": "^0.6.12",
     "@iconscout/react-unicons": "^1.1.6",

@@ -4,7 +4,7 @@ specifiers:
   '@codesandbox/sandpack-react': 1.2.2
   '@commitlint/cli': ^17.0.0
   '@commitlint/config-conventional': ^17.0.0
-  '@fontsource/rubik': 4.5.10
+  '@fontsource/m-plus-1': 4.5.9
   '@grpc/grpc-js': ^1.6.7
   '@grpc/proto-loader': ^0.6.12
   '@iconscout/react-unicons': ^1.1.6
@@ -59,7 +59,7 @@ specifiers:
 
 dependencies:
   '@codesandbox/sandpack-react': 1.2.2_biqbaboplfbrettd7655fr4n2y
-  '@fontsource/rubik': 4.5.10
+  '@fontsource/m-plus-1': 4.5.9
   '@grpc/grpc-js': 1.6.7
   '@grpc/proto-loader': 0.6.13
   '@iconscout/react-unicons': 1.1.6
@@ -1264,8 +1264,8 @@ packages:
       '@ethersproject/strings': 5.6.1
     dev: false
 
-  /@fontsource/rubik/4.5.10:
-    resolution: {integrity: sha512-VQuuko0lAKgI6p9lylpeJ/xcG/FpQqUYgPC+NUwVGvYvZNSQYT20UT13MKjPk2bPuxSuSHeeOyZ9x/6eRy4pfQ==}
+  /@fontsource/m-plus-1/4.5.9:
+    resolution: {integrity: sha512-DYFSuUe1ymBJVzlnUyhph82dsbre6uvc9YTaxYrBzaK7LOWLyr8I9wgMjYPBRS0tiFQOJ1Z2J5wrr0n7U0jDSA==}
     dev: false
 
   /@formatjs/ecma402-abstract/1.11.4:
