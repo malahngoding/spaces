@@ -1,6 +1,6 @@
 {
   "Menu": {
-    "learn": "Belajar",
+    "learn": "Baca",
     "articles": "Artikel",
     "snippets": "Potongan",
     "flashCard": "Flash Card",
@@ -97,8 +97,8 @@
     "flashCardDescription": "Pertajam analisa kamu dengan menjawab pertanyaan-pertanyaan seputar kode dan sekitarnya. Daftarkan dirimu untuk meraih posisi teratas."
   },
   "Learn": {
-    "learnTitle": "Belajar Secara Mandiri",
-    "learnSubTitle": "Malah Belajar",
+    "learnTitle": "Membaca Secara Mandiri",
+    "learnSubTitle": "Malah Membaca",
     "articlesTitle": "Artikel",
     "articlesDescription": "Artikel yang akan memandu mu melakukan berbagai macam hal tentang programming.",
     "snippetsTitle": "Potongan Kode",

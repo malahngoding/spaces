@@ -7,12 +7,8 @@ import { Caption, Paragraph } from '@components/design/typography';
 /* Types Import */
 import type { ReactElement } from 'react';
 /**
- * Internal Type Declaration
- * @private
- */
-/**
- * Component Props Declaration
- * @private
+ * Main Component Declaration
+ *
  */
 export interface SnippetCardProps {
   title: string;
@@ -28,10 +24,6 @@ export interface SnippetCardProps {
   tags: string[];
   slug: string;
 }
-/**
- * Component Declaration
- * @public
- */
 export const SnippetCard = (props: SnippetCardProps): ReactElement => {
   const { title, icon, tags, slug } = props;
   return (
@@ -111,7 +103,7 @@ export const SnippetCard = (props: SnippetCardProps): ReactElement => {
 };
 /**
  * Internal Component Declaration
- * @private
+ *
  */
 const getBackgroundColor = (icon: string): string => {
   switch (icon) {

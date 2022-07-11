@@ -7,12 +7,8 @@ import { Avatar, AvatarImage } from '@components/navigations/avatar';
 /* Types Import */
 import type { ReactElement } from 'react';
 /**
- * Internal Type Declaration
- * @private
- */
-/**
- * Component Props Declaration
- * @private
+ * Main Component Declaration
+ *
  */
 interface RankCardProps {
   rank: number;
@@ -20,10 +16,6 @@ interface RankCardProps {
   avatar: string;
   score: string;
 }
-/**
- * Component Declaration
- * @public
- */
 export const RankCard = (props: RankCardProps): ReactElement => {
   return (
     <Box
@@ -59,5 +51,5 @@ export const RankCard = (props: RankCardProps): ReactElement => {
 };
 /**
  * Internal Component Declaration
- * @private
+ *
  */

@@ -6,12 +6,8 @@ import { Box } from '@components/design/box';
 /* Types Import */
 import type { ReactElement } from 'react';
 /**
- * Internal Type Declaration
- * @private
- */
-/**
- * Component Props Declaration
- * @private
+ * Main Component Declaration
+ *
  */
 interface ServiceCardProps {
   title: string;
@@ -19,10 +15,6 @@ interface ServiceCardProps {
   description: string;
   url: string;
 }
-/**
- * Component Declaration
- * @public
- */
 export const ServiceCard = (props: ServiceCardProps): ReactElement => {
   return (
     <Link href={props.url} passHref={true}>
@@ -84,5 +76,5 @@ export const ServiceCard = (props: ServiceCardProps): ReactElement => {
 };
 /**
  * Internal Component Declaration
- * @private
+ *
  */

@@ -5,14 +5,9 @@ import { Box } from '@components/design/box';
 import { Paragraph } from '@components/design/typography';
 /* Types Import */
 import type { ReactElement } from 'react';
-
 /**
- * Internal Type Declaration
- * @private
- */
-/**
- * Component Props Declaration
- * @private
+ * Main Component Declaration
+ *
  */
 interface InventoryCardProps {
   colors: string;
@@ -20,10 +15,6 @@ interface InventoryCardProps {
   description: string;
   image: string;
 }
-/**
- * Component Declaration
- * @public
- */
 export const InventoryCard = (props: InventoryCardProps): ReactElement => {
   return (
     <Box
@@ -66,5 +57,5 @@ export const InventoryCard = (props: InventoryCardProps): ReactElement => {
 };
 /**
  * Internal Component Declaration
- * @private
+ *
  */

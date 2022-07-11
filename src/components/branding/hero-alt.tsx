@@ -6,6 +6,7 @@ import { Heading, SubTitle } from '@components/design/typography';
 import type { ReactElement } from 'react';
 /**
  * Main Component Declaration
+ *
  */
 interface AltHeroProps {
   image: string;
@@ -24,6 +25,7 @@ export const AltHero = (props: AltHeroProps): ReactElement => {
 };
 /**
  * Internal Component Declaration
+ *
  */
 interface AltHeroWrapperProps {
   height: string;

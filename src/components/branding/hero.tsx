@@ -7,6 +7,7 @@ import { Box } from '@components/design/box';
 import type { ReactElement } from 'react';
 /**
  * Main Component Declaration
+ *
  */
 interface HeroProps {
   random: number;
@@ -30,6 +31,7 @@ export const Hero = (props: HeroProps): ReactElement => {
 };
 /**
  * Internal Component Declaration
+ *
  */
 interface HeroWrapperProps {
   height: string;

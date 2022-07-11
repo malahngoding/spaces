@@ -7,34 +7,17 @@ import { Box } from '@components/design/box';
 import { Paragraph } from '@components/design/typography';
 import { useWarnMarquee } from '@store/marquee-store';
 /** Types Import */
-import type { ReactElement } from 'react';
+import type { Dispatch, SetStateAction, ReactElement } from 'react';
 /**
  * Main Component Declaration
+ *
  */
 export const WarnMarquee = (): ReactElement => {
   const [hover, setHover] = useState<boolean>(false);
   const t = useTranslations(`Marquee`);
-  const shown = useWarnMarquee((state) => state.shown);
-  const marqueeToggle = useWarnMarquee((state) => state.toggleMarquee);
 
   return (
-    <Box
-      onClick={marqueeToggle}
-      css={{
-        display: shown ? 'block' : 'none',
-        position: `fixed`,
-        bottom: 0,
-        left: 0,
-        height: `32px`,
-        width: `100vw`,
-        backgroundColor: `$slate11`,
-        borderBottom: `1px solid $slate10`,
-        zIndex: 999999999,
-        overflow: `hidden`,
-      }}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
-    >
+    <WarnMarqueeWrapper setHover={setHover}>
       <Marquee
         speed={30}
         delay={0.5}
@@ -65,12 +48,42 @@ export const WarnMarquee = (): ReactElement => {
           </Fragment>
         )}
       </Marquee>
-    </Box>
+    </WarnMarqueeWrapper>
   );
 };
 /**
  * Internal Component Declaration
+ *
  */
+interface WarnMarqueeWrapperProps {
+  children: ReactElement;
+  setHover: Dispatch<SetStateAction<boolean>>;
+}
+const WarnMarqueeWrapper = (props: WarnMarqueeWrapperProps) => {
+  const shown = useWarnMarquee((state) => state.shown);
+  const marqueeToggle = useWarnMarquee((state) => state.toggleMarquee);
+  return (
+    <Box
+      onClick={marqueeToggle}
+      css={{
+        display: shown ? 'block' : 'none',
+        position: `fixed`,
+        bottom: 0,
+        left: 0,
+        height: `32px`,
+        width: `100vw`,
+        backgroundColor: `$slate11`,
+        borderBottom: `1px solid $slate10`,
+        zIndex: 999999999,
+        overflow: `hidden`,
+      }}
+      onMouseEnter={() => props.setHover(true)}
+      onMouseLeave={() => props.setHover(false)}
+    >
+      {props.children}
+    </Box>
+  );
+};
 interface RunningTextProps {
   children: ReactElement | string;
 }
