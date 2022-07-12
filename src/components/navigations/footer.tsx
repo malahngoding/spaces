@@ -220,7 +220,14 @@ const Linkage = () => {
 
 const SocialLinkBox = (): JSX.Element => {
   return (
-    <Box>
+    <Box
+      css={{
+        display: `flex`,
+        flexDirection: `row`,
+        justifyContent: `space-evenly`,
+        width: `50%`,
+      }}
+    >
       <a
         href="https://github.com/malahngoding"
         target="_blank"
@@ -259,13 +266,13 @@ export const FooterNavigation = () => {
 
   const t = useTranslations(`Menu`);
 
-  const LanguageToggleComponent = dynamic(
+  const LanguageToggleLazy = dynamic(
     (): any =>
       import(`@components/language-toggle`).then((mod) => mod.LanguageToggle),
     { ssr: false },
   );
 
-  const ThemeToggleComponent = dynamic(
+  const ThemeToggleLazy = dynamic(
     (): any =>
       import(`@components/theme-toggle`).then((mod) => mod.ThemeToggle),
     { ssr: false },
@@ -279,8 +286,9 @@ export const FooterNavigation = () => {
           © 2019-{year} Malah Ngoding. {t(`allRights`)}
         </Caption>
         <BottomLinkBox />
-        <LanguageToggleComponent />
-        <ThemeToggleComponent />
+        <SocialLinkBox />
+        <LanguageToggleLazy />
+        <ThemeToggleLazy />
         <Box css={{ height: `32px` }} />
       </Footer>
     </>

@@ -1,16 +1,22 @@
 import Head from 'next/head';
+import dynamic from 'next/dynamic';
+
 import { ApplicationName } from '@config/application';
 import { Main } from '@components/design/main';
 import { Box } from '@components/design/box';
-import { SideNavigation } from '@components/navigations/side';
 import { FooterNavigation } from '@components/navigations/footer';
+
+const SideNavigationLazy = dynamic(
+  (): any =>
+    import(`@components/navigations/side`).then((mod) => mod.SideNavigation),
+  { ssr: false },
+);
 
 interface CampsLayoutProps {
   title: string;
   sideNav: JSX.Element;
   children: JSX.Element;
 }
-
 export const CampsLayout = (props: CampsLayoutProps): JSX.Element => {
   const { title, sideNav, children } = props;
   return (
@@ -25,7 +31,7 @@ export const CampsLayout = (props: CampsLayoutProps): JSX.Element => {
           key="title"
         />
       </Head>
-      <SideNavigation />
+      <SideNavigationLazy />
       <Main>
         <Box className="wrapper">
           <Box

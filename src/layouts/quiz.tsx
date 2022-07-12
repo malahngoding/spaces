@@ -1,8 +1,16 @@
 import Head from 'next/head';
+import dynamic from 'next/dynamic';
+
 import { ApplicationName } from '@config/application';
 import { Main } from '@components/design/main';
 import { Box } from '@components/design/box';
 import { SideNavigation } from '@components/navigations/side';
+
+const SideNavigationLazy = dynamic(
+  (): any =>
+    import(`@components/navigations/side`).then((mod) => mod.SideNavigation),
+  { ssr: false },
+);
 
 interface QuizLayoutProps {
   title: string;
@@ -23,7 +31,7 @@ export const QuizLayout = (props: QuizLayoutProps): JSX.Element => {
           key="title"
         />
       </Head>
-      <SideNavigation />
+      <SideNavigationLazy />
       <Main>
         <Box className="wrapper">{children}</Box>
       </Main>

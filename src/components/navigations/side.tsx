@@ -24,7 +24,6 @@ const ServiceCheckerLazy = dynamic(
  * Main Component Declaration
  *
  */
-
 export const SideNavigation = (): ReactElement => {
   const [locked, toggleLocked] = useToggle(false);
 
