@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { Box } from '@components/design/box';
 /** Types Import */
 import type { ReactElement } from 'react';
+import { InputTextArea } from '@components/design/input';
+import { Button } from '@components/design/button';
 
 /**
  * Main Component Declaration
@@ -13,8 +15,9 @@ import type { ReactElement } from 'react';
 export const OnBoardingReason = (): ReactElement => {
   return (
     <Box>
+      <InputTextArea rows={4} />
       <Link href="/" passHref>
-        <Box>OnBoardingReason</Box>
+        <Button css={{ marginY: `$sm` }}>Submit</Button>
       </Link>
     </Box>
   );
