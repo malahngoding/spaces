@@ -30,7 +30,7 @@ export default function Labs(props: LabsProps) {
   const experiments = [
     {
       id: 1,
-      image: imageURL,
+      image: `https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/480px-Unofficial_JavaScript_logo_2.svg.png`,
       description: `Computer Science is the world's first superpower. It enables people of all backgrounds to earn a six figure salary while building the world of tomorrow.`,
       title: `Learn to code, Build your future.`,
       slug: props.slug,
@@ -50,8 +50,9 @@ export default function Labs(props: LabsProps) {
           css={{
             display: `grid`,
             gap: `$xs`,
+            gridTemplateColumns: `1fr`,
             '@md': {
-              gridTemplateColumns: `1fr 1fr 1fr`,
+              gridTemplateColumns: `1fr`,
             },
           }}
         >

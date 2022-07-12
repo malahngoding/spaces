@@ -20,12 +20,13 @@ export interface CampsCardProps {
 }
 export const CampsCard = (props: CampsCardProps): ReactElement => {
   return (
-    <Link href={`/camps/code/${props.courses}/${props.slug}`} passHref>
-      <CampsCardWrapper id={props.id}>
-        <MediaImage image={props.image} title={props.title} />
-        <Description title={props.title} description={props.description} />
-      </CampsCardWrapper>
-    </Link>
+    <CampsCardWrapper
+      id={props.id}
+      href={`/camps/code/${props.courses}/${props.slug}`}
+    >
+      <MediaImage image={props.image} title={props.title} />
+      <Description title={props.title} description={props.description} />
+    </CampsCardWrapper>
   );
 };
 /**
@@ -35,33 +36,36 @@ export const CampsCard = (props: CampsCardProps): ReactElement => {
 interface CampsCardWrapperProps {
   children: ReactElement[];
   id: number;
+  href: string;
 }
 const CampsCardWrapper = (props: CampsCardWrapperProps) => {
   return (
-    <Box
-      as="a"
-      key={props.id}
-      css={{
-        border: `2px solid $slate12`,
-        background: `$slate4`,
-        marginY: `$xxs`,
-        width: `100%`,
-        display: `flex`,
-        flexDirection: `column`,
-        alignItems: `center`,
-        justifyContent: `center`,
-        '@lg': {
-          flexDirection: `row`,
-        },
-        '&:hover': {
-          cursor: `pointer`,
-          transform: `translateY(-4px)`,
-          boxShadow: `0px 8px 6px -8px hsl(198 6.6% 15.8%)`,
-        },
-      }}
-    >
-      {props.children}
-    </Box>
+    <Link href={props.href} passHref>
+      <Box
+        as="a"
+        key={props.id}
+        css={{
+          border: `2px solid $slate12`,
+          background: `$slate4`,
+          marginY: `$xxs`,
+          width: `100%`,
+          display: `flex`,
+          flexDirection: `column`,
+          alignItems: `center`,
+          justifyContent: `center`,
+          '@lg': {
+            flexDirection: `row`,
+          },
+          '&:hover': {
+            cursor: `pointer`,
+            transform: `translateY(-4px)`,
+            boxShadow: `0px 8px 6px -8px hsl(198 6.6% 15.8%)`,
+          },
+        }}
+      >
+        {props.children}
+      </Box>
+    </Link>
   );
 };
 interface MediaImageProps {
@@ -71,12 +75,7 @@ interface MediaImageProps {
 const MediaImage = (props: MediaImageProps) => {
   return (
     <Box css={{ height: `100%` }}>
-      <Image
-        src={`${props.image}&w=320&h=320&q=80`}
-        alt={props.title}
-        width="310px"
-        height="310px"
-      />
+      <Image src={props.image} alt={props.title} width="310px" height="310px" />
     </Box>
   );
 };

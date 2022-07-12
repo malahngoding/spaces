@@ -21,16 +21,14 @@ export interface BlogCardProps {
 }
 export const BlogCard = (props: BlogCardProps): ReactElement => {
   return (
-    <Link href={`/learn/articles/${props.slug}`} passHref>
-      <BlogCardWrapper id={props.id}>
-        <MediaImage image={props.image} title={props.title} />
-        <Description
-          title={props.title}
-          description={props.description}
-          published={props.published}
-        />
-      </BlogCardWrapper>
-    </Link>
+    <BlogCardWrapper id={props.id} href={`/learn/articles/${props.slug}`}>
+      <MediaImage image={props.image} title={props.title} />
+      <Description
+        title={props.title}
+        description={props.description}
+        published={props.published}
+      />
+    </BlogCardWrapper>
   );
 };
 /**
@@ -40,38 +38,41 @@ export const BlogCard = (props: BlogCardProps): ReactElement => {
 interface BlogCardWrapperProps {
   children: ReactElement[];
   id: number;
+  href: string;
 }
 const BlogCardWrapper = (props: BlogCardWrapperProps) => {
   return (
-    <Box
-      as="a"
-      key={props.id}
-      css={{
-        border: `2px solid $slate10`,
-        background: `none`,
-        padding: `$xs`,
-        marginY: `$xxs`,
-        width: `100%`,
-        display: `flex`,
-        flexDirection: `column`,
-        alignItems: `center`,
-        justifyContent: `center`,
-        transform: 'translateY(0px)',
-        '@lg': {
-          flexDirection: `row`,
-        },
-        '&:hover': {
-          border: `2px solid $slate12`,
-          background: `$slate2`,
-          cursor: `pointer`,
-          animation: `${scaleUp} 200ms`,
-          transform: 'translateY(-4px)',
-          boxShadow: `5px 5px`,
-        },
-      }}
-    >
-      {props.children}
-    </Box>
+    <Link href={props.href} passHref>
+      <Box
+        as="a"
+        key={props.id}
+        css={{
+          border: `2px solid $slate10`,
+          background: `none`,
+          padding: `$xs`,
+          marginY: `$xxs`,
+          width: `100%`,
+          display: `flex`,
+          flexDirection: `column`,
+          alignItems: `center`,
+          justifyContent: `center`,
+          transform: 'translateY(0px)',
+          '@lg': {
+            flexDirection: `row`,
+          },
+          '&:hover': {
+            border: `2px solid $slate12`,
+            background: `$slate2`,
+            cursor: `pointer`,
+            animation: `${scaleUp} 200ms`,
+            transform: 'translateY(-4px)',
+            boxShadow: `5px 5px`,
+          },
+        }}
+      >
+        {props.children}
+      </Box>
+    </Link>
   );
 };
 interface MediaImageProps {

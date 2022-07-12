@@ -23,7 +23,7 @@ export default function Articles(props: ArticlesProps) {
   return (
     <BaseLayout title={t(`articlesTitle`)}>
       <Fragment>
-        <Box css={{ borderBottom: `1px solid $slate6`, paddingY: `$xs` }}>
+        <Box>
           <Section>
             <SubTitle data-testid="welcome-text">
               {t(`articlesSubTitle`)}
