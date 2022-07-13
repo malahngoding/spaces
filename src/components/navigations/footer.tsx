@@ -220,18 +220,12 @@ const Linkage = () => {
 
 const SocialLinkBox = (): JSX.Element => {
   return (
-    <Box
-      css={{
-        display: `flex`,
-        flexDirection: `row`,
-        justifyContent: `space-evenly`,
-        width: `50%`,
-      }}
-    >
+    <Box css={{ marginY: `$md` }}>
       <a
         href="https://github.com/malahngoding"
         target="_blank"
         rel="noreferrer"
+        style={{ margin: `0px 8px 0px 8px` }}
       >
         <UilGithubAlt />
       </a>
@@ -239,6 +233,7 @@ const SocialLinkBox = (): JSX.Element => {
         href="https://youtube.com/malahngoding"
         target="_blank"
         rel="noreferrer"
+        style={{ margin: `0px 8px 0px 8px` }}
       >
         <UilYoutube />
       </a>
@@ -246,6 +241,7 @@ const SocialLinkBox = (): JSX.Element => {
         href="https://tiktok.com/malahngoding"
         target="_blank"
         rel="noreferrer"
+        style={{ margin: `0px 8px 0px 8px` }}
       >
         <UilPresentationPlay />
       </a>
@@ -253,6 +249,7 @@ const SocialLinkBox = (): JSX.Element => {
         href="https://instagram.com/malahngoding"
         target="_blank"
         rel="noreferrer"
+        style={{ margin: `0px 8px 0px 8px` }}
       >
         <UilInstagram />
       </a>
@@ -272,12 +269,6 @@ export const FooterNavigation = () => {
     { ssr: false },
   );
 
-  const ThemeToggleLazy = dynamic(
-    (): any =>
-      import(`@components/theme-toggle`).then((mod) => mod.ThemeToggle),
-    { ssr: false },
-  );
-
   return (
     <>
       <Footer>
@@ -286,10 +277,8 @@ export const FooterNavigation = () => {
           © 2019-{year} Malah Ngoding. {t(`allRights`)}
         </Caption>
         <BottomLinkBox />
-        <SocialLinkBox />
         <LanguageToggleLazy />
-        <ThemeToggleLazy />
-        <Box css={{ height: `32px` }} />
+        <SocialLinkBox />
       </Footer>
     </>
   );

@@ -2,6 +2,7 @@
 import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
 import { useTranslations } from 'next-intl';
+import dynamic from 'next/dynamic';
 /** Internal Modules Import */
 import { Button } from '@components/design/button';
 import { SubTitle } from '@components/design/typography';
@@ -11,7 +12,14 @@ import { useDashNav } from '@store/navigation-store';
 import { useSession } from 'next-auth/react';
 /** Types Import */
 import type { ReactElement } from 'react';
-
+/**
+ * Lazy Component Import
+ *
+ */
+const ThemeToggleLazy = dynamic(
+  (): any => import(`@components/theme-toggle`).then((mod) => mod.ThemeToggle),
+  { ssr: false },
+);
 /**
  * Main Component Declaration
  *
@@ -74,6 +82,9 @@ export const NavigationSheets = (
             },
           }}
         >
+          <Box css={{ margin: `0 0 $md $md` }}>
+            <ThemeToggleLazy />
+          </Box>
           {navigationList.map((item) => (
             <a key={item.url}>
               <Button
