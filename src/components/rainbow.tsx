@@ -127,7 +127,7 @@ export const Rainbow = (): ReactElement => {
 const alchemyId = process.env.NEXT_PUBLIC_ALCHEMY_ID;
 const { chains, provider } = configureChains(
   [chain.polygon, chain.polygonMumbai],
-  [alchemyProvider({ alchemyId })],
+  [alchemyProvider({ apiKey: process.env.ALCHEMY_ID })],
 );
 const { connectors } = getDefaultWallets({
   appName: 'Malah Ngoding',
