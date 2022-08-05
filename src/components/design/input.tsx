@@ -9,7 +9,6 @@ export const InputGroup = styled(`div`, {
 export const InputLabel = styled(`label`, {
   color: `$slate10`,
   fontSize: `$xs`,
-  fontFamily: `$mono`,
   letterSpacing: `2px`,
   fontWeight: `bold`,
   padding: 2,

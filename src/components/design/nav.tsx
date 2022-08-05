@@ -10,6 +10,7 @@ export const Nav = styled(`nav`, {
   padding: `$md`,
   backgroundColor: `$slate1`,
   color: `$slate12`,
+  borderBottom: `1px solid $slate6`,
   '@md': {
     height: `$md`,
     display: `flex`,

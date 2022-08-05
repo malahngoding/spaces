@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import { GetStaticPropsContext } from 'next';
 import { useTranslations } from 'next-intl';
 import { UilAngleLeft } from '@iconscout/react-unicons';
@@ -20,15 +21,16 @@ export default function Articles(props: ArticlesProps) {
   const l = useTranslations(`Learn`);
 
   return (
-    <BaseLayout title="Hello World!">
-      <Box>
-        <br />
-        <Section>
-          <SubTitle data-testid="welcome-text">
-            {t(`articlesSubTitle`)}
-          </SubTitle>
-          <Heading>{t(`articlesTitle`)}</Heading>
-        </Section>
+    <BaseLayout title={t(`articlesTitle`)}>
+      <Fragment>
+        <Box>
+          <Section>
+            <SubTitle data-testid="welcome-text">
+              {t(`articlesSubTitle`)}
+            </SubTitle>
+            <Heading>{t(`articlesTitle`)}</Heading>
+          </Section>
+        </Box>
         <Section
           css={{
             display: `grid`,
@@ -69,7 +71,7 @@ export default function Articles(props: ArticlesProps) {
             <Button alternative={'tertiary'}>{l(`snippetsTitle`)}</Button>
           </Link>
         </Section>
-      </Box>
+      </Fragment>
     </BaseLayout>
   );
 }
@@ -78,7 +80,11 @@ export async function getStaticProps({ locale }: GetStaticPropsContext) {
   const messages = await import(`../../../lang/${locale}.json`).then(
     (module) => module.default,
   );
-  const response = await getArticles(10, 10, locale || 'id');
+  const response = await getArticles({
+    offset: 10,
+    limit: 10,
+    lang: locale || 'id',
+  });
   return {
     props: {
       messages,

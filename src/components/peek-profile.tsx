@@ -1,14 +1,19 @@
-import { useSession } from 'next-auth/react';
+/** 3rd Party Modules Import */
 import { useRouter } from 'next/router';
 import { Fragment, useEffect, useState } from 'react';
-
+/** Internal Modules Import */ import { useSession } from 'next-auth/react';
 import { Box } from '@components/design/box';
 import { PlainButton } from '@components/design/button';
 import { Avatar, AvatarImage } from '@components/navigations/avatar';
-
+/** Types Import */
+import type { ReactElement } from 'react';
+/**
+ * Main Component Declaration
+ *
+ */
 interface PeekProfileProps {}
 
-export const PeekProfile = (props: PeekProfileProps): JSX.Element => {
+export const PeekProfile = (props: PeekProfileProps): ReactElement => {
   const { status, data: session } = useSession();
   const router = useRouter();
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -67,3 +72,7 @@ export const PeekProfile = (props: PeekProfileProps): JSX.Element => {
     </>
   );
 };
+/**
+ * Internal Component Declaration
+ *
+ */

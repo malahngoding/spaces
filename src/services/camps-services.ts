@@ -1,8 +1,10 @@
 import { microService } from '@utils/service';
 
-export const getCampsList = async (
-  lang?: string,
-): Promise<{
+interface GetCampsListRequest {
+  lang?: string;
+}
+
+interface GetCampsListResponse {
   data: {
     messages: string;
     status: string;
@@ -12,9 +14,13 @@ export const getCampsList = async (
       slug: string;
     };
   };
-}> => {
-  if (lang) {
-    lang = 'id';
+}
+
+export const getCampsList = async (
+  req: GetCampsListRequest,
+): Promise<GetCampsListResponse> => {
+  if (req.lang) {
+    req.lang = 'id';
   }
-  return await microService.get(`getCampsList?lang=${lang}`, {});
+  return await microService.get(`getCampsList?lang=${req.lang}`, {});
 };

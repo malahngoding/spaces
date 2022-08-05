@@ -1,17 +1,30 @@
+/** 3rd Party Modules Import */
 import { useTranslations } from 'next-intl';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote } from 'next-mdx-remote';
 import matter from 'gray-matter';
 import dynamic from 'next/dynamic';
-
+/** Internal Modules Import */
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
 import { Caption, Heading, SubTitle } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
 import { Markdown, MarkdownWrapper } from '@components/markdown';
-
+/** Types Import */
 import type { GetStaticPropsContext } from 'next';
 
+/**
+ * Next Laziefied Components Import
+ *
+ */
+const CookieClientLazy = dynamic(
+  (): any => import(`@components/cookie-toggle`).then((mod) => mod.Cookie),
+  { ssr: false },
+);
+/**
+ * Next Page Component Declaration
+ *
+ */
 interface CookieSettingsProps {
   source: any;
   frontMatter: {
@@ -24,10 +37,7 @@ interface CookieSettingsProps {
 
 export default function CookieSettings(props: CookieSettingsProps) {
   const t = useTranslations(`Articles`);
-  const CookieClient = dynamic(
-    (): any => import(`@components/cookie-toggle`).then((mod) => mod.Cookie),
-    { ssr: false },
-  );
+
   return (
     <BaseLayout title={props.frontMatter.title}>
       <Box>
@@ -44,7 +54,7 @@ export default function CookieSettings(props: CookieSettingsProps) {
           </MarkdownWrapper>
         </Section>
         <Section>
-          <CookieClient />
+          <CookieClientLazy />
         </Section>
         <Section>
           <Caption>
@@ -55,7 +65,10 @@ export default function CookieSettings(props: CookieSettingsProps) {
     </BaseLayout>
   );
 }
-
+/**
+ * Next Page Server Code Declaration
+ *
+ */
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   try {
     const response = await fetch(

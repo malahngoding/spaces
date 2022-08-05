@@ -9,6 +9,7 @@ declare module 'next-auth' {
     microsToken: string;
     filamentsToken: string;
     currentUser: any;
+    fresh: boolean;
   }
 }
 

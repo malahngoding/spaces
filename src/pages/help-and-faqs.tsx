@@ -1,17 +1,49 @@
+/** 3rd Party Modules Import */
 import { useTranslations } from 'next-intl';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote } from 'next-mdx-remote';
 import matter from 'gray-matter';
-
+import dynamic from 'next/dynamic';
+/** Internal Modules Import */
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
-import { Caption, Heading, SubTitle } from '@components/design/typography';
+import {
+  Caption,
+  Heading,
+  Paragraph,
+  SubTitle,
+} from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
 import { Markdown, MarkdownWrapper } from '@components/markdown';
+import { getAnsweredCommentByLang } from '@services/comment-service';
+/** Types Import */
+import type { GetServerSidePropsContext } from 'next';
 
-import type { GetStaticPropsContext } from 'next';
-
+/**
+ * Next Laziefied Components Import
+ *
+ */
+const AskDQuestionsLazy = dynamic(
+  (): any =>
+    import('@components/forms/ask-d-questions').then(
+      (module) => module.AskDQuestions,
+    ),
+  {
+    ssr: false,
+  },
+);
+/**
+ * Next Page Component Declaration
+ *
+ */
 interface HelpAndFaqsProps {
+  comments: {
+    key: string;
+    comment: string;
+    answer: string;
+    isAnswered: boolean;
+    lang: string;
+  }[];
   source: any;
   frontMatter: {
     title: string;
@@ -19,6 +51,7 @@ interface HelpAndFaqsProps {
     description: string;
     publishedAt: string;
   };
+  date: any;
 }
 
 export default function HelpAndFaqs(props: HelpAndFaqsProps) {
@@ -39,17 +72,36 @@ export default function HelpAndFaqs(props: HelpAndFaqsProps) {
             <MDXRemote {...props.source} components={Markdown} />
           </MarkdownWrapper>
         </Section>
+        <br />
+        <Section>
+          {props.comments.map((item) => {
+            return (
+              <Box key={item.key}>
+                <SubTitle>{item.comment}</SubTitle>
+                <Paragraph>{item.answer}</Paragraph>
+              </Box>
+            );
+          })}
+        </Section>
+        <Section>
+          <AskDQuestionsLazy />
+        </Section>
         <Section>
           <Caption>
-            {t(`updated`)} {props.frontMatter.publishedAt}
+            {t(`updated`)} {props.date}
           </Caption>
         </Section>
       </Box>
     </BaseLayout>
   );
 }
-
-export async function getStaticProps({ locale }: GetStaticPropsContext) {
+/**
+ * Next Page Server Code Declaration
+ *
+ */
+export async function getServerSideProps({
+  locale,
+}: GetServerSidePropsContext) {
   try {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_MICROS_URL}/public/static/${locale}/help-and-faqs.md`,
@@ -62,11 +114,16 @@ export async function getStaticProps({ locale }: GetStaticPropsContext) {
     const messages = await import(`../lang/${locale}.json`).then(
       (module) => module.default,
     );
+
+    const comments = await getAnsweredCommentByLang({ lang: locale || `id` });
+
     return {
       props: {
         messages,
         source: mdxSource,
         frontMatter: data,
+        comments: comments.data.payload.comments,
+        date: new Date().toUTCString(),
       },
     };
   } catch (error) {

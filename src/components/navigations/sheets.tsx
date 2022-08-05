@@ -1,43 +1,36 @@
+/** 3rd Party Modules Import */
 import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
 import { useTranslations } from 'next-intl';
-
+import dynamic from 'next/dynamic';
+/** Internal Modules Import */
 import { Button } from '@components/design/button';
 import { SubTitle } from '@components/design/typography';
 import { Box } from '@components/design/box';
 import { styled } from '@config/stitches.config';
 import { useDashNav } from '@store/navigation-store';
 import { useSession } from 'next-auth/react';
-
-const NavigationCard = styled(`div`, {
-  position: `fixed`,
-  left: `0px`,
-  top: `0`,
-  width: `calc(100% - 0px)`,
-  height: `100vh`,
-  zIndex: `100000`,
-  background: `rgba(253, 252, 253, 0.69)`,
-  backdropFilter: `blur(9px)`,
-  webkitBackdropFilter: `blur(9px)`,
-  display: `flex`,
-  flexDirection: `row`,
-  justifyContent: `flex-start`,
-  alignItems: `center`,
-  '@sm': {
-    left: `100px`,
-    width: `calc(100% - 100px)`,
-  },
-  '@lg': {
-    left: `140px`,
-    width: `calc(100% - 140px)`,
-  },
-});
-
+/** Types Import */
+import type { ReactElement } from 'react';
+/**
+ * Lazy Component Import
+ *
+ */
+const ThemeToggleLazy = dynamic(
+  (): any => import(`@components/theme-toggle`).then((mod) => mod.ThemeToggle),
+  { ssr: false },
+);
+/**
+ * Main Component Declaration
+ *
+ */
 interface NavigationSheetsProps {
   toggleLocked: () => void;
 }
 
-export const NavigationSheets = (props: NavigationSheetsProps) => {
+export const NavigationSheets = (
+  props: NavigationSheetsProps,
+): ReactElement => {
   const { data: session, status } = useSession();
 
   const toggleNav = useDashNav((state) => state.toggleNav);
@@ -81,7 +74,7 @@ export const NavigationSheets = (props: NavigationSheetsProps) => {
             flexDirection: `column`,
             justifyContent: `flex-end`,
             alignItems: `flex-start`,
-            padding: `$md $xxs`,
+            padding: `0 $xxs $xl $xxs`,
             '@lg': {
               background: `$slate1`,
               padding: `$xl`,
@@ -89,6 +82,9 @@ export const NavigationSheets = (props: NavigationSheetsProps) => {
             },
           }}
         >
+          <Box css={{ margin: `0 0 $md $md` }}>
+            <ThemeToggleLazy />
+          </Box>
           {navigationList.map((item) => (
             <a key={item.url}>
               <Button
@@ -157,6 +153,7 @@ export const NavigationSheets = (props: NavigationSheetsProps) => {
                   </Button>
                 )}
               </Box>
+              <Box css={{ height: `32px` }} />
             </>
           )}
         </Box>
@@ -182,3 +179,30 @@ export const NavigationSheets = (props: NavigationSheetsProps) => {
     </>
   );
 };
+/**
+ * Internal Component Declaration
+ *
+ */
+const NavigationCard = styled(`div`, {
+  position: `fixed`,
+  left: `0px`,
+  top: `0`,
+  width: `calc(100% - 0px)`,
+  height: `100vh`,
+  zIndex: `100000`,
+  background: `rgba(253, 252, 253, 0.69)`,
+  backdropFilter: `blur(9px)`,
+  webkitBackdropFilter: `blur(9px)`,
+  display: `flex`,
+  flexDirection: `row`,
+  justifyContent: `flex-start`,
+  alignItems: `center`,
+  '@sm': {
+    left: `100px`,
+    width: `calc(100% - 100px)`,
+  },
+  '@lg': {
+    left: `140px`,
+    width: `calc(100% - 140px)`,
+  },
+});

@@ -1,15 +1,25 @@
+/** 3rd Party Modules Import */
 import { useTranslations } from 'next-intl';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote } from 'next-mdx-remote';
 import matter from 'gray-matter';
-
+/** Internal Modules Import */
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
 import { Caption, Heading, SubTitle } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
 import { Markdown, MarkdownWrapper } from '@components/markdown';
-
+/** Types Import */
 import type { GetStaticPropsContext } from 'next';
+
+/**
+ * Next Laziefied Components Import
+ *
+ */
+/**
+ * Next Page Component Declaration
+ *
+ */
 interface SoftwareConsultingProps {
   source: any;
   frontMatter: {
@@ -47,7 +57,10 @@ export default function SoftwareConsulting(props: SoftwareConsultingProps) {
     </BaseLayout>
   );
 }
-
+/**
+ * Next Page Server Code Declaration
+ *
+ */
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   try {
     const response = await fetch(

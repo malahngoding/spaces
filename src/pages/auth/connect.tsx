@@ -8,36 +8,20 @@ import {
 } from 'next-auth/react';
 import { NextPageContext } from 'next';
 import Link from 'next/link';
-import { useForm, SubmitHandler } from 'react-hook-form';
 import { UilGithub, UilGoogle } from '@iconscout/react-unicons';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/router';
+import { Suspense } from 'react';
 
 import { Button } from '@components/design/button';
-import { Form } from '@components/design/form';
-import {
-  InputText,
-  InputGroup,
-  InputLabel,
-  InputHelperText,
-} from '@components/design/input';
 import { Paragraph, Title } from '@components/design/typography';
 import { AuthLayout } from '@layouts/auth';
-import { Span } from '@components/design/span';
 import { styled } from '@config/stitches.config';
-import { StyledLink } from '@components/design/link';
 import { Grid } from '@components/design/grid';
 import { useAuthLoading } from '@store/auth-loading-store';
 import { AuthLoader } from '@components/loader/auth';
 import { callbackUrlHandler } from '@utils/urlHandler';
 import { Box } from '@components/design/box';
-import { Suspense } from 'react';
-
-interface RegisterForm {
-  email: string;
-  password: string;
-  repeatPassword: string;
-}
 
 const Card = styled(`div`, {
   display: `flex`,
@@ -89,11 +73,6 @@ function checkExpiry(current: string | undefined): boolean {
   return false;
 }
 
-interface RegisterProps {
-  providers: any;
-  csrfToken: string;
-}
-
 const HashpackConnectButton = dynamic(
   (): any =>
     import(`@components/hashpack-auth`).then((mod) => mod.HashpackAuth),
@@ -106,22 +85,14 @@ const MetamaskConnectButton = dynamic(
   { ssr: false },
 );
 
+interface RegisterProps {
+  providers: any;
+}
 export default function Connect(props: RegisterProps) {
   const isLoading = useAuthLoading((state) => state.isLoading);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<RegisterForm>();
-
   const router = useRouter();
   const t = useTranslations(`Register`);
-  const { providers, csrfToken } = props;
-
-  const onSubmit: SubmitHandler<RegisterForm> = (data) => {
-    console.debug(data, props, csrfToken);
-  };
 
   const altImage = `/static/images/camps-instead.webp`;
 
@@ -168,7 +139,7 @@ export default function Connect(props: RegisterProps) {
                 <Button
                   alternative="secondary"
                   onClick={() =>
-                    signIn(providers.github.id, {
+                    signIn(props.providers.github.id, {
                       redirect: true,
                       callbackUrl: `${callbackUrlHandler(
                         router.query.callBackUrl as string,
@@ -182,7 +153,7 @@ export default function Connect(props: RegisterProps) {
                 <Button
                   alternative="secondary"
                   onClick={() =>
-                    signIn(providers.google.id, {
+                    signIn(props.providers.google.id, {
                       redirect: true,
                       callbackUrl: `${callbackUrlHandler(
                         router.query.callBackUrl as string,
@@ -201,44 +172,6 @@ export default function Connect(props: RegisterProps) {
           <Paragraph css={{ marginY: `$md`, display: `none` }}>
             or using email
           </Paragraph>
-          <Form onSubmit={handleSubmit(onSubmit)} css={{ display: `none` }}>
-            <InputGroup>
-              <InputLabel>E-mail</InputLabel>
-              <InputText {...register(`email`, { required: true })} />
-              <InputHelperText>
-                {errors.email && <span>This is mandatory</span>}
-              </InputHelperText>
-            </InputGroup>
-            <InputGroup>
-              <InputLabel>Password</InputLabel>
-              <InputText
-                {...register(`password`, { required: true })}
-                type="password"
-              />
-              <InputHelperText>
-                {errors.password && <span>This is mandatory</span>}
-              </InputHelperText>
-            </InputGroup>
-            <InputGroup>
-              <InputLabel>Repeat Password</InputLabel>
-              <InputText
-                {...register(`repeatPassword`, { required: true })}
-                type="password"
-              />
-              <InputHelperText>
-                {errors.repeatPassword && <span>This is mandatory</span>}
-              </InputHelperText>
-            </InputGroup>
-            <Paragraph css={{ marginY: `$md`, maxWidth: `315px` }}>
-              Already have an account?{` `}
-              <Link href="/auth/signin" passHref>
-                <StyledLink>
-                  <Span css={{ fontWeight: `bold` }}>Log In</Span>
-                </StyledLink>
-              </Link>
-            </Paragraph>
-            <Button type="submit">Register</Button>
-          </Form>
         </Card>
       </Right>
     </AuthLayout>

@@ -1,9 +1,9 @@
+/** 3rd Party Modules Import */
 import { useEffect, useState } from 'react';
 import { CryptoCard } from '@components/cards/crypto-card';
 import { ethers } from 'ethers';
-
+/** Internal Modules Import */
 import MalahNgodingToken from '@artifacts/contracts/MalahNgodingToken.sol/MalahNgodingToken.json';
-
 import { Box } from '@components/design/box';
 import { Button } from '@components/design/button';
 import {
@@ -12,8 +12,15 @@ import {
   MalahNgodingTokenDecimals,
   MalahNgodingTokenSymbol,
 } from '@config/contractAddress';
+/** Types Import */
+import type { ReactElement } from 'react';
 
-export const WalletHandler = () => {
+/**
+ * Main Component Declaration
+ *
+ */
+
+export const WalletHandler = (): ReactElement => {
   const [currentAccount, setCurrentAccount] = useState<string>('');
   const [currentBalance, setCurrentBalance] = useState<string>('');
   const [currentGasBalance, setCurrentGasBalance] = useState<string>('');
@@ -118,7 +125,7 @@ export const WalletHandler = () => {
         gas={`${currentGasBalance} $mumbaiMATIC`}
         currentAddress={currentAccount}
         description="Malah Ngoding Token"
-        image="https://storage.opensea.io/files/70db9e857f52b78b7a9f6d93020e50d8.mp4"
+        url="https://storage.opensea.io/files/70db9e857f52b78b7a9f6d93020e50d8.mp4"
       />
       <Box css={{ display: `flex`, flexDirection: `row` }}>
         <Button

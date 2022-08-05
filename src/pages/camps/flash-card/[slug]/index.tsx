@@ -1,16 +1,40 @@
+/** 3rd Party Modules Import */
 import { useTranslations } from 'next-intl';
 import { getSession } from 'next-auth/react';
-
+/** Internal Modules Import */
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
 import { SubTitle } from '@components/design/typography';
 import { QuizLayout } from '@layouts/quiz';
 import { getCurrentFlashCardBlock } from '@services/flash-card-service';
 import { QuestionSection } from '@components/flash-card/question-section';
-
+/** Types Import */
 import type { GetServerSidePropsContext } from 'next';
-import type { QuestionGroup } from '@components/flash-card/question-section';
 
+interface QuestionGroup {
+  id: number;
+  groupName: string;
+  questionTag: string;
+  QuestionDetail: QuestionDetail[];
+}
+interface QuestionDetail {
+  questionGroupId: number;
+  questionString: string;
+  QuestionAnswer: QuestionAnswer[];
+}
+interface QuestionAnswer {
+  order: number;
+  answerString: string;
+  isCorrect: boolean;
+}
+/**
+ * Next Laziefied Components Import
+ *
+ */
+/**
+ * Next Page Component Declaration
+ *
+ */
 interface FlashCardPostProps {
   hash: string;
   questionGroupName: string;
@@ -36,7 +60,10 @@ export default function FlashCardPost(props: FlashCardPostProps) {
     </QuizLayout>
   );
 }
-
+/**
+ * Next Page Server Code Declaration
+ *
+ */
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const messages = await import(`../../../../lang/${context.locale}.json`).then(
     (module) => module.default,
@@ -44,10 +71,10 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await getSession(context);
   const hash = context?.params?.slug as string;
   if (session) {
-    const flashCardBlockResponse = await getCurrentFlashCardBlock(
-      session.microsToken,
-      hash,
-    );
+    const flashCardBlockResponse = await getCurrentFlashCardBlock({
+      microsToken: session.microsToken,
+      hash: hash,
+    });
     return {
       props: {
         messages,

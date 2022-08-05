@@ -1,10 +1,16 @@
+/** 3rd Party Modules Import */
 import Image from 'next/image';
 import Link from 'next/link';
-
+/** Internal Modules Import */
 import { Box } from '@components/design/box';
 import { Paragraph, Title } from '@components/design/typography';
-import { keyframes } from '@config/stitches.config';
-
+import { scaleUp } from '@components/design/animation';
+/** Types Import */
+import type { ReactElement } from 'react';
+/**
+ * Main Component Declaration
+ *
+ */
 export interface BlogCardProps {
   id: number;
   image: string;
@@ -13,19 +19,33 @@ export interface BlogCardProps {
   description: string;
   slug: string;
 }
-
-const scaleUp = keyframes({
-  '0%': { transform: 'translateY(0px)', background: `none` },
-  '100%': { transform: 'translateY(-4px)', background: `$slate2` },
-});
-
-export const BlogCard = (props: BlogCardProps) => {
-  const { id, image, published, title, description, slug } = props;
+export const BlogCard = (props: BlogCardProps): ReactElement => {
   return (
-    <Link href={`/learn/articles/${slug}`} passHref>
+    <BlogCardWrapper id={props.id} href={`/learn/articles/${props.slug}`}>
+      <MediaImage image={props.image} title={props.title} />
+      <Description
+        title={props.title}
+        description={props.description}
+        published={props.published}
+      />
+    </BlogCardWrapper>
+  );
+};
+/**
+ * Internal Component Declaration
+ *
+ */
+interface BlogCardWrapperProps {
+  children: ReactElement[];
+  id: number;
+  href: string;
+}
+const BlogCardWrapper = (props: BlogCardWrapperProps) => {
+  return (
+    <Link href={props.href} passHref>
       <Box
         as="a"
-        key={id}
+        key={props.id}
         css={{
           border: `2px solid $slate10`,
           background: `none`,
@@ -50,35 +70,51 @@ export const BlogCard = (props: BlogCardProps) => {
           },
         }}
       >
-        <Box css={{ height: `100%` }}>
-          <Image
-            src={`${image}&w=320&h=320&q=80`}
-            alt={title}
-            width="310px"
-            height="310px"
-          />
-        </Box>
-        <Box
-          css={{
-            width: `100%`,
-            height: 'none',
-            padding: `$sm`,
-            display: `flex`,
-            flexDirection: `column`,
-            alignItems: `space-between`,
-            justifyContent: `space-between`,
-            '@lg': {
-              width: `calc(100% - 640)`,
-            },
-          }}
-        >
-          <Title css={{ margin: 0, fontFamily: `$brand` }}>{title}</Title>
-          <Paragraph css={{ fontWeight: `$normal` }}>{description}</Paragraph>
-          <Paragraph css={{ fontFamily: `$mono`, margin: 0 }}>
-            {published}
-          </Paragraph>
-        </Box>
+        {props.children}
       </Box>
     </Link>
+  );
+};
+interface MediaImageProps {
+  image: string;
+  title: string;
+}
+const MediaImage = (props: MediaImageProps) => {
+  return (
+    <Box css={{ height: `100%` }}>
+      <Image
+        src={`${props.image}&w=320&h=320&q=80`}
+        alt={props.title}
+        width="310px"
+        height="310px"
+      />
+    </Box>
+  );
+};
+interface DescriptionProps {
+  title: string;
+  description: string;
+  published: string;
+}
+const Description = (props: DescriptionProps) => {
+  return (
+    <Box
+      css={{
+        width: `100%`,
+        height: 'none',
+        padding: `$sm`,
+        display: `flex`,
+        flexDirection: `column`,
+        alignItems: `space-between`,
+        justifyContent: `space-between`,
+        '@lg': {
+          width: `calc(100% - 640)`,
+        },
+      }}
+    >
+      <Title css={{ margin: 0, fontFamily: `$brand` }}>{props.title}</Title>
+      <Paragraph css={{ fontWeight: `$normal` }}>{props.description}</Paragraph>
+      <Paragraph css={{ margin: 0 }}>{props.published}</Paragraph>
+    </Box>
   );
 };

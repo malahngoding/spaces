@@ -4,7 +4,7 @@ import { BaseLayout } from '@layouts/base';
 
 import type { GetStaticPropsContext } from 'next';
 
-const TradingView = dynamic(() => import('../../../components/trading-view'), {
+const TradingView = dynamic(() => import('@components/trading-view'), {
   ssr: false,
 });
 

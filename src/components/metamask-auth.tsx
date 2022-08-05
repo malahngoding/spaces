@@ -1,15 +1,22 @@
+/** 3rd Party Modules Import */
 import { ethers } from 'ethers';
 import Image from 'next/image';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/router';
-
+/** Internal Modules Import */
 import { Button } from '@components/design/button';
 import { deployedChain } from '@config/contractAddress';
 import { ApplicationUrl } from '@config/application';
 import { useAuthLoading } from '@store/auth-loading-store';
 import { callbackUrlHandler } from '@utils/urlHandler';
+/** Types Import */
+import type { ReactElement } from 'react';
+/**
+ * Main Component Declaration
+ *
+ */
 
-export const MetamaskAuth = (): JSX.Element => {
+export const MetamaskAuth = (): ReactElement => {
   const toggleLoading = useAuthLoading((state) => state.toggleLoading);
 
   const router = useRouter();
@@ -105,3 +112,7 @@ export const MetamaskAuth = (): JSX.Element => {
     </>
   );
 };
+/**
+ * Internal Component Declaration
+ *
+ */

@@ -1,17 +1,7 @@
-import React from 'react';
 import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
 
-import { styled, keyframes } from '@config/stitches.config';
-
-const overlayShow = keyframes({
-  '0%': { opacity: 0 },
-  '100%': { opacity: 1 },
-});
-
-const contentShow = keyframes({
-  '0%': { opacity: 0, transform: 'translate(-50%, -48%) scale(.96)' },
-  '100%': { opacity: 1, transform: 'translate(-50%, -50%) scale(1)' },
-});
+import { styled } from '@config/stitches.config';
+import { contentShow, overlayShow } from '@components/design/animation';
 
 const StyledOverlay = styled(AlertDialogPrimitive.Overlay, {
   background: `rgba(253, 252, 253, 0.69)`,

@@ -1,10 +1,11 @@
+/** 3rd Party Modules Import */
 import Image from 'next/image';
 import { HashConnect, HashConnectTypes } from 'hashconnect';
 import { useEffect, useState } from 'react';
 import { UilCopy } from '@iconscout/react-unicons';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/router';
-
+/** Internal Modules Import */
 import { Button } from '@components/design/button';
 import { Box } from '@components/design/box';
 import {
@@ -18,10 +19,18 @@ import {
 import { InputText } from '@components/design/input';
 import { Paragraph } from '@components/design/typography';
 import { callbackUrlHandler } from '@utils/urlHandler';
+/** Types Import */
+import type { ReactElement } from 'react';
+/**
+ * Main Component Declaration
+ *
+ */
 
-export const HashpackAuth = (): JSX.Element => {
+export const HashpackAuth = (): ReactElement => {
   const router = useRouter();
-  const [signingString, setSigningString] = useState<string>('');
+  const [signingString, setSigningString] = useState<string>('Loading...');
+  const [showCopyMessage, setShowCopyMessage] = useState<boolean>(false);
+
   const hashconnect = new HashConnect();
 
   let appMetadata: HashConnectTypes.AppMetadata = {
@@ -41,6 +50,13 @@ export const HashpackAuth = (): JSX.Element => {
     setSigningString(pairingString);
     hashconnect.findLocalWallets();
     hashconnect.connectToLocalWallet(pairingString);
+  };
+
+  const handleCopyMessage = (): void => {
+    setShowCopyMessage(true);
+    setTimeout(() => {
+      setShowCopyMessage(false);
+    }, 1000);
   };
 
   useEffect(() => {
@@ -103,6 +119,11 @@ export const HashpackAuth = (): JSX.Element => {
           <AlertDialogDescription>
             <InputText value={signingString} readOnly disabled />
           </AlertDialogDescription>
+          {showCopyMessage ? (
+            <Paragraph css={{ color: `$cyan12` }}>Copied!</Paragraph>
+          ) : (
+            <Paragraph>&nbsp;</Paragraph>
+          )}
           <Box css={{ display: 'flex', justifyContent: 'flex-end' }}>
             <AlertDialogCancel asChild>
               <Button alternative="secondary" css={{ marginRight: 25 }}>
@@ -113,6 +134,7 @@ export const HashpackAuth = (): JSX.Element => {
               type="submit"
               onClick={() => {
                 navigator.clipboard.writeText(signingString);
+                handleCopyMessage();
               }}
             >
               <UilCopy />
@@ -123,3 +145,7 @@ export const HashpackAuth = (): JSX.Element => {
     </>
   );
 };
+/**
+ * Internal Component Declaration
+ *
+ */

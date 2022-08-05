@@ -1,3 +1,4 @@
+/** 3rd Party Modules Import */
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
@@ -8,13 +9,19 @@ import {
   UilInstagram,
   UilYoutube,
 } from '@iconscout/react-unicons';
-
+/** Internal Modules Import */
 import { Footer } from '@components/design/footer';
 import { Box } from '@components/design/box';
 import { Caption, Heading, SubTitle } from '@components/design/typography';
 import { StyledLink } from '@components/design/link';
+/** Types Import */
+import type { ReactElement } from 'react';
 
-const BottomLinkBox = () => {
+/**
+ * Main Component Declaration
+ *
+ */
+const BottomLinkBox = (): ReactElement => {
   const t = useTranslations(`Menu`);
 
   return (
@@ -67,6 +74,10 @@ const Linkage = () => {
             title: t(`snippets`),
             url: `/learn/snippets`,
           },
+          {
+            title: t(`labs`),
+            url: `/learn/labs`,
+          },
         ],
       },
       {
@@ -83,10 +94,6 @@ const Linkage = () => {
           {
             title: t(`code`),
             url: `/camps/code`,
-          },
-          {
-            title: t(`labs`),
-            url: `/camps/labs`,
           },
         ],
       },
@@ -150,14 +157,16 @@ const Linkage = () => {
         <Image
           alt={logo}
           src="/static/favicons/android-chrome-96x96.png"
-          height={81}
-          width={81}
+          height="81px"
+          width="81px"
         />
         <Box>
           <Heading css={{ fontSize: `$lg`, fontFamily: `$brand` }}>
             Malah
           </Heading>
-          <Heading css={{ fontSize: `$lg`, fontFamily: `$brand` }}>
+          <Heading
+            css={{ fontSize: `$lg`, fontFamily: `$brand`, marginTop: `-32px` }}
+          >
             Ngoding
           </Heading>
         </Box>
@@ -210,11 +219,12 @@ const Linkage = () => {
 
 const SocialLinkBox = (): JSX.Element => {
   return (
-    <Box>
+    <Box css={{ marginY: `$md` }}>
       <a
         href="https://github.com/malahngoding"
         target="_blank"
         rel="noreferrer"
+        style={{ margin: `0px 8px 0px 8px` }}
       >
         <UilGithubAlt />
       </a>
@@ -222,6 +232,7 @@ const SocialLinkBox = (): JSX.Element => {
         href="https://youtube.com/malahngoding"
         target="_blank"
         rel="noreferrer"
+        style={{ margin: `0px 8px 0px 8px` }}
       >
         <UilYoutube />
       </a>
@@ -229,6 +240,7 @@ const SocialLinkBox = (): JSX.Element => {
         href="https://tiktok.com/malahngoding"
         target="_blank"
         rel="noreferrer"
+        style={{ margin: `0px 8px 0px 8px` }}
       >
         <UilPresentationPlay />
       </a>
@@ -236,6 +248,7 @@ const SocialLinkBox = (): JSX.Element => {
         href="https://instagram.com/malahngoding"
         target="_blank"
         rel="noreferrer"
+        style={{ margin: `0px 8px 0px 8px` }}
       >
         <UilInstagram />
       </a>
@@ -249,15 +262,9 @@ export const FooterNavigation = () => {
 
   const t = useTranslations(`Menu`);
 
-  const LanguageToggleComponent = dynamic(
+  const LanguageToggleLazy = dynamic(
     (): any =>
       import(`@components/language-toggle`).then((mod) => mod.LanguageToggle),
-    { ssr: false },
-  );
-
-  const ThemeToggleComponent = dynamic(
-    (): any =>
-      import(`@components/theme-toggle`).then((mod) => mod.ThemeToggle),
     { ssr: false },
   );
 
@@ -269,9 +276,13 @@ export const FooterNavigation = () => {
           © 2019-{year} Malah Ngoding. {t(`allRights`)}
         </Caption>
         <BottomLinkBox />
-        <LanguageToggleComponent />
-        <ThemeToggleComponent />
+        <LanguageToggleLazy />
+        <SocialLinkBox />
       </Footer>
     </>
   );
 };
+/**
+ * Internal Component Declaration
+ *
+ */

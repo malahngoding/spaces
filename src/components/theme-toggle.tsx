@@ -1,8 +1,16 @@
+/** 3rd Party Modules Import */
 import { UilSun, UilMoon } from '@iconscout/react-unicons';
-import { SmallButton } from '@components/design/button';
 import { useTheme } from 'next-themes';
+/** Internal Modules Import */
+import { SmallButton } from '@components/design/button';
+/** Types Import */
+import type { ReactElement } from 'react';
+/**
+ * Main Component Declaration
+ *
+ */
 
-export const ThemeToggle = () => {
+export const ThemeToggle = (): ReactElement => {
   const { theme, setTheme } = useTheme();
 
   return (
@@ -17,8 +25,13 @@ export const ThemeToggle = () => {
         justifyContent: `center`,
         alignItems: `center`,
       }}
+      aria-label="Click to toggle theme"
     >
       {theme !== `light` ? <UilSun /> : <UilMoon />}
     </SmallButton>
   );
 };
+/**
+ * Internal Component Declaration
+ *
+ */

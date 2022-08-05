@@ -38,9 +38,9 @@ export const { styled, css, globalCss, keyframes, getCssText, theme } =
         ...sweetie16,
       },
       fonts: {
-        sans: `Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif`,
-        brand: `Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif`,
-        mono: `Mononoki, monospace`,
+        sans: `"M PLUS 1", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif`,
+        brand: `"M PLUS 1", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif`,
+        mono: ` monospace`,
       },
       fontWeights: {
         light: `300`,

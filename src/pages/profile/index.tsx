@@ -1,14 +1,28 @@
+/** 3rd Party Modules Import */
 import { getSession } from 'next-auth/react';
 import { useTranslations } from 'next-intl';
 import dynamic from 'next/dynamic';
-
+/** Internal Modules Import */
 import { ProfileLayout } from '@layouts/profile';
 import { Section } from '@components/design/section';
 import { SubTitle } from '@components/design/typography';
 import { Box } from '@components/design/box';
-
+/** Types Import */
 import type { GetServerSidePropsContext } from 'next';
 
+/**
+ * Next Laziefied Components Import
+ *
+ */
+const DetailsFormLazy = dynamic(
+  (): any =>
+    import(`@components/forms/profile-details`).then((mod) => mod.DetailsForm),
+  { ssr: false },
+);
+/**
+ * Next Page Component Declaration
+ *
+ */
 interface ProfileProps {
   currentUser: {
     avatar: string;
@@ -19,12 +33,6 @@ interface ProfileProps {
   };
 }
 
-const DetailsFormComponent = dynamic(
-  (): any =>
-    import(`@components/profile/details-form`).then((mod) => mod.DetailsForm),
-  { ssr: false },
-);
-
 export default function Profile(props: ProfileProps) {
   const t = useTranslations(`Profile`);
 
@@ -34,13 +42,16 @@ export default function Profile(props: ProfileProps) {
         <br />
         <Section>
           <SubTitle>{t(`details`)}</SubTitle>
-          <DetailsFormComponent />
+          <DetailsFormLazy />
         </Section>
       </Box>
     </ProfileLayout>
   );
 }
-
+/**
+ * Next Page Server Code Declaration
+ *
+ */
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await getSession(context);
 

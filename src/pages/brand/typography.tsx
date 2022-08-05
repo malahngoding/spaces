@@ -1,3 +1,5 @@
+/** 3rd Party Modules Import */
+/** Internal Modules Import */
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
 import {
@@ -9,9 +11,17 @@ import {
   Paragraph,
 } from '@components/design/typography';
 import { DesignLayout } from '@layouts/design-layout';
-
+/** Types Import */
 import type { GetStaticPropsContext } from 'next';
 
+/**
+ * Next Laziefied Components Import
+ *
+ */
+/**
+ * Next Page Component Declaration
+ *
+ */
 interface HomeProps {
   applicationName: string;
   repeater: number[];
@@ -22,7 +32,7 @@ export default function DesignTypography(props: HomeProps) {
   const allphabetString = `The wizard quickly jinxed the gnomes before they vaporized.`;
 
   return (
-    <DesignLayout title="Hello World!">
+    <DesignLayout title="Instead Typography">
       <Box>
         <br />
         <Section>
@@ -51,7 +61,10 @@ export default function DesignTypography(props: HomeProps) {
     </DesignLayout>
   );
 }
-
+/**
+ * Next Page Server Code Declaration
+ *
+ */
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   const messages = await import(`../../lang/${locale}.json`).then(
     (module) => module.default,

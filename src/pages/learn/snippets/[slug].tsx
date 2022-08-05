@@ -60,8 +60,12 @@ export default function SnippetsPost(props: SnippetsPostProps) {
 export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   let paths: { params: { slug: string }; locale: string }[] = [];
 
-  const response = await getSnippetsPath(10, 10, 'id');
-  const response2 = await getSnippetsPath(10, 10, 'en');
+  const response = await getSnippetsPath({ offset: 10, limit: 10, lang: 'id' });
+  const response2 = await getSnippetsPath({
+    offset: 10,
+    limit: 10,
+    lang: 'en',
+  });
 
   response.data.payload.path.map((item) => {
     paths.push({ params: { slug: item }, locale: 'id' });
@@ -72,7 +76,7 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
 
   return {
     paths,
-    fallback: false,
+    fallback: 'blocking',
   };
 };
 
@@ -104,6 +108,7 @@ export async function getStaticProps({
         source: mdxSource,
         frontMatter: data,
       },
+      revalidate: 60 * 60 * 24,
     };
   } catch (error) {
     return {

@@ -2,7 +2,9 @@ import { getSession } from 'next-auth/react';
 
 import { microService } from '@utils/service';
 
-export const getBadgeList = async (): Promise<{
+// interface GetBadgeList {}
+
+interface GetBadgeListResponse {
   data: {
     messages: string;
     status: string;
@@ -18,7 +20,9 @@ export const getBadgeList = async (): Promise<{
       }[];
     };
   };
-}> => {
+}
+
+export const getBadgeList = async (): Promise<GetBadgeListResponse> => {
   const session = await getSession();
   return await microService.get(`getBadgeList`, {
     headers: { Authorization: `Bearer ${session?.microsToken}` },

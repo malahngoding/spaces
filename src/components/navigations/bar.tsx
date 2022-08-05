@@ -1,34 +1,25 @@
+/** 3rd Party Modules Import */
 import Link from 'next/link';
-import { useSession, signOut } from 'next-auth/react';
-import {
-  UilUser,
-  UilBackpack,
-  UilSignout,
-  UilAward,
-  UilCog,
-} from '@iconscout/react-unicons';
 import { useTranslations } from 'next-intl';
-import { useRouter } from 'next/router';
-
-import { Button, PlainButton } from '@components/design/button';
+import dynamic from 'next/dynamic';
+/** Internal Modules Import */
+import { Button } from '@components/design/button';
 import { Nav } from '@components/design/nav';
-import { SubTitle } from '@components/design/typography';
-import {
-  Avatar,
-  AvatarImage,
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@components/navigations/avatar';
+import { Box } from '@components/design/box';
+/** Types Import */
+import { ReactElement } from 'react';
 
-interface NavigationBarProps {
-  transparent?: boolean;
-}
-
-export const NavigationBar = (props: NavigationBarProps) => {
-  const router = useRouter();
-  const transparent = props.transparent ? props.transparent : false;
-  const { data: session, status } = useSession();
+const DynamicBarLazy = dynamic(
+  (): any =>
+    import(`@components/navigations/dynamic-bar`).then((mod) => mod.DynamicBar),
+  { ssr: false },
+);
+/**
+ * Main Component Declaration
+ *
+ */
+interface NavigationBarProps {}
+export const NavigationBar = (props: NavigationBarProps): ReactElement => {
   const t = useTranslations(`Menu`);
 
   const NavItems = [
@@ -40,6 +31,12 @@ export const NavigationBar = (props: NavigationBarProps) => {
   return (
     <>
       <Nav>
+        <Box
+          css={{
+            borderRight: `6px solid $slate1`,
+            height: `47px`,
+          }}
+        />
         {NavItems.map((item) => (
           <Link href={item.url} passHref key={item.url}>
             <Button
@@ -53,124 +50,12 @@ export const NavigationBar = (props: NavigationBarProps) => {
             </Button>
           </Link>
         ))}
-        {status === `loading` ? (
-          <Button alternative="ghost" css={{ fontSize: `$xs` }}>
-            Loading...
-          </Button>
-        ) : (
-          <>
-            {status === `authenticated` ? (
-              <Popover>
-                <PopoverTrigger asChild>
-                  <PlainButton>
-                    <Avatar>
-                      <AvatarImage
-                        src={
-                          `https://avatars.dicebear.com/api/miniavs/${session?.currentUser?.avatar}.svg` ||
-                          `https://avatars.dicebear.com/api/miniavs/${new Date()}.svg`
-                        }
-                        role="button"
-                      />
-                    </Avatar>
-                  </PlainButton>
-                </PopoverTrigger>
-                <PopoverContent sideOffset={5}>
-                  <Link href="/profile" passHref>
-                    <Button as="button" alternative="ghost">
-                      <UilUser />
-                      <SubTitle
-                        css={{
-                          fontSize: `$xs`,
-                          marginLeft: `$sm`,
-                          fontWeight: `bold`,
-                          marginBottom: 0,
-                        }}
-                      >
-                        {t(`profile`)}
-                      </SubTitle>
-                    </Button>
-                  </Link>
-                  <Link href="/profile/badge" passHref>
-                    <Button as="button" alternative="ghost">
-                      <UilAward />
-                      <SubTitle
-                        css={{
-                          fontSize: `$xs`,
-                          marginLeft: `$sm`,
-                          fontWeight: `bold`,
-                          marginBottom: 0,
-                        }}
-                      >
-                        {t(`badge`)}
-                      </SubTitle>
-                    </Button>
-                  </Link>
-                  <Link href="/inventory" passHref>
-                    <Button as="button" alternative="ghost">
-                      <UilBackpack />
-                      <SubTitle
-                        css={{
-                          fontSize: `$xs`,
-                          marginLeft: `$sm`,
-                          fontWeight: `bold`,
-                          marginBottom: 0,
-                        }}
-                      >
-                        {t(`inventory`)}
-                      </SubTitle>
-                    </Button>
-                  </Link>
-                  <Link href="/profile/settings" passHref>
-                    <Button as="button" alternative="ghost">
-                      <UilCog />
-                      <SubTitle
-                        css={{
-                          fontSize: `$xs`,
-                          marginLeft: `$sm`,
-                          fontWeight: `bold`,
-                          marginBottom: 0,
-                        }}
-                      >
-                        {t(`settings`)}
-                      </SubTitle>
-                    </Button>
-                  </Link>
-                  <Button
-                    alternative="ghost"
-                    onClick={() =>
-                      signOut({
-                        callbackUrl: `/${router.locale}`,
-                      })
-                    }
-                  >
-                    <UilSignout />
-                    <SubTitle
-                      css={{
-                        fontSize: `$xs`,
-                        marginLeft: `$sm`,
-                        fontWeight: `bold`,
-                        marginBottom: 0,
-                      }}
-                    >
-                      {t(`disconnect`)}
-                    </SubTitle>
-                  </Button>
-                </PopoverContent>
-              </Popover>
-            ) : (
-              <Link href="/auth/connect" passHref key="/auth/connect">
-                <Button
-                  as="a"
-                  alternative="primary"
-                  css={{ marginRight: `$xs`, fontSize: `$xs` }}
-                >
-                  {t(`connect`)}
-                </Button>
-              </Link>
-            )}
-          </>
-        )}
+        <DynamicBarLazy />
       </Nav>
     </>
   );
 };
+/**
+ * Internal Component Declaration
+ *
+ */

@@ -7,14 +7,9 @@ import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
 import { Heading, SubTitle } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
-import { keyframes } from '@config/stitches.config';
+import { scaleUp } from '@components/design/animation';
 
 interface CampsProps {}
-
-const scaleUp = keyframes({
-  '0%': { transform: 'translateY(0px)', background: `none` },
-  '100%': { transform: 'translateY(-4px)', background: `$slate4` },
-});
 
 export default function Camps(props: CampsProps) {
   const t = useTranslations(`Camps`);
@@ -59,7 +54,7 @@ export default function Camps(props: CampsProps) {
   ];
 
   return (
-    <BaseLayout title="Hello World!">
+    <BaseLayout title={t(`campsTitle`)}>
       <Box>
         <br />
         <Section>

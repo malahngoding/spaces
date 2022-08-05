@@ -17,11 +17,12 @@ type Snippets = {
   slug: string;
 };
 
-export const getArticles = async (
-  offset: number,
-  limit: number,
-  lang: string,
-): Promise<{
+interface GetArticlesRequest {
+  offset: number;
+  limit: number;
+  lang: string;
+}
+interface GetArticlesResponse {
   data: {
     messages: string;
     status: string;
@@ -30,18 +31,24 @@ export const getArticles = async (
       next: string;
     };
   };
-}> => {
+}
+
+export const getArticles = async (
+  req: GetArticlesRequest,
+): Promise<GetArticlesResponse> => {
   return await microService.get(
-    `/getContents/articles?offset=${offset}&limit=${limit}&lang=${lang}`,
+    `/getContents/articles?offset=${req.offset}&limit=${req.limit}&lang=${req.lang}`,
     {},
   );
 };
 
-export const getSnippets = async (
-  offset: number,
-  limit: number,
-  lang: string,
-): Promise<{
+interface GetSnippetsRequest {
+  offset: number;
+  limit: number;
+  lang: string;
+}
+
+interface GetSnippetsResponse {
   data: {
     messages: string;
     status: string;
@@ -50,38 +57,48 @@ export const getSnippets = async (
       next: string;
     };
   };
-}> => {
+}
+
+export const getSnippets = async (
+  req: GetSnippetsRequest,
+): Promise<GetSnippetsResponse> => {
   return await microService.get(
-    `/getContents/snippets?offset=${offset}&limit=${limit}&lang=${lang}`,
+    `/getContents/snippets?offset=${req.offset}&limit=${req.limit}&lang=${req.lang}`,
     {},
   );
 };
+
+interface GetArticlesPathRequest {
+  offset: number;
+  limit: number;
+  lang: string;
+}
+interface GetArticlesPathResponse {
+  data: {
+    messages: string;
+    status: string;
+    payload: {
+      path: string[];
+      next: string;
+    };
+  };
+}
 
 export const getArticlesPath = async (
-  offset: number,
-  limit: number,
-  lang: string,
-): Promise<{
-  data: {
-    messages: string;
-    status: string;
-    payload: {
-      path: string[];
-      next: string;
-    };
-  };
-}> => {
+  req: GetArticlesPathRequest,
+): Promise<GetArticlesPathResponse> => {
   return await microService.get(
-    `/getContentsPath/articles?offset=${offset}&limit=${limit}&lang=${lang}`,
+    `/getContentsPath/articles?offset=${req.offset}&limit=${req.limit}&lang=${req.lang}`,
     {},
   );
 };
 
-export const getSnippetsPath = async (
-  offset: number,
-  limit: number,
-  lang: string,
-): Promise<{
+interface GetSnippetsPathRequest {
+  offset: number;
+  limit: number;
+  lang: string;
+}
+interface GetSnippetsPathResponse {
   data: {
     messages: string;
     status: string;
@@ -90,9 +107,13 @@ export const getSnippetsPath = async (
       next: string;
     };
   };
-}> => {
+}
+
+export const getSnippetsPath = async (
+  req: GetSnippetsPathRequest,
+): Promise<GetSnippetsPathResponse> => {
   return await microService.get(
-    `/getContentsPath/snippets?offset=${offset}&limit=${limit}&lang=${lang}`,
+    `/getContentsPath/snippets?offset=${req.offset}&limit=${req.limit}&lang=${req.lang}`,
     {},
   );
 };

@@ -1,3 +1,5 @@
+/** 3rd Party Modules Import */
+/** Internal Modules Import */
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
 import { DesignLayout } from '@layouts/design-layout';
@@ -10,9 +12,17 @@ import {
   InputText,
   InputTextArea,
 } from '@components/design/input';
-
+/** Types Import */
 import type { GetStaticPropsContext } from 'next';
 
+/**
+ * Next Laziefied Components Import
+ *
+ */
+/**
+ * Next Page Component Declaration
+ *
+ */
 interface HomeProps {
   applicationName: string;
 }
@@ -20,7 +30,7 @@ interface HomeProps {
 export default function DesignInput(props: HomeProps) {
   const { applicationName } = props;
   return (
-    <DesignLayout title="Hello World!">
+    <DesignLayout title="Instead Input">
       <Box>
         <br />
         <Section>
@@ -57,7 +67,10 @@ export default function DesignInput(props: HomeProps) {
     </DesignLayout>
   );
 }
-
+/**
+ * Next Page Server Code Declaration
+ *
+ */
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   const messages = await import(`../../lang/${locale}.json`).then(
     (module) => module.default,

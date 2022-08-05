@@ -1,16 +1,21 @@
+/** 3rd Party Modules Import */
 import Image from 'next/image';
-
+/** Internal Modules Import */
 import { Box } from '@components/design/box';
 import { Paragraph } from '@components/design/typography';
-
+/** Types Import */
+import type { ReactElement } from 'react';
+/**
+ * Main Component Declaration
+ *
+ */
 interface InventoryCardProps {
   colors: string;
   magicItem: string;
   description: string;
   image: string;
 }
-
-export const InventoryCard = (props: InventoryCardProps) => {
+export const InventoryCard = (props: InventoryCardProps): ReactElement => {
   return (
     <Box
       css={{
@@ -50,3 +55,7 @@ export const InventoryCard = (props: InventoryCardProps) => {
     </Box>
   );
 };
+/**
+ * Internal Component Declaration
+ *
+ */

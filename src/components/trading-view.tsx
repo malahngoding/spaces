@@ -1,8 +1,16 @@
+/** 3rd Party Modules Import */
 import Script from 'next/script';
-
+/** Internal Modules Import */
 import { Box } from '@components/design/box';
+/** Internal Modules Import */
+/** Types Import */
+import type { ReactElement } from 'react';
+/**
+ * Main Component Declaration
+ *
+ */
 
-const TView = () => {
+const TView = (): ReactElement => {
   return (
     <Box>
       <Script
@@ -35,3 +43,7 @@ const TView = () => {
 };
 
 export default TView;
+/**
+ * Internal Component Declaration
+ *
+ */

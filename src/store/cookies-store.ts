@@ -9,7 +9,7 @@ type Cookies = {
 export const useCookiesPersist = create<Cookies>()(
   persist(
     (set, get) => ({
-      cookies: false,
+      cookies: true,
       toggleCookies: () => {
         set({ cookies: !get().cookies });
       },

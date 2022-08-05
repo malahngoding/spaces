@@ -21,7 +21,7 @@ export default function Snippets(props: SnippetsProps) {
   const l = useTranslations(`Learn`);
 
   return (
-    <BaseLayout title="Hello World!">
+    <BaseLayout title={t(`snippetsTitle`)}>
       <Box>
         <br />
         <Section>
@@ -77,7 +77,11 @@ export async function getStaticProps({ locale }: GetStaticPropsContext) {
   const messages = await import(`../../../lang/${locale}.json`).then(
     (module) => module.default,
   );
-  const response = await getSnippets(10, 10, locale || 'id');
+  const response = await getSnippets({
+    offset: 10,
+    limit: 10,
+    lang: locale || 'id',
+  });
 
   return {
     props: {

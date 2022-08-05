@@ -1,5 +1,6 @@
+/** 3rd Party Modules Import */
 import { useTranslations } from 'next-intl';
-
+/** Internal Modules Import */
 import {
   AlertDialog,
   AlertDialogContent,
@@ -7,8 +8,15 @@ import {
   AlertDialogTitle,
 } from '@components/design/alert';
 import { Box } from '@components/design/box';
+/** Types Import */
+import type { ReactElement } from 'react';
 
-export const AuthLoader = (): JSX.Element => {
+/**
+ * Main Component Declaration
+ *
+ */
+
+export const AuthLoader = (): ReactElement => {
   const t = useTranslations(`MetamaskConnectLoader`);
 
   return (
@@ -51,3 +59,7 @@ export const AuthLoader = (): JSX.Element => {
     </AlertDialog>
   );
 };
+/**
+ * Internal Component Declaration
+ *
+ */

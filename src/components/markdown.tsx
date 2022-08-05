@@ -1,4 +1,6 @@
+/** 3rd Party Modules Import */
 import Image from 'next/image';
+/** Internal Modules Import */
 import { Box } from '@components/design/box';
 import {
   Heading,
@@ -9,8 +11,18 @@ import {
   Caption,
   Paragraph,
 } from '@components/design/typography';
+/** Types Import */
+import type { ReactElement } from 'react';
+/**
+ * Main Component Declaration
+ *
+ */
 
-const MdxHeading = (props: any) => {
+/**
+ * Internal Component Declaration
+ *
+ */
+const MdxHeading = (props: any): ReactElement => {
   return (
     <>
       <Heading
@@ -22,7 +34,7 @@ const MdxHeading = (props: any) => {
   );
 };
 
-const MdxSubHeading = (props: any) => {
+const MdxSubHeading = (props: any): ReactElement => {
   return (
     <>
       <SubHeading
@@ -34,7 +46,7 @@ const MdxSubHeading = (props: any) => {
   );
 };
 
-const MdxTitle = (props: any) => {
+const MdxTitle = (props: any): ReactElement => {
   return (
     <>
       <Title
@@ -46,7 +58,7 @@ const MdxTitle = (props: any) => {
   );
 };
 
-const MdxSubTitle = (props: any) => {
+const MdxSubTitle = (props: any): ReactElement => {
   return (
     <>
       <SubTitle
@@ -58,7 +70,7 @@ const MdxSubTitle = (props: any) => {
   );
 };
 
-const MdxCaptionTitle = (props: any) => {
+const MdxCaptionTitle = (props: any): ReactElement => {
   return (
     <>
       <CaptionTitle {...props} css={{ marginY: `$md`, fontFamily: `$brand` }} />
@@ -66,7 +78,7 @@ const MdxCaptionTitle = (props: any) => {
   );
 };
 
-const MdxCaption = (props: any) => {
+const MdxCaption = (props: any): ReactElement => {
   return (
     <>
       <Caption {...props} />
@@ -74,7 +86,7 @@ const MdxCaption = (props: any) => {
   );
 };
 
-const MdxParagraph = (props: any) => {
+const MdxParagraph = (props: any): ReactElement => {
   return (
     <>
       <Paragraph {...props} css={{ marginY: `$md`, fontFamily: `$sans` }} />
@@ -82,7 +94,7 @@ const MdxParagraph = (props: any) => {
   );
 };
 
-const CustomLink = (props: any) => {
+const CustomLink = (props: any): ReactElement => {
   return (
     <>
       <Box
@@ -94,7 +106,7 @@ const CustomLink = (props: any) => {
   );
 };
 
-const BlockQuote = (props: any) => {
+const BlockQuote = (props: any): ReactElement => {
   return (
     <>
       <Box
@@ -111,7 +123,7 @@ const BlockQuote = (props: any) => {
   );
 };
 
-const LineBreak = (props: any) => {
+const LineBreak = (props: any): ReactElement => {
   return (
     <>
       <Box as="blockquote" {...props} />
@@ -119,7 +131,7 @@ const LineBreak = (props: any) => {
   );
 };
 
-const CodeBlock = (props: any) => {
+const CodeBlock = (props: any): ReactElement => {
   return (
     <>
       <Box as="code" {...props} />
@@ -127,15 +139,15 @@ const CodeBlock = (props: any) => {
   );
 };
 
-const TextBold = (props: any) => {
+const TextBold = (props: any): ReactElement => {
   return <Box as="strong" css={{ fontFamily: `$brand` }} {...props} />;
 };
 
-const Emphasis = (props: any) => {
+const Emphasis = (props: any): ReactElement => {
   return <Box as="em" css={{ fontFamily: `$brand` }} {...props} />;
 };
 
-const HairLine = (props: any) => {
+const HairLine = (props: any): ReactElement => {
   return (
     <>
       <Box as="hr" {...props} />
@@ -143,7 +155,7 @@ const HairLine = (props: any) => {
   );
 };
 
-const ImageCustom = (props: any) => {
+const ImageCustom = (props: any): ReactElement => {
   return (
     <>
       <Image layout="fill" alt={props.alt} {...props} />
@@ -151,7 +163,7 @@ const ImageCustom = (props: any) => {
   );
 };
 
-const Pre = (props: any) => {
+const Pre = (props: any): ReactElement => {
   return (
     <>
       <Box as="pre" {...props} />
@@ -159,7 +171,7 @@ const Pre = (props: any) => {
   );
 };
 
-const OrderedList = (props: any) => {
+const OrderedList = (props: any): ReactElement => {
   return (
     <>
       <Box as="ol" css={{ marginLeft: `$sm` }} {...props} />
@@ -167,7 +179,7 @@ const OrderedList = (props: any) => {
   );
 };
 
-const UnorderedList = (props: any) => {
+const UnorderedList = (props: any): ReactElement => {
   return (
     <>
       <Box
@@ -179,7 +191,7 @@ const UnorderedList = (props: any) => {
   );
 };
 
-const TheList = (props: any) => {
+const TheList = (props: any): ReactElement => {
   return (
     <>
       <Box
@@ -191,7 +203,7 @@ const TheList = (props: any) => {
   );
 };
 
-export const MarkdownWrapper = (props: any) => {
+export const MarkdownWrapper = (props: any): ReactElement => {
   return <Box css={{ maxWidth: `640px` }}>{props.children}</Box>;
 };
 

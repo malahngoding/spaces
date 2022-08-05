@@ -1,4 +1,4 @@
-import { GetServerSidePropsContext } from 'next';
+import type { GetServerSidePropsContext } from 'next';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
@@ -211,7 +211,10 @@ const LocalBox = (props: LocalBoxProps) => {
     </Box>
   );
 };
-
+/**
+ * Next Page Server Code Declaration
+ *
+ */
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await getSession(context);
   const messages = await import(`../../../lang/${context.locale}.json`).then(
@@ -219,9 +222,9 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   );
   const rankListResponse = await getFlashCardRanking();
   if (session) {
-    const flashCardStatsResponse = await getCurrentUserFlashCardStatus(
-      session.microsToken,
-    );
+    const flashCardStatsResponse = await getCurrentUserFlashCardStatus({
+      microsToken: session.microsToken,
+    });
     return {
       props: {
         rankList: rankListResponse.data.payload.rankings,

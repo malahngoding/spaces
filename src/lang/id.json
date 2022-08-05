@@ -1,6 +1,6 @@
 {
   "Menu": {
-    "learn": "Belajar",
+    "learn": "Mengerti",
     "articles": "Artikel",
     "snippets": "Potongan",
     "flashCard": "Flash Card",
@@ -97,8 +97,8 @@
     "flashCardDescription": "Pertajam analisa kamu dengan menjawab pertanyaan-pertanyaan seputar kode dan sekitarnya. Daftarkan dirimu untuk meraih posisi teratas."
   },
   "Learn": {
-    "learnTitle": "Belajar Secara Mandiri",
-    "learnSubTitle": "Malah Belajar",
+    "learnTitle": "Mengerti Secara Mandiri",
+    "learnSubTitle": "Malah Mengerti",
     "articlesTitle": "Artikel",
     "articlesDescription": "Artikel yang akan memandu mu melakukan berbagai macam hal tentang programming.",
     "snippetsTitle": "Potongan Kode",
@@ -136,5 +136,19 @@
   "MetamaskConnectLoader": {
     "title": "Tekan SIGN pada wallet kamu untuk melanjutkan",
     "subTitle": "Kita menggunakan signature ini untuk memastikan bahwasannya memang kamu pemilik wallet."
+  },
+  "Help": {
+    "unAuthorized": "Silahkan bergabung terlebih dahulu sebelum menanyakan pertanyaan",
+    "question": "Bertanya kepada kami",
+    "questionSub": "Tulis pertanyaan-mu dibawah sini",
+    "error": "Silahkan, jangan malu-malu",
+    "thankYou": "Terima kasih sudah bertanya",
+    "submit": "Tanyakan"
+  },
+  "OnBoarding": {
+    "before": "Sebelum",
+    "next": "Lanjut",
+    "firstMessage": "Selamat datang di Malah Ngoding",
+    "secondMessage": "Kenapa kamu memutuskan untuk malah ngoding?"
   }
 }

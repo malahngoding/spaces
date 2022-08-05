@@ -1,18 +1,28 @@
+/** 3rd Party Modules Import */
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useTranslations } from 'next-intl';
-
+import { Fragment } from 'react';
+/** Internal Modules Import */
 import { Section } from '@components/design/section';
 import { Paragraph } from '@components/design/typography';
 import { Button } from '@components/design/button';
 import { Box } from '@components/design/box';
-
+/** Types Import */
+import type { ReactElement } from 'react';
+/**
+ * Main Component Declaration
+ *
+ */
 interface AuthenticationBlockProps {
   currentSession: any;
-  children: any;
+  children: ReactElement;
 }
-export const AuthenticationBlock = (props: AuthenticationBlockProps) => {
+
+export const AuthenticationBlock = (
+  props: AuthenticationBlockProps,
+): ReactElement => {
   const router = useRouter();
   const t = useTranslations(`AuthBlock`);
   const m = useTranslations(`Menu`);
@@ -21,7 +31,7 @@ export const AuthenticationBlock = (props: AuthenticationBlockProps) => {
   return (
     <>
       {props.currentSession ? (
-        <>{props.children}</>
+        <Fragment>{props.children}</Fragment>
       ) : (
         <Section
           css={{
@@ -58,3 +68,7 @@ export const AuthenticationBlock = (props: AuthenticationBlockProps) => {
     </>
   );
 };
+/**
+ * Internal Component Declaration
+ *
+ */

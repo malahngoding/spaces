@@ -11,11 +11,21 @@ export default function Web3Dapps() {
       import(`@components/wallet-handler`).then((mod) => mod.WalletHandler),
     { loading: () => <p>...</p>, ssr: false },
   );
+  const RainbowKit = dynamic(
+    (): any => import(`@components/rainbow`).then((mod) => mod.Rainbow),
+    { loading: () => <p>...</p>, ssr: false },
+  );
   return (
-    <BaseLayout title="Metamask Interaction">
-      <Section>
-        <WalletComponent />
-      </Section>
+    <BaseLayout title="web3">
+      <>
+        <br />
+        <Section css={{ display: `none` }}>
+          <WalletComponent />
+        </Section>
+        <Section>
+          <RainbowKit />
+        </Section>
+      </>
     </BaseLayout>
   );
 }
@@ -28,5 +38,6 @@ export async function getStaticProps({ locale }: GetStaticPropsContext) {
     props: {
       messages,
     },
+    revalidate: 60 * 60 * 24,
   };
 }

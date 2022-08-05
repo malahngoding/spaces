@@ -6,10 +6,8 @@ import { Section } from '@components/design/section';
 import { SubTitle } from '@components/design/typography';
 import { QuizLayout } from '@layouts/quiz';
 import { useFlashCard } from '@store/flash-card-store';
-import { getCurrentFlashCardBlock } from '@services/flash-card-service';
 
 import type { GetServerSidePropsContext } from 'next';
-import type { QuestionGroup } from '@components/flash-card/question-section';
 
 interface FlashCardPostProps {
   hash: string;

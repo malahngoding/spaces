@@ -6,7 +6,7 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang="id">
-        <Head>
+        <Head key="instead">
           <link
             rel="apple-touch-icon"
             sizes="76x76"

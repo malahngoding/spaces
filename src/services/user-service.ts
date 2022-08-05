@@ -2,7 +2,9 @@ import { getSession } from 'next-auth/react';
 
 import { microService } from '@utils/service';
 
-export const getCurrentUser = async (): Promise<{
+// interface GetCurrentUserRequest {}
+
+interface GetCurrentUserResponse {
   data: {
     messages: string;
     status: string;
@@ -10,16 +12,20 @@ export const getCurrentUser = async (): Promise<{
       userName: string;
     };
   };
-}> => {
+}
+
+export const getCurrentUser = async (): Promise<GetCurrentUserResponse> => {
   const session = await getSession();
   return await microService.get(`getCurrentUser`, {
     headers: { Authorization: `Bearer ${session?.microsToken}` },
   });
 };
 
-export const checkUserName = async (
-  userName: string,
-): Promise<{
+interface CheckUserNameRequest {
+  userName: string;
+}
+
+interface CheckUserNameResponse {
   data: {
     messages: string;
     status: string;
@@ -27,11 +33,15 @@ export const checkUserName = async (
       available: boolean;
     };
   };
-}> => {
+}
+
+export const checkUserName = async (
+  req: CheckUserNameRequest,
+): Promise<CheckUserNameResponse> => {
   const session = await getSession();
   return await microService.post(
     `checkUserName`,
-    { newUserName: userName },
+    { newUserName: req.userName },
     {
       headers: { Authorization: `Bearer ${session?.microsToken}` },
     },

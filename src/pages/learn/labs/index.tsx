@@ -43,7 +43,7 @@ export default function Labs(props: LabsProps) {
     },
   ];
   return (
-    <BaseLayout title="Hello World!">
+    <BaseLayout title="Labs!">
       <Box>
         <br />
         <Section>
@@ -57,7 +57,6 @@ export default function Labs(props: LabsProps) {
                 <Box as="a">
                   <Box
                     css={{
-                      width: `100%`,
                       margin: `$sm`,
                       border: `2px solid $slate12`,
                       padding: `$xs`,

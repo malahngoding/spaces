@@ -1,28 +1,8 @@
-import { styled, keyframes } from '@config/stitches.config';
-
-const bouncePrimary = keyframes({
-  '0%': { boxShadow: `0px 0px` },
-  '100%': { boxShadow: `5px 5px` },
-});
-
-const bounceGhostAlternative = keyframes({
-  '0%': {
-    borderTop: `2px solid $slate1`,
-    borderBottom: `2px solid $cyan8`,
-  },
-  '25%': {
-    borderTop: `4px solid $slate1`,
-    borderBottom: `4px solid $slate12`,
-  },
-  '50%': {
-    borderTop: `2px solid $slate1`,
-    borderBottom: `2px solid $cyan8`,
-  },
-  '100%': {
-    borderTop: `4px solid $slate1`,
-    borderBottom: `4px solid $cyan8`,
-  },
-});
+import { styled } from '@config/stitches.config';
+import {
+  bouncePrimary,
+  bounceGhostAlternative,
+} from '@components/design/animation';
 
 export const PlainButton = styled(`button`, {
   fontFamily: `$brand`,

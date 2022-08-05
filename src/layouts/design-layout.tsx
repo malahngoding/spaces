@@ -1,9 +1,16 @@
 import Head from 'next/head';
+import dynamic from 'next/dynamic';
+
 import { ApplicationName } from '@config/application';
 import { FooterNavigation } from '@components/navigations/footer';
 import { MainDesign } from '@components/design/main';
 import { Box } from '@components/design/box';
-import { DesignNavigation } from '@components/navigations/alt';
+
+const DesignNavigationLazy = dynamic(
+  (): any =>
+    import(`@components/navigations/alt`).then((mod) => mod.DesignNavigation),
+  { ssr: false },
+);
 
 interface BaseLayoutProps {
   title: string;
@@ -14,12 +21,17 @@ export const DesignLayout = (props: BaseLayoutProps): JSX.Element => {
   const { title, children } = props;
   return (
     <>
-      <Head>
+      <Head key="instead">
         <title>
           {title} - {ApplicationName}
         </title>
+        <meta
+          property="og:title"
+          content={`${title} - ${ApplicationName}`}
+          key="title"
+        />
       </Head>
-      <DesignNavigation />
+      <DesignNavigationLazy />
       <MainDesign>
         <Box className="wrapper">{children}</Box>
         <FooterNavigation />

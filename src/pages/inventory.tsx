@@ -1,15 +1,26 @@
+/** 3rd Party Modules Import */
 import { getSession } from 'next-auth/react';
 import { useTranslations } from 'next-intl';
-
+/** Internal Modules Import */
 import { Box } from '@components/design/box';
 import { Section } from '@components/design/section';
 import { Heading, SubTitle } from '@components/design/typography';
 import { BaseLayout } from '@layouts/base';
 import { InventoryCard } from '@components/cards/inventory-card';
-
+/** Types Import */
 import type { GetServerSidePropsContext } from 'next';
 
-export default function Inventory() {
+/**
+ * Next Laziefied Components Import
+ *
+ */
+/**
+ * Next Page Component Declaration
+ *
+ */
+interface InventoryProps {}
+
+export default function Inventory(props: InventoryProps) {
   const t = useTranslations(`Inventory`);
 
   const theInventoryGroup = [
@@ -91,7 +102,10 @@ export default function Inventory() {
     </BaseLayout>
   );
 }
-
+/**
+ * Next Page Server Code Declaration
+ *
+ */
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await getSession(context);
 
