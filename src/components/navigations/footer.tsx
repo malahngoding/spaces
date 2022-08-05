@@ -21,7 +21,6 @@ import type { ReactElement } from 'react';
  * Main Component Declaration
  *
  */
-
 const BottomLinkBox = (): ReactElement => {
   const t = useTranslations(`Menu`);
 
@@ -75,6 +74,10 @@ const Linkage = () => {
             title: t(`snippets`),
             url: `/learn/snippets`,
           },
+          {
+            title: t(`labs`),
+            url: `/learn/labs`,
+          },
         ],
       },
       {
@@ -91,10 +94,6 @@ const Linkage = () => {
           {
             title: t(`code`),
             url: `/camps/code`,
-          },
-          {
-            title: t(`labs`),
-            url: `/camps/labs`,
           },
         ],
       },
