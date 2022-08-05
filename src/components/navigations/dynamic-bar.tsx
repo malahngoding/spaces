@@ -62,7 +62,12 @@ export const DynamicBar = (props: DynamicBarProps): ReactElement => {
                   </Avatar>
                 </PlainButton>
               </PopoverTrigger>
-              <PopoverContent sideOffset={5}>
+              <PopoverContent
+                sideOffset={5}
+                css={{
+                  zIndex: 10,
+                }}
+              >
                 <Link href="/profile" passHref>
                   <Button
                     as="button"
