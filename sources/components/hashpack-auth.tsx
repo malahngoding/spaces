@@ -40,7 +40,7 @@ export const HashpackAuth = (): ReactElement => {
   };
 
   const handleWallet = async (): Promise<void> => {
-    await hashconnect.init(appMetadata);
+    await hashconnect.init(appMetadata, `testnet`);
     let state = await hashconnect.connect();
     let pairingString = hashconnect.generatePairingString(
       state,
@@ -49,7 +49,7 @@ export const HashpackAuth = (): ReactElement => {
     );
     setSigningString(pairingString);
     hashconnect.findLocalWallets();
-    hashconnect.connectToLocalWallet(pairingString);
+    hashconnect.connectToLocalWallet();
   };
 
   const handleCopyMessage = (): void => {
