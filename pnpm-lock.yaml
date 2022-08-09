@@ -4,7 +4,7 @@ specifiers:
   '@codesandbox/sandpack-react': 1.3.4
   '@commitlint/cli': ^17.0.3
   '@commitlint/config-conventional': ^17.0.3
-  '@fontsource/m-plus-1': 4.5.10
+  '@fontsource/m-plus-2': 4.5.10
   '@grpc/grpc-js': ^1.6.8
   '@grpc/proto-loader': ^0.7.0
   '@iconscout/react-unicons': ^1.1.6
@@ -59,7 +59,7 @@ specifiers:
 
 dependencies:
   '@codesandbox/sandpack-react': 1.3.4_biqbaboplfbrettd7655fr4n2y
-  '@fontsource/m-plus-1': 4.5.10
+  '@fontsource/m-plus-2': 4.5.10
   '@grpc/grpc-js': 1.6.8
   '@grpc/proto-loader': 0.7.0
   '@iconscout/react-unicons': 1.1.6
@@ -1318,8 +1318,8 @@ packages:
       - '@types/react'
     dev: false
 
-  /@fontsource/m-plus-1/4.5.10:
-    resolution: {integrity: sha512-6HHnLa6OgmRmNUw72GPNQwNyVaAvEOf5cODBiXXTyZdPqmzqWHMS7p62Vz8NB5duTla9NGbfLSs7KHr87Nrs5g==}
+  /@fontsource/m-plus-2/4.5.10:
+    resolution: {integrity: sha512-CuBXFJa3rgkGMrTyN2Pqq78utbygMHKB0mvFZeFfN38lJjWbHKTwTlWWhg2pJhegvKQ1mGWHWRxyk33dlEvtmg==}
     dev: false
 
   /@formatjs/ecma402-abstract/1.11.4:
@@ -2622,8 +2622,8 @@ packages:
       tslib: 2.4.0
     dev: false
 
-  /@testing-library/dom/8.16.1:
-    resolution: {integrity: sha512-XEV2mBxgv6DKjL3+U3WEUzBgT2CjYksoXGlLrrJXYP8OvRfGkBonvelkorazpFlp8tkEecO06r43vN4DIEyegQ==}
+  /@testing-library/dom/8.17.0:
+    resolution: {integrity: sha512-Dq42l6uIM4ND9mp/r+XOBEGbRnw7zqnYqdzIzCGAOm6VRlTw2YefQP7kTXMZtzqk1R/E5WdH5xka4+0jfgiltw==}
     engines: {node: '>=12'}
     dependencies:
       '@babel/code-frame': 7.18.6
@@ -2659,7 +2659,7 @@ packages:
       react-dom: ^18.0.0
     dependencies:
       '@babel/runtime': 7.18.9
-      '@testing-library/dom': 8.16.1
+      '@testing-library/dom': 8.17.0
       '@types/react-dom': 18.0.6
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
