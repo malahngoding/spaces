@@ -28,7 +28,8 @@ function InsteadAppsBase({
     <Fragment>
       <I18nProvider table={pageProps.table}>
         <ThemeProvider
-          enableSystem={true}
+          storageKey="instead-theme"
+          defaultTheme="system"
           attribute="class"
           value={{ light: `light`, dark: `dark` }}
         >

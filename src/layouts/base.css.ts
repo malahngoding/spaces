@@ -4,6 +4,9 @@ import { style } from '@vanilla-extract/css';
 export const styledBase = style([
   sprinkles({
     display: `flex`,
+    flexDirection: `column`,
+    justifyContent: 'center',
+    alignItems: `center`,
     color: {
       lightMode: `slate12`,
       darkMode: `slateDark12`,
@@ -13,4 +16,7 @@ export const styledBase = style([
       darkMode: `slateDark1`,
     },
   }),
+  {
+    minHeight: `100vh`,
+  },
 ]);

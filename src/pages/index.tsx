@@ -4,15 +4,20 @@ import type { GetStaticProps, NextPage } from 'next';
 import { I18nProps, useI18n } from 'next-rosetta';
 import { BaseLayout } from '@layouts/base';
 import type { InsteadLocale } from '@modules/i18n';
+import { Suspense } from 'react';
 import { Vertical } from '@components/box/vertical';
 import dynamic from 'next/dynamic';
+
 /*
  *
  */
 const LocaleSwitcherLazy = dynamic(
-  (): any =>
-    import(`@modules/shared/locale-switcher`).then((mod) => mod.LocaleSwitcher),
-  { ssr: false },
+  (): any => import(`@modules/shared/locale-switcher`),
+  { ssr: false, suspense: true },
+);
+const ThemeSwitcherLazy = dynamic(
+  (): any => import(`@modules/shared/theme-switcher`),
+  { ssr: false, suspense: true },
 );
 /**
  */
@@ -25,7 +30,12 @@ export const HomePage: NextPage = (props: any) => {
         {[100, 200, 300, 400, 500, 600, 700, 800, 900].map((item: number) => {
           return (
             <div key={item}>
-              <h1 style={{ fontWeight: item }}>
+              <h1
+                style={{
+                  fontWeight: item,
+                  fontSize: `calc('1em' + ${item} / 100)`,
+                }}
+              >
                 {t('title')} <span className="berak">{item}</span>
               </h1>
               <Vertical />
@@ -33,7 +43,14 @@ export const HomePage: NextPage = (props: any) => {
           );
         })}
       </div>
-      <LocaleSwitcherLazy />
+      <br />
+      <Suspense fallback={<p>Loading...</p>}>
+        <LocaleSwitcherLazy />
+      </Suspense>
+      <br />
+      <Suspense fallback={<p>Loading...</p>}>
+        <ThemeSwitcherLazy />
+      </Suspense>
     </BaseLayout>
   );
 };
