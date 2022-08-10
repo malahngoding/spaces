@@ -1,13 +1,13 @@
 /*
  */
-import type { AppProps } from 'next/app';
-import type { NextPage } from 'next';
-import type { ReactElement, ReactNode } from 'react';
-
-import { Fragment } from 'react';
-
-import '@styles/minireset.css';
 import '@styles/instead.css';
+import '@styles/minireset.css';
+import type { ReactElement, ReactNode } from 'react';
+import type { AppProps } from 'next/app';
+import { Fragment } from 'react';
+import type { NextPage } from 'next';
+import { ThemeProvider } from 'next-themes';
+
 /*
  */
 type NextPageWithLayout = NextPage & {
@@ -27,7 +27,13 @@ function InsteadAppsBase({
 
   return getLayout(
     <Fragment>
-      <Component {...pageProps} />
+      <ThemeProvider
+        enableSystem={true}
+        attribute="class"
+        value={{ light: `light`, dark: `dark` }}
+      >
+        <Component {...pageProps} />
+      </ThemeProvider>
     </Fragment>,
   );
 }

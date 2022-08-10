@@ -29,11 +29,18 @@
     "typescript"
   ],
   "dependencies": {
+    "@vanilla-extract/babel-plugin": "1.1.7",
+    "@vanilla-extract/css": "1.7.2",
+    "@vanilla-extract/next-plugin": "2.0.2",
+    "@vanilla-extract/sprinkles": "1.4.1",
     "next": "^12.2.4",
+    "next-rosetta": "2.0.2",
+    "next-themes": "0.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sharp": "^0.30.7",
-    "swr": "^1.3.0"
+    "swr": "^1.3.0",
+    "valtio": "1.6.3"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
