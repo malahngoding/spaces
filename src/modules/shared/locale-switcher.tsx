@@ -15,9 +15,9 @@ const LocaleSwitcher = () => {
           <>
             <Link key={loc} href={asPath} locale={loc}>
               <a>
-                <span>Location: {loc}</span>
-                <span>Active Locale: {isActive}</span>
-                <span>Current Locale: {t('locale')} </span>
+                <span style={{ fontWeight: isActive ? 900 : 300 }}>
+                  Location: {loc}
+                </span>
               </a>
             </Link>
             <br />
