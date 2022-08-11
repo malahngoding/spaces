@@ -1,6 +1,8 @@
 {
+  "plugins": ["import"],
   "extends": ["next/core-web-vitals"],
   "rules": {
+    "import/no-unresolved": "error",
     "sort-imports": [
       "error",
       {
@@ -11,5 +13,15 @@
         "allowSeparatedGroups": false
       }
     ]
+  },
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true
+      }
+    }
   }
 }

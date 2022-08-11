@@ -7,7 +7,6 @@ import type { InsteadLocale } from '@modules/i18n';
 import { Suspense } from 'react';
 import { Vertical } from '@components/box/vertical';
 import dynamic from 'next/dynamic';
-
 /*
  *
  */
@@ -19,6 +18,9 @@ const ThemeSwitcherLazy = dynamic(
   (): any => import(`@modules/shared/theme-switcher`),
   { ssr: false, suspense: true },
 );
+const PingLazy = dynamic((): any => import(`@modules/shared/ping`), {
+  ssr: false,
+});
 /**
  */
 export const HomePage: NextPage = (props: any) => {
@@ -51,6 +53,7 @@ export const HomePage: NextPage = (props: any) => {
       <Suspense fallback={<p>Loading...</p>}>
         <ThemeSwitcherLazy />
       </Suspense>
+      <PingLazy />
     </BaseLayout>
   );
 };

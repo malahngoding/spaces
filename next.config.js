@@ -15,7 +15,7 @@ const nextConfig = {
   },
   compiler: {
     removeConsole: {
-      exclude: ['error'],
+      exclude: ['debug', 'error'],
     },
   },
   async headers() {
