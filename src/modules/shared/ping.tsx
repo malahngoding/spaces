@@ -1,14 +1,18 @@
+import {
+  pingFilamentsService,
+  pingMicrosService,
+} from '@services/ping-service';
 import type { ReactElement } from 'react';
-import { pingFilamentsService } from '@services/ping-service';
 
 /**
  */
 const Ping = (): ReactElement => {
   const handlePing = async () => {
-    console.error('Err');
     const data = await pingFilamentsService();
-    console.error(data);
+    const data2 = await pingMicrosService();
+    console.log(data, data2);
   };
   return <p onClick={handlePing}>Ping</p>;
 };
+
 export default Ping;

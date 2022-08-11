@@ -14,9 +14,7 @@ const nextConfig = {
     localeDetection: false,
   },
   compiler: {
-    removeConsole: {
-      exclude: ['debug', 'error'],
-    },
+    removeConsole: false,
   },
   async headers() {
     return [

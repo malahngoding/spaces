@@ -1,11 +1,25 @@
-import { filamentService } from '@utils/service';
+import { filamentService, microService } from '@utils/service';
+import { generalErrorResponseBuilder } from '.';
 
-interface PingFilamentsServiceResponse {
+interface PingServiceResponse {
   messages: string;
   payload: { data: null };
   status: string;
+  error?: unknown;
 }
-export const pingFilamentsService =
-  async (): Promise<PingFilamentsServiceResponse> => {
-    return await filamentService.get(`api`, {}).json();
-  };
+
+export const pingFilamentsService = async (): Promise<PingServiceResponse> => {
+  try {
+    return await filamentService.get(`ping`, {}).json();
+  } catch (error) {
+    return generalErrorResponseBuilder(`Whatever happens`, error);
+  }
+};
+
+export const pingMicrosService = async (): Promise<PingServiceResponse> => {
+  try {
+    return await microService.get(`ping`, {}).json();
+  } catch (error) {
+    return generalErrorResponseBuilder(`Whatever happens`, error);
+  }
+};
