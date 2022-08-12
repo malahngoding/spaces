@@ -1,11 +1,12 @@
 /**
  */
+import { publicFIlamentsUrl, publicMicrosUrl } from '@config/application';
 import ky from 'ky-universal';
 /**
  */
 export const microService = ky
   .create({
-    prefixUrl: process.env.NEXT_PUBLIC_MICROS_URL,
+    prefixUrl: publicMicrosUrl,
     headers: {
       'X-Requested-With': 'XMLHttpRequest',
       'X-Requested-From': 'instead-spaces',
@@ -18,7 +19,7 @@ export const microService = ky
  */
 export const filamentService = ky
   .create({
-    prefixUrl: process.env.NEXT_PUBLIC_FILAMENTS_URL,
+    prefixUrl: publicFIlamentsUrl,
     headers: {
       'X-Requested-With': 'XMLHttpRequest',
       'X-Requested-From': 'instead-spaces',

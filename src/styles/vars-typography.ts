@@ -1,8 +1,7 @@
 /**
  */
 export const typography = {
-  none: 0,
-  small: '4px',
-  medium: '8px',
-  large: '16px',
+  small: '1rem',
+  medium: '1.5rem',
+  large: '2rem',
 };

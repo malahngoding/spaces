@@ -30,7 +30,7 @@ export const NotIndexPage: NextPage = (props: any) => {
   return (
     <BaseLayout title="TEST_PAGE_NOT_INDEXED">
       <div>
-        {[100, 200, 300, 400, 500, 600, 700, 800, 900].map((item: number) => {
+        {Array.from(Array(200).keys()).map((item: number) => {
           return (
             <div key={item}>
               <h1

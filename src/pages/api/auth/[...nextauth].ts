@@ -1,14 +1,21 @@
 import { issueFilamentsToken, issueMicrosToken } from '@services/auth-adapter';
+import {
+  privateGithubId,
+  privateGithubSecret,
+  privateGoogleClientId,
+  privateGoogleSecret,
+  privateJwtSecret,
+  publicApplicationUrl,
+} from '@config/application';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import GithubProvider from 'next-auth/providers/github';
 import GoogleProvider from 'next-auth/providers/google';
 import NextAuth from 'next-auth';
 import { ethers } from 'ethers';
 import { getProfileDetails } from '@services/profile-adapter';
-import { publicApplicationUrl } from '@config/application';
 
 export default NextAuth({
-  secret: process.env.JWT_SECRET,
+  secret: privateJwtSecret,
   pages: {
     newUser: `/auth/connect`,
     error: `/auth/error`,
@@ -56,12 +63,12 @@ export default NextAuth({
       },
     }),
     GithubProvider({
-      clientId: process.env.GITHUB_ID || ``,
-      clientSecret: process.env.GITHUB_SECRET || ``,
+      clientId: privateGithubId as string,
+      clientSecret: privateGithubSecret as string,
     }),
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID || ``,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET || ``,
+      clientId: privateGoogleClientId as string,
+      clientSecret: privateGoogleSecret as string,
     }),
   ],
   callbacks: {

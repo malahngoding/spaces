@@ -2,6 +2,7 @@
  */
 import '@styles/instead.css';
 import '@styles/minireset.css';
+import '@styles/global.css';
 import type { ReactElement, ReactNode } from 'react';
 import type { AppProps } from 'next/app';
 import { Fragment } from 'react';

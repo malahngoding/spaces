@@ -2,6 +2,7 @@
  */
 import { filamentService, microService } from '@utils/service';
 import CryptoJs from 'crypto-js';
+import { privateInsteadToken } from '@config/application';
 /**
  */
 interface IssueMicrosTokenRequest {
@@ -24,11 +25,11 @@ export const issueMicrosToken = async (
 ): Promise<IssueMicrosTokenResponse> => {
   const ciphertext = CryptoJs.AES.encrypt(
     req.identification,
-    process.env.INSTEAD_TOKEN || ``,
+    privateInsteadToken as string,
   ).toString();
   return await microService
     .post(`issueToken`, {
-      headers: { Authorization: `instead_${process.env.INSTEAD_TOKEN}` },
+      headers: { Authorization: `instead_${privateInsteadToken as string}` },
       json: {
         identification: ciphertext,
         provider: req.provider,
@@ -58,7 +59,7 @@ export const issueFilamentsToken = async (
 ): Promise<IssueFilamentsTokenResponse> => {
   return await filamentService
     .post(`api/handshake`, {
-      headers: { Authorization: `instead_${process.env.INSTEAD_TOKEN}` },
+      headers: { Authorization: `instead_${privateInsteadToken as string}` },
       json: {
         identification: req.identification,
         provider: req.provider,
