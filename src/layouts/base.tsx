@@ -1,5 +1,6 @@
 /**
  */
+import { Footer } from '@modules/navigations/footer';
 import { Fragment } from 'react';
 import Head from 'next/head';
 import { NavigationBar } from '@modules/navigations/bar';
@@ -22,6 +23,7 @@ const BaseLayout = (props: BaseLayoutProps): ReactElement => {
       </Head>
       <NavigationBar />
       <div className={styledBase}>{props.children}</div>
+      <Footer />
     </Fragment>
   );
 };
