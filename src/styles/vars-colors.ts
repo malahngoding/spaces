@@ -1,3 +1,5 @@
+/**
+ */
 const sweetie16 = {
   sweet1: '#1a1c2c',
   sweet2: '#5d275d',
@@ -16,7 +18,8 @@ const sweetie16 = {
   sweet15: '#566c86',
   sweet16: '#333c57',
 };
-
+/**
+ */
 const slate = {
   slate1: 'hsl(206, 30.0%, 98.8%)',
   slate2: 'hsl(210, 16.7%, 97.6%)',
@@ -31,7 +34,8 @@ const slate = {
   slate11: 'hsl(206, 6.0%, 43.5%)',
   slate12: 'hsl(206, 24.0%, 9.0%)',
 };
-
+/**
+ */
 const slateDark = {
   slateDark1: 'hsl(200, 7.0%, 8.8%)',
   slateDark2: 'hsl(195, 7.1%, 11.0%)',

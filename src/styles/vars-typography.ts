@@ -1,3 +1,5 @@
+/**
+ */
 export const typography = {
   none: 0,
   small: '4px',

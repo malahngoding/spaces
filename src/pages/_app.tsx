@@ -7,6 +7,7 @@ import type { AppProps } from 'next/app';
 import { Fragment } from 'react';
 import { I18nProvider } from 'next-rosetta';
 import type { NextPage } from 'next';
+import { SessionProvider } from 'next-auth/react';
 import { ThemeProvider } from 'next-themes';
 /**
  */
@@ -33,7 +34,9 @@ function InsteadAppsBase({
           attribute="class"
           value={{ light: `light`, dark: `dark` }}
         >
-          <Component {...pageProps} />
+          <SessionProvider session={session} refetchInterval={5 * 60}>
+            <Component {...pageProps} />
+          </SessionProvider>
         </ThemeProvider>
       </I18nProvider>
     </Fragment>,

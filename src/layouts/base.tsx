@@ -2,6 +2,7 @@
  */
 import { Fragment } from 'react';
 import Head from 'next/head';
+import { NavigationBar } from '@modules/navigations/bar';
 import type { ReactElement } from 'react';
 import { styledBase } from './base.css';
 import { titleMaker } from '@utils/title-maker';
@@ -9,6 +10,7 @@ import { titleMaker } from '@utils/title-maker';
  */
 type BaseLayoutProps = {
   children: ReactElement | ReactElement[];
+  title: string;
 };
 /**
  */
@@ -16,8 +18,9 @@ const BaseLayout = (props: BaseLayoutProps): ReactElement => {
   return (
     <Fragment>
       <Head>
-        <title>{titleMaker(`Hello World`)}</title>
+        <title>{titleMaker(props.title)}</title>
       </Head>
+      <NavigationBar />
       <div className={styledBase}>{props.children}</div>
     </Fragment>
   );

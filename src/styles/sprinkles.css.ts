@@ -1,9 +1,10 @@
-/*
+/**
  */
 import { createSprinkles, defineProperties } from '@vanilla-extract/sprinkles';
 import { colors } from './vars-colors';
 import { space } from './vars-spaces';
-
+/**
+ */
 const responsiveProperties = defineProperties({
   conditions: {
     mobile: {},
@@ -35,7 +36,8 @@ const responsiveProperties = defineProperties({
     placeItems: ['justifyContent', 'alignItems'],
   },
 });
-
+/**
+ */
 const colorProperties = defineProperties({
   conditions: {
     lightMode: { selector: 'html.light &' },
@@ -47,7 +49,8 @@ const colorProperties = defineProperties({
     background: colors,
   },
 });
-
+/**
+ */
 export const sprinkles = createSprinkles(responsiveProperties, colorProperties);
 
 // It's a good idea to export the Sprinkles type too

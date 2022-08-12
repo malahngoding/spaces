@@ -10,7 +10,7 @@ import type { InsteadLocale } from '@modules/i18n';
  */
 export const HomePage: NextPage = (props: any) => {
   return (
-    <BaseLayout>
+    <BaseLayout title="<Hello World! />">
       <Hero
         key="INSTEAD_HERO"
         title=""
@@ -18,6 +18,7 @@ export const HomePage: NextPage = (props: any) => {
         mediaUrl=""
         mediaType="IMAGE"
       />
+      <p>Hello</p>
     </BaseLayout>
   );
 };

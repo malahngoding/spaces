@@ -28,7 +28,7 @@ export const NotIndexPage: NextPage = (props: any) => {
   const { t } = useI18n<InsteadLocale>();
 
   return (
-    <BaseLayout>
+    <BaseLayout title="TEST_PAGE_NOT_INDEXED">
       <div>
         {[100, 200, 300, 400, 500, 600, 700, 800, 900].map((item: number) => {
           return (

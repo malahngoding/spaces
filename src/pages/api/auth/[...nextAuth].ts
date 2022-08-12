@@ -1,11 +1,11 @@
-import { issueFilamentsToken, issueMicrosToken } from '@services/auth-service';
-import { ApplicationUrl } from '@config/application';
+import { issueFilamentsToken, issueMicrosToken } from '@services/auth-adapter';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import GithubProvider from 'next-auth/providers/github';
 import GoogleProvider from 'next-auth/providers/google';
 import NextAuth from 'next-auth';
 import { ethers } from 'ethers';
-import { getProfileDetails } from '@services/profile-service';
+import { getProfileDetails } from '@services/profile-adapter';
+import { publicApplicationUrl } from '@config/application';
 
 export default NextAuth({
   secret: process.env.JWT_SECRET,
@@ -27,7 +27,7 @@ export default NextAuth({
           case 'evm':
             const message = [
               `I have read and accept the terms and condition`,
-              `for this website ${ApplicationUrl}`,
+              `for this website ${publicApplicationUrl}`,
               `Please sign me in!`,
             ].join('\n');
             const signature = credentials?.signature || '';
@@ -133,7 +133,7 @@ export default NextAuth({
       session.microsToken = token.microsToken as string;
       session.user = undefined;
       const currentUser = await getProfileDetails({
-        microsToken: session?.microsToken || ``,
+        microsToken: session?.microsToken as string,
       });
       session.currentUser = currentUser.data.payload;
       session.fresh = currentUser.data.payload.fresh;

@@ -1,7 +1,7 @@
 import {
   pingFilamentsService,
   pingMicrosService,
-} from '@services/ping-service';
+} from '@services/ping-adapter';
 import type { ReactElement } from 'react';
 
 /**
