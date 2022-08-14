@@ -8,7 +8,8 @@ export const styledNavbar = style([
   {
     position: `fixed`,
     top: 0,
-    width: `100vw`,
+    width: `calc(100vw - 102px)`,
+    height: `75px`,
   },
   sprinkles({
     display: `flex`,

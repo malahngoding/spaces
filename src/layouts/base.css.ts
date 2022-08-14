@@ -7,6 +7,7 @@ export const styledBase = style([
     flexDirection: `column`,
     justifyContent: 'center',
     alignItems: `center`,
+    padding: `large`,
     color: {
       lightMode: `slate12`,
       darkMode: `slateDark12`,
@@ -17,6 +18,7 @@ export const styledBase = style([
     },
   }),
   {
+    marginTop: `75px`,
     minHeight: `100vh`,
   },
 ]);

@@ -31,13 +31,13 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-    background: hsl(206, 24.0%, 9.0%);
+    background: rgb(228, 228, 228);
 }
 
 body::-webkit-scrollbar-thumb {
-    background: hsl(206, 24.0%, 9.0%);
+    background: rgb(122, 122, 122);
 }
 
 body::-webkit-scrollbar-thumb:hover {
-    background: hsl(206, 24.0%, 9.0%);
+    background: rgb(95, 95, 95);
 }
