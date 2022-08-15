@@ -17,7 +17,7 @@ type BaseLayoutProps = {
 };
 
 const CookieConsentLazy = dynamic(
-  (): any => import(`@modules/shared/cookie-consent`),
+  (): any => import(`@modules/shared/cookies/cookie-consent`),
   { ssr: false, suspense: true },
 );
 /**

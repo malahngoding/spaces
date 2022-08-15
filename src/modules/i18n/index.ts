@@ -6,4 +6,8 @@ export interface InsteadLocale {
     button: string;
   };
   welcome: string;
+  cookies: {
+    firstConsent: string;
+    secondConsent: string;
+  };
 }
