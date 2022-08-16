@@ -32,7 +32,7 @@ const BaseLayout = (props: BaseLayoutProps): ReactElement => {
       <SideNav />
       <div className={styledBase}>{props.children}</div>
       <Footer />
-      <Suspense fallback={<p>...</p>}>
+      <Suspense fallback={<p></p>}>
         <CookieConsentLazy />
       </Suspense>
     </Fragment>
