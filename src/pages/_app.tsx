@@ -3,30 +3,19 @@
 import '@styles/instead.css';
 import '@styles/minireset.css';
 import '@styles/global.css';
-import type { ReactElement, ReactNode } from 'react';
 import type { AppProps } from 'next/app';
 import { Fragment } from 'react';
 import { I18nProvider } from 'next-rosetta';
-import type { NextPage } from 'next';
 import { SessionProvider } from 'next-auth/react';
 import { ThemeProvider } from 'next-themes';
 /**
  */
-type NextPageWithLayout = NextPage & {
-  getLayout?: (page: ReactElement) => ReactNode;
-};
-type AppPropsWithLayout = AppProps & {
-  Component: NextPageWithLayout;
-};
-/**
- */
-function InsteadAppsBase({
-  Component,
-  pageProps: { session, ...pageProps },
-}: AppPropsWithLayout) {
-  const getLayout = Component.getLayout ?? ((page) => page);
-
-  return getLayout(
+interface PagePropsObject {
+  table: any;
+  session: any;
+}
+function InsteadAppsBase({ Component, pageProps }: AppProps<PagePropsObject>) {
+  return (
     <Fragment>
       <I18nProvider table={pageProps.table}>
         <ThemeProvider
@@ -35,12 +24,12 @@ function InsteadAppsBase({
           attribute="class"
           value={{ light: `light`, dark: `dark` }}
         >
-          <SessionProvider session={session} refetchInterval={5 * 60}>
+          <SessionProvider session={pageProps.session} refetchInterval={5 * 60}>
             <Component {...pageProps} />
           </SessionProvider>
         </ThemeProvider>
       </I18nProvider>
-    </Fragment>,
+    </Fragment>
   );
 }
 

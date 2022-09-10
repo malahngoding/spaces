@@ -12,5 +12,7 @@ export const table: InsteadLocale = {
   cookies: {
     firstConsent: `Kami menggunakan beberapa cookies untuk memastikan platform bekerja dengan seharusnya.`,
     secondConsent: `Kemi juga ingin menambahkan cookies lainnya untuk mengetahuin bagaimana anda menggunakan ${publicApplicationName}, menyimpan pengaturan anda dan memperbaiki layanan kami.`,
+    acceptConsent: `Terima`,
+    declineConsent: `Tolak`,
   },
 };

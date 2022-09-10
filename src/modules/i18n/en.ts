@@ -11,5 +11,7 @@ export const table: InsteadLocale = {
   cookies: {
     firstConsent: `We use some essential cookies to make this website work.`,
     secondConsent: `We’d like to set additional cookies to understand how you use ${publicApplicationName}, remember your settings and improve our services.`,
+    acceptConsent: `Accept`,
+    declineConsent: `Decline`,
   },
 };

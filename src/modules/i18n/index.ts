@@ -9,5 +9,7 @@ export interface InsteadLocale {
   cookies: {
     firstConsent: string;
     secondConsent: string;
+    acceptConsent: string;
+    declineConsent: string;
   };
 }
