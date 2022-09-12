@@ -3,6 +3,7 @@
 import { createSprinkles, defineProperties } from '@vanilla-extract/sprinkles';
 import { colors } from './vars-colors';
 import { space } from './vars-spaces';
+import { typography } from './vars-typography';
 /**
  */
 const responsiveProperties = defineProperties({
@@ -14,7 +15,9 @@ const responsiveProperties = defineProperties({
   defaultCondition: 'mobile',
   properties: {
     position: [`fixed`],
-    display: [`none`, `flex`, `block`, `inline`],
+    display: [`none`, `flex`, `block`, `inline`, `grid`],
+    gridTemplateColumns: [`1fr 1fr 1fr`, `1fr 1fr`, `1fr`],
+    gap: space,
     flexDirection: [`row`, `column`],
     justifyContent: [
       `stretch`,
@@ -25,6 +28,8 @@ const responsiveProperties = defineProperties({
       `space-between`,
     ],
     alignItems: [`stretch`, `flex-start`, `center`, `flex-end`],
+    fontSize: typography,
+    fontWeight: [100, 200, 300, 400, 500, 600, 700, 800, 900],
     paddingTop: space,
     paddingBottom: space,
     paddingLeft: space,
@@ -38,7 +43,7 @@ const responsiveProperties = defineProperties({
     borderBottomStyle: [`solid`, `dotted`],
     borderLeftStyle: [`solid`, `dotted`],
     borderRightStyle: [`solid`, `dotted`],
-    borderWidth: [`2px`, `4px`],
+    borderWidth: [`2px`, `4px`, `0.1875rem`],
   },
   shorthands: {
     padding: [`paddingTop`, `paddingBottom`, `paddingLeft`, `paddingRight`],

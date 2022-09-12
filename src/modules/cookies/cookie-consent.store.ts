@@ -1,23 +1,35 @@
 import create from 'zustand';
 import { persist } from 'zustand/middleware';
 
-type Cookies = {
-  showCookies: boolean;
+type CookiesState = {
+  showCookiesModal: boolean;
   consentValue: string;
-  toggleCookies: () => void;
-  setConsentValue: (value: string) => void;
 };
 
-export const useCookiesPersist = create<Cookies>()(
+type CookiesAction = {
+  toggleCookies: () => void;
+  setConsentValue: (value: string) => void;
+  reset: () => void;
+};
+
+const initialState: CookiesState = {
+  showCookiesModal: true,
+  consentValue: `NOT_SET`,
+};
+
+export const useCookiesPersist = create<CookiesState & CookiesAction>()(
   persist(
     (set, get) => ({
-      showCookies: true,
-      consentValue: `NOT_SET`,
+      showCookiesModal: initialState.showCookiesModal,
+      consentValue: initialState.consentValue,
       toggleCookies: () => {
-        set({ showCookies: !get().showCookies });
+        set({ showCookiesModal: !get().showCookiesModal });
       },
       setConsentValue: (value: string) => {
         set({ consentValue: value });
+      },
+      reset: () => {
+        set(initialState);
       },
     }),
     { name: `instead-cookies` },

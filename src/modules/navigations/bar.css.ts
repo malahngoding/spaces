@@ -21,7 +21,7 @@ export const styledNavbar = style([
       lightMode: `slate1`,
     },
     padding: `medium`,
-    borderWidth: `2px`,
+    borderWidth: `0.1875rem`,
     borderBottomStyle: `solid`,
     borderColor: {
       darkMode: `slateDark5`,

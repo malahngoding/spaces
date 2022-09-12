@@ -3,7 +3,6 @@
 
 import { sprinkles } from '@styles/sprinkles.css';
 import { style } from '@vanilla-extract/css';
-import { vars } from '@styles/theme/index.css';
 
 export const styledCookieConsent = style([
   sprinkles({
@@ -19,8 +18,15 @@ export const styledCookieConsent = style([
     left: `1rem`,
     padding: `1rem 2rem`,
     border: `1px solid`,
-    boxShadow: `5px 5px`,
+    boxShadow: `6px 6px`,
     width: `50vw`,
-    borderRadius: `4px`,
   },
+]);
+
+export const styledButtonAction = style([
+  sprinkles({
+    display: `grid`,
+    gap: `medium`,
+    gridTemplateColumns: `1fr 1fr`,
+  }),
 ]);

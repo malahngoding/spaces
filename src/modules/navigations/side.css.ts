@@ -14,7 +14,7 @@ export const styledSideNav = style([
   },
   sprinkles({
     borderLeftStyle: `solid`,
-    borderWidth: `2px`,
+    borderWidth: `0.1875rem`,
     borderColor: { lightMode: `slate5`, darkMode: `slateDark5` },
     background: {
       lightMode: `slate1`,

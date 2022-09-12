@@ -11,8 +11,8 @@ export const table: InsteadLocale = {
   welcome: 'Selamat Datang {{name}}! 😃', // with variable replacement
   cookies: {
     firstConsent: `Kami menggunakan beberapa cookies untuk memastikan platform bekerja dengan seharusnya.`,
-    secondConsent: `Kemi juga ingin menambahkan cookies lainnya untuk mengetahuin bagaimana anda menggunakan ${publicApplicationName}, menyimpan pengaturan anda dan memperbaiki layanan kami.`,
-    acceptConsent: `Terima`,
-    declineConsent: `Tolak`,
+    secondConsent: `Kemi juga ingin menambahkan cookies lainnya untuk mengetahui bagaimana anda menggunakan ${publicApplicationName}, menyimpan pengaturan anda dan memperbaiki layanan kami.`,
+    acceptConsent: `Terima Semua Cookies`,
+    declineConsent: `Tolak Cookies Tambahan`,
   },
 };

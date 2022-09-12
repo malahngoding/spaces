@@ -1,11 +1,24 @@
 /**
  */
+import { styledBaseAltButton, styledBaseButton } from './base.css';
 import type { ReactElement } from 'react';
 
 interface ButtonProps {
   children: ReactElement | ReactElement[] | string;
-  onClickHandler: () => void | Promise<void>;
+  onClick: () => void | Promise<void>;
 }
 export const Button = (props: ButtonProps): ReactElement => {
-  return <button onClick={props.onClickHandler}>{props.children}</button>;
+  return (
+    <button className={styledBaseButton} onClick={props.onClick}>
+      {props.children}
+    </button>
+  );
+};
+
+export const AltButton = (props: ButtonProps): ReactElement => {
+  return (
+    <button className={styledBaseAltButton} onClick={props.onClick}>
+      {props.children}
+    </button>
+  );
 };

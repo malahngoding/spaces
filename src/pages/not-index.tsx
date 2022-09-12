@@ -3,49 +3,41 @@
 import type { GetStaticProps, NextPage } from 'next';
 import { I18nProps, useI18n } from 'next-rosetta';
 import { BaseLayout } from '@layouts/base';
+import { Button } from '@components/button/base';
 import type { InsteadLocale } from '@modules/i18n';
 import { Suspense } from 'react';
-import { Vertical } from '@components/box/vertical';
 import dynamic from 'next/dynamic';
+import { useCookiesPersist } from '@modules/cookies/cookie-consent.store';
 /*
  *
  */
 const LocaleSwitcherLazy = dynamic(
   (): any => import(`@modules/shared/locale-switcher`),
-  { ssr: false, suspense: true },
+  { ssr: false },
 );
 const ThemeSwitcherLazy = dynamic(
   (): any => import(`@modules/shared/theme-switcher`),
-  { ssr: false, suspense: true },
+  { ssr: false },
 );
 const PingLazy = dynamic((): any => import(`@modules/shared/ping`), {
   ssr: false,
-  suspense: true,
 });
 /**
  */
 export const NotIndexPage: NextPage = (props: any) => {
   const { t } = useI18n<InsteadLocale>();
 
+  /**
+   *
+   */
+  const resetConsentValue = useCookiesPersist((state) => state.reset);
+  const handleReset = (): void => {
+    resetConsentValue();
+  };
+
   return (
     <BaseLayout title="TEST_PAGE_NOT_INDEXED">
-      <div>
-        {Array.from(Array(200).keys()).map((item: number) => {
-          return (
-            <div key={item}>
-              <h1
-                style={{
-                  fontWeight: item,
-                  fontSize: `calc('1em' + ${item} / 100)`,
-                }}
-              >
-                {t('title')} <span className="berak">{item}</span>
-              </h1>
-              <Vertical />
-            </div>
-          );
-        })}
-      </div>
+      <Button onClick={handleReset}>Reset Cookie Consent</Button>
       <br />
       <Suspense fallback={<p>Loading...</p>}>
         <LocaleSwitcherLazy />
@@ -57,6 +49,18 @@ export const NotIndexPage: NextPage = (props: any) => {
       <Suspense fallback={<p>Loading...</p>}>
         <PingLazy />
       </Suspense>
+      <br />
+      <div style={{ display: `flex`, flexWrap: `wrap` }}>
+        {Array.from(Array(100).keys()).map((item: number) => {
+          return (
+            <div key={item} style={{ marginRight: `1em` }}>
+              <h1>
+                {t('title')} <span className="Test">{item}</span>
+              </h1>
+            </div>
+          );
+        })}
+      </div>
     </BaseLayout>
   );
 };

@@ -14,7 +14,7 @@ export const styledFooter = style([
       lightMode: `slate1`,
     },
     padding: `medium`,
-    borderWidth: `2px`,
+    borderWidth: `0.1875rem`,
     borderTopStyle: `solid`,
     borderColor: {
       darkMode: `slateDark5`,

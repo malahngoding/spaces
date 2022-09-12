@@ -20,5 +20,6 @@ export const styledBase = style([
   {
     marginTop: `75px`,
     minHeight: `100vh`,
+    width: `calc(100vw - 108px)`,
   },
 ]);
