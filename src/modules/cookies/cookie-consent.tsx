@@ -3,7 +3,9 @@
 import { AltButton, Button } from '@components/button/base';
 import { Fragment, Suspense } from 'react';
 import { styledButtonAction, styledCookieConsent } from './cookie-consent.css';
+import { Heading } from '@components/typography/heading';
 import { InsteadLocale } from '@modules/i18n';
+import { Paragraph } from '@components/typography/paragraph';
 import type { ReactElement } from 'react';
 import { useCookiesPersist } from './cookie-consent.store';
 import { useI18n } from 'next-rosetta';
@@ -25,9 +27,10 @@ const CookieConsent = (): ReactElement => {
       {showCookieModal ? (
         <Fragment>
           <div className={styledCookieConsent}>
-            <h1 style={{ fontSize: `32px`, marginBottom: `12px` }}>🍪</h1>
-            <p>{t(`cookies.firstConsent`)}</p>
-            <p>{t(`cookies.secondConsent`)}</p>
+            <Heading>🍪</Heading>
+            <br />
+            <Paragraph>{t(`cookies.firstConsent`)}</Paragraph>
+            <Paragraph>{t(`cookies.secondConsent`)}</Paragraph>
             <br />
             <div className={styledButtonAction}>
               <Button

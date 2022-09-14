@@ -27,6 +27,9 @@ export const styledButtonAction = style([
   sprinkles({
     display: `grid`,
     gap: `medium`,
-    gridTemplateColumns: `1fr 1fr`,
+    gridTemplateColumns: {
+      mobile: `1fr`,
+      tablet: `1fr 1fr`,
+    },
   }),
 ]);

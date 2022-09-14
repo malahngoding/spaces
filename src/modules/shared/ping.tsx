@@ -4,6 +4,7 @@ import {
   pingFilamentsService,
   pingMicrosService,
 } from '@services/ping-adapter';
+import { Button } from '@components/button/base';
 import type { ReactElement } from 'react';
 /**
  */
@@ -11,9 +12,13 @@ const Ping = (): ReactElement => {
   const handlePing = async () => {
     const dataFromFilaments = await pingFilamentsService();
     const dataFromMicros = await pingMicrosService();
-    console.log(dataFromFilaments, dataFromMicros);
+    console.log(dataFromFilaments.messages, dataFromMicros.messages);
   };
-  return <p onClick={handlePing}>Ping</p>;
+  return (
+    <div>
+      <Button onClick={handlePing}>Ping</Button>
+    </div>
+  );
 };
 
 export default Ping;

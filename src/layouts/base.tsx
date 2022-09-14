@@ -18,7 +18,14 @@ type BaseLayoutProps = {
 
 const CookieConsentLazy = dynamic(
   (): any => import(`@modules/cookies/cookie-consent`),
-  { ssr: false, suspense: false },
+  {
+    ssr: false,
+    loading: () => (
+      <div>
+        <p>Loading...</p>
+      </div>
+    ),
+  },
 );
 /**
  */
@@ -32,9 +39,7 @@ const BaseLayout = (props: BaseLayoutProps): ReactElement => {
       <SideNav />
       <div className={styledBase}>{props.children}</div>
       <Footer />
-      <Suspense fallback={<p>Loading...</p>}>
-        <CookieConsentLazy />
-      </Suspense>
+      <CookieConsentLazy />
     </Fragment>
   );
 };

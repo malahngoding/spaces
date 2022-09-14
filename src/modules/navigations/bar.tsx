@@ -1,6 +1,11 @@
 /**
  */
-import { styledLeft, styledNavbar, styledRight } from './bar.css';
+import {
+  styledLeft,
+  styledNavLink,
+  styledNavbar,
+  styledRight,
+} from './bar.css';
 import Link from 'next/link';
 import { LinkedLogo } from '@components/branding/linked-logo';
 import type { ReactElement } from 'react';
@@ -22,7 +27,7 @@ export const NavigationBar = (): ReactElement => {
           {links.map((item) => {
             return (
               <Link key={item.url} href={item.url} passHref>
-                <span>{item.title}</span>
+                <div className={styledNavLink}>{item.title}</div>
               </Link>
             );
           })}

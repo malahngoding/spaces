@@ -47,5 +47,9 @@ export const styledRight = style([
     justifyContent: `space-between`,
     alignItems: `center`,
     paddingRight: `medium`,
+    borderBottomStyle: `solid`,
+    borderWidth: `0.1875rem`,
   }),
 ]);
+
+export const styledNavLink = style([sprinkles({})]);

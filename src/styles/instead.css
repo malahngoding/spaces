@@ -107,19 +107,3 @@ html {
 video::-webkit-media-controls {
     display: none !important;
 }
-
-body::-webkit-scrollbar {
-    width: 8px;
-}
-
-body::-webkit-scrollbar-track {
-    background: var(--slate1);
-}
-
-body::-webkit-scrollbar-thumb {
-    background: var(--slate4);
-}
-
-body::-webkit-scrollbar-thumb:hover {
-    background: var(--slate5);
-}

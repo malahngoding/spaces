@@ -6,6 +6,15 @@ import { space } from './vars-spaces';
 import { typography } from './vars-typography';
 /**
  */
+const hoverProperties = defineProperties({
+  conditions: {
+    default: {},
+    hover: { selector: '&:hover' },
+    focus: { selector: '&:focus' },
+  },
+  defaultCondition: 'default',
+  properties: {},
+});
 const responsiveProperties = defineProperties({
   conditions: {
     mobile: {},
@@ -71,7 +80,11 @@ const colorProperties = defineProperties({
 });
 /**
  */
-export const sprinkles = createSprinkles(responsiveProperties, colorProperties);
+export const sprinkles = createSprinkles(
+  hoverProperties,
+  responsiveProperties,
+  colorProperties,
+);
 
 // It's a good idea to export the Sprinkles type too
 export type Sprinkles = Parameters<typeof sprinkles>[0];

@@ -12,7 +12,7 @@ export const pingFilamentsService = async (): Promise<PingServiceResponse> => {
   try {
     return await filamentService.get(`ping`, {}).json();
   } catch (error) {
-    return generalErrorResponseBuilder(`Whatever happens`, error);
+    return generalErrorResponseBuilder(`Ping Failed`, error);
   }
 };
 
@@ -20,6 +20,6 @@ export const pingMicrosService = async (): Promise<PingServiceResponse> => {
   try {
     return await microService.get(`ping`, {}).json();
   } catch (error) {
-    return generalErrorResponseBuilder(`Whatever happens`, error);
+    return generalErrorResponseBuilder(`Ping Failed`, error);
   }
 };
