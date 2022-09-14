@@ -1,8 +1,8 @@
 /**
  */
 export const typography = {
-  smaller: `0.8rem`,
-  small: '1rem',
-  medium: '1.5rem',
-  large: '2.5rem',
+  smaller: `0.7rem`,
+  small: '0.85rem',
+  medium: '1rem',
+  large: '1.8rem',
 };

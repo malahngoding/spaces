@@ -8,7 +8,7 @@ export const styledNavbar = style([
   {
     position: `fixed`,
     top: 0,
-    width: `calc(100vw - 102px)`,
+    width: `calc(100vw - 100px)`,
     height: `75px`,
   },
   sprinkles({
@@ -47,9 +47,20 @@ export const styledRight = style([
     justifyContent: `space-between`,
     alignItems: `center`,
     paddingRight: `medium`,
-    borderBottomStyle: `solid`,
-    borderWidth: `0.1875rem`,
   }),
 ]);
 
-export const styledNavLink = style([sprinkles({})]);
+export const styledNavLink = style([
+  sprinkles({
+    marginX: `large`,
+    borderBottomStyle: `solid`,
+    borderWidth: `0.1875rem`,
+    borderColor: `slate1`,
+  }),
+  {
+    ':hover': {
+      cursor: `pointer`,
+      borderBottom: `1px solid black`,
+    },
+  },
+]);

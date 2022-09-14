@@ -20,6 +20,11 @@ export const styledCookieConsent = style([
     border: `1px solid`,
     boxShadow: `6px 6px`,
     width: `50vw`,
+    '@media': {
+      'screen and (max-width: 768px)': {
+        width: `90vw`,
+      },
+    },
   },
 ]);
 

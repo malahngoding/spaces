@@ -1,5 +1,6 @@
 /**
  */
+import { Paragraph } from '@components/typography/paragraph';
 import type { ReactElement } from 'react';
 
 interface HeroInterface {
@@ -11,8 +12,8 @@ interface HeroInterface {
 export const Hero = (props: HeroInterface): ReactElement => {
   return (
     <div>
-      <div>{props.title}</div>
-      <div>{props.subtitle}</div>
+      <Paragraph>{props.title}</Paragraph>
+      <Paragraph>{props.subtitle}</Paragraph>
       {props.mediaType === 'VIDEO' ? (
         <div>{props.mediaUrl}</div>
       ) : (
