@@ -13,20 +13,19 @@ export const styledCookieConsent = style([
     borderBottomStyle: `solid`,
     borderRightStyle: `solid`,
     borderWidth: `0.1875rem`,
+    bottom: `large`,
+    left: `large`,
+    paddingX: `regular`,
+    paddingY: `larger`,
+    width: {
+      mobile: `90vw`,
+      tablet: `50vw`,
+    },
   }),
   {
     backgroundColor: vars.bluePrint.color.slate1,
     borderColor: vars.bluePrint.color.slate12,
-    bottom: `1rem`,
-    left: `1rem`,
-    padding: `1rem 2rem`,
-    boxShadow: `6px 6px`,
-    width: `50vw`,
-    '@media': {
-      'screen and (max-width: 768px)': {
-        width: `90vw`,
-      },
-    },
+    boxShadow: `6px 6px ${vars.bluePrint.color.slate12}`,
   },
 ]);
 

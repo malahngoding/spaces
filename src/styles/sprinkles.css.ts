@@ -1,6 +1,7 @@
 /**
  */
 import { createSprinkles, defineProperties } from '@vanilla-extract/sprinkles';
+import { VALID_LOADERS } from 'next/dist/shared/lib/image-config';
 import { vars } from './theme/index.css';
 /**
  */
@@ -12,7 +13,13 @@ const responsiveProperties = defineProperties({
   },
   defaultCondition: 'mobile',
   properties: {
-    position: [`fixed`],
+    top: vars.space,
+    bottom: vars.space,
+    left: vars.space,
+    right: vars.space,
+    width: [`100vw`, `90vw`, `50vw`, `100px`],
+    height: [`100vh`, `90vh`, `50vh`, `100px`],
+    position: [`fixed`, `relative`],
     display: [`none`, `flex`, `block`, `inline`, `grid`],
     gridTemplateColumns: [`1fr 1fr 1fr`, `1fr 1fr`, `1fr`],
     gap: vars.space,
@@ -51,6 +58,12 @@ const responsiveProperties = defineProperties({
     margin: [`marginTop`, `marginBottom`, `marginLeft`, `marginRight`],
     marginX: [`marginLeft`, `marginRight`],
     marginY: [`marginTop`, `marginBottom`],
+    borderAllStyle: [
+      `borderTopStyle`,
+      `borderRightStyle`,
+      `borderBottomStyle`,
+      `borderLeftStyle`,
+    ],
     placeItems: [`justifyContent`, `alignItems`],
   },
 });

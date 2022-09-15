@@ -7,13 +7,16 @@ import { style } from '@vanilla-extract/css';
  */
 export const styledParagraph = style([
   sprinkles({
-    fontSize: `small`,
+    fontSize: `regular`,
     fontWeight: 400,
     marginY: `small`,
   }),
-  {
-    ':hover': {
-      userSelect: `none`,
-    },
-  },
+]);
+
+export const styledCaption = style([
+  sprinkles({
+    fontSize: `smaller`,
+    fontWeight: 300,
+    marginY: `smallest`,
+  }),
 ]);

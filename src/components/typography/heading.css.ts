@@ -7,26 +7,16 @@ import { style } from '@vanilla-extract/css';
  */
 export const styledHeading = style([
   sprinkles({
-    fontSize: `large`,
+    fontSize: `largest`,
     fontWeight: 900,
-    marginY: `regular`,
+    marginTop: `large`,
   }),
-  {
-    ':hover': {
-      userSelect: `none`,
-    },
-  },
 ]);
 
 export const styledSubHeading = style([
   sprinkles({
-    fontSize: `regular`,
+    fontSize: `larger`,
     fontWeight: 700,
     marginY: `small`,
   }),
-  {
-    ':hover': {
-      userSelect: `none`,
-    },
-  },
 ]);

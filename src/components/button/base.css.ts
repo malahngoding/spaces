@@ -17,13 +17,14 @@ export const styledBaseButton = style([
     borderBottomStyle: `solid`,
     borderLeftStyle: `solid`,
     borderRightStyle: `solid`,
-    marginY: `small`,
+    margin: `small`,
   }),
   {
-    color: vars.bluePrint.color.slate1,
-    backgroundColor: vars.bluePrint.color.slate12,
+    borderColor: vars.bluePrint.color.slate10,
+    color: vars.bluePrint.color.slate12,
+    backgroundColor: vars.bluePrint.color.slate1,
     ':hover': {
-      outline: `2px solid currentColor`,
+      border: `2px solid ${vars.bluePrint.color.slate12}`,
       cursor: `pointer`,
     },
   },
