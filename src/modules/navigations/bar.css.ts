@@ -60,7 +60,7 @@ export const styledNavLink = style([
   {
     ':hover': {
       cursor: `pointer`,
-      borderBottom: `1px solid black`,
+      borderBottom: `0.1875rem solid black`,
     },
   },
 ]);

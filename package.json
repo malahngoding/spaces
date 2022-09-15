@@ -29,10 +29,10 @@
     "typescript"
   ],
   "dependencies": {
-    "@vanilla-extract/babel-plugin": "1.1.7",
-    "@vanilla-extract/css": "1.7.3",
+    "@vanilla-extract/babel-plugin": "1.2.0",
+    "@vanilla-extract/css": "1.9.0",
     "@vanilla-extract/next-plugin": "2.0.2",
-    "@vanilla-extract/sprinkles": "1.4.1",
+    "@vanilla-extract/sprinkles": "1.5.0",
     "crypto-js": "4.1.1",
     "ethers": "5.7.0",
     "ky": "0.31.1",
