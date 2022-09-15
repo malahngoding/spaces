@@ -8,6 +8,8 @@ import { Fragment } from 'react';
 import { I18nProvider } from 'next-rosetta';
 import { SessionProvider } from 'next-auth/react';
 import { ThemeProvider } from 'next-themes';
+import { darkTheme } from '@styles/theme/dark.css';
+import { lightTheme } from '@styles/theme/light.css';
 /**
  */
 interface PagePropsObject {
@@ -22,7 +24,10 @@ function InsteadAppsBase({ Component, pageProps }: AppProps<PagePropsObject>) {
           storageKey="instead-theme"
           defaultTheme="system"
           attribute="class"
-          value={{ light: `light`, dark: `dark` }}
+          value={{
+            light: lightTheme,
+            dark: darkTheme,
+          }}
         >
           <SessionProvider session={pageProps.session} refetchInterval={5 * 60}>
             <Component {...pageProps} />

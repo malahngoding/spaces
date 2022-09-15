@@ -1,25 +1,33 @@
 /**
  */
 import type { GetStaticProps, NextPage } from 'next';
-import { BaseLayout } from '@layouts/base';
-import { Hero } from '@modules/landing/hero';
 import { I18nProps } from 'next-rosetta';
 import type { InsteadLocale } from '@modules/i18n';
+import dynamic from 'next/dynamic';
+/**
+ *
+ */
+
+const ThemeSwitcherLazy = dynamic(
+  (): any => import(`@modules/shared/theme-switcher`),
+  {
+    ssr: false,
+    loading: () => (
+      <div style={{ height: `66.4px` }}>
+        <p>Loading..</p>
+      </div>
+    ),
+  },
+);
 /**
  *
  */
 export const HomePage: NextPage = (props: any) => {
   return (
-    <BaseLayout title="<Hello World! />">
-      <Hero
-        key="INSTEAD_HERO"
-        title=""
-        subtitle=""
-        mediaUrl=""
-        mediaType="IMAGE"
-      />
-      <p>Hello</p>
-    </BaseLayout>
+    <div>
+      <ThemeSwitcherLazy />
+      <p>PANTHASM</p>
+    </div>
   );
 };
 

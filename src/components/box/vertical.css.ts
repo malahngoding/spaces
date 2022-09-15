@@ -5,6 +5,6 @@ import { style } from '@vanilla-extract/css';
 
 export const styledVert = style([
   sprinkles({
-    background: { darkMode: `slateDark5`, lightMode: `slate5` },
+    background: { darkMode: `slate5`, lightMode: `slate5` },
   }),
 ]);

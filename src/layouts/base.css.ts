@@ -1,5 +1,6 @@
 import { sprinkles } from '@styles/sprinkles.css';
 import { style } from '@vanilla-extract/css';
+import { vars } from '@styles/theme/index.css';
 
 export const styledBase = style([
   sprinkles({
@@ -8,18 +9,12 @@ export const styledBase = style([
     justifyContent: 'center',
     alignItems: `center`,
     padding: `large`,
-    color: {
-      lightMode: `slate12`,
-      darkMode: `slateDark12`,
-    },
-    background: {
-      lightMode: `slate1`,
-      darkMode: `slateDark1`,
-    },
   }),
   {
     marginTop: `75px`,
     minHeight: `100vh`,
     width: `calc(100vw - 102px)`,
+    color: vars.bluePrint.color.slate12,
+    backgroundColor: vars.bluePrint.color.slate1,
   },
 ]);

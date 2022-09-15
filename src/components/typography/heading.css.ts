@@ -9,7 +9,7 @@ export const styledHeading = style([
   sprinkles({
     fontSize: `large`,
     fontWeight: 900,
-    marginY: `medium`,
+    marginY: `regular`,
   }),
   {
     ':hover': {
@@ -20,7 +20,7 @@ export const styledHeading = style([
 
 export const styledSubHeading = style([
   sprinkles({
-    fontSize: `medium`,
+    fontSize: `regular`,
     fontWeight: 700,
     marginY: `small`,
   }),

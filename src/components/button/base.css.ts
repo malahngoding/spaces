@@ -2,6 +2,7 @@
  */
 import { sprinkles } from '@styles/sprinkles.css';
 import { style } from '@vanilla-extract/css';
+import { vars } from '@styles/theme/index.css';
 /**
  *
  */
@@ -10,23 +11,17 @@ export const styledBaseButton = style([
     fontSize: `small`,
     fontWeight: 700,
     paddingX: `large`,
-    paddingY: `medium`,
+    paddingY: `regular`,
     borderWidth: `2px`,
     borderTopStyle: `solid`,
     borderBottomStyle: `solid`,
     borderLeftStyle: `solid`,
     borderRightStyle: `solid`,
-    borderColor: {
-      lightMode: `slate12`,
-      darkMode: `slateDark12`,
-    },
-    background: {
-      lightMode: `slate1`,
-      darkMode: `slateDark1`,
-    },
     marginY: `small`,
   }),
   {
+    color: vars.bluePrint.color.slate1,
+    backgroundColor: vars.bluePrint.color.slate12,
     ':hover': {
       outline: `2px solid currentColor`,
       cursor: `pointer`,
@@ -39,23 +34,17 @@ export const styledBaseAltButton = style([
     fontSize: `small`,
     fontWeight: 700,
     paddingX: `large`,
-    paddingY: `medium`,
+    paddingY: `regular`,
     borderWidth: `2px`,
     borderTopStyle: `solid`,
     borderBottomStyle: `solid`,
     borderLeftStyle: `solid`,
     borderRightStyle: `solid`,
-    borderColor: {
-      lightMode: `slate12`,
-      darkMode: `slateDark12`,
-    },
-    background: {
-      lightMode: `slate8`,
-      darkMode: `slateDark8`,
-    },
     marginY: `small`,
   }),
   {
+    color: vars.bluePrint.color.slate1,
+    backgroundColor: vars.bluePrint.color.slate12,
     ':hover': {
       outline: `2px solid currentColor`,
       cursor: `pointer`,

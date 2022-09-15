@@ -1,20 +1,9 @@
 /**
  */
 import { createSprinkles, defineProperties } from '@vanilla-extract/sprinkles';
-import { colors } from './vars-colors';
-import { space } from './vars-spaces';
-import { typography } from './vars-typography';
+import { vars } from './theme/index.css';
 /**
  */
-const hoverProperties = defineProperties({
-  conditions: {
-    default: {},
-    hover: { selector: '&:hover' },
-    focus: { selector: '&:focus' },
-  },
-  defaultCondition: 'default',
-  properties: {},
-});
 const responsiveProperties = defineProperties({
   conditions: {
     mobile: {},
@@ -26,7 +15,7 @@ const responsiveProperties = defineProperties({
     position: [`fixed`],
     display: [`none`, `flex`, `block`, `inline`, `grid`],
     gridTemplateColumns: [`1fr 1fr 1fr`, `1fr 1fr`, `1fr`],
-    gap: space,
+    gap: vars.space,
     flexDirection: [`row`, `column`],
     justifyContent: [
       `stretch`,
@@ -37,22 +26,23 @@ const responsiveProperties = defineProperties({
       `space-between`,
     ],
     alignItems: [`stretch`, `flex-start`, `center`, `flex-end`],
-    fontSize: typography,
+    fontSize: vars.fontSizes,
     fontWeight: [100, 200, 300, 400, 500, 600, 700, 800, 900],
-    paddingTop: space,
-    paddingBottom: space,
-    paddingLeft: space,
-    paddingRight: space,
-    marginTop: space,
-    marginBottom: space,
-    marginLeft: space,
-    marginRight: space,
-    border: space,
+    paddingTop: vars.space,
+    paddingBottom: vars.space,
+    paddingLeft: vars.space,
+    paddingRight: vars.space,
+    marginTop: vars.space,
+    marginBottom: vars.space,
+    marginLeft: vars.space,
+    marginRight: vars.space,
+    border: vars.space,
     borderTopStyle: [`solid`, `dotted`],
     borderBottomStyle: [`solid`, `dotted`],
     borderLeftStyle: [`solid`, `dotted`],
     borderRightStyle: [`solid`, `dotted`],
     borderWidth: [`2px`, `4px`, `0.1875rem`],
+    borderRadius: vars.radii,
   },
   shorthands: {
     padding: [`paddingTop`, `paddingBottom`, `paddingLeft`, `paddingRight`],
@@ -66,25 +56,7 @@ const responsiveProperties = defineProperties({
 });
 /**
  */
-const colorProperties = defineProperties({
-  conditions: {
-    lightMode: { selector: 'html.light &' },
-    darkMode: { selector: 'html.dark &' },
-  },
-  defaultCondition: ['lightMode'],
-  properties: {
-    color: colors,
-    background: colors,
-    borderColor: colors,
-  },
-});
-/**
- */
-export const sprinkles = createSprinkles(
-  hoverProperties,
-  responsiveProperties,
-  colorProperties,
-);
+export const sprinkles = createSprinkles(responsiveProperties);
 
 // It's a good idea to export the Sprinkles type too
 export type Sprinkles = Parameters<typeof sprinkles>[0];

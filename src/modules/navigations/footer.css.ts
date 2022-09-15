@@ -9,16 +9,8 @@ export const styledFooter = style([
     flexDirection: `row`,
     justifyContent: `space-between`,
     alignItems: `center`,
-    background: {
-      darkMode: `slateDark1`,
-      lightMode: `slate1`,
-    },
-    padding: `medium`,
+    padding: `regular`,
     borderWidth: `0.1875rem`,
     borderTopStyle: `solid`,
-    borderColor: {
-      darkMode: `slateDark5`,
-      lightMode: `slate5`,
-    },
   }),
 ]);
