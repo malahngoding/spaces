@@ -2,15 +2,35 @@
  */
 import { sprinkles } from '@styles/sprinkles.css';
 import { style } from '@vanilla-extract/css';
-
+import { vars } from '@styles/theme/index.css';
+/**
+ *
+ */
 export const styledFooter = style([
   sprinkles({
     display: `flex`,
-    flexDirection: `row`,
+    flexDirection: `column`,
     justifyContent: `space-between`,
-    alignItems: `center`,
+    alignItems: `flex-start`,
     padding: `regular`,
     borderWidth: `0.1875rem`,
     borderTopStyle: `solid`,
+    width: `calc(100vw - 100px)`,
+  }),
+  {
+    borderColor: vars.bluePrint.color.slate6,
+    backgroundColor: vars.bluePrint.color.slate1,
+  },
+]);
+
+export const styledWall = style([
+  sprinkles({
+    display: `flex`,
+    flexDirection: `column`,
+    justifyContent: `space-between`,
+    alignItems: `flex-start`,
+    padding: `none`,
+    borderWidth: `0.1875rem`,
+    fontSize: `xsmall`,
   }),
 ]);

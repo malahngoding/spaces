@@ -18,6 +18,18 @@ export const styledSideNav = style([
     width: `100px`,
   }),
   {
+    borderColor: vars.bluePrint.color.slate6,
     backgroundColor: vars.bluePrint.color.slate1,
+  },
+]);
+
+export const styledVersion = style([
+  sprinkles({
+    margin: `small`,
+    fontSize: `smaller`,
+    fontWeight: 300,
+  }),
+  {
+    writingMode: `vertical-rl`,
   },
 ]);

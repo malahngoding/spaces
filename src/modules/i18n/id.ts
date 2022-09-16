@@ -15,4 +15,7 @@ export const table: InsteadLocale = {
     acceptConsent: `Terima Semua Cookies`,
     declineConsent: `Tolak Cookies Tambahan`,
   },
+  footer: {
+    rights: `Hak cipta dilindungi undang-undang`,
+  },
 };

@@ -12,4 +12,7 @@ export interface InsteadLocale {
     acceptConsent: string;
     declineConsent: string;
   };
+  footer: {
+    rights: string;
+  };
 }

@@ -14,4 +14,7 @@ export const table: InsteadLocale = {
     acceptConsent: `Accept All Cookies`,
     declineConsent: `Decline Additional Cookies`,
   },
+  footer: {
+    rights: `All rights reserved`,
+  },
 };

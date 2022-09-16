@@ -7,6 +7,7 @@ import { vars } from '@styles/theme/index.css';
  */
 export const styledNavbar = style([
   sprinkles({
+    position: `fixed`,
     display: `flex`,
     flexDirection: `row`,
     justifyContent: `space-between`,
@@ -14,12 +15,12 @@ export const styledNavbar = style([
     padding: `regular`,
     borderWidth: `0.1875rem`,
     borderBottomStyle: `solid`,
+    top: `none`,
+    height: `64px`,
+    width: `calc(100vw - 100px)`,
   }),
   {
-    position: `fixed`,
-    top: 0,
-    width: `calc(100vw - 100px)`,
-    height: `75px`,
+    borderColor: vars.bluePrint.color.slate6,
     backgroundColor: vars.bluePrint.color.slate1,
   },
 ]);
@@ -51,9 +52,10 @@ export const styledNavLink = style([
     borderWidth: `0.1875rem`,
   }),
   {
+    borderColor: vars.bluePrint.color.slate6,
     ':hover': {
       cursor: `pointer`,
-      borderBottom: `0.1875rem solid black`,
+      borderBottom: `0.1875rem solid ${vars.bluePrint.color.slate10}`,
     },
   },
 ]);

@@ -9,11 +9,11 @@ export const styledBase = style([
     justifyContent: 'center',
     alignItems: `center`,
     padding: `large`,
+    width: `calc(100vw - 100px)`,
   }),
   {
-    marginTop: `75px`,
+    marginTop: `64px`,
     minHeight: `100vh`,
-    width: `calc(100vw - 102px)`,
     color: vars.bluePrint.color.slate12,
     backgroundColor: vars.bluePrint.color.slate1,
   },
