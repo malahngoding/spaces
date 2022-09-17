@@ -8,12 +8,9 @@ export const styledBase = style([
     flexDirection: `column`,
     justifyContent: 'center',
     alignItems: `center`,
-    padding: `large`,
     width: `calc(100vw - 100px)`,
   }),
   {
-    marginTop: `64px`,
-    minHeight: `100vh`,
     color: vars.bluePrint.color.slate12,
     backgroundColor: vars.bluePrint.color.slate1,
   },

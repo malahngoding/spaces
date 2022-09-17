@@ -2,26 +2,20 @@
  */
 import type { GetStaticProps, NextPage } from 'next';
 import { BaseLayout } from '@layouts/base';
-import { Hero } from '@modules/landing/hero';
 import { I18nProps } from 'next-rosetta';
 import type { InsteadLocale } from '@modules/i18n';
 /**
  *
  */
-export const HomePage: NextPage = (props: any) => {
+export const CampsPage: NextPage = (props: any) => {
   return (
-    <BaseLayout title="Hello World">
-      <Hero
-        title="string"
-        subtitle="string"
-        mediaUrl="string"
-        mediaType="IMAGE"
-      />
+    <BaseLayout title="Your Camps">
+      <p>Camps</p>
     </BaseLayout>
   );
 };
 
-export default HomePage;
+export default CampsPage;
 /**
  *
  */

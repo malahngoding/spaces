@@ -44,7 +44,7 @@ const ServicePingLazy = dynamic((): any => import(`@modules/shared/ping`), {
 });
 /**
  */
-export const NotIndexPage: NextPage = (props: any) => {
+export const AboutUsPage: NextPage = (props: any) => {
   const { t } = useI18n<InsteadLocale>();
 
   /**
@@ -65,7 +65,7 @@ export const NotIndexPage: NextPage = (props: any) => {
   ];
 
   return (
-    <BaseLayout title="TEST_PAGE_NOT_INDEXED">
+    <BaseLayout title="About Us">
       <Button onClick={handleReset}>Reset Cookie Consent</Button>
       <br />
       <LocaleSwitcherLazy />
@@ -103,4 +103,4 @@ export const getStaticProps: GetStaticProps<I18nProps<InsteadLocale>> = async (
   };
 };
 
-export default NotIndexPage;
+export default AboutUsPage;

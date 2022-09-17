@@ -2,6 +2,7 @@
  */
 import { Paragraph } from '@components/typography/paragraph';
 import type { ReactElement } from 'react';
+import { styledHero } from './hero.css';
 
 interface HeroInterface {
   title: string;
@@ -11,7 +12,7 @@ interface HeroInterface {
 }
 export const Hero = (props: HeroInterface): ReactElement => {
   return (
-    <div>
+    <div className={styledHero}>
       <Paragraph>{props.title}</Paragraph>
       <Paragraph>{props.subtitle}</Paragraph>
       {props.mediaType === 'VIDEO' ? (

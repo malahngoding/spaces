@@ -2,6 +2,7 @@
  */
 import { styledFooter, styledWall } from './footer.css';
 import { InsteadLocale } from '@modules/i18n';
+import { Paragraph } from '@components/typography/paragraph';
 import type { ReactElement } from 'react';
 import { getCurrentYear } from '@utils/index';
 import { useI18n } from 'next-rosetta';
@@ -11,9 +12,11 @@ export const Footer = (): ReactElement => {
 
   return (
     <div className={styledFooter}>
-      <p>
-        © Malah Ngoding {getCurrentYear()}. {t(`footer.rights`)}.
-      </p>
+      <Paragraph>
+        <span>
+          © Malah Ngoding {getCurrentYear()}. {t(`footer.rights`)}.
+        </span>
+      </Paragraph>
       <br />
       <div className={styledWall}>
         <span>10代工学は未来の製品と</span>

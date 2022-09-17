@@ -31,7 +31,6 @@ export const styledLeft = style([
     flexDirection: `row`,
     justifyContent: `space-between`,
     alignItems: `center`,
-    paddingLeft: `regular`,
   }),
 ]);
 
@@ -41,7 +40,6 @@ export const styledRight = style([
     flexDirection: `row`,
     justifyContent: `space-between`,
     alignItems: `center`,
-    paddingRight: `regular`,
   }),
 ]);
 

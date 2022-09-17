@@ -37,6 +37,7 @@ const BaseLayout = (props: BaseLayoutProps): ReactElement => {
       </Head>
       <NavigationBar />
       <SideNav />
+      <div style={{ height: `64px` }} />
       <div className={styledBase}>{props.children}</div>
       <Footer />
       <CookieConsentLazy />
