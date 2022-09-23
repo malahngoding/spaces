@@ -17,11 +17,15 @@ export const styledNavbar = style([
     borderBottomStyle: `solid`,
     top: `none`,
     height: `64px`,
-    width: `calc(100vw - 100px)`,
+    width: {
+      mobile: `100vw`,
+      tablet: `calc(100vw - 100px)`,
+    },
   }),
   {
     borderColor: vars.bluePrint.color.slate6,
     backgroundColor: vars.bluePrint.color.slate1,
+    zIndex: 1000,
   },
 ]);
 
@@ -31,6 +35,19 @@ export const styledLeft = style([
     flexDirection: `row`,
     justifyContent: `space-between`,
     alignItems: `center`,
+  }),
+]);
+
+export const styledMenuGroup = style([
+  sprinkles({
+    flexDirection: `row`,
+    justifyContent: `space-between`,
+    alignItems: `center`,
+    marginLeft: `largest`,
+    display: {
+      mobile: `none`,
+      tablet: `flex`,
+    },
   }),
 ]);
 

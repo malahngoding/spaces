@@ -8,7 +8,10 @@ export const styledBase = style([
     flexDirection: `column`,
     justifyContent: 'center',
     alignItems: `center`,
-    width: `calc(100vw - 100px)`,
+    width: {
+      mobile: `100vw`,
+      tablet: `calc(100vw - 100px)`,
+    },
   }),
   {
     color: vars.bluePrint.color.slate12,

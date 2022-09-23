@@ -1,7 +1,6 @@
 /**
  */
 import { createSprinkles, defineProperties } from '@vanilla-extract/sprinkles';
-import { VALID_LOADERS } from 'next/dist/shared/lib/image-config';
 import { vars } from './theme/index.css';
 /**
  */
@@ -9,7 +8,8 @@ const responsiveProperties = defineProperties({
   conditions: {
     mobile: {},
     tablet: { '@media': 'screen and (min-width: 768px)' },
-    desktop: { '@media': 'screen and (min-width: 1024px)' },
+    desktop: { '@media': 'screen and (min-width: 992px)' },
+    largescreen: { '@media': 'screen and (min-width: 1200px)' },
   },
   defaultCondition: 'mobile',
   properties: {
@@ -17,11 +17,19 @@ const responsiveProperties = defineProperties({
     bottom: vars.space,
     left: vars.space,
     right: vars.space,
-    width: [`100vw`, `90vw`, `50vw`, `64px`, `100px`, `calc(100vw - 100px)`],
-    height: [`100vh`, `90vh`, `50vh`, `64px`, `100px`],
+    width: [
+      `100vw`,
+      `90vw`,
+      `50vw`,
+      `64px`,
+      `100px`,
+      `100%`,
+      `calc(100vw - 100px)`,
+    ],
+    height: [`100vh`, `90vh`, `50vh`, `64px`, `100px`, `100%`],
     position: [`fixed`, `relative`, `absolute`],
     display: [`none`, `flex`, `block`, `inline`, `grid`],
-    gridTemplateColumns: [`1fr 1fr 1fr`, `1fr 1fr`, `1fr`],
+    gridTemplateColumns: [`1fr 1fr 1fr`, `1fr 1fr`, `2fr 1fr`, `1fr`],
     gap: vars.space,
     flexDirection: [`row`, `column`],
     justifyContent: [

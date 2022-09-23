@@ -15,7 +15,10 @@ export const styledFooter = style([
     padding: `regular`,
     borderWidth: `0.1875rem`,
     borderTopStyle: `solid`,
-    width: `calc(100vw - 100px)`,
+    width: {
+      mobile: `100vw`,
+      tablet: `calc(100vw - 100px)`,
+    },
   }),
   {
     borderColor: vars.bluePrint.color.slate6,

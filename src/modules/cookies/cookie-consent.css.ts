@@ -13,8 +13,14 @@ export const styledCookieConsent = style([
     borderBottomStyle: `solid`,
     borderRightStyle: `solid`,
     borderWidth: `0.1875rem`,
-    bottom: `large`,
-    left: `large`,
+    bottom: {
+      mobile: `small`,
+      tablet: `large`,
+    },
+    left: {
+      mobile: `small`,
+      tablet: `large`,
+    },
     paddingX: `regular`,
     paddingY: `larger`,
     width: {

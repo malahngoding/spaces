@@ -16,6 +16,10 @@ export const styledSideNav = style([
     borderWidth: `0.1875rem`,
     height: `100vh`,
     width: `100px`,
+    display: {
+      mobile: `none`,
+      tablet: `block`,
+    },
   }),
   {
     borderColor: vars.bluePrint.color.slate6,

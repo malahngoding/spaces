@@ -17,7 +17,6 @@ export const styledBaseButton = style([
     borderBottomStyle: `solid`,
     borderLeftStyle: `solid`,
     borderRightStyle: `solid`,
-    margin: `small`,
   }),
   {
     borderColor: vars.bluePrint.color.slate10,
@@ -41,7 +40,6 @@ export const styledBaseAltButton = style([
     borderBottomStyle: `solid`,
     borderLeftStyle: `solid`,
     borderRightStyle: `solid`,
-    marginY: `small`,
   }),
   {
     color: vars.bluePrint.color.slate1,

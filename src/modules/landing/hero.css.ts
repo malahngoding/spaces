@@ -7,7 +7,10 @@ import { vars } from '@styles/theme/index.css';
  */
 export const styledHero = style([
   sprinkles({
-    width: `calc(100vw - 100px)`,
+    width: {
+      mobile: `100vw`,
+      tablet: `calc(100vw - 100px)`,
+    },
   }),
   {
     height: `calc(100vh - 64px)`,
