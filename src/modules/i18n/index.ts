@@ -14,5 +14,6 @@ export interface InsteadLocale {
   };
   footer: {
     rights: string;
+    secondRights: string;
   };
 }

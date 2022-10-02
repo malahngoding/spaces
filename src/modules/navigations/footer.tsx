@@ -13,8 +13,10 @@ export const Footer = (): ReactElement => {
   return (
     <div className={styledFooter}>
       <Paragraph>
+        <span>{t(`footer.rights`)}</span>
+        <br />
         <span>
-          © Malah Ngoding {getCurrentYear()}. {t(`footer.rights`)}.
+          {t(`footer.secondRights`, { getCurrentYear: getCurrentYear() })}
         </span>
       </Paragraph>
       <br />

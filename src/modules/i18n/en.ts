@@ -15,6 +15,7 @@ export const table: InsteadLocale = {
     declineConsent: `Decline Additional Cookies`,
   },
   footer: {
-    rights: `All rights reserved`,
+    rights: `Space is an open-source project maintained by Malah Ngoding Team`,
+    secondRights: `Copyright ©{{getCurrentYear}} Malah Ngoding. All rights reserved.`,
   },
 };
