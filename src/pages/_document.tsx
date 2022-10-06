@@ -11,6 +11,13 @@ class InsteadAppsDocument extends Document {
         <Head key="instead">
           <link
             rel="preload"
+            href="/fonts/Necto-Mono.woff2"
+            as="font"
+            type="font/woff2"
+            crossOrigin="anonymous"
+          />
+          <link
+            rel="preload"
             href="/fonts/Montserrat-VF.woff2"
             as="font"
             type="font/woff2"

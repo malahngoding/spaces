@@ -58,6 +58,7 @@ const responsiveProperties = defineProperties({
     borderRightStyle: [`solid`, `dotted`],
     borderWidth: [`2px`, `4px`, `0.1875rem`],
     borderRadius: vars.radii,
+    fontFamily: vars.family,
   },
   shorthands: {
     padding: [`paddingTop`, `paddingBottom`, `paddingLeft`, `paddingRight`],

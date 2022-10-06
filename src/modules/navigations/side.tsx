@@ -1,7 +1,15 @@
 /**
  */
+import { ReactElement, Suspense } from 'react';
 import { styledSideNav, styledVersion } from './side.css';
-import type { ReactElement } from 'react';
+import dynamic from 'next/dynamic';
+
+const LocaleSwitcherLazy = dynamic<{}>(
+  (): any => import(`@modules/shared/locale-switcher`),
+  {
+    ssr: false,
+  },
+);
 
 export const SideNav = (): ReactElement => {
   return (
@@ -16,6 +24,9 @@ export const SideNav = (): ReactElement => {
           <br />
           <span>→ グーグルマップで見る / View on Google spans</span>
         </p>
+        <Suspense fallback={` `}>
+          <LocaleSwitcherLazy />
+        </Suspense>
       </div>
     </aside>
   );

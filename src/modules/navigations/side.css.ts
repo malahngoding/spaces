@@ -18,8 +18,11 @@ export const styledSideNav = style([
     width: `100px`,
     display: {
       mobile: `none`,
-      tablet: `block`,
+      tablet: `flex`,
     },
+    flexDirection: `column`,
+    justifyContent: `flex-start`,
+    alignItems: `center`,
   }),
   {
     borderColor: vars.bluePrint.color.slate6,
