@@ -1,5 +1,6 @@
 /**
  */
+import { count, countAction } from './hero.store';
 import { Paragraph } from '@components/typography/paragraph';
 import type { ReactElement } from 'react';
 import { styledHero } from './hero.css';
@@ -13,8 +14,9 @@ interface HeroInterface {
 export const Hero = (props: HeroInterface): ReactElement => {
   return (
     <div className={styledHero}>
-      <Paragraph>{props.title}</Paragraph>
-      <Paragraph>{props.subtitle}</Paragraph>
+      <Paragraph>{count.get().toString()}</Paragraph>
+      <button onClick={() => countAction.increment()}>[+]</button>
+      <button onClick={() => countAction.decrement()}>[-]</button>
       {props.mediaType === 'VIDEO' ? (
         <div>{props.mediaUrl}</div>
       ) : (

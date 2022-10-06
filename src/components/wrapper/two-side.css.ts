@@ -19,6 +19,8 @@ export const styledTwoSide = style([
   },
 ]);
 
+export const styledMain = style([{}]);
+
 export const styledSide = style([
   {
     position: `sticky`,

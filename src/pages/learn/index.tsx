@@ -10,7 +10,11 @@ import type { InsteadLocale } from '@modules/i18n';
 export const LearnPage: NextPage = (props: any) => {
   return (
     <BaseLayout title="Our Learning">
-      <p>Learn</p>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/%E5%A5%B3-order.gif/255px-%E5%A5%B3-order.gif"
+        alt="KU NO ICHI"
+      />
     </BaseLayout>
   );
 };
