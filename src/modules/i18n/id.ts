@@ -22,7 +22,7 @@ export const table: InsteadLocale = {
     declineConsent: `Tolak Cookies Tambahan`,
   },
   footer: {
-    rights: `Space adalah proyek open-source yang dijaga oleh tim Malah Ngoding`,
+    rights: `Space adalah proyek open-source yang dikelola oleh tim Malah Ngoding`,
     secondRights: `©{{getCurrentYear}} Malah Ngoding. Hak cipta dilindungi undang-undang.`,
   },
 };
