@@ -7,7 +7,7 @@ import { Button } from '@components/button/base';
 import type { InsteadLocale } from '@modules/i18n';
 import { Paragraph } from '@components/typography/paragraph';
 import dynamic from 'next/dynamic';
-import { useCookiesPersistAction } from '@modules/cookies/cookie-consent.store';
+import { useCookiesPersist } from '@modules/cookies/cookie-consent.store';
 /*
  *
  */
@@ -49,8 +49,9 @@ export const ExperimentsPage: NextPage = (props: any) => {
   /**
    *
    */
+  const reset = useCookiesPersist((state) => state.reset);
   const handleReset = (): void => {
-    useCookiesPersistAction.reset();
+    reset();
   };
 
   return (

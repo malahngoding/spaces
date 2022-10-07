@@ -1,22 +1,19 @@
 /**
  */
 import type { GetStaticProps, NextPage } from 'next';
+import { I18nProps, useI18n } from 'next-rosetta';
 import { BaseLayout } from '@layouts/base';
 import { Hero } from '@modules/landing/hero';
-import { I18nProps } from 'next-rosetta';
 import type { InsteadLocale } from '@modules/i18n';
 /**
  *
  */
 export const HomePage: NextPage = (props: any) => {
+  const { t } = useI18n<InsteadLocale>();
+
   return (
     <BaseLayout title="Hello World">
-      <Hero
-        title="string"
-        subtitle="string"
-        mediaUrl="string"
-        mediaType="IMAGE"
-      />
+      <Hero title={t('title')} subTitle={t('subTitle')} />
     </BaseLayout>
   );
 };

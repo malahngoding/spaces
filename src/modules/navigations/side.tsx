@@ -1,11 +1,18 @@
 /**
  */
 import { ReactElement, Suspense } from 'react';
-import { styledSideNav, styledVersion } from './side.css';
+import { styledSideNav, styledSideWidgets, styledVersion } from './side.css';
 import dynamic from 'next/dynamic';
 
 const LocaleSwitcherLazy = dynamic<{}>(
   (): any => import(`@modules/shared/locale-switcher`),
+  {
+    ssr: false,
+  },
+);
+
+const ThemeSwitcherLazy = dynamic<{}>(
+  (): any => import(`@modules/shared/theme-switcher`),
   {
     ssr: false,
   },
@@ -16,17 +23,26 @@ export const SideNav = (): ReactElement => {
     <aside>
       <div className={styledSideNav}>
         <p className={styledVersion}>
-          <span>
-            トレヒト / 東京都渋谷区神宮前5-36-6 ケーリーマンション2C Utrecht /
-          </span>
+          <span>〒150-0043 東京都渋谷区道玄坂２丁目１</span>
           <br />
-          <span>5-36-6 Jingumae 2C, Shibuya, Tokyo 150-0001 spanan</span>
+          <span>2 Chome-1 Dogenzaka, Shibuya City, Tokyo 150-0043, Japan</span>
           <br />
-          <span>→ グーグルマップで見る / View on Google spans</span>
+          <a
+            href="https://goo.gl/maps/WKFTJCYLc5ndYJHP9"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span>→ グーグルマップで見る / View on Google</span>
+          </a>
         </p>
-        <Suspense fallback={` `}>
-          <LocaleSwitcherLazy />
-        </Suspense>
+        <div className={styledSideWidgets}>
+          <Suspense fallback={` `}>
+            <LocaleSwitcherLazy />
+          </Suspense>
+          <Suspense fallback={` `}>
+            <ThemeSwitcherLazy />
+          </Suspense>
+        </div>
       </div>
     </aside>
   );

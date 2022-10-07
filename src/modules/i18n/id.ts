@@ -3,12 +3,18 @@ import { publicApplicationName } from '@config/application';
 
 export const table: InsteadLocale = {
   locale: 'Indonesia',
-  title: 'Next.js 10 + Rosetta dengan integrasi i18n',
-  subtitle: 'Click dibawah untuk mengganti bahasamu 👇',
+  title: `Hello World, Selamat Datang di`,
+  subTitle: 'Dunia Malah Ngoding 🌐',
   profile: {
     button: 'Tekan Aku!',
   },
-  welcome: 'Selamat Datang {{name}}! 😃', // with variable replacement
+  welcome: 'Selamat Datang {{name}}! 😃',
+  navigations: {
+    learn: `Membaca`,
+    camps: `Berkemah`,
+    experiments: `Percobaan`,
+    aboutUs: `Tentang Kami`,
+  },
   cookies: {
     firstConsent: `Kami menggunakan beberapa cookies untuk memastikan platform bekerja dengan seharusnya.`,
     secondConsent: `Kemi juga ingin menambahkan cookies lainnya untuk mengetahui bagaimana anda menggunakan ${publicApplicationName}, menyimpan pengaturan anda dan memperbaiki layanan kami.`,
@@ -16,7 +22,7 @@ export const table: InsteadLocale = {
     declineConsent: `Tolak Cookies Tambahan`,
   },
   footer: {
-    rights: `Space is an open-source project maintained by Malah Ngoding Team`,
-    secondRights: `Copyright ©{{getCurrentYear}} Malah Ngoding. All rights reserved.`,
+    rights: `Space adalah proyek open-source yang dijaga oleh tim Malah Ngoding`,
+    secondRights: `©{{getCurrentYear}} Malah Ngoding. Hak cipta dilindungi undang-undang.`,
   },
 };

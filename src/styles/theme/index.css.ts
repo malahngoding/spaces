@@ -15,6 +15,10 @@ export const bluePrint = createThemeContract({
     slate11: ``,
     slate12: ``,
   },
+  transparent: {
+    left: ``,
+    right: ``,
+  },
 });
 
 export const globalTheme = createGlobalTheme(`:root`, {

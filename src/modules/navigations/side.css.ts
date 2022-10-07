@@ -40,3 +40,11 @@ export const styledVersion = style([
     writingMode: `vertical-rl`,
   },
 ]);
+
+export const styledSideWidgets = style([
+  sprinkles({
+    marginTop: `largest`,
+    display: `grid`,
+    gap: `regular`,
+  }),
+]);

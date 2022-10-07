@@ -8,16 +8,20 @@ import {
   styledRight,
 } from './bar.css';
 import { Avatar } from '@components/avatar/avatar';
+import { InsteadLocale } from '@modules/i18n';
 import Link from 'next/link';
 import { LinkedLogo } from '@components/branding/linked-logo';
 import type { ReactElement } from 'react';
+import { useI18n } from 'next-rosetta';
 
 export const NavigationBar = (): ReactElement => {
+  const { t } = useI18n<InsteadLocale>();
+
   const links = [
-    { url: `/learn`, title: `Learn` },
-    { url: `/camps`, title: `Camps` },
-    { url: `/experiments`, title: `Experiments` },
-    { url: `/about-us`, title: `About Us` },
+    { url: `/learn`, title: t('navigations.learn') },
+    { url: `/camps`, title: t('navigations.camps') },
+    { url: `/experiments`, title: t('navigations.experiments') },
+    { url: `/about-us`, title: t('navigations.aboutUs') },
   ];
 
   return (

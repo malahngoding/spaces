@@ -17,6 +17,37 @@ export const styledBaseButton = style([
     borderBottomStyle: `solid`,
     borderLeftStyle: `solid`,
     borderRightStyle: `solid`,
+    display: `flex`,
+    flexDirection: `row`,
+    alignItems: `center`,
+    justifyContent: `center`,
+  }),
+  {
+    borderColor: vars.bluePrint.color.slate10,
+    color: vars.bluePrint.color.slate12,
+    backgroundColor: vars.bluePrint.color.slate1,
+    ':hover': {
+      border: `2px solid ${vars.bluePrint.color.slate12}`,
+      cursor: `pointer`,
+    },
+  },
+]);
+
+export const styledBaseButtonSmall = style([
+  sprinkles({
+    fontSize: `small`,
+    fontWeight: 700,
+    paddingX: `small`,
+    paddingY: `small`,
+    borderWidth: `2px`,
+    borderTopStyle: `solid`,
+    borderBottomStyle: `solid`,
+    borderLeftStyle: `solid`,
+    borderRightStyle: `solid`,
+    display: `flex`,
+    flexDirection: `row`,
+    alignItems: `center`,
+    justifyContent: `center`,
   }),
   {
     borderColor: vars.bluePrint.color.slate10,

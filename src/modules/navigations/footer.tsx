@@ -21,15 +21,11 @@ export const Footer = (): ReactElement => {
       </Paragraph>
       <br />
       <div className={styledWall}>
-        <span>10代工学は未来の製品と</span>
-        <span>コミュニケーションを生</span>
-        <span>み出すスタジオです。</span>
-        <span>私たちのミッションは</span>
-        <span>先端工学を用いて上質で</span>
-        <span>機能的なデザインの</span>
-        <span>製品を作り出すことです。</span>
-        <span>是非、新たなスタイルで</span>
-        <span>音楽をお楽しみください。</span>
+        <span>古池や 蛙飛び込む 水の音</span>
+        <span>春の海　ひねもすのたり　のたりかな</span>
+        <span>痩蛙　負けるな一茶　是にあり</span>
+        <span>菜の花や　月は東に　日は西に</span>
+        <span>閑けさや　岩にしみいる　蝉の声</span>
       </div>
     </div>
   );

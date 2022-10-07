@@ -16,4 +16,8 @@ export const lightTheme = createTheme(bluePrint, {
     slate11: '#687076',
     slate12: '#11181c',
   },
+  transparent: {
+    left: `rgba(255,255,255,1)`,
+    right: `rgba(0,0,0,0)`,
+  },
 });

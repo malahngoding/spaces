@@ -1,27 +1,37 @@
 /**
  */
-import { count, countAction } from './hero.store';
-import { Paragraph } from '@components/typography/paragraph';
+import { Heading, SubHeading } from '@components/typography/heading';
+import { heroTitle, heroVideo, styledHero } from './hero.css';
+import { Fragment } from 'react';
+import Image from 'next/image';
 import type { ReactElement } from 'react';
-import { styledHero } from './hero.css';
+import { numberGenerator } from '@utils/number-generator';
 
 interface HeroInterface {
   title: string;
-  subtitle: string;
-  mediaUrl: string;
-  mediaType: 'VIDEO' | 'IMAGE';
+  subTitle: string;
 }
 export const Hero = (props: HeroInterface): ReactElement => {
+  const altVideos = [
+    `/static/gifs/first.mp4`,
+    `/static/gifs/second.mp4`,
+    `/static/gifs/third.mp4`,
+    `/static/gifs/forth.mp4`,
+  ];
+
   return (
     <div className={styledHero}>
-      <Paragraph>{count.get().toString()}</Paragraph>
-      <button onClick={() => countAction.increment()}>[+]</button>
-      <button onClick={() => countAction.decrement()}>[-]</button>
-      {props.mediaType === 'VIDEO' ? (
-        <div>{props.mediaUrl}</div>
-      ) : (
-        <div>{props.mediaUrl}</div>
-      )}
+      <video autoPlay={true} muted={true} loop={true} className={heroVideo}>
+        <source
+          src={altVideos[numberGenerator(0, 3)]}
+          type="video/mp4"
+          className="c-PJLV"
+        />
+      </video>
+      <div className={heroTitle}>
+        <Heading>{props.title}</Heading>
+        <SubHeading>{props.subTitle}</SubHeading>
+      </div>
     </div>
   );
 };

@@ -11,11 +11,14 @@ export const styledAvatar = style([
     flexDirection: `row`,
     justifyContent: `space-between`,
     alignItems: `center`,
+    paddingX: `smaller`,
+    paddingY: `smaller`,
   }),
   {
-    color: vars.bluePrint.color.slate8,
+    color: vars.bluePrint.color.slate12,
     background: `none`,
-    border: `none`,
+    borderRadius: `50%`,
+    border: `2px solid ${vars.bluePrint.color.slate10}`,
     ':hover': {
       cursor: `pointer`,
     },

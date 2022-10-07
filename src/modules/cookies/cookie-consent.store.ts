@@ -1,10 +1,5 @@
-import { batch, observable } from '@legendapp/state';
-import {
-  configureObservablePersistence,
-  persistObservable,
-} from '@legendapp/state/persist';
-import { ObservablePersistLocalStorage } from '@legendapp/state/local-storage';
-import { enableLegendStateReact } from '@legendapp/state/react';
+import create from 'zustand';
+import { persist } from 'zustand/middleware';
 
 type CookiesState = {
   showCookiesModal: boolean;
@@ -12,36 +7,31 @@ type CookiesState = {
 };
 
 type CookiesAction = {
+  toggleCookies: () => void;
   setConsentValue: (value: string) => void;
   reset: () => void;
 };
 
-export const useCookiesPersist = observable<CookiesState>({
+const initialState: CookiesState = {
   showCookiesModal: true,
   consentValue: `NOT_SET`,
-});
-
-export const useCookiesPersistAction: CookiesAction = {
-  setConsentValue: (value) => {
-    batch(() => {
-      useCookiesPersist.showCookiesModal.set(false);
-      useCookiesPersist.consentValue.set(value);
-    });
-  },
-  reset: () => {
-    batch(() => {
-      useCookiesPersist.showCookiesModal.set(true);
-      useCookiesPersist.consentValue.set(`NOT_SET`);
-    });
-  },
 };
 
-persistObservable(useCookiesPersist, {
-  local: 'instead-cookies',
-});
-
-configureObservablePersistence({
-  persistLocal: ObservablePersistLocalStorage,
-});
-
-enableLegendStateReact();
+export const useCookiesPersist = create<CookiesState & CookiesAction>()(
+  persist(
+    (set, get) => ({
+      showCookiesModal: initialState.showCookiesModal,
+      consentValue: initialState.consentValue,
+      toggleCookies: () => {
+        set({ showCookiesModal: !get().showCookiesModal });
+      },
+      setConsentValue: (value: string) => {
+        set({ consentValue: value });
+      },
+      reset: () => {
+        set(initialState);
+      },
+    }),
+    { name: `instead-cookies` },
+  ),
+);
