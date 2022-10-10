@@ -1,7 +1,7 @@
 /**
  */
-import { filamentService, microService } from '@utils/service';
 import CryptoJs from 'crypto-js';
+import { microService } from '@utils/service';
 import { privateInsteadToken } from '@config/application';
 /**
  */
@@ -35,34 +35,6 @@ export const issueMicrosToken = async (
         provider: req.provider,
         name: req.name,
         email: req.email,
-      },
-    })
-    .json();
-};
-/**
- */
-interface IssueFilamentsTokenRequest {
-  identification: string;
-  provider: string;
-}
-interface IssueFilamentsTokenResponse {
-  data: {
-    messages: string;
-    status: string;
-    payload: {
-      token: string;
-    };
-  };
-}
-export const issueFilamentsToken = async (
-  req: IssueFilamentsTokenRequest,
-): Promise<IssueFilamentsTokenResponse> => {
-  return await filamentService
-    .post(`api/handshake`, {
-      headers: { Authorization: `instead_${privateInsteadToken as string}` },
-      json: {
-        identification: req.identification,
-        provider: req.provider,
       },
     })
     .json();

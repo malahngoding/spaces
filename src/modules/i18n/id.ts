@@ -5,10 +5,23 @@ export const table: InsteadLocale = {
   locale: 'Indonesia',
   title: `Hello World, Selamat Datang di`,
   subTitle: 'Dunia Malah Ngoding 🌐',
+  welcome: 'Selamat Datang {{name}}! 😃',
   profile: {
     button: 'Tekan Aku!',
   },
-  welcome: 'Selamat Datang {{name}}! 😃',
+  auth: {
+    connect: `Bergabung`,
+    title: `Hubungkan Account Kamu`,
+    subTitle: `Dapatkan akses ke fitur yang menarik dan bergabung bersama komunitas. Belajar bersama, tumbuh sebagai sebuah platform.`,
+    metamask: {
+      title: `Tekan Sign pada web3wallet kamu untuk melanjutkan`,
+      subTitle: `Kita menggunakan signature ini untuk memastikan bahwasannya memang kamu pemilik wallet tersebut.`,
+    },
+    hashpack: {
+      title: `Hubungkan dengan Hedera Wallet Hashpack`,
+      subTitle: `Klik Approve atau copy x paste connection string`,
+    },
+  },
   navigations: {
     learn: `Membaca`,
     camps: `Berkemah`,
@@ -24,5 +37,8 @@ export const table: InsteadLocale = {
   footer: {
     rights: `Space adalah proyek open-source yang dikelola oleh tim Malah Ngoding`,
     secondRights: `©{{getCurrentYear}} Malah Ngoding. Hak cipta dilindungi undang-undang.`,
+  },
+  appState: {
+    loading: `Memuat...`,
   },
 };

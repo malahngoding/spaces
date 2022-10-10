@@ -2,10 +2,23 @@ export interface InsteadLocale {
   locale: string;
   title: string;
   subTitle: string;
+  welcome: string;
   profile: {
     button: string;
   };
-  welcome: string;
+  auth: {
+    connect: string;
+    title: string;
+    subTitle: string;
+    metamask: {
+      title: string;
+      subTitle: string;
+    };
+    hashpack: {
+      title: string;
+      subTitle: string;
+    };
+  };
   navigations: {
     learn: string;
     camps: string;
@@ -21,5 +34,8 @@ export interface InsteadLocale {
   footer: {
     rights: string;
     secondRights: string;
+  };
+  appState: {
+    loading: string;
   };
 }

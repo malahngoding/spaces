@@ -7,13 +7,26 @@ import {
   styledNavbar,
   styledRight,
 } from './bar.css';
-import { Avatar } from '@components/avatar/avatar';
 import { InsteadLocale } from '@modules/i18n';
 import Link from 'next/link';
 import { LinkedLogo } from '@components/branding/linked-logo';
 import type { ReactElement } from 'react';
+import { Suspense } from 'react';
+import dynamic from 'next/dynamic';
 import { useI18n } from 'next-rosetta';
-
+/**
+ *
+ */
+const LazyConnectButton = dynamic<{}>(
+  (): any =>
+    import(`@modules/auth/connect-button`).then((mod) => mod.ConnectButton),
+  {
+    ssr: false,
+  },
+);
+/**
+ *
+ */
 export const NavigationBar = (): ReactElement => {
   const { t } = useI18n<InsteadLocale>();
 
@@ -40,7 +53,9 @@ export const NavigationBar = (): ReactElement => {
           </div>
         </div>
         <div className={styledRight}>
-          <Avatar />
+          <Suspense fallback={<p>{t('appState.loading')}</p>}>
+            <LazyConnectButton />
+          </Suspense>
         </div>
       </div>
     </nav>

@@ -14,3 +14,4 @@ export const privateNextAuthUrl = process.env.NEXTAUTH_URL;
 export const privateJwtSecret = process.env.JWT_SECRET;
 export const privateJwtSigningKey = process.env.JWT_SIGNING_KEY;
 export const privateJwtEncryptionKey = process.env.JWT_ENCRYPTION_KEY;
+export const deployedChain = 80001;

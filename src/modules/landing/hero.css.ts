@@ -46,6 +46,13 @@ export const heroTitle = style([
     alignItems: `flex-start`,
   }),
   {
-    backgroundImage: `linear-gradient(to right, ${vars.bluePrint.transparent.left}, ${vars.bluePrint.transparent.right})`,
+    '@media': {
+      'screen and (min-width: 0px)': {
+        backgroundImage: `linear-gradient(to right, ${vars.bluePrint.transparent.left} 0% 100%, ${vars.bluePrint.transparent.right})`,
+      },
+      'screen and (min-width: 768px)': {
+        backgroundImage: `linear-gradient(to right, ${vars.bluePrint.transparent.left}, ${vars.bluePrint.transparent.right})`,
+      },
+    },
   },
 ]);

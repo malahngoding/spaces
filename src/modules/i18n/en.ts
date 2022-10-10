@@ -4,10 +4,23 @@ export const table: InsteadLocale = {
   locale: 'English',
   title: `Hello World, Welcome to`,
   subTitle: 'The Internet of Malah Ngoding 🌐',
+  welcome: 'Welcome {{name}}! 😃',
   profile: {
     button: 'Press me!',
   },
-  welcome: 'Welcome {{name}}! 😃',
+  auth: {
+    connect: `Connect`,
+    title: `string;`,
+    subTitle: `string;`,
+    metamask: {
+      title: `string;`,
+      subTitle: `string;`,
+    },
+    hashpack: {
+      title: `string;`,
+      subTitle: `string;`,
+    },
+  },
   navigations: {
     learn: `Learn`,
     camps: `Camps`,
@@ -23,5 +36,8 @@ export const table: InsteadLocale = {
   footer: {
     rights: `Space is an open-source project maintained by Malah Ngoding Team`,
     secondRights: `Copyright ©{{getCurrentYear}} Malah Ngoding. All rights reserved.`,
+  },
+  appState: {
+    loading: `Loading...`,
   },
 };

@@ -17,7 +17,7 @@ export const darkTheme = createTheme(bluePrint, {
     slate12: '#ecedee',
   },
   transparent: {
-    left: `rgba(0,0,0,1)`,
-    right: `rgba(0,0,0,0)`,
+    left: `rgba(0,0,0,0.5)`,
+    right: `rgba(0,0,0,0.1)`,
   },
 });

@@ -1,8 +1,13 @@
 /**
  */
-import { styledFooter, styledWall } from './footer.css';
+import {
+  styledFooter,
+  styledSocialMediaLink,
+  styledSocialMediaWrapper,
+  styledWall,
+} from './footer.css';
+import { ExternalLinkIcon } from '@radix-ui/react-icons';
 import { InsteadLocale } from '@modules/i18n';
-import Link from 'next/link';
 import { Paragraph } from '@components/typography/paragraph';
 import type { ReactElement } from 'react';
 import { getCurrentYear } from '@utils/index';
@@ -30,38 +35,42 @@ export const Footer = (): ReactElement => {
 
 const SocialMedia = (): ReactElement => {
   return (
-    <div>
+    <div className={styledSocialMediaWrapper}>
       <a
         href="https://github.com/malahngoding"
         target="_blank"
         rel="noreferrer"
-        style={{ margin: `0px 8px 0px 8px` }}
+        className={styledSocialMediaLink}
       >
-        Github
+        <Paragraph>Github</Paragraph>
+        <ExternalLinkIcon />
       </a>
       <a
         href="https://www.youtube.com/channel/UCKMCYwl48GRxkKP0c92GOJQ"
         target="_blank"
         rel="noreferrer"
-        style={{ margin: `0px 8px 0px 8px` }}
+        className={styledSocialMediaLink}
       >
-        Youtube
+        <Paragraph>Youtube</Paragraph>
+        <ExternalLinkIcon />
       </a>
       <a
         href="https://tiktok.com/@malahngoding"
         target="_blank"
         rel="noreferrer"
-        style={{ margin: `0px 8px 0px 8px` }}
+        className={styledSocialMediaLink}
       >
-        Tiktok
+        <Paragraph>Tiktok</Paragraph>
+        <ExternalLinkIcon />
       </a>
       <a
         href="https://instagram.com/malahngoding"
         target="_blank"
         rel="noreferrer"
-        style={{ margin: `0px 8px 0px 8px` }}
+        className={styledSocialMediaLink}
       >
-        Instagram
+        <Paragraph>Instagram</Paragraph>
+        <ExternalLinkIcon />
       </a>
     </div>
   );

@@ -26,11 +26,13 @@ const responsiveProperties = defineProperties({
       `100%`,
       `calc(100vw - 100px)`,
     ],
+    minHeight: [`100vh`, `90vh`, `50vh`, `64px`, `100px`, `100%`],
     height: [`100vh`, `90vh`, `50vh`, `64px`, `100px`, `100%`],
     position: [`fixed`, `relative`, `absolute`],
     display: [`none`, `flex`, `block`, `inline`, `grid`],
     gridTemplateColumns: [`1fr 1fr 1fr`, `1fr 1fr`, `2fr 1fr`, `1fr`],
     gap: vars.space,
+    flexWrap: [`wrap`],
     flexDirection: [`row`, `column`],
     justifyContent: [
       `stretch`,

@@ -10,6 +10,7 @@ import { numberGenerator } from '@utils/number-generator';
 interface HeroInterface {
   title: string;
   subTitle: string;
+  random: number;
 }
 export const Hero = (props: HeroInterface): ReactElement => {
   const altVideos = [
@@ -23,7 +24,7 @@ export const Hero = (props: HeroInterface): ReactElement => {
     <div className={styledHero}>
       <video autoPlay={true} muted={true} loop={true} className={heroVideo}>
         <source
-          src={altVideos[numberGenerator(0, 3)]}
+          src={altVideos[props.random]}
           type="video/mp4"
           className="c-PJLV"
         />

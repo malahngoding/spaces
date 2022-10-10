@@ -1,7 +1,7 @@
 /**
  */
 import { Fragment, useEffect, useState } from 'react';
-import { Gear, Moon, Sun } from '@components/icon';
+import { GearIcon, MoonIcon, SunIcon } from '@radix-ui/react-icons';
 import type { ReactElement } from 'react';
 import { SmallButton } from '@components/button/base';
 import { useTheme } from 'next-themes';
@@ -20,25 +20,25 @@ const ThemeSwitcher = (): ReactElement => {
       case 'light':
         return (
           <SmallButton onClick={() => setTheme('system')}>
-            <Sun />
+            <SunIcon />
           </SmallButton>
         );
       case 'dark':
         return (
           <SmallButton onClick={() => setTheme('light')}>
-            <Moon />
+            <MoonIcon />
           </SmallButton>
         );
       case 'system':
         return (
           <SmallButton onClick={() => setTheme('dark')}>
-            <Gear />
+            <GearIcon />
           </SmallButton>
         );
       default:
         return (
           <SmallButton onClick={() => setTheme('dark')}>
-            <Gear />
+            <GearIcon />
           </SmallButton>
         );
     }

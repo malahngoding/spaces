@@ -1,4 +1,3 @@
-import { issueFilamentsToken, issueMicrosToken } from '@services/auth-adapter';
 import {
   privateGithubId,
   privateGithubSecret,
@@ -13,6 +12,7 @@ import GoogleProvider from 'next-auth/providers/google';
 import NextAuth from 'next-auth';
 import { ethers } from 'ethers';
 import { getProfileDetails } from '@services/profile-adapter';
+import { issueMicrosToken } from '@services/auth-adapter';
 
 export default NextAuth({
   secret: privateJwtSecret,
@@ -90,12 +90,7 @@ export default NextAuth({
             `${credentials?.address.toString()}@malahngoding.com` ||
             ``,
         });
-        const responseFilaments = await issueFilamentsToken({
-          identification: credentials?.address.toString() || ``,
-          provider: wallet,
-        });
         user.microsToken = responseMicros.data.payload.token;
-        user.filamentsToken = responseFilaments.data.payload.token;
         return true;
       }
       if (account.provider === `github`) {
@@ -105,12 +100,7 @@ export default NextAuth({
           name: profile?.name || ``,
           email: profile?.email || ``,
         });
-        const responseFilaments = await issueFilamentsToken({
-          identification: account.providerAccountId,
-          provider: 'GITHUB',
-        });
         user.microsToken = responseMicros.data.payload.token;
-        user.filamentsToken = responseFilaments.data.payload.token;
         return true;
       }
       if (account.provider === `google`) {
@@ -120,12 +110,7 @@ export default NextAuth({
           name: profile?.name || ``,
           email: profile?.email || ``,
         });
-        const responseFilaments = await issueFilamentsToken({
-          identification: account.providerAccountId,
-          provider: 'GOOGLE',
-        });
         user.microsToken = responseMicros.data.payload.token;
-        user.filamentsToken = responseFilaments.data.payload.token;
         return true;
       }
       return false;
@@ -136,7 +121,6 @@ export default NextAuth({
       return baseUrl;
     },
     async session({ session, user, token }) {
-      session.filamentsToken = token.filamentsToken as string;
       session.microsToken = token.microsToken as string;
       session.user = undefined;
       const currentUser = await getProfileDetails({
@@ -149,7 +133,6 @@ export default NextAuth({
     async jwt({ token, user, account, profile, isNewUser }) {
       if (user) {
         token.microsToken = user.microsToken;
-        token.filamentsToken = user.filamentsToken;
       }
 
       return token;

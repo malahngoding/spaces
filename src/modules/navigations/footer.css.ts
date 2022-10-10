@@ -37,3 +37,28 @@ export const styledWall = style([
     fontSize: `xsmall`,
   }),
 ]);
+
+export const styledSocialMediaWrapper = style([
+  sprinkles({
+    display: `flex`,
+    flexDirection: {
+      mobile: `column`,
+      tablet: `row`,
+    },
+    justifyContent: `flex-start`,
+    alignItems: `flex-start`,
+  }),
+]);
+
+export const styledSocialMediaLink = style([
+  sprinkles({
+    display: `flex`,
+    flexDirection: `row`,
+    justifyContent: `center`,
+    alignItems: `center`,
+    marginRight: {
+      mobile: `none`,
+      tablet: `regular`,
+    },
+  }),
+]);
