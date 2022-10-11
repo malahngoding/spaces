@@ -48,9 +48,8 @@ export const ConnectForm = (): ReactElement => {
           signature: signatureMessage,
           network: 'evm',
           redirect: true,
-          callbackUrl: `${router.query.callBackUrl as string}`,
+          callbackUrl: router.query.callBackUrl as string,
         });
-
         if (response) {
           router.push('/');
         }

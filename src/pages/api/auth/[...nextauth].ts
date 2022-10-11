@@ -80,7 +80,6 @@ export default NextAuth({
         } else {
           wallet = `HASHPACK`;
         }
-
         const responseMicros = await issueMicrosToken({
           identification: credentials?.address.toString() || ``,
           provider: wallet,

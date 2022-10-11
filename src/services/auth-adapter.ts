@@ -28,7 +28,7 @@ export const issueMicrosToken = async (
     privateInsteadToken as string,
   ).toString();
   return await microService
-    .post(`issueToken`, {
+    .post(`api/auth/token`, {
       headers: { Authorization: `instead_${privateInsteadToken as string}` },
       json: {
         identification: ciphertext,
