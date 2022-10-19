@@ -1,5 +1,5 @@
-import { filamentService, microService } from '@utils/service';
 import { generalErrorResponseBuilder } from '.';
+import { microService } from '@utils/service';
 
 interface PingServiceResponse {
   messages: string;
@@ -8,17 +8,9 @@ interface PingServiceResponse {
   error?: unknown;
 }
 
-export const pingFilamentsService = async (): Promise<PingServiceResponse> => {
-  try {
-    return await filamentService.get(`ping`, {}).json();
-  } catch (error) {
-    return generalErrorResponseBuilder(`Ping Failed`, error);
-  }
-};
-
 export const pingMicrosService = async (): Promise<PingServiceResponse> => {
   try {
-    return await microService.get(`ping`, {}).json();
+    return await microService.get(`api/ping`, {}).json();
   } catch (error) {
     return generalErrorResponseBuilder(`Ping Failed`, error);
   }

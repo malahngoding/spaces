@@ -1,5 +1,4 @@
 export const publicMicrosUrl = process.env.NEXT_PUBLIC_MICROS_URL;
-export const publicFIlamentsUrl = process.env.NEXT_PUBLIC_FILAMENTS_URL;
 export const publicAlchemyId = process.env.NEXT_PUBLIC_ALCHEMY_ID;
 export const publicApplicationName =
   process.env.APP_NAME || `Malah Ngoding Space`;
