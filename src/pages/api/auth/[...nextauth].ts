@@ -7,19 +7,23 @@ import { issueMicrosToken } from '@services/auth-adapter';
 
 export const authOptions: NextAuthOptions = {
   secret: privateJwtSecret,
+  session: {
+    strategy: `jwt`
+  },
   pages: {
     newUser: `/auth/connect`,
     error: `/auth/error`,
   },
   providers: [
     CredentialsProvider({
+      name: "Credentials",
       credentials: {
         address: { label: `Address`, type: `text` },
         signer: { label: `Signer`, type: `text` },
         signature: { label: `Signature`, type: `text` },
         network: { label: `Network`, type: `text` },
       },
-      async authorize(credentials) {
+      async authorize(credentials): Promise<any> {
         switch (credentials?.network) {
           case `evm`:
             const message = [
@@ -35,7 +39,7 @@ export const authOptions: NextAuthOptions = {
             ) {
               return {
                 name: `${credentials?.address.toString()}`,
-                email: `${credentials?.address}@malahngoding.com`,
+                email: `${credentials?.signer}@malahngoding.com`,
                 image: `https://avatars.dicebear.com/api/miniavs/${credentials?.address}.svg`,
               };
             }
