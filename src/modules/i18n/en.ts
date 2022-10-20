@@ -1,24 +1,22 @@
 import type { InsteadLocale } from '.';
 import { publicApplicationName } from '@config/application';
+
 export const table: InsteadLocale = {
   locale: 'English',
   title: `Hello World, Welcome to`,
   subTitle: 'The Internet of Malah Ngoding 🌐',
   welcome: 'Welcome {{name}}! 😃',
-  profile: {
-    button: 'Press me!',
-  },
   auth: {
     connect: `Connect`,
-    title: `string;`,
-    subTitle: `string;`,
+    title: `Connect Your Account;`,
+    subTitle: `Gain access to exciting features and learning community. Grow together as a platform.;`,
     metamask: {
-      title: `string;`,
-      subTitle: `string;`,
+      title: `Sign the message in your wallet to continue.`,
+      subTitle: `We uses this signature to verify that you’re the owner of this address.`,
     },
     hashpack: {
-      title: `string;`,
-      subTitle: `string;`,
+      title: `HashConnect with Hashpack;`,
+      subTitle: `Approve or Copy & Paste the connection string;`,
     },
   },
   navigations: {

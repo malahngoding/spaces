@@ -6,7 +6,7 @@ const withVanillaExtract = createVanillaExtractPlugin();
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['images.unsplash.com', 'siasky.net', 'kusama.network'],
+    domains: ['images.unsplash.com', 'siasky.net', 'kusama.network',"avatars.dicebear.com"],
   },
   i18n: {
     locales: ['id', 'en'],

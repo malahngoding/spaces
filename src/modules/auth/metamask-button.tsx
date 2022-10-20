@@ -3,10 +3,12 @@
  */
 import { deployedChain, publicApplicationUrl } from '@config/application';
 import Image from 'next/image';
+import { InsteadLocale } from '@modules/i18n';
 import type { ReactElement } from 'react';
 import { SmallButton } from '@components/button/base';
 import { ethers } from 'ethers';
 import { signIn } from 'next-auth/react';
+import { useI18n } from 'next-rosetta';
 import { useRouter } from 'next/router';
 
 declare global {
@@ -18,7 +20,9 @@ declare global {
 
 export const MetamaskButton = (): ReactElement => {
   const router = useRouter();
-  const toggleLoading = () => console.log(`loading`);
+  const { t } = useI18n<InsteadLocale>();
+
+  const toggleLoading = () => console.log(`${t(`auth.metamask.title`)}`);
 
   const metamaskHandler = async (): Promise<void> => {
     toggleLoading();

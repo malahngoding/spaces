@@ -3,9 +3,6 @@ export interface InsteadLocale {
   title: string;
   subTitle: string;
   welcome: string;
-  profile: {
-    button: string;
-  };
   auth: {
     connect: string;
     title: string;

@@ -6,9 +6,6 @@ export const table: InsteadLocale = {
   title: `Hello World, Selamat Datang di`,
   subTitle: 'Dunia Malah Ngoding 🌐',
   welcome: 'Selamat Datang {{name}}! 😃',
-  profile: {
-    button: 'Tekan Aku!',
-  },
   auth: {
     connect: `Bergabung`,
     title: `Hubungkan Account Kamu`,
@@ -19,7 +16,7 @@ export const table: InsteadLocale = {
     },
     hashpack: {
       title: `Hubungkan dengan Hedera Wallet Hashpack`,
-      subTitle: `Klik Approve atau copy x paste connection string`,
+      subTitle: `Klik Approve atau copy & paste connection string`,
     },
   },
   navigations: {

@@ -1,5 +1,6 @@
 import { sprinkles } from '@styles/sprinkles.css';
 import { style } from '@vanilla-extract/css';
+import { vars } from '@styles/theme/index.css';
 
 export const styledConnectButton = style([
   sprinkles({
@@ -10,4 +11,7 @@ export const styledConnectButton = style([
     width: `100%`,
     height: `100%`,
   }),
+  {
+    gap: vars.space.smallest,
+  },
 ]);

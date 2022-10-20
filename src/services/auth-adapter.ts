@@ -12,12 +12,10 @@ interface IssueMicrosTokenRequest {
   email: string;
 }
 interface IssueMicrosTokenResponse {
-  data: {
-    messages: string;
-    status: string;
-    payload: {
-      token: string;
-    };
+  messages: string;
+  status: string;
+  payload: {
+    token: string;
   };
 }
 export const issueMicrosToken = async (
