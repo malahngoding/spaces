@@ -1,5 +1,4 @@
-/* eslint-disable no-shadow *
-import { Session } from 'next-auth';
+import NextAuth from 'next-auth';
 
 declare module 'next-auth' {
   interface Session {
@@ -7,5 +6,9 @@ declare module 'next-auth' {
     filamentsToken: string;
     currentUser: any;
     fresh: boolean;
+  }
+
+  interface User {
+    microsToken: string;
   }
 }

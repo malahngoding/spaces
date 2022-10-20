@@ -13,16 +13,13 @@ export const authOptions: NextAuthOptions = {
   },
   providers: [
     CredentialsProvider({
-      id: `Wallet`,
-      name: `Credentials`,
-      type: 'credentials',
       credentials: {
         address: { label: `Address`, type: `text` },
         signer: { label: `Signer`, type: `text` },
         signature: { label: `Signature`, type: `text` },
         network: { label: `Network`, type: `text` },
       },
-      async authorize(credentials, req) {
+      async authorize(credentials) {
         switch (credentials?.network) {
           case `evm`:
             const message = [
@@ -30,7 +27,7 @@ export const authOptions: NextAuthOptions = {
               `for this website ${publicApplicationUrl}`,
               `Please sign me in!`,
             ].join('\n');
-            const signature = credentials?.signature || ``;
+            const signature = credentials.signature;
             const verified = ethers.utils.verifyMessage(message, signature);
             if (
               verified.toLowerCase() ===

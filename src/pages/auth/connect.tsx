@@ -45,7 +45,8 @@ export const getServerSideProps: GetServerSideProps<
     context.res,
     authOptions,
   );
-  if (!session) {
+
+  if (session) {
     return {
       redirect: {
         destination: '/',
