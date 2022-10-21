@@ -66,7 +66,13 @@ export const ExperimentsPage: NextPage = (props: any) => {
       <br />
       <ServicePingLazy />
       <br />
-      <div style={{ display: `grid`, gap: `12px` }}>
+      <div
+        style={{
+          display: `grid`,
+          gap: `12px`,
+          gridTemplateColumns: `1fr 1fr 1fr 1fr 1fr`,
+        }}
+      >
         {Array.from(Array(78).keys()).map((item: number) => {
           const padLeadingZero = (num: number, size = 3) => {
             var s = num + '';
