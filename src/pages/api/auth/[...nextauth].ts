@@ -8,7 +8,7 @@ import { issueMicrosToken } from '@services/auth-adapter';
 export const authOptions: NextAuthOptions = {
   secret: privateJwtSecret,
   session: {
-    strategy: `jwt`
+    strategy: `jwt`,
   },
   pages: {
     newUser: `/auth/connect`,
@@ -16,7 +16,7 @@ export const authOptions: NextAuthOptions = {
   },
   providers: [
     CredentialsProvider({
-      name: "Credentials",
+      name: 'Credentials',
       credentials: {
         address: { label: `Address`, type: `text` },
         signer: { label: `Signer`, type: `text` },
