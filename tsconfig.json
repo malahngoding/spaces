@@ -17,14 +17,14 @@
     "paths": {
       "@artifacts/*": ["./artifacts/*"],
       "@proto/*": ["./proto/*"],
-      "@components/*": ["./src/components/*"],
-      "@config/*": ["./src/config/*"],
-      "@layouts/*": ["./src/layouts/*"],
-      "@pages/*": ["./src/pages/*"],
-      "@services/*": ["./src/services/*"],
-      "@styles/*": ["./src/styles/*"],
-      "@utils/*": ["./src/utils/*"],
-      "@modules/*": ["./src/modules/*"],
+      "@components/*": ["./components/*"],
+      "@config/*": ["./config/*"],
+      "@layouts/*": ["./layouts/*"],
+      "@pages/*": ["./pages/*"],
+      "@services/*": ["./services/*"],
+      "@styles/*": ["./styles/*"],
+      "@utils/*": ["./utils/*"],
+      "@modules/*": ["./modules/*"],
       "@public/*": ["./public/*"]
     },
     "incremental": true
