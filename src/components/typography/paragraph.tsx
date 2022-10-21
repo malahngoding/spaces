@@ -10,5 +10,5 @@ interface ParagraphProps {
 }
 
 export const Paragraph = (props: ParagraphProps): ReactElement => {
-  return <h1 className={styledParagraph}>{props.children}</h1>;
+  return <p className={styledParagraph}>{props.children}</p>;
 };

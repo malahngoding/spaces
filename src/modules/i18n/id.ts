@@ -24,6 +24,8 @@ export const table: InsteadLocale = {
     camps: `Berkemah`,
     experiments: `Percobaan`,
     aboutUs: `Tentang Kami`,
+    account: `Akun`,
+    logout: `Keluar`
   },
   cookies: {
     firstConsent: `Kami menggunakan beberapa cookies untuk memastikan platform bekerja dengan seharusnya.`,

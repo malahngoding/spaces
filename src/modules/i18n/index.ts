@@ -21,6 +21,8 @@ export interface InsteadLocale {
     camps: string;
     experiments: string;
     aboutUs: string;
+    account: string;
+    logout: string
   };
   cookies: {
     firstConsent: string;

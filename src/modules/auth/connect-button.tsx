@@ -1,6 +1,5 @@
-import { EnterIcon } from '@radix-ui/react-icons';
+import { EnterIcon, ExitIcon } from '@radix-ui/react-icons';
 import { Fragment } from 'react';
-import Image from 'next/image';
 import { InsteadLocale } from '@modules/i18n';
 import type { ReactElement } from 'react';
 import { SmallButton } from '@components/button/base';
@@ -40,13 +39,8 @@ export const ConnectButton = (): ReactElement => {
           }}
         >
           <div className={styledConnectButton}>
-            <p style={{ fontSize: `10px` }}>{session?.user?.name}</p>
-            <Image
-              src={session?.user?.image || ``}
-              alt="AV"
-              width={24}
-              height={24}
-            />
+            <>{t(`navigations.logout`)}</>
+            <ExitIcon />
           </div>
         </SmallButton>
       )}
