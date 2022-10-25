@@ -1,5 +1,5 @@
 import { generalErrorResponseBuilder } from '.';
-import { microService } from '@utils/service';
+import { microService } from '../utils/service';
 
 interface PingServiceResponse {
   messages: string;

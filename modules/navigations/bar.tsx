@@ -10,9 +10,9 @@ import {
   styledRight,
 } from './bar.css';
 import { Fragment } from 'react';
-import { InsteadLocale } from '@modules/i18n';
+import { InsteadLocale } from '../../modules/i18n';
 import Link from 'next/link';
-import { LinkedLogo } from 'components/branding/linked-logo';
+import { LinkedLogo } from '../../components/branding/linked-logo';
 import type { ReactElement } from 'react';
 import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
@@ -23,14 +23,16 @@ import { useNavigationSheet } from './sheet.store';
  */
 const LazyConnectButton = dynamic<{}>(
   (): any =>
-    import(`@modules/auth/connect-button`).then((mod) => mod.ConnectButton),
+    import(`../../modules/auth/connect-button`).then(
+      (mod) => mod.ConnectButton,
+    ),
   {
     ssr: false,
   },
 );
 
 const LazyNavigationSheet = dynamic<{}>(
-  (): any => import(`@modules/navigations/sheet`).then((mod) => mod.Sheet),
+  (): any => import(`../../modules/navigations/sheet`).then((mod) => mod.Sheet),
   {
     ssr: false,
   },

@@ -1,8 +1,8 @@
 /**
  */
 import CryptoJs from 'crypto-js';
-import { microService } from '@utils/service';
-import { privateInsteadToken } from '@config/application';
+import { microService } from '../utils/service';
+import { privateInsteadToken } from '../config/application';
 /**
  */
 interface IssueMicrosTokenRequest {

@@ -10,7 +10,9 @@ import { styledConnectFormWrapper } from './connect-form.css';
  */
 const LazyMetamaskButton = dynamic<{}>(
   (): any =>
-    import(`@modules/auth/metamask-button`).then((mod) => mod.MetamaskButton),
+    import(`../../modules/auth/metamask-button`).then(
+      (mod) => mod.MetamaskButton,
+    ),
   {
     ssr: false,
   },

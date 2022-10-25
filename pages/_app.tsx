@@ -1,15 +1,14 @@
 /**
  */
-import '@styles/instead.css';
-import '@styles/minireset.css';
-import '@styles/global.css';
+import '../styles/instead.css';
+import '../styles/minireset.css';
 import type { AppProps } from 'next/app';
 import { Fragment } from 'react';
 import { I18nProvider } from 'next-rosetta';
 import { SessionProvider } from 'next-auth/react';
 import { ThemeProvider } from 'next-themes';
-import { darkTheme } from '@styles/theme/dark.css';
-import { lightTheme } from '@styles/theme/light.css';
+import { darkTheme } from '../styles/theme/dark.css';
+import { lightTheme } from '../styles/theme/light.css';
 /**
  */
 interface PagePropsObject {

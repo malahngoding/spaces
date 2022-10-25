@@ -1,9 +1,9 @@
 /**
  */
-import { AltButton, Button } from 'components/button/base';
+import { AltButton, Button } from '../../components/button/base';
 import { Fragment, Suspense } from 'react';
 import { styledButtonAction, styledCookieConsent } from './cookie-consent.css';
-import { InsteadLocale } from '@modules/i18n';
+import { InsteadLocale } from '../../modules/i18n';
 import type { ReactElement } from 'react';
 import { useCookiesPersist } from './cookie-consent.store';
 import { useI18n } from 'next-rosetta';

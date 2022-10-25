@@ -1,6 +1,9 @@
-import { sprinkles } from '@styles/sprinkles.css';
+/**
+ * 
+ */
+import { sprinkles } from '../../styles/sprinkles.css';
 import { style } from '@vanilla-extract/css';
-import { vars } from '@styles/theme/index.css';
+import { vars } from '../../styles/theme/index.css';
 
 export const styledConnectButton = style([
   sprinkles({

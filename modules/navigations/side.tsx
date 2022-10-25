@@ -5,14 +5,14 @@ import { styledSideNav, styledSideWidgets, styledVersion } from './side.css';
 import dynamic from 'next/dynamic';
 
 const LocaleSwitcherLazy = dynamic<{}>(
-  (): any => import(`@modules/shared/locale-switcher`),
+  (): any => import(`../../modules/shared/locale-switcher`),
   {
     ssr: false,
   },
 );
 
 const ThemeSwitcherLazy = dynamic<{}>(
-  (): any => import(`@modules/shared/theme-switcher`),
+  (): any => import(`../../modules/shared/theme-switcher`),
   {
     ssr: false,
   },

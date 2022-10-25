@@ -1,8 +1,8 @@
 import { EnterIcon, ExitIcon } from '@radix-ui/react-icons';
 import { Fragment } from 'react';
-import { InsteadLocale } from '@modules/i18n';
+import { InsteadLocale } from '../../modules/i18n';
 import type { ReactElement } from 'react';
-import { SmallButton } from 'components/button/base';
+import { SmallButton } from '../../components/button/base';
 import { signOut } from 'next-auth/react';
 import { styledConnectButton } from './connect-button.css';
 import { useI18n } from 'next-rosetta';

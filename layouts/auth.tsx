@@ -5,7 +5,7 @@ import { styledAuth, styledCard, styledLeft, styledRight } from './auth.css';
 import Head from 'next/head';
 import type { ReactElement } from 'react';
 import dynamic from 'next/dynamic';
-import { titleMaker } from '@utils/title-maker';
+import { titleMaker } from '../utils/title-maker';
 /**
  */
 type AuthLayoutProps = {
@@ -14,7 +14,7 @@ type AuthLayoutProps = {
 };
 
 const CookieConsentLazy = dynamic(
-  (): any => import(`@modules/cookies/cookie-consent`),
+  (): any => import(`../modules/cookies/cookie-consent`),
   {
     ssr: false,
   },

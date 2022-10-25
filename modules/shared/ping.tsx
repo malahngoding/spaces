@@ -1,8 +1,8 @@
 /**
  */
-import { Button } from 'components/button/base';
+import { Button } from '../../components/button/base';
 import type { ReactElement } from 'react';
-import { pingMicrosService } from '@services/ping-adapter';
+import { pingMicrosService } from '../../services/ping-adapter';
 /**
  */
 const Ping = (): ReactElement => {

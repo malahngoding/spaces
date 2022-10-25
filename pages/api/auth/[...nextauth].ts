@@ -1,9 +1,9 @@
-import { privateJwtSecret, publicApplicationUrl } from '@config/application';
+import { privateJwtSecret, publicApplicationUrl } from '../../../config/application';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import NextAuth from 'next-auth';
 import type { NextAuthOptions } from 'next-auth';
 import { ethers } from 'ethers';
-import { issueMicrosToken } from '@services/auth-adapter';
+import { issueMicrosToken } from '../../../services/auth-adapter';
 
 export const authOptions: NextAuthOptions = {
   secret: privateJwtSecret,

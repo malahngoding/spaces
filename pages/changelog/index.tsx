@@ -3,12 +3,11 @@
  */
 import { GetStaticProps, NextPage } from 'next';
 import { I18nProps, useI18n } from 'next-rosetta';
-import { BaseLayout } from '@layouts/base';
-import { Container } from '@components/wrapper/container';
-import { Heading } from '@components/typography/heading';
-import { InsteadLocale } from '@modules/i18n';
-import { PageWrapper } from '@components/wrapper/page-wrapper';
-import { Paragraph } from '@components/typography/paragraph';
+import { BaseLayout } from '../../layouts/base';
+import { Heading } from '../../components/typography/heading';
+import { InsteadLocale } from '../../modules/i18n';
+import { PageWrapper } from '../../components/wrapper/page-wrapper';
+import { Paragraph } from '../../components/typography/paragraph';
 /**
  *
  */
@@ -36,7 +35,7 @@ export const getStaticProps: GetStaticProps<I18nProps<InsteadLocale>> = async (
   context,
 ) => {
   const locale = context.locale || context.defaultLocale;
-  const { table = {} } = await import(`@modules/i18n/${locale}`);
+  const { table = {} } = await import(`../../modules/i18n/${locale}`);
   return {
     props: { table },
   };

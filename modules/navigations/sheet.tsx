@@ -1,9 +1,9 @@
 /**
  *
  */
-import { InsteadLocale } from '@modules/i18n';
+import { InsteadLocale } from '../../modules/i18n';
 import Link from 'next/link';
-import { Paragraph } from 'components/typography/paragraph';
+import { Paragraph } from '../../components/typography/paragraph';
 import type { ReactElement } from 'react';
 import { styledNavigationSheet } from './sheet.css';
 import { useI18n } from 'next-rosetta';
@@ -28,9 +28,9 @@ export const Sheet = (): ReactElement => {
       {links.map((item) => {
         return (
           <Link key={item.title} passHref href={item.url}>
-            <a onClick={toggleNavigationSheet}>
+            <button onClick={toggleNavigationSheet}>
               <Paragraph>{`/${item.title}`}</Paragraph>
-            </a>
+            </button>
           </Link>
         );
       })}

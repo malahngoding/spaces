@@ -1,7 +1,7 @@
 /**
  */
 import ky from 'ky-universal';
-import { publicMicrosUrl } from '@config/application';
+import { publicMicrosUrl } from '../config/application';
 /**
  */
 export const microService = ky

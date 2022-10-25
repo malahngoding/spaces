@@ -1,6 +1,6 @@
 /**
  */
-import { InsteadLocale } from '@modules/i18n';
+import { InsteadLocale } from '../../modules/i18n';
 import Link from 'next/link';
 import type { ReactElement } from 'react';
 import { useI18n } from 'next-rosetta';
@@ -15,15 +15,15 @@ const LocaleSwitcher = (): ReactElement => {
     <div>
       {locale === `en` ? (
         <Link href={asPath} locale={`id`}>
-          <a>
+          <button>
             <UnitedKingdomFlag />
-          </a>
+          </button>
         </Link>
       ) : (
         <Link href={asPath} locale={`en`}>
-          <a>
+          <button>
             <IndonesianFlag />
-          </a>
+          </button>
         </Link>
       )}
     </div>

@@ -2,19 +2,19 @@
  */
 import type { GetStaticProps, NextPage } from 'next';
 import { I18nProps, useI18n } from 'next-rosetta';
-import { BaseLayout } from '@layouts/base';
-import { Button } from 'components/button/base';
-import { Container } from '@components/wrapper/container';
+import { BaseLayout } from '../layouts/base';
+import { Button } from '../components/button/base';
+import { Container } from '../components/wrapper/container';
 import Image from 'next/image';
-import type { InsteadLocale } from '@modules/i18n';
-import { Paragraph } from 'components/typography/paragraph';
+import type { InsteadLocale } from '../modules/i18n';
+import { Paragraph } from '../components/typography/paragraph';
 import dynamic from 'next/dynamic';
-import { useCookiesPersist } from '@modules/cookies/cookie-consent.store';
+import { useCookiesPersist } from '../modules/cookies/cookie-consent.store';
 /*
  *
  */
 const LocaleSwitcherLazy = dynamic(
-  (): any => import(`@modules/shared/locale-switcher`),
+  (): any => import(`../modules/shared/locale-switcher`),
   {
     ssr: false,
     loading: () => (
@@ -25,7 +25,7 @@ const LocaleSwitcherLazy = dynamic(
   },
 );
 const ThemeSwitcherLazy = dynamic(
-  (): any => import(`@modules/shared/theme-switcher`),
+  (): any => import(`../modules/shared/theme-switcher`),
   {
     ssr: false,
     loading: () => (
@@ -35,7 +35,7 @@ const ThemeSwitcherLazy = dynamic(
     ),
   },
 );
-const ServicePingLazy = dynamic((): any => import(`@modules/shared/ping`), {
+const ServicePingLazy = dynamic((): any => import(`../modules/shared/ping`), {
   ssr: false,
   loading: () => (
     <div style={{ height: `39.2px` }}>
@@ -103,7 +103,7 @@ export const getStaticProps: GetStaticProps<I18nProps<InsteadLocale>> = async (
   context,
 ) => {
   const locale = context.locale || context.defaultLocale;
-  const { table = {} } = await import(`@modules/i18n/${locale}`);
+  const { table = {} } = await import(`../modules/i18n/${locale}`);
   return {
     props: { table },
   };

@@ -1,6 +1,6 @@
 /**
  */
-import { publicApplicationName } from '@config/application';
+import { publicApplicationName } from '../config/application';
 /**
  */
 export const titleMaker = (pageName: string): string => {

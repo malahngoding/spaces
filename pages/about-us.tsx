@@ -1,13 +1,13 @@
 /*
  */
 import type { GetStaticProps, NextPage } from 'next';
-import { Heading, SubHeading } from 'components/typography/heading';
+import { Heading, SubHeading } from '../components/typography/heading';
 import { I18nProps, useI18n } from 'next-rosetta';
-import { BaseLayout } from '@layouts/base';
-import { Container } from 'components/wrapper/container';
-import type { InsteadLocale } from '@modules/i18n';
-import { Paragraph } from 'components/typography/paragraph';
-import { TwoSide } from 'components/wrapper/two-side';
+import { BaseLayout } from '../layouts/base';
+import { Container } from '../components/wrapper/container';
+import type { InsteadLocale } from '../modules/i18n';
+import { Paragraph } from '../components/typography/paragraph';
+import { TwoSide } from '../components/wrapper/two-side';
 /**
  */
 export const AboutUsPage: NextPage = (props: any) => {
@@ -58,7 +58,7 @@ export const getStaticProps: GetStaticProps<I18nProps<InsteadLocale>> = async (
   context,
 ) => {
   const locale = context.locale || context.defaultLocale;
-  const { table = {} } = await import(`@modules/i18n/${locale}`);
+  const { table = {} } = await import(`../modules/i18n/${locale}`);
   return {
     props: { table },
   };

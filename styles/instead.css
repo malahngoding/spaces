@@ -1,9 +1,9 @@
-@font-face {
+/* @font-face {
     font-family: 'NectoMono';
     font-style: normal;
     font-weight: 100 900;
     font-display: optional;
-    src: url(/fonts/Necto-Mono.woff2) format('woff2');
+    src: url("http://localhost:3500//fonts/Necto-Mono.woff2") format('woff2');
 }
 
 @font-face {
@@ -11,8 +11,8 @@
     font-style: normal;
     font-weight: 100 900;
     font-display: optional;
-    src: url(/fonts/Montserrat-VF.woff2) format('woff2');
-}
+    src: url("http://localhost:3500/fonts/Necto-Mono.woff2") format('woff2');
+} */
 
 * {
     font-family: 'NectoMono', monospace;

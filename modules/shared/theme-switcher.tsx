@@ -3,7 +3,7 @@
 import { Fragment, useEffect, useState } from 'react';
 import { GearIcon, MoonIcon, SunIcon } from '@radix-ui/react-icons';
 import type { ReactElement } from 'react';
-import { SmallButton } from 'components/button/base';
+import { SmallButton } from '../../components/button/base';
 import { useTheme } from 'next-themes';
 /**
  */

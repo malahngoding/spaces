@@ -1,11 +1,11 @@
 /**
  *
  */
-import { deployedChain, publicApplicationUrl } from '@config/application';
+import { deployedChain, publicApplicationUrl } from '../../config/application';
 import Image from 'next/image';
-import { InsteadLocale } from '@modules/i18n';
+import { InsteadLocale } from '../../modules/i18n';
 import type { ReactElement } from 'react';
-import { SmallButton } from 'components/button/base';
+import { SmallButton } from '../../components/button/base';
 import { ethers } from 'ethers';
 import { signIn } from 'next-auth/react';
 import { useI18n } from 'next-rosetta';
