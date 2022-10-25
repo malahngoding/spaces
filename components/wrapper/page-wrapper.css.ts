@@ -6,8 +6,11 @@ import { vars } from '@styles/theme/index.css';
 /**
  *
  */
-export const styledContainer = style([
+export const styledPageWrapper = style([
   sprinkles({
+    display: `flex`,
+    flexDirection: `column`,
+    justifyContent: `flex-start`,
     paddingY: `regular`,
     paddingX: `regular`,
   }),
@@ -15,3 +18,5 @@ export const styledContainer = style([
     backgroundColor: vars.bluePrint.color.slate1,
   },
 ]);
+
+export const styledMain = style([sprinkles({})]);

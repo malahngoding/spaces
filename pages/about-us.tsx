@@ -35,21 +35,19 @@ export const AboutUsPage: NextPage = (props: any) => {
         }
       >
         <Container>
-          <div style={{ display: `flex`, flexWrap: `wrap` }}>
-            {Array.from(Array(2).keys()).map((item: number) => {
-              return (
-                <div key={item} style={{ marginRight: `1em` }}>
-                  <Heading>{t('title')}</Heading>
-                  <SubHeading>{t('title')}</SubHeading>
-                  <>
-                    {wallOfText.map((item) => {
-                      return <Paragraph key={item}>{item}</Paragraph>;
-                    })}
-                  </>
-                </div>
-              );
-            })}
-          </div>
+          {Array.from(Array(2).keys()).map((item: number) => {
+            return (
+              <div key={item} style={{ marginRight: `1em` }}>
+                <Heading>{t('title')}</Heading>
+                <SubHeading>{t('title')}</SubHeading>
+                <>
+                  {wallOfText.map((item) => {
+                    return <Paragraph key={item}>{item}</Paragraph>;
+                  })}
+                </>
+              </div>
+            );
+          })}
         </Container>
       </TwoSide>
     </BaseLayout>

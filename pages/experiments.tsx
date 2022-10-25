@@ -4,6 +4,7 @@ import type { GetStaticProps, NextPage } from 'next';
 import { I18nProps, useI18n } from 'next-rosetta';
 import { BaseLayout } from '@layouts/base';
 import { Button } from 'components/button/base';
+import { Container } from '@components/wrapper/container';
 import Image from 'next/image';
 import type { InsteadLocale } from '@modules/i18n';
 import { Paragraph } from 'components/typography/paragraph';
@@ -57,41 +58,43 @@ export const ExperimentsPage: NextPage = (props: any) => {
 
   return (
     <BaseLayout title="About Us">
-      <br />
-      <Button onClick={handleReset}>Reset Cookie Consent</Button>
-      <br />
-      <LocaleSwitcherLazy />
-      <br />
-      <ThemeSwitcherLazy />
-      <br />
-      <ServicePingLazy />
-      <br />
-      <div
-        style={{
-          display: `grid`,
-          gap: `12px`,
-          gridTemplateColumns: `1fr 1fr 1fr 1fr 1fr`,
-        }}
-      >
-        {Array.from(Array(78).keys()).map((item: number) => {
-          const padLeadingZero = (num: number, size = 3) => {
-            var s = num + '';
-            while (s.length < size) s = '0' + s;
-            return s;
-          };
-          return (
-            <div key={item} style={{ border: `1px solid black` }}>
-              <Image
-                src={`/static/ranks/rank${padLeadingZero(item)}.png`}
-                alt={`ranks ${item}`}
-                width={64}
-                height={64}
-              />
-            </div>
-          );
-        })}
-      </div>
-      <br />
+      <Container>
+        <br />
+        <Button onClick={handleReset}>Reset Cookie Consent</Button>
+        <br />
+        <LocaleSwitcherLazy />
+        <br />
+        <ThemeSwitcherLazy />
+        <br />
+        <ServicePingLazy />
+        <br />
+        <div
+          style={{
+            display: `grid`,
+            gap: `12px`,
+            gridTemplateColumns: `1fr 1fr 1fr 1fr`,
+          }}
+        >
+          {Array.from(Array(78).keys()).map((item: number) => {
+            const padLeadingZero = (num: number, size = 3) => {
+              var s = num + '';
+              while (s.length < size) s = '0' + s;
+              return s;
+            };
+            return (
+              <div key={item} style={{ border: `1px solid black` }}>
+                <Image
+                  src={`/static/ranks/rank${padLeadingZero(item)}.png`}
+                  alt={`ranks ${item}`}
+                  width={64}
+                  height={64}
+                />
+              </div>
+            );
+          })}
+        </div>
+        <br />
+      </Container>
     </BaseLayout>
   );
 };

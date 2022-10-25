@@ -2,6 +2,7 @@
  */
 import { sprinkles } from '@styles/sprinkles.css';
 import { style } from '@vanilla-extract/css';
+import { vars } from '@styles/theme/index.css';
 /**
  *
  */
@@ -14,6 +15,7 @@ export const styledTwoSide = style([
     },
   }),
   {
+    backgroundColor: vars.bluePrint.color.slate1,
     top: `auto`,
     textAlign: `justify`,
   },

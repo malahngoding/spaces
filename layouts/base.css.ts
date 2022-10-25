@@ -4,10 +4,6 @@ import { vars } from '@styles/theme/index.css';
 
 export const styledBase = style([
   sprinkles({
-    display: `flex`,
-    flexDirection: `column`,
-    justifyContent: 'center',
-    alignItems: `center`,
     width: {
       mobile: `100vw`,
       tablet: `calc(100vw - 100px)`,

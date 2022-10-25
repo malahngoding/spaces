@@ -5,10 +5,10 @@ import { styledContainer } from './container.css';
 /**
  *
  */
-interface ParagraphProps {
+interface ContainerProps {
   children: ReactElement | ReactElement[] | string;
 }
 
-export const Container = (props: ParagraphProps): ReactElement => {
+export const Container = (props: ContainerProps): ReactElement => {
   return <div className={styledContainer}>{props.children}</div>;
 };
