@@ -26,9 +26,9 @@ export const ConnectPage: NextPage<ConnectPageProps> = (props) => {
   return (
     <AuthLayout title={t('auth.title')}>
       <Link href={`/`} passHref>
-        <a>
+        <button>
           <Logo size={72} />
-        </a>
+        </button>
       </Link>
       <Heading>{t('auth.title')}</Heading>
       <Paragraph>{t('auth.subTitle')}</Paragraph>

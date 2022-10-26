@@ -28,9 +28,9 @@ export const Sheet = (): ReactElement => {
       {links.map((item) => {
         return (
           <Link key={item.title} passHref href={item.url}>
-            <a onClick={toggleNavigationSheet}>
+            <button onClick={toggleNavigationSheet}>
               <Paragraph>{`/${item.title}`}</Paragraph>
-            </a>
+            </button>
           </Link>
         );
       })}
