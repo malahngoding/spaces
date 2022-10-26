@@ -9,7 +9,6 @@ import Image from 'next/image';
 import type { InsteadLocale } from '../modules/i18n';
 import { Paragraph } from '../components/typography/paragraph';
 import dynamic from 'next/dynamic';
-import { useCookiesPersist } from '../modules/cookies/cookie-consent.store';
 /*
  *
  */
@@ -47,11 +46,12 @@ const ServicePingLazy = dynamic((): any => import(`../modules/shared/ping`), {
  */
 export const ExperimentsPage: NextPage = (props: any) => {
   const { t } = useI18n<InsteadLocale>();
-
   /**
    *
    */
-  const reset = useCookiesPersist((state) => state.reset);
+  const reset = () => {
+    console.log(`reset`);
+  };
   const handleReset = (): void => {
     reset();
   };

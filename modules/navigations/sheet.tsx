@@ -7,14 +7,13 @@ import { Paragraph } from '../../components/typography/paragraph';
 import type { ReactElement } from 'react';
 import { styledNavigationSheet } from './sheet.css';
 import { useI18n } from 'next-rosetta';
-import { useNavigationSheet } from './sheet.store';
 
 export const Sheet = (): ReactElement => {
   const { t } = useI18n<InsteadLocale>();
 
-  const toggleNavigationSheet = useNavigationSheet(
-    (state) => state.toggleNavigationSheet,
-  );
+  const toggleNavigationSheet = () => {
+    console.log(`OK`);
+  };
 
   const links = [
     { url: `/learn`, title: t('navigations.learn') },

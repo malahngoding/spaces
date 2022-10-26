@@ -1,4 +1,5 @@
-/**
+/*
+ *
  */
 import { AltButton, Button } from '../../components/button/base';
 import { Fragment, Suspense } from 'react';

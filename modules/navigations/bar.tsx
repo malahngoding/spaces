@@ -17,7 +17,6 @@ import type { ReactElement } from 'react';
 import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import { useI18n } from 'next-rosetta';
-import { useNavigationSheet } from './sheet.store';
 /**
  *
  */
@@ -43,12 +42,11 @@ const LazyNavigationSheet = dynamic<{}>(
 export const NavigationBar = (): ReactElement => {
   const { t } = useI18n<InsteadLocale>();
 
-  const toggleNavigationSheet = useNavigationSheet(
-    (state) => state.toggleNavigationSheet,
-  );
-  const navigationSheet = useNavigationSheet(
-    (state) => state.showNavigationSheets,
-  );
+  const toggleNavigationSheet = () => {
+    console.log(`ok`);
+  };
+
+  const navigationSheet = false;
 
   const links = [
     { url: `/learn`, title: t('navigations.learn') },

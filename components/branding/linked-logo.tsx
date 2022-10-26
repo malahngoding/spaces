@@ -1,20 +1,17 @@
 /**
  *
  */
-
 import Image from 'next/image';
 import Link from 'next/link';
 import type { ReactElement } from 'react';
-import { useNavigationSheet } from '../../modules/navigations/sheet.store';
 
 interface LinkedLogoProps {
   href: string;
 }
 export const LinkedLogo = (props: LinkedLogoProps): ReactElement => {
-  const closeNavigationSheet = useNavigationSheet(
-    (state) => state.closeNavigationSheet,
-  );
-
+  const closeNavigationSheet = () => {
+    console.log(`ok`);
+  };
   return (
     <Link href={props.href}>
       <button onClick={closeNavigationSheet}>

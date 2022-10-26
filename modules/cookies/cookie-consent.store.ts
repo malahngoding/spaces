@@ -1,15 +1,8 @@
-import create from 'zustand';
-import { persist } from 'zustand/middleware';
+import { atom } from "jotai";
 
 type CookiesState = {
   showCookiesModal: boolean;
   consentValue: string;
-};
-
-type CookiesAction = {
-  toggleCookies: () => void;
-  setConsentValue: (value: string) => void;
-  reset: () => void;
 };
 
 const initialState: CookiesState = {
@@ -17,21 +10,21 @@ const initialState: CookiesState = {
   consentValue: `NOT_SET`,
 };
 
-export const useCookiesPersist = create<CookiesState & CookiesAction>()(
-  persist(
-    (set, get) => ({
-      showCookiesModal: initialState.showCookiesModal,
-      consentValue: initialState.consentValue,
-      toggleCookies: () => {
-        set({ showCookiesModal: !get().showCookiesModal });
-      },
-      setConsentValue: (value: string) => {
-        set({ consentValue: value });
-      },
-      reset: () => {
-        set(initialState);
-      },
-    }),
-    { name: `instead-cookies` },
-  ),
-);
+const strAtom = atom(localStorage.getItem('instead-cookies') ?? JSON.stringify(initialState))
+
+export const strAtomWithPersistence = atom(
+  (get) => get(strAtom),
+  (_get, set, value) => {
+    set(strAtom, JSON.stringify(value))
+    localStorage.setItem('instead-cookies', JSON.stringify(value))
+  }
+)
+
+
+type CookiesAction = {
+  toggleCookies: () => void;
+  setConsentValue: (value: string) => void;
+  reset: () => void;
+};
+
+
