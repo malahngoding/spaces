@@ -1,12 +1,21 @@
 /*
  */
-const { createVanillaExtractPlugin } = require('@vanilla-extract/next-plugin');
+import { createVanillaExtractPlugin } from '@vanilla-extract/next-plugin';
+
 const withVanillaExtract = createVanillaExtractPlugin();
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    appDir: true,
+  },
   reactStrictMode: true,
   images: {
-    domains: ['images.unsplash.com', 'siasky.net', 'kusama.network',"avatars.dicebear.com"],
+    domains: [
+      'images.unsplash.com',
+      'siasky.net',
+      'kusama.network',
+      'avatars.dicebear.com',
+    ],
   },
   i18n: {
     locales: ['id', 'en'],
@@ -31,4 +40,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withVanillaExtract(nextConfig);
+export default withVanillaExtract(nextConfig);

@@ -7,6 +7,7 @@ import { Button } from 'components/button/base';
 import { Container } from '@components/wrapper/container';
 import Image from 'next/image';
 import type { InsteadLocale } from '@modules/i18n';
+import Link from 'next/link';
 import { Paragraph } from 'components/typography/paragraph';
 import dynamic from 'next/dynamic';
 import { useCookiesPersist } from '@modules/cookies/cookie-consent.store';
@@ -67,6 +68,10 @@ export const ExperimentsPage: NextPage = (props: any) => {
         <ThemeSwitcherLazy />
         <br />
         <ServicePingLazy />
+        <br />
+        <Link href={`/server`}>
+          <p>server</p>
+        </Link>
         <br />
         <div
           style={{
