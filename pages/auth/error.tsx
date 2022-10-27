@@ -2,7 +2,7 @@
  *
  */
 import Link from 'next/link';
-import { Paragraph } from 'components/typography/paragraph';
+import { Paragraph } from '@components/typography/paragraph';
 import { useRouter } from 'next/router';
 
 function AuthErrorPage() {
