@@ -1,0 +1,83 @@
+.instead h1 {
+	color: var(--slate12);
+	font-size: var(--font-xl);
+	font-family: Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-weight: 800;
+	margin-bottom: var(--space-regular);
+}
+
+.instead h2 {
+	color: var(--slate12);
+	font-size: var(--font-lg);
+	font-family: Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-weight: 700;
+	margin-top: var(--space-double);
+	margin-bottom: var(--space-regular);
+}
+
+.instead h3 {
+	color: var(--slate12);
+	font-size: var(--font-lg);
+	font-family: Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-weight: 900;
+	margin-top: var(--space-half);
+	margin-bottom: var(--space-double);
+}
+
+.instead p {
+	color: var(--slate12);
+	font-size: var(--font-md);
+	font-weight: 400;
+	margin-top: var(--space-half);
+	margin-bottom: var(--space-regular);
+	font-family: Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	line-height: 2;
+}
+
+.instead ol {
+	padding-left: var(--space-list);
+	margin-bottom: var(--space-regular);
+}
+
+.instead ul {
+	padding-left: var(--space-double);
+	margin-bottom: var(--space-regular);
+	list-style-type: disc;
+}
+
+.instead ol li {
+	margin-bottom: var(--space-regular);
+	line-height: 2;
+}
+
+.instead ul li {
+	margin-bottom: var(--space-regular);
+	line-height: 2;
+}
+
+.instead > * > li {
+	font-family: NectoMono, monospace;
+}
+
+.instead > * > li > p {
+	font-family: NectoMono, monospace;
+}
+
+.instead > * > strong {
+	font-family: Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-weight: 800;
+	color: var(--slate12);
+	border: 1px solid var(--slate1);
+	padding: 2px 4px;
+}
+
+.instead > * > strong:hover {
+	padding: 2px 4px;
+	border: 1px solid var(--slate12);
+	cursor: crosshair;
+}
