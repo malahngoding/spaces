@@ -23,7 +23,7 @@ const register: Action = async ({ request }) => {
 		return fail(400, { invalidPasswordVerfication: true });
 	}
 
-	console.log(username, password)
+	console.log(username, password);
 
 	throw redirect(303, '/auth/connect');
 };

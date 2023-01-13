@@ -20,16 +20,16 @@
 <section class="wrapper text-center">
 	<Section>
 		<Subtitle>Memperkenalkan</Subtitle>
-			<Title>Malah Ngoding</Title>
-			<div class="flex flex-row items-center justify-center">
-				<img src={logo} alt="The Logo" class="avatar" />
-				<img src={avatar} alt="The Okay" class="avatar rounded" />
-			</div>
-			<Paragraph>
-				<span class="sp">"</span>
-				<strong>Lupa Makan, Lupa Tidur, Malah Ngoding</strong>
-			</Paragraph>
-			<Paragraph>Sejak 2019 - {new Date().getFullYear()}</Paragraph>
+		<Title>Malah Ngoding</Title>
+		<div class="flex flex-row items-center justify-center">
+			<img src={logo} alt="The Logo" class="avatar" />
+			<img src={avatar} alt="The Okay" class="avatar rounded" />
+		</div>
+		<Paragraph>
+			<span class="sp">"</span>
+			<strong>Lupa Makan, Lupa Tidur, Malah Ngoding</strong>
+		</Paragraph>
+		<Paragraph>Sejak 2019 - {new Date().getFullYear()}</Paragraph>
 	</Section>
 	<div class="regular">
 		<Section>

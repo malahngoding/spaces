@@ -14,8 +14,8 @@ const login: Action = async ({ cookies, request }) => {
 		return fail(400, { emptyPassword: true });
 	}
 
-	const code = "SUCCESS"
-	const token = "OK"
+	const code = 'SUCCESS';
+	const token = 'OK';
 
 	if (code === 'SUCCESS') {
 		cookies.set('instead_session', token, {
