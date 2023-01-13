@@ -46,7 +46,6 @@
 		"@sveltejs/adapter-vercel": "^1.0.0",
 		"bcrypt": "^5.1.0",
 		"date-fns": "^2.29.3",
-		"deta": "^1.1.0",
 		"jsonwebtoken": "^9.0.0"
 	}
 }

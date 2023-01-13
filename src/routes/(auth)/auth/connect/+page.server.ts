@@ -1,4 +1,3 @@
-import { createUserWithUsernameAndPassword } from '$data/users';
 import { fail, redirect } from '@sveltejs/kit';
 import type { Action, Actions } from './$types';
 
@@ -24,7 +23,7 @@ const register: Action = async ({ request }) => {
 		return fail(400, { invalidPasswordVerfication: true });
 	}
 
-	await createUserWithUsernameAndPassword(username, password);
+	console.log(username, password)
 
 	throw redirect(303, '/auth/connect');
 };

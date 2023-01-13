@@ -18,7 +18,8 @@
 	const necessities = [
 		{ url: `/privacy-policy`, title: `Aturan Privasi` },
 		{ url: `/terms-and-condition`, title: `Syarat Dan Ketentuan` },
-		{ url: `/help-us`, title: `Bantu Kami` }
+		{ url: `/help-us`, title: `Bantu Kami` },
+		{ url: `/faq`, title: `FAQ` },
 	];
 </script>
 
