@@ -5,10 +5,10 @@
 	import { titleMaker } from '$utils/title-maker';
 	import Card from './card.svelte';
 
-    import type { PageData } from './$types';
+	import type { PageData } from './$types';
 
 	export let data: PageData;
-	</script>
+</script>
 
 <svelte:head>
 	<meta property="og:site_name" content="Malah Ngoding" />
@@ -22,12 +22,11 @@
 </Section>
 
 <Section>
-    <div class="grid grid-cols-1 gap-4 md:grid-cols-4">
-        {#each data.experiments as item}
-        <Card title={item.title} excerpt={item.excerpt} image={item.image} link={item.link}/>
-{/each}
-    </div>
+	<div class="grid grid-cols-1 gap-4 md:grid-cols-4">
+		{#each data.experiments as item}
+			<Card title={item.title} excerpt={item.excerpt} image={item.image} link={item.link} />
+		{/each}
+	</div>
 </Section>
 
-<br>
-
+<br />
