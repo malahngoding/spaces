@@ -20,7 +20,11 @@
 	color: var(--slate12);
 }
 
-.font-mono {
+.font-montserrat {
+	font-family: Montserrat, sans-serif;
+}
+
+.font-nectomono {
 	font-family: Nectomono, monospace;
 }
 

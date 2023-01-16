@@ -29,7 +29,7 @@
 	}
 </script>
 
-<nav class="z-10">
+<nav class="z-10 p-8">
 	<div class="inside-left-wrapper">
 		<a href={`/`} class="logo" on:click={closeNav}>
 			<Logo height="48" width="48" />
@@ -87,7 +87,6 @@
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
-		padding: var(--space-regular) var(--space-double);
 		height: 64px;
 		width: 100vw;
 		border-bottom: 2px solid var(--slate6);

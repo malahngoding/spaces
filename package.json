@@ -43,9 +43,8 @@
 	"type": "module",
 	"dependencies": {
 		"@lukeed/uuid": "^2.0.0",
-		"@sveltejs/adapter-vercel": "^1.0.0",
-		"bcrypt": "^5.1.0",
+		"@sveltejs/adapter-node": "^1.1.1",
 		"date-fns": "^2.29.3",
-		"jsonwebtoken": "^9.0.0"
+		"wretch": "^2.3.2"
 	}
 }
