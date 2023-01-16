@@ -9,4 +9,4 @@
 	<title>{titleMaker(`Hello World`)}</title>
 </svelte:head>
 
-<Hero title="Hello World, Selamat Datang di" subTitle="Dunia Malah Ngoding 🌐" /> 
+<Hero title="Hello World, Selamat Datang di" subTitle="Dunia Malah Ngoding 🌐" />
