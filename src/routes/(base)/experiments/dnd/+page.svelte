@@ -2,6 +2,13 @@
 	import DragNDrop from './drag-n-drop.svelte';
 	import { titleMaker } from '$utils/title-maker';
 	import wretch from 'wretch';
+	import { writable } from 'svelte/store';
+
+	const X = writable(0);
+
+	X.subscribe((value) => {
+		console.log('X was changed to', value);
+	});
 
 	function handleClick() {
 		wretch('http://localhost:5000/echo')
@@ -16,7 +23,7 @@
 				console.log(error);
 			})
 			.json((response) => {
-				console.log(response);
+				X.set(response.random);
 			})
 			.catch((error) => {
 				console.log(error);
