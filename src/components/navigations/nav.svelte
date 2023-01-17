@@ -27,6 +27,10 @@
 	function closeNav() {
 		showNav = false;
 	}
+
+	function checkUrlMatch(path:string, slug:string):boolean {
+		return  path.startsWith(slug);	
+	}
 </script>
 
 <nav class="z-10 p-8">
@@ -36,7 +40,7 @@
 		</a>
 		<div class="nav-link-wrapper">
 			{#each links as link}
-				<a class="nav-link" class:active={path === link.url} href={link.url} on:click={closeNav}
+				<a class="nav-link" class:active={checkUrlMatch(path, link.url)} href={link.url} on:click={closeNav}
 					>{link.title}</a
 				>
 			{/each}
