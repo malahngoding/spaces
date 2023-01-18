@@ -33,7 +33,7 @@
 	}
 </script>
 
-<nav class="z-10 p-8">
+<nav class="z-10 p-4 md:p-8">
 	<div class="inside-left-wrapper">
 		<a href={`/`} class="logo" on:click={closeNav}>
 			<Logo height="48" width="48" />

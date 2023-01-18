@@ -23,7 +23,7 @@
 	];
 </script>
 
-<footer>
+<footer class="p-4 md:p-8">
 	<div class="footer-text">
 		<h3 class="text-sm">Space adalah proyek open-source yang dikelola oleh tim Malah Ngoding</h3>
 		<h3 class="text-sm">©{currentYear} Malah Ngoding. Hak cipta dilindungi undang-undang.</h3>
@@ -76,7 +76,6 @@
 		flex-direction: column;
 		justify-content: space-between;
 		align-items: flex-start;
-		padding: var(--space-regular) var(--space-double);
 		border-top: 2px solid var(--slate6);
 		background-color: var(--slate1);
 	}
