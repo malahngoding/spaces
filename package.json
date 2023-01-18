@@ -26,6 +26,7 @@
 		"eslint": "^8.31.0",
 		"eslint-config-prettier": "^8.6.0",
 		"eslint-plugin-svelte3": "^4.0.0",
+		"http-status-codes": "^2.2.0",
 		"husky": "^8.0.3",
 		"mdsvex": "^0.10.6",
 		"postcss": "^8.4.20",
