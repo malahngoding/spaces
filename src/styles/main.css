@@ -11,7 +11,7 @@
 	font-style: normal;
 	font-weight: 100 900;
 	font-display: block;
-	src: url(../assets/fonts/Montserrat-VF.woff2) format('woff2');
+	src: url(../assets/fonts/Inconsolata.ttf) format('woff2');
 }
 
 * {
@@ -66,9 +66,9 @@ body::-webkit-scrollbar-thumb:hover {
 	--space-regular: 16px;
 	--space-double: 32px;
 	--space-list: 42px;
-	--font-sm: 12px;
-	--font-display: 14px;
-	--font-md: 16px;
+	--font-sm: 13px;
+	--font-display: 16px;
+	--font-md: 18px;
 	--font-lg: 24px;
 	--font-xl: 32px;
 }

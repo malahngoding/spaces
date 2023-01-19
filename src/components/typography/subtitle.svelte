@@ -1,4 +1,8 @@
-<h3 class="text-xl mb-2 font-bold">
+<script lang="ts">
+	export let className: string = '';
+</script>
+
+<h3 class="text-xl mb-2 font-bold {className}">
 	<slot />
 </h3>
 

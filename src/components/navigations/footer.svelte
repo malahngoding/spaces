@@ -25,14 +25,18 @@
 
 <footer class="p-4 md:p-8">
 	<div class="footer-text">
-		<h3 class="text-sm">Space adalah proyek open-source yang dikelola oleh tim Malah Ngoding</h3>
-		<h3 class="text-sm">©{currentYear} Malah Ngoding. Hak cipta dilindungi undang-undang.</h3>
+		<h3 class="text-sm font-nectomono">
+			Space adalah proyek open-source yang dikelola oleh tim Malah Ngoding
+		</h3>
+		<h3 class="text-sm font-nectomono">
+			©{currentYear} Malah Ngoding. Hak cipta dilindungi undang-undang.
+		</h3>
 	</div>
-	<div class="social-link-wrapper flex flex-row flex-wrap justify-start items-center">
+	<div class="social-link-wrapper flex flex-row flex-wrap justify-start items-center gap-4">
 		{#each socialLinks as socialLink}
 			<a
 				href={socialLink.url}
-				class="social-link flex flex-row justify-center items-center"
+				class="social-link flex flex-row justify-center items-center text-md"
 				target="_blank"
 				rel="noreferrer"
 			>
@@ -54,7 +58,7 @@
 		{/each}
 	</div>
 	<ThemeSwitcher />
-	<div class="necessities">
+	<div class="necessities font-sans 10">
 		{#each necessities as necessity}
 			<a href={necessity.url} class="linkie" class:active={path === necessity.url}>
 				{necessity.title}
@@ -105,6 +109,7 @@
 	}
 
 	.linkie {
+		font-size: var(--font-md);
 		border-bottom: 1px solid var(--slate8);
 	}
 

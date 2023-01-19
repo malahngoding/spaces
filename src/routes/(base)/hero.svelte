@@ -25,7 +25,7 @@
 	</video>
 	<div class="hero-title">
 		<Title>{title}</Title>
-		<Subtitle>{subTitle}</Subtitle>
+		<Subtitle className="font-nectomono">{subTitle}</Subtitle>
 	</div>
 </div>
 
