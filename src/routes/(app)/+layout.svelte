@@ -5,9 +5,10 @@
 	import Theme from '$components/theme.svelte';
 	import Activation from '$components/branding/activation.svelte';
 	import Home from '$components/icon/home.svelte';
-	import Camps from '$components/icon/camps.svelte';
-	import Experiments from '$components/icon/experiments.svelte';
-	import About from '$components/icon/about.svelte';
+	import Close from '$components/icon/close.svelte';
+	// import Camps from '$components/icon/camps.svelte';
+	// import Experiments from '$components/icon/experiments.svelte';
+	// import About from '$components/icon/about.svelte';
 
 	let path: string;
 
@@ -15,9 +16,10 @@
 
 	const links = [
 		{ title: `Beranda`, url: `/home`, icon: Home },
-		{ title: `Berkemah`, url: `/camps`, icon: Camps },
-		{ title: `Eksperimen`, url: `/experiments`, icon: Experiments },
-		{ title: `Tentang Kami`, url: `/about-us`, icon: About }
+		// { title: `Berkemah`, url: `/camps`, icon: Camps },
+		// { title: `Eksperimen`, url: `/experiments`, icon: Experiments },
+		// { title: `Tentang Kami`, url: `/about-us`, icon: About }
+		{ title: `Kembali`, url: `/`, icon:  Close}
 	];
 </script>
 

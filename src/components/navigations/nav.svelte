@@ -11,7 +11,7 @@
 
 	const links = [
 		{ title: `Beranda`, url: `/home` },
-		{ title: `Berkemah`, url: `/camps` },
+		// { title: `Berkemah`, url: `/camps` },
 		{ title: `Eksperimen`, url: `/experiments` },
 		{ title: `Tentang Kami`, url: `/about-us` }
 	];

@@ -13,9 +13,9 @@
 	<img src={avatarImage} alt={avatarImageAlt} class="rounded-full w-10" />
 	<div class="ml-4">
 		<div class="flex flex-row flex-wrap mb-2">
-			<div class="font-extrabold">{name}</div>
+			<div class="font-extrabold font-montserrat">{name}</div>
 			&nbsp;
-			<div class="font-normal hover:underline">{username}</div>
+			<div class="font-normal hover:underline font-nectomono">{username}</div>
 		</div>
 		<div class="text-base">
 			<p>{message}</p>

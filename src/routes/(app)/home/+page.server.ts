@@ -3,6 +3,10 @@ import type { PageServerLoad } from './$types';
 export const load: PageServerLoad = async () => {
 	const data = [
 		{
+			date: '20 Januari 2023',
+			message: 'SvelteKit, TailwindCSS, MDSveX, luar biasa! :happpyface:'
+		},
+		{
 			date: '13 Januari 2023',
 			message: 'Kita memulai development baru dengan menggunakan SvelteKit'
 		},
