@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '$styles/reset.css';
 	import '$styles/main.css';
- 	import Theme from '$components/theme.svelte';
+	import Theme from '$components/theme.svelte';
 	import Footer from '$components/navigations/footer.svelte';
 	import Nav from '$components/navigations/nav.svelte';
 </script>

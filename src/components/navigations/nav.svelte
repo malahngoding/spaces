@@ -5,7 +5,7 @@
 	import Menu from '$components/icon/menu.svelte';
 	import Login from '$components/icon/login.svelte';
 	import Close from '$components/icon/close.svelte';
- 	let path: string;
+	let path: string;
 
 	$: path = $page.url.pathname;
 

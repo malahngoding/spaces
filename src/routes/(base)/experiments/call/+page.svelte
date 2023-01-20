@@ -12,7 +12,5 @@
 </script>
 
 <div class="flex flex-row justify-center items-center">
-	<button on:click={callMe} class="px-6 py-3 m-4"> 
-		Click
-	</button>
+	<button on:click={callMe} class="px-6 py-3 m-4"> Click </button>
 </div>
