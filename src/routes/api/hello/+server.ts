@@ -14,5 +14,5 @@ export const GET = (async ({ url }) => {
 	}
 
 	const random = giveNumberFromTo(min, max);
-	return json({ number: random, });
+	return json({ number: random });
 }) satisfies RequestHandler;
