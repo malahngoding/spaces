@@ -16,7 +16,7 @@
 </svelte:head>
 
 <div class="m-4 sm:w-[480px]">
-	<a href={`/`} class="logo">
+	<a href={`/`} class="h-[64px] w-[64px]">
 		<Logo height="64" width="64" />
 	</a>
 	<h2 class="text-2xl font-black my-4">Hubungkan Akun Kamu</h2>

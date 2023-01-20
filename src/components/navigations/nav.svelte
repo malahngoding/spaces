@@ -5,7 +5,7 @@
 	import Menu from '$components/icon/menu.svelte';
 	import Login from '$components/icon/login.svelte';
 	import Close from '$components/icon/close.svelte';
-	let path: string;
+ 	let path: string;
 
 	$: path = $page.url.pathname;
 
@@ -21,6 +21,7 @@
 	let showNav = false;
 
 	function navToggle() {
+		// Trigger Disable Scroll
 		showNav = !showNav;
 	}
 
@@ -70,7 +71,7 @@
 </nav>
 
 {#if showNav === true}
-	<div class="fixed top-[64px] w-screen z-30 p-4 sheets">
+	<div class="fixed top-[64px] w-screen h-full z-30 p-4 sheets">
 		<div class="flex flex-col p-2">
 			{#each links as link}
 				<a class="nav-link py-6" href={link.url} on:click={closeNav}>{link.title}</a>
