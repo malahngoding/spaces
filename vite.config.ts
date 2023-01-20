@@ -15,7 +15,8 @@ const config: UserConfig = {
 		alias: {
 			$assets: path.resolve('./src/assets'),
 			$components: path.resolve('./src/components'),
-			$data: path.resolve('./src/data'),
+			$config: path.resolve('./src/config'),
+			$services: path.resolve('./src/services'),
 			$styles: path.resolve('./src/styles'),
 			$utils: path.resolve('./src/utils')
 		}

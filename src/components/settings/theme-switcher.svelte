@@ -1,5 +1,5 @@
 <script>
-	import themeStore from '$data/theme';
+	import themeStore from '$config/theme';
 </script>
 
 <select bind:value={$themeStore.theme}>

@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { colorSchemes, MEDIA } from '$data/constants';
+	import { colorSchemes, MEDIA } from '$config/constants';
 	import { disableAnimation, getSystemTheme, getTheme } from '$utils/theme';
-	import themeStore, { setTheme } from '$data/theme';
+	import themeStore, { setTheme } from '$config/theme';
 
 	import ThemeScript from './theme-script.svelte';
 	/** Forced theme name for the current page */

@@ -12,7 +12,7 @@
 	import ten from '$assets/gifs/10.mp4';
 	import Subtitle from '$components/typography/subtitle.svelte';
 	import Title from '$components/typography/title.svelte';
-
+ 
 	const altVideos = [one, two, three, four, five, six, seven, eight, nine, ten];
 
 	export let title: string;

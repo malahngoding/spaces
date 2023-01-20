@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { MEDIA } from '$data/constants';
+	import { MEDIA } from '$config/constants';
 
 	export let forcedTheme: string | undefined;
 	export let storageKey: string;

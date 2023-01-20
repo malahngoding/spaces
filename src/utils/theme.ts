@@ -1,4 +1,4 @@
-import { MEDIA } from '$data/constants';
+import { MEDIA } from '../config/constants';
 
 export const getTheme = (key: string, fallback?: string): string | undefined => {
 	if (typeof window === 'undefined') return undefined;
