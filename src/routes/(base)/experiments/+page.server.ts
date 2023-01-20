@@ -2,7 +2,7 @@ import type { PageServerLoad } from './$types';
 
 export const prerender = true;
 
-export const load: PageServerLoad = async () => {
+export const load = (async () => {
 	const res = [
 		{
 			link: '/experiments',
@@ -40,4 +40,4 @@ export const load: PageServerLoad = async () => {
 	return {
 		experiments: res
 	};
-};
+}) satisfies PageServerLoad;

@@ -1,6 +1,6 @@
 import type { PageServerLoad } from './$types';
 
-export const load: PageServerLoad = async () => {
+export const load = (async () => {
 	const data = [
 		{
 			date: '20 Januari 2023',
@@ -18,4 +18,4 @@ export const load: PageServerLoad = async () => {
 	return {
 		post: data
 	};
-};
+}) satisfies PageServerLoad;

@@ -17,8 +17,12 @@
 		<source src={altVideos[giveNumberFromTo(0, 2)]} type="video/mp4" class="c-PJLV" />
 	</video>
 	<div class="hero-title">
-		<Title>{title}</Title>
-		<Subtitle className="font-nectomono">{subTitle}</Subtitle>
+		<Title>
+			<span class="text-slate-100">{title}</span>
+		</Title>
+		<Subtitle className="font-nectomono">
+			<span class="text-slate-100">{subTitle}</span>
+		</Subtitle>
 	</div>
 	<div class="malahngoding-logo">
 		<Logo height="128" width="128" />
@@ -52,8 +56,14 @@
 		flex-direction: column;
 		justify-content: flex-end;
 		align-items: flex-start;
-		background-image: linear-gradient(to right, var(--transparent-left), var(--transparent-right));
+		background: linear-gradient(
+			73deg,
+			rgba(253, 204, 1, 0.3) 0%,
+			rgba(253, 108, 74, 0.3) 20%,
+			rgba(209, 1, 253, 0.3) 90%
+		);
 	}
+
 	.malahngoding-logo {
 		padding-right: var(--space-double);
 		height: 100%;

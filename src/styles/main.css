@@ -94,8 +94,6 @@ body::-webkit-scrollbar-thumb:hover {
 	--slate10: hsl(206, 5.8%, 52.3%);
 	--slate11: hsl(206, 6%, 43.5%);
 	--slate12: hsl(206, 24%, 9%);
-	--transparent-left: rgba(255, 255, 255, 0.9);
-	--transparent-right: rgba(0, 0, 0, 0.5);
 }
 
 [data-theme='dark'] {
@@ -111,6 +109,4 @@ body::-webkit-scrollbar-thumb:hover {
 	--slate10: hsl(206, 5.2%, 49.5%);
 	--slate11: hsl(206, 6%, 63%);
 	--slate12: hsl(210, 6%, 93%);
-	--transparent-left: rgba(0, 0, 0, 0.5);
-	--transparent-right: rgba(0, 0, 0, 0.1);
 }

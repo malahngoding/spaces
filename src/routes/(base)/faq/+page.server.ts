@@ -2,7 +2,7 @@ import type { PageServerLoad } from './$types';
 
 export const prerender = true;
 
-export const load: PageServerLoad = async () => {
+export const load = (async () => {
 	const res = [
 		{
 			comment: 'Apa itu MALAHNGODING?',
@@ -23,4 +23,4 @@ export const load: PageServerLoad = async () => {
 	return {
 		questions: res
 	};
-};
+}) satisfies PageServerLoad;

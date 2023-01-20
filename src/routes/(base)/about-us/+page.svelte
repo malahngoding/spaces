@@ -20,7 +20,9 @@
 <section class="wrapper text-center">
 	<Section>
 		<Subtitle>Memperkenalkan</Subtitle>
-		<Title>Malah Ngoding</Title>
+		<Title>
+			<span class="font-montserrat">Malah Ngoding</span>
+		</Title>
 		<div class="flex flex-row items-center justify-center">
 			<img src={logo} alt="The Logo" class="avatar" />
 			<img src={avatar} alt="The Okay" class="avatar rounded" />

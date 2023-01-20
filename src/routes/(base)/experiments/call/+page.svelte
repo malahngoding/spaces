@@ -4,9 +4,11 @@
 	import { getEcho } from '$services/decays-adapter/echo';
 
 	async function callMe() {
-		const filaments = (await getPing()).status;
-		const micros = (await getHome()).status;
-		const decays = (await getEcho()).random;
+		const [filaments, micros, decays] = await Promise.all([
+			(await getPing()).status,
+			(await getHome()).status,
+			(await getEcho()).random
+		]);
 		console.log(filaments, micros, decays);
 	}
 </script>
