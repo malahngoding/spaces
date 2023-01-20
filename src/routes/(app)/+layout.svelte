@@ -19,7 +19,7 @@
 		// { title: `Berkemah`, url: `/camps`, icon: Camps },
 		// { title: `Eksperimen`, url: `/experiments`, icon: Experiments },
 		// { title: `Tentang Kami`, url: `/about-us`, icon: About }
-		{ title: `Kembali`, url: `/`, icon:  Close}
+		{ title: `Kembali`, url: `/`, icon: Close }
 	];
 </script>
 

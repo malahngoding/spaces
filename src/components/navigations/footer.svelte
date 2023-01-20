@@ -29,7 +29,7 @@
 			Space adalah proyek open-source yang dikelola oleh tim Malah Ngoding
 		</h3>
 		<h3 class="text-sm font-nectomono">
-			Lupa Makan, Lupa Tidur, ©{currentYear} Malah Ngoding. 
+			Lupa Makan, Lupa Tidur, ©{currentYear} Malah Ngoding.
 		</h3>
 	</div>
 	<div class="social-link-wrapper flex flex-row flex-wrap justify-start items-center gap-4">
