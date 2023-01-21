@@ -3,12 +3,12 @@
 	 * Pause on hover
 	 * @type {boolean}
 	 */
-	export let pauseOnHover= false;
+	export let pauseOnHover = false;
 	/**
 	 * Pause on click
 	 * @type {boolean}
 	 */
-	export let pauseOnClick= false;
+	export let pauseOnClick = false;
 	/**
 	 * Animation direction
 	 * @type {"left" | "right"}
@@ -23,7 +23,7 @@
 	 * Animation state
 	 * @type {boolean}
 	 */
-	export let play= true;
+	export let play = true;
 	let containerWidth: number;
 	$: duration = containerWidth / speed;
 	$: _style = `
