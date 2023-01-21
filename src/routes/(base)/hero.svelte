@@ -25,7 +25,7 @@
 		</Subtitle>
 	</div>
 	<div class="malahngoding-logo">
-		<Logo height="128" width="128" />
+		<Logo height="91" width="91" />
 	</div>
 </div>
 

@@ -24,7 +24,14 @@
 <Section>
 	<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-4">
 		{#each data.experiments as item}
-			<Card title={item.title} excerpt={item.excerpt} image={item.image} link={item.link} />
+			<Card
+				title={item.title}
+				excerpt={item.excerpt}
+				image={item.image}
+				link={item.link}
+				height={400}
+				width={400}
+			/>
 		{/each}
 	</div>
 </Section>
