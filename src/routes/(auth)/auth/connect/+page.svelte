@@ -28,7 +28,13 @@
 	<form action="?/register" method="POST" use:enhance>
 		<div class="form-group">
 			<label class="input-label" for="username"><em>Username</em></label>
-			<input class="input-text" id="username" name="username" autocomplete="off" />
+			<input
+				class="input-text"
+				id="username"
+				name="username"
+				autocomplete="off"
+				placeholder="Pilih username kamu"
+			/>
 			{#if form?.emptyUsername}
 				<p class="mt-1 text-sm text-amber-500">
 					Mohon isi <em class="text-amber-500">username</em> kamu
@@ -36,26 +42,34 @@
 			{/if}
 		</div>
 		<div class="form-group">
-			<label class="input-label" for="password">Kata Sandi</label>
-			<input class="input-text" type="password" id="password" name="password" autocomplete="off" />
-			{#if form?.emptyPassword}
-				<p class="mt-1 text-sm text-amber-500">Mohon isi kata sandi kamu</p>
+			<label class="input-label" for="email">Alamat email</label>
+			<input
+				class="input-text"
+				type="email"
+				id="email"
+				name="email"
+				autocomplete="off"
+				placeholder="Masukan email aktif kamu"
+			/>
+			{#if form?.emptyEmail}
+				<p class="mt-1 text-sm text-amber-500">Periksa alamat email kamu</p>
+			{/if}
+			{#if form?.invalidEmail}
+				<p class="mt-1 text-sm text-amber-500">Format email kamu salah</p>
 			{/if}
 		</div>
 		<div class="form-group">
-			<label class="input-label" for="password">Ulangi Kata Sandi</label>
+			<label class="input-label" for="password">Kata Sandi</label>
 			<input
-				class="input-text"
+				class="input-text pass"
 				type="password"
-				id="password-verification"
-				name="password-verification"
+				id="password"
+				name="password"
 				autocomplete="off"
+				placeholder="Masukan kata sandi kamu"
 			/>
-			{#if form?.emptyPasswordVerification}
-				<p class="mt-1 text-sm text-amber-500">Periksa kata sandi kamu</p>
-			{/if}
-			{#if form?.invalidPasswordVerfication}
-				<p class="mt-1 text-sm text-amber-500">Periksa kata sandi kamu</p>
+			{#if form?.emptyPassword}
+				<p class="mt-1 text-sm text-amber-500">Mohon isi kata sandi kamu</p>
 			{/if}
 		</div>
 		<div class="have-account">
@@ -130,7 +144,10 @@
 		background-color: var(--slate3);
 		cursor: pointer;
 	}
-	input[type='password'] {
+	.pass {
+		font-family: Inconsolata;
+	}
+	.pass:not(::placeholder) {
 		font-family: Verdana;
 		letter-spacing: 0.125em;
 	}

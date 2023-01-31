@@ -25,7 +25,7 @@
 
 	<form action="?/login" method="POST" use:enhance>
 		<div class="form-group">
-			<label class="input-label" for="username"><em>Username</em></label>
+			<label class="input-label" for="username"><em>Username</em> atau alamat <em>email</em></label>
 			<input class="input-text" id="username" name="username" autocomplete="off" />
 			{#if form?.emptyUsername}
 				<p class="mt-1 text-sm text-amber-500">Mohon diisi terlebih dahulu</p>

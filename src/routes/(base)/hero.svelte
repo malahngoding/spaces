@@ -58,9 +58,9 @@
 		align-items: flex-start;
 		background: linear-gradient(
 			73deg,
-			rgba(253, 204, 1, 0.3) 0%,
-			rgba(253, 108, 74, 0.3) 20%,
-			rgba(209, 1, 253, 0.3) 90%
+			rgba(66, 66, 66, 0.3) 0%,
+			rgba(237, 237, 237, 0.3) 20%,
+			rgba(25, 25, 25, 0.3) 90%
 		);
 	}
 
