@@ -46,28 +46,29 @@
 .instead ul {
 	padding-left: var(--space-double);
 	margin-bottom: var(--space-regular);
-	list-style-type: disc;
 }
 
 .instead ol li {
 	margin-bottom: var(--space-regular);
 	line-height: 2;
+	list-style-type: disc;
 }
 
 .instead ul li {
 	margin-bottom: var(--space-regular);
 	line-height: 2;
+	list-style-type: decimal-leading-zero;
 }
 
-.instead > * > li {
+.instead>*>li {
 	font-family: NectoMono, monospace;
 }
 
-.instead > * > li > p {
+.instead>*>li>p {
 	font-family: NectoMono, monospace;
 }
 
-.instead > * > strong {
+.instead>*>strong {
 	font-family: Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
 		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	font-weight: 800;
@@ -76,7 +77,7 @@
 	padding: 2px 4px;
 }
 
-.instead > * > strong:hover {
+.instead>*>strong:hover {
 	padding: 2px 4px;
 	border: 1px solid var(--slate12);
 	cursor: crosshair;

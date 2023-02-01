@@ -52,12 +52,12 @@
 	</div>
 	<div class="inside-right-wrapper">
 		<!-- <AvatarMenu /> -->
-		<a href={connect.url} on:click={closeNav}>
+		<!-- <a href={connect.url} on:click={closeNav}>
 			<div class="connect-button">
 				{connect.title}
 				<Login />
 			</div>
-		</a>
+		</a> -->
 	</div>
 	<div class="block md:hidden">
 		<button on:click={navToggle}>
